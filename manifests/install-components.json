@@ -1,0 +1,110 @@
+{
+  "version": 1,
+  "components": [
+    {
+      "id": "baseline:rules",
+      "family": "baseline",
+      "modules": [
+        "rules-core"
+      ]
+    },
+    {
+      "id": "baseline:agents",
+      "family": "baseline",
+      "modules": [
+        "agents-core"
+      ]
+    },
+    {
+      "id": "baseline:commands",
+      "family": "baseline",
+      "modules": [
+        "commands-core"
+      ]
+    },
+    {
+      "id": "baseline:hooks",
+      "family": "baseline",
+      "modules": [
+        "hooks-runtime"
+      ]
+    },
+    {
+      "id": "baseline:docs",
+      "family": "baseline",
+      "modules": [
+        "docs-templates"
+      ]
+    },
+    {
+      "id": "engine:unity",
+      "family": "engine",
+      "modules": [
+        "unity-pack"
+      ]
+    },
+    {
+      "id": "engine:unreal",
+      "family": "engine",
+      "modules": [
+        "unreal-pack"
+      ]
+    },
+    {
+      "id": "engine:godot",
+      "family": "engine",
+      "modules": [
+        "godot-pack"
+      ]
+    },
+    {
+      "id": "capability:design",
+      "family": "capability",
+      "modules": [
+        "design-pack"
+      ]
+    },
+    {
+      "id": "capability:engineering",
+      "family": "capability",
+      "modules": [
+        "engineering-pack"
+      ]
+    },
+    {
+      "id": "capability:qa",
+      "family": "capability",
+      "modules": [
+        "qa-pack"
+      ]
+    },
+    {
+      "id": "capability:production",
+      "family": "capability",
+      "modules": [
+        "production-pack"
+      ]
+    },
+    {
+      "id": "capability:audio-art",
+      "family": "capability",
+      "modules": [
+        "content-pack"
+      ]
+    },
+    {
+      "id": "capability:liveops",
+      "family": "capability",
+      "modules": [
+        "liveops-pack"
+      ]
+    },
+    {
+      "id": "capability:multiplayer",
+      "family": "capability",
+      "modules": [
+        "multiplayer-pack"
+      ]
+    }
+  ]
+}

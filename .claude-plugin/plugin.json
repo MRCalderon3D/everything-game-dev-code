@@ -1,0 +1,16 @@
+{
+  "name": "everything-game-dev-code",
+  "version": "0.1.0",
+  "description": "Agent and skill system for game development",
+  "license": "MIT",
+  "keywords": [
+    "game-dev",
+    "unity",
+    "unreal",
+    "godot",
+    "agents",
+    "skills",
+    "rules",
+    "gdd"
+  ]
+}

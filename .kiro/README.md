@@ -1,0 +1,3 @@
+# .kiro
+
+Adapters for Kiro.

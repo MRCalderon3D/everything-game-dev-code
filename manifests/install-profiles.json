@@ -1,0 +1,77 @@
+{
+  "version": 1,
+  "profiles": [
+    {
+      "id": "unity-mobile-f2p",
+      "components": [
+        "baseline:rules",
+        "baseline:agents",
+        "baseline:commands",
+        "baseline:hooks",
+        "baseline:docs",
+        "engine:unity",
+        "capability:design",
+        "capability:engineering",
+        "capability:qa",
+        "capability:production",
+        "capability:liveops"
+      ]
+    },
+    {
+      "id": "unreal-console-aaa",
+      "components": [
+        "baseline:rules",
+        "baseline:agents",
+        "baseline:commands",
+        "baseline:hooks",
+        "baseline:docs",
+        "engine:unreal",
+        "capability:design",
+        "capability:engineering",
+        "capability:qa",
+        "capability:production",
+        "capability:audio-art"
+      ]
+    },
+    {
+      "id": "godot-indie-2d",
+      "components": [
+        "baseline:rules",
+        "baseline:agents",
+        "baseline:commands",
+        "baseline:hooks",
+        "baseline:docs",
+        "engine:godot",
+        "capability:design",
+        "capability:engineering",
+        "capability:qa",
+        "capability:production"
+      ]
+    },
+    {
+      "id": "unity-multiplayer",
+      "components": [
+        "baseline:rules",
+        "baseline:agents",
+        "baseline:commands",
+        "baseline:hooks",
+        "baseline:docs",
+        "engine:unity",
+        "capability:engineering",
+        "capability:qa",
+        "capability:multiplayer"
+      ]
+    },
+    {
+      "id": "preproduction-only",
+      "components": [
+        "baseline:rules",
+        "baseline:agents",
+        "baseline:commands",
+        "baseline:docs",
+        "capability:design",
+        "capability:production"
+      ]
+    }
+  ]
+}

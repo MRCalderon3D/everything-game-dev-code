@@ -1,0 +1,11 @@
+{
+  "name": "everything-game-dev-code",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Scaffold of agents, skills, and rules for game development",
+  "scripts": {
+    "test": "node tests/run-all.js",
+    "validate:schemas": "echo TODO",
+    "validate:manifests": "echo TODO"
+  }
+}

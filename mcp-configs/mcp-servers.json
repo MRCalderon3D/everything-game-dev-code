@@ -1,0 +1,25 @@
+{
+  "servers": {
+    "github": {
+      "status": "todo"
+    },
+    "unity-docs": {
+      "status": "todo"
+    },
+    "unreal-docs": {
+      "status": "todo"
+    },
+    "godot-docs": {
+      "status": "todo"
+    },
+    "steamworks": {
+      "status": "todo"
+    },
+    "playfab": {
+      "status": "todo"
+    },
+    "firebase": {
+      "status": "todo"
+    }
+  }
+}

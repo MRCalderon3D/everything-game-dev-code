@@ -1,0 +1,31 @@
+{
+  "$schema": "./../schemas/hooks.schema.json",
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Write|Edit|MultiEdit",
+        "description": "Warn if design is touched without updating docs"
+      },
+      {
+        "matcher": "Bash",
+        "description": "Warn if a build is launched without an active profile"
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit|MultiEdit",
+        "description": "Suggest syncing GDD/technical TDD"
+      },
+      {
+        "matcher": "Bash",
+        "description": "Capture build/test metrics"
+      }
+    ],
+    "Stop": [
+      {
+        "matcher": "*",
+        "description": "Save session summary and decisions"
+      }
+    ]
+  }
+}

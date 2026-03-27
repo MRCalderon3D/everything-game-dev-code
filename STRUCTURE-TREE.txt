@@ -1,0 +1,489 @@
+everything-game-dev-code
+├── .agents
+│   └── skills
+│       └── README.md
+├── .claude
+│   ├── README.md
+│   ├── commands
+│   │   └── README.md
+│   ├── identity.json
+│   ├── package-manager.json
+│   ├── research
+│   │   └── README.md
+│   ├── rules
+│   │   └── README.md
+│   ├── skills
+│   │   └── everything-game-dev-code
+│   │       └── README.md
+│   └── team
+│       └── README.md
+├── .claude-plugin
+│   ├── marketplace.json
+│   └── plugin.json
+├── .codex
+│   ├── AGENTS.md
+│   ├── agents
+│   │   └── README.md
+│   └── config.toml
+├── .cursor
+│   ├── hooks
+│   │   └── README.md
+│   ├── hooks.json
+│   ├── rules
+│   │   └── README.md
+│   └── skills
+│       └── README.md
+├── .env.example
+├── .gitignore
+├── .kiro
+│   ├── README.md
+│   └── steering
+│       └── README.md
+├── .markdownlint.json
+├── .opencode
+│   ├── MIGRATION.md
+│   ├── README.md
+│   ├── commands
+│   │   └── README.md
+│   ├── index.ts
+│   ├── instructions
+│   │   └── README.md
+│   ├── opencode.json
+│   ├── package.json
+│   ├── plugins
+│   │   └── README.md
+│   ├── prompts
+│   │   └── agents
+│   │       └── README.md
+│   ├── tools
+│   │   └── README.md
+│   └── tsconfig.json
+├── .prettierrc
+├── AGENTS.md
+├── CHANGELOG.md
+├── CLAUDE.md
+├── CONTRIBUTING.md
+├── LICENSE
+├── README.md
+├── SECURITY.md
+├── STRUCTURE-TREE.txt
+├── TROUBLESHOOTING.md
+├── VERSION
+├── agents
+│   ├── accessibility-reviewer.md
+│   ├── ai-programmer.md
+│   ├── animation-programmer.md
+│   ├── architect.md
+│   ├── audio-designer.md
+│   ├── build-engineer.md
+│   ├── code-reviewer.md
+│   ├── combat-designer.md
+│   ├── console-compliance-reviewer.md
+│   ├── doc-updater.md
+│   ├── economy-designer.md
+│   ├── gameplay-programmer.md
+│   ├── gdd-designer.md
+│   ├── godot-build-resolver.md
+│   ├── godot-reviewer.md
+│   ├── level-designer.md
+│   ├── liveops-manager.md
+│   ├── mobile-f2p-analyst.md
+│   ├── narrative-designer.md
+│   ├── network-programmer.md
+│   ├── performance-reviewer.md
+│   ├── physics-programmer.md
+│   ├── planner.md
+│   ├── playtest-analyst.md
+│   ├── producer.md
+│   ├── qa-lead.md
+│   ├── refactor-cleaner.md
+│   ├── release-manager.md
+│   ├── security-reviewer.md
+│   ├── systems-designer.md
+│   ├── technical-artist.md
+│   ├── technical-design-lead.md
+│   ├── telemetry-analyst.md
+│   ├── tools-programmer.md
+│   ├── ui-programmer.md
+│   ├── ui-ux-designer.md
+│   ├── unity-build-resolver.md
+│   ├── unity-reviewer.md
+│   ├── unreal-build-resolver.md
+│   └── unreal-reviewer.md
+├── commands
+│   ├── audio-pass.md
+│   ├── bug-triage.md
+│   ├── cert-check.md
+│   ├── combat-design.md
+│   ├── economy-balance.md
+│   ├── evolve.md
+│   ├── gdd.md
+│   ├── godot-build-fix.md
+│   ├── godot-review.md
+│   ├── godot-scene-audit.md
+│   ├── godot-setup.md
+│   ├── learn.md
+│   ├── level-beat.md
+│   ├── liveops-brief.md
+│   ├── memory-budget.md
+│   ├── milestone-plan.md
+│   ├── multiplayer-review.md
+│   ├── onboarding.md
+│   ├── orchestrate.md
+│   ├── patch-notes.md
+│   ├── perf-budget.md
+│   ├── plan.md
+│   ├── playtest-report.md
+│   ├── qa-plan.md
+│   ├── quest-design.md
+│   ├── refactor-clean.md
+│   ├── release-check.md
+│   ├── save-system-review.md
+│   ├── skill-create-game.md
+│   ├── tdd.md
+│   ├── tech-design.md
+│   ├── telemetry-plan.md
+│   ├── tools-pass.md
+│   ├── ui-flow-review.md
+│   ├── unity-build-fix.md
+│   ├── unity-review.md
+│   ├── unity-scene-audit.md
+│   ├── unity-setup.md
+│   ├── unreal-blueprint-audit.md
+│   ├── unreal-build-fix.md
+│   ├── unreal-review.md
+│   ├── unreal-setup.md
+│   ├── update-docs.md
+│   ├── verify.md
+│   └── vertical-slice.md
+├── contexts
+│   ├── ideation.md
+│   ├── liveops.md
+│   ├── performance.md
+│   ├── preproduction.md
+│   ├── production.md
+│   ├── qa.md
+│   ├── release.md
+│   ├── research.md
+│   └── review.md
+├── docs
+│   ├── orchestration
+│   │   ├── agent-skill-matrix.md
+│   │   ├── command-agent-map.md
+│   │   ├── engine-isolation.md
+│   │   ├── role-handoffs.md
+│   │   └── workflow-sequences.md
+│   ├── structure-overview.md
+│   └── templates
+│       ├── art-bible.md
+│       ├── audio-bible.md
+│       ├── game-design-document.md
+│       ├── milestone-plan.md
+│       ├── playtest-report.md
+│       ├── qa-test-plan.md
+│       ├── release-checklist.md
+│       ├── technical-design-document.md
+│       ├── telemetry-plan.md
+│       └── vertical-slice-plan.md
+├── examples
+│   ├── cross-engine-gdd
+│   │   └── README.md
+│   ├── godot-2d-platformer
+│   │   └── README.md
+│   ├── unity-action-rpg
+│   │   └── README.md
+│   └── unreal-fps
+│       └── README.md
+├── hooks
+│   ├── README.md
+│   └── hooks.json
+├── install.ps1
+├── install.sh
+├── manifests
+│   ├── install-components.json
+│   ├── install-modules.json
+│   └── install-profiles.json
+├── mcp-configs
+│   └── mcp-servers.json
+├── package.json
+├── plugins
+│   └── README.md
+├── rules
+│   ├── README.md
+│   ├── common
+│   │   ├── accessibility.md
+│   │   ├── agents.md
+│   │   ├── asset-pipeline.md
+│   │   ├── build-release.md
+│   │   ├── coding-style.md
+│   │   ├── documentation.md
+│   │   ├── game-design.md
+│   │   ├── memory.md
+│   │   ├── narrative.md
+│   │   ├── performance.md
+│   │   ├── production-workflow.md
+│   │   ├── project-structure.md
+│   │   ├── qa.md
+│   │   ├── security.md
+│   │   ├── technical-design.md
+│   │   ├── telemetry.md
+│   │   ├── testing.md
+│   │   └── ui-ux.md
+│   ├── godot
+│   │   ├── README.md
+│   │   ├── asset-pipeline.md
+│   │   ├── build-release.md
+│   │   ├── coding-style.md
+│   │   ├── documentation.md
+│   │   ├── memory.md
+│   │   ├── networking.md
+│   │   ├── patterns.md
+│   │   ├── performance.md
+│   │   ├── project-structure.md
+│   │   ├── testing.md
+│   │   ├── tooling.md
+│   │   └── ui.md
+│   ├── unity
+│   │   ├── README.md
+│   │   ├── asset-pipeline.md
+│   │   ├── build-release.md
+│   │   ├── coding-style.md
+│   │   ├── documentation.md
+│   │   ├── memory.md
+│   │   ├── networking.md
+│   │   ├── patterns.md
+│   │   ├── performance.md
+│   │   ├── project-structure.md
+│   │   ├── testing.md
+│   │   ├── tooling.md
+│   │   └── ui.md
+│   └── unreal
+│       ├── README.md
+│       ├── asset-pipeline.md
+│       ├── build-release.md
+│       ├── coding-style.md
+│       ├── documentation.md
+│       ├── memory.md
+│       ├── networking.md
+│       ├── patterns.md
+│       ├── performance.md
+│       ├── project-structure.md
+│       ├── testing.md
+│       ├── tooling.md
+│       └── ui.md
+├── schemas
+│   ├── hooks.schema.json
+│   ├── install-components.schema.json
+│   ├── install-modules.schema.json
+│   ├── install-profiles.schema.json
+│   ├── install-state.schema.json
+│   ├── package-manager.schema.json
+│   ├── plugin.schema.json
+│   └── role-matrix.schema.json
+├── scripts
+│   ├── hooks
+│   │   ├── asset-size-warning.js
+│   │   ├── build-matrix-capture.js
+│   │   ├── crash-log-capture.js
+│   │   ├── engine-profile-guard.js
+│   │   ├── gdd-sync-warning.js
+│   │   ├── performance-budget-warning.js
+│   │   ├── playtest-capture.js
+│   │   ├── prefab-blueprint-node-warning.js
+│   │   ├── scene-integrity-check.js
+│   │   └── session-summary.js
+│   ├── lib
+│   │   ├── profile-resolution.js
+│   │   └── utils.js
+│   └── setup-profile.js
+├── skills
+│   ├── art-audio-content
+│   │   ├── README.md
+│   │   ├── art-bible
+│   │   │   └── SKILL.md
+│   │   ├── audio-implementation
+│   │   │   └── SKILL.md
+│   │   ├── cinematic-pipeline
+│   │   │   └── SKILL.md
+│   │   ├── dialogue-content-pipeline
+│   │   │   └── SKILL.md
+│   │   ├── localization-pipeline
+│   │   │   └── SKILL.md
+│   │   ├── technical-art-pipeline
+│   │   │   └── SKILL.md
+│   │   └── vfx-pipeline
+│   │       └── SKILL.md
+│   ├── design
+│   │   ├── README.md
+│   │   ├── accessibility-design
+│   │   │   └── SKILL.md
+│   │   ├── combat-design
+│   │   │   └── SKILL.md
+│   │   ├── core-loop-design
+│   │   │   └── SKILL.md
+│   │   ├── economy-balancing
+│   │   │   └── SKILL.md
+│   │   ├── level-design
+│   │   │   └── SKILL.md
+│   │   ├── liveops-design
+│   │   │   └── SKILL.md
+│   │   ├── monetization-design
+│   │   │   └── SKILL.md
+│   │   ├── narrative-design
+│   │   │   └── SKILL.md
+│   │   ├── onboarding-tutorial-design
+│   │   │   └── SKILL.md
+│   │   ├── progression-design
+│   │   │   └── SKILL.md
+│   │   └── quest-design
+│   │       └── SKILL.md
+│   ├── engineering-common
+│   │   ├── README.md
+│   │   ├── ai-behavior-patterns
+│   │   │   └── SKILL.md
+│   │   ├── animation-state-patterns
+│   │   │   └── SKILL.md
+│   │   ├── asset-management
+│   │   │   └── SKILL.md
+│   │   ├── build-pipeline-patterns
+│   │   │   └── SKILL.md
+│   │   ├── event-bus-patterns
+│   │   │   └── SKILL.md
+│   │   ├── gameplay-architecture
+│   │   │   └── SKILL.md
+│   │   ├── input-abstraction
+│   │   │   └── SKILL.md
+│   │   ├── memory-budgeting
+│   │   │   └── SKILL.md
+│   │   ├── multiplayer-netcode-patterns
+│   │   │   └── SKILL.md
+│   │   ├── performance-budgeting
+│   │   │   └── SKILL.md
+│   │   ├── physics-gameplay-patterns
+│   │   │   └── SKILL.md
+│   │   ├── save-system-patterns
+│   │   │   └── SKILL.md
+│   │   ├── telemetry-instrumentation
+│   │   │   └── SKILL.md
+│   │   ├── tools-pipeline-patterns
+│   │   │   └── SKILL.md
+│   │   └── ui-hud-patterns
+│   │       └── SKILL.md
+│   ├── godot
+│   │   ├── README.md
+│   │   ├── godot-build-release
+│   │   │   └── SKILL.md
+│   │   ├── godot-csharp-patterns
+│   │   │   └── SKILL.md
+│   │   ├── godot-editor-tooling
+│   │   │   └── SKILL.md
+│   │   ├── godot-gdscript-standards
+│   │   │   └── SKILL.md
+│   │   ├── godot-performance
+│   │   │   └── SKILL.md
+│   │   ├── godot-project-structure
+│   │   │   └── SKILL.md
+│   │   ├── godot-resource-management
+│   │   │   └── SKILL.md
+│   │   ├── godot-scene-architecture
+│   │   │   └── SKILL.md
+│   │   ├── godot-signals-patterns
+│   │   │   └── SKILL.md
+│   │   └── godot-testing
+│   │       └── SKILL.md
+│   ├── qa-release
+│   │   ├── README.md
+│   │   ├── bug-triage
+│   │   │   └── SKILL.md
+│   │   ├── compliance-checklists
+│   │   │   └── SKILL.md
+│   │   ├── console-certification
+│   │   │   └── SKILL.md
+│   │   ├── crash-triage
+│   │   │   └── SKILL.md
+│   │   ├── qa-test-matrix
+│   │   │   └── SKILL.md
+│   │   ├── release-readiness
+│   │   │   └── SKILL.md
+│   │   └── store-submission
+│   │       └── SKILL.md
+│   ├── unity
+│   │   ├── README.md
+│   │   ├── unity-addressables
+│   │   │   └── SKILL.md
+│   │   ├── unity-build-release
+│   │   │   └── SKILL.md
+│   │   ├── unity-csharp-standards
+│   │   │   └── SKILL.md
+│   │   ├── unity-editor-tooling
+│   │   │   └── SKILL.md
+│   │   ├── unity-gameplay-patterns
+│   │   │   └── SKILL.md
+│   │   ├── unity-input-system
+│   │   │   └── SKILL.md
+│   │   ├── unity-performance
+│   │   │   └── SKILL.md
+│   │   ├── unity-project-structure
+│   │   │   └── SKILL.md
+│   │   ├── unity-testing
+│   │   │   └── SKILL.md
+│   │   └── unity-urp-hdrp
+│   │       └── SKILL.md
+│   ├── unreal
+│   │   ├── README.md
+│   │   ├── unreal-blueprint-patterns
+│   │   │   └── SKILL.md
+│   │   ├── unreal-build-release
+│   │   │   └── SKILL.md
+│   │   ├── unreal-cpp-standards
+│   │   │   └── SKILL.md
+│   │   ├── unreal-editor-tooling
+│   │   │   └── SKILL.md
+│   │   ├── unreal-gameplay-framework
+│   │   │   └── SKILL.md
+│   │   ├── unreal-gas-patterns
+│   │   │   └── SKILL.md
+│   │   ├── unreal-performance
+│   │   │   └── SKILL.md
+│   │   ├── unreal-project-structure
+│   │   │   └── SKILL.md
+│   │   ├── unreal-replication
+│   │   │   └── SKILL.md
+│   │   └── unreal-testing
+│   │       └── SKILL.md
+│   └── workflow
+│       ├── README.md
+│       ├── continuous-learning
+│       │   └── SKILL.md
+│       ├── gdd-writing
+│       │   └── SKILL.md
+│       ├── milestone-planning
+│       │   └── SKILL.md
+│       ├── orchestration-patterns
+│       │   └── SKILL.md
+│       ├── playtest-analysis
+│       │   └── SKILL.md
+│       ├── risk-register
+│       │   └── SKILL.md
+│       ├── tdd-workflow
+│       │   └── SKILL.md
+│       ├── technical-design-document
+│       │   └── SKILL.md
+│       ├── verification-loop
+│       │   └── SKILL.md
+│       └── vertical-slice-planning
+│           └── SKILL.md
+└── tests
+    ├── ci
+    │   └── readme.test.js
+    ├── hooks
+    │   └── hooks-config.test.js
+    ├── integration
+    │   └── profile-install.test.js
+    ├── lib
+    │   └── engine-isolation.test.js
+    ├── run-all.js
+    ├── schemas
+    │   └── manifests-schema.test.js
+    └── scripts
+        └── setup-profile.test.js

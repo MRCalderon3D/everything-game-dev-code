@@ -1,0 +1,85 @@
+{
+  "version": 1,
+  "modules": {
+    "rules-core": [
+      "rules/common/**"
+    ],
+    "agents-core": [
+      "agents/planner.md",
+      "agents/architect.md",
+      "agents/producer.md",
+      "agents/gdd-designer.md",
+      "agents/technical-design-lead.md"
+    ],
+    "commands-core": [
+      "commands/plan.md",
+      "commands/gdd.md",
+      "commands/tech-design.md",
+      "commands/orchestrate.md",
+      "commands/tdd.md",
+      "commands/verify.md"
+    ],
+    "hooks-runtime": [
+      "hooks/**",
+      "scripts/hooks/**"
+    ],
+    "docs-templates": [
+      "docs/templates/**",
+      "docs/orchestration/**"
+    ],
+    "unity-pack": [
+      "rules/unity/**",
+      "skills/unity/**",
+      "commands/unity-*.md",
+      "agents/unity-*.md"
+    ],
+    "unreal-pack": [
+      "rules/unreal/**",
+      "skills/unreal/**",
+      "commands/unreal-*.md",
+      "agents/unreal-*.md"
+    ],
+    "godot-pack": [
+      "rules/godot/**",
+      "skills/godot/**",
+      "commands/godot-*.md",
+      "agents/godot-*.md"
+    ],
+    "design-pack": [
+      "agents/*designer*.md",
+      "skills/design/**",
+      "commands/*design*.md"
+    ],
+    "engineering-pack": [
+      "skills/engineering-common/**",
+      "agents/*programmer*.md"
+    ],
+    "qa-pack": [
+      "skills/qa-release/**",
+      "agents/qa-lead.md",
+      "commands/qa-plan.md",
+      "commands/verify.md"
+    ],
+    "production-pack": [
+      "agents/producer.md",
+      "agents/release-manager.md",
+      "commands/milestone-plan.md",
+      "commands/release-check.md"
+    ],
+    "content-pack": [
+      "skills/art-audio-content/**",
+      "agents/technical-artist.md",
+      "agents/audio-designer.md"
+    ],
+    "liveops-pack": [
+      "agents/liveops-manager.md",
+      "agents/telemetry-analyst.md",
+      "commands/liveops-brief.md"
+    ],
+    "multiplayer-pack": [
+      "agents/network-programmer.md",
+      "commands/multiplayer-review.md",
+      "skills/engineering-common/multiplayer-netcode-patterns/**"
+    ]
+  }
+}

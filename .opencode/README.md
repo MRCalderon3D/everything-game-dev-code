@@ -1,0 +1,3 @@
+# .opencode
+
+Integration for OpenCode.
