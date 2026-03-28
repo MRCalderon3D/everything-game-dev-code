@@ -1,0 +1,29 @@
+{
+  "example_id": "unity-action-rpg",
+  "recommended_profile": "unity-production",
+  "optional_capabilities": [
+    "capability:liveops"
+  ],
+  "primary_agents": [
+    "planner",
+    "systems-designer",
+    "combat-designer",
+    "gameplay-programmer",
+    "unity-reviewer",
+    "qa-lead",
+    "technical-artist",
+    "release-manager"
+  ],
+  "primary_commands": [
+    "/gdd",
+    "/tech-design",
+    "/combat-design",
+    "/unity-review",
+    "/perf-budget",
+    "/release-check"
+  ],
+  "notes": [
+    "Use unity-production as the baseline installation.",
+    "Add liveops support only if the project needs post-launch event cadence and telemetry-heavy balancing."
+  ]
+}

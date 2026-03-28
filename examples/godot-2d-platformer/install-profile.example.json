@@ -1,0 +1,25 @@
+{
+  "example_id": "godot-2d-platformer",
+  "recommended_profile": "godot-indie-2d",
+  "optional_capabilities": [],
+  "primary_agents": [
+    "planner",
+    "level-designer",
+    "gameplay-programmer",
+    "godot-reviewer",
+    "qa-lead",
+    "doc-updater"
+  ],
+  "primary_commands": [
+    "/plan",
+    "/vertical-slice",
+    "/godot-setup",
+    "/godot-review",
+    "/godot-scene-audit",
+    "/verify"
+  ],
+  "notes": [
+    "Use the Godot-focused indie profile to keep scope and tooling lightweight.",
+    "Treat scene hierarchy and signal discipline as early review topics rather than cleanup work."
+  ]
+}

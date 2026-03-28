@@ -72,3 +72,8 @@ This example shows how the scaffold could be installed for a Unity action RPG wi
 - Addressables configuration drift
 - scene initialization order bugs
 - memory spikes during hub-to-combat transitions
+
+## Included Example Files
+- `install-profile.example.json` — recommended scaffold setup for this example
+- `docs/vertical-slice-plan.md` — sample milestone-ready slice definition
+- `docs/telemetry-plan.md` — example telemetry framing for the first slice

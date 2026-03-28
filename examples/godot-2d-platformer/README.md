@@ -67,3 +67,8 @@ This example shows how the scaffold could be installed for a small-to-medium God
 - save/load state inconsistency
 - physics feel drifting between levels
 - editor-only assumptions leaking into export builds
+
+## Included Example Files
+- `install-profile.example.json` — recommended scaffold setup for this example
+- `docs/playtest-report.md` — sample playtest output for iteration work
+- `docs/qa-test-matrix.md` — example verification focus for a level-driven platformer

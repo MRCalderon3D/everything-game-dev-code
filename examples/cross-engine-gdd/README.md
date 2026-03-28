@@ -72,3 +72,7 @@ Those belong in engine-specific technical design.
 - technical-design-document.md
 - vertical-slice-plan.md
 - telemetry-plan.md
+
+## Included Example Files
+- `game-design-document.md` — compact engine-neutral GDD example
+- `technical-design-handoff.md` — example of what should move into engine-specific technical design next

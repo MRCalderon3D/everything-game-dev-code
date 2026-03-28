@@ -70,3 +70,8 @@ This example shows how the scaffold could be installed for an Unreal first-perso
 - replication cost scaling with encounter density
 - map and asset organization drift
 - plugin or engine upgrade instability
+
+## Included Example Files
+- `install-profile.example.json` — recommended scaffold setup for this example
+- `docs/technical-design-snapshot.md` — example architecture framing for networked FPS work
+- `docs/release-checklist.md` — sample release-readiness checklist for packaged builds

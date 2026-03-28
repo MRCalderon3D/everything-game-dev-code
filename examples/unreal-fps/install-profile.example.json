@@ -1,0 +1,28 @@
+{
+  "example_id": "unreal-fps",
+  "recommended_profile": "unreal-production",
+  "optional_capabilities": [
+    "capability:multiplayer"
+  ],
+  "primary_agents": [
+    "planner",
+    "combat-designer",
+    "network-programmer",
+    "unreal-reviewer",
+    "unreal-build-resolver",
+    "qa-lead",
+    "release-manager"
+  ],
+  "primary_commands": [
+    "/combat-design",
+    "/tech-design",
+    "/multiplayer-review",
+    "/unreal-review",
+    "/unreal-blueprint-audit",
+    "/release-check"
+  ],
+  "notes": [
+    "Start from unreal-production and add multiplayer review coverage for authority-sensitive work.",
+    "Keep replication and Blueprint ownership decisions documented before scaling content production."
+  ]
+}
