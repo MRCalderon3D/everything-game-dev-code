@@ -8,3 +8,5 @@ temp/
 # Personal configs (if any)
 personal/
 private/
+AGENTS.override.md
+CLAUDE.local.md
