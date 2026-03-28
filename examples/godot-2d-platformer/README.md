@@ -4,9 +4,9 @@
 This example shows how the scaffold could be installed for a small-to-medium Godot 2D project with tight gameplay loops, authored levels, and moderate tooling needs.
 
 ## Example Product
-**Project Name:** Clockspring  
-**Genre:** 2D precision platformer  
-**Engine:** Godot  
+**Project Name:** Clockspring
+**Genre:** 2D precision platformer
+**Engine:** Godot
 **Project Size:** Indie / small team
 
 ## Recommended Installed Packs

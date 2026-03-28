@@ -4,9 +4,9 @@
 This example shows how the scaffold could be installed for an Unreal first-person shooter with networked gameplay, packaged builds, and strong separation between design intent and engine implementation.
 
 ## Example Product
-**Project Name:** Shardline Zero  
-**Genre:** First-person shooter  
-**Engine:** Unreal  
+**Project Name:** Shardline Zero
+**Genre:** First-person shooter
+**Engine:** Unreal
 **Project Size:** Mid-size team
 
 ## Recommended Installed Packs

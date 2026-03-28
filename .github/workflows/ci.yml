@@ -1,0 +1,37 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: npm
+
+      - name: Run tests
+        run: npm test
+
+      - name: Validate manifests
+        run: npm run validate:manifests
+
+      - name: Validate hooks
+        run: npm run validate:hooks
+
+      - name: Validate structure
+        run: npm run validate:structure
+
+      - name: Lint Markdown
+        run: npm run lint:markdown

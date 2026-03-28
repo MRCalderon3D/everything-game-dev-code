@@ -4,9 +4,9 @@
 This example shows how to write a Game Design Document that stays engine-neutral and can be implemented in Unity, Unreal, or Godot without leaking engine-specific decisions into shared design documentation.
 
 ## Example Product
-**Project Name:** Emberfall  
-**Genre:** Third-person action adventure  
-**Target Platforms:** PC, console  
+**Project Name:** Emberfall
+**Genre:** Third-person action adventure
+**Target Platforms:** PC, console
 **Audience:** Players who enjoy exploration, traversal, light combat, and environmental storytelling
 
 ## Product Pillars

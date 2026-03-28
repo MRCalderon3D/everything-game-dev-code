@@ -4,9 +4,9 @@
 This example shows how the scaffold could be installed for a Unity action RPG with combat, progression, authored content, and release-oriented production workflows.
 
 ## Example Product
-**Project Name:** Ashen Veil  
-**Genre:** Action RPG  
-**Engine:** Unity  
+**Project Name:** Ashen Veil
+**Genre:** Action RPG
+**Engine:** Unity
 **Project Size:** Small-to-mid team
 
 ## Recommended Installed Packs
