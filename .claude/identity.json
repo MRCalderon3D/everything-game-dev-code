@@ -1,1 +1,14 @@
-{}
+{
+  "adapter": "claude",
+  "primary_memory_file": "CLAUDE.md",
+  "shared_layers": [
+    "rules",
+    "agents",
+    "commands",
+    "skills",
+    "contexts",
+    "hooks"
+  ],
+  "engine_isolation": true,
+  "notes": "Use root CLAUDE.md as the authoritative Claude memory file. This adapter should remain thin."
+}

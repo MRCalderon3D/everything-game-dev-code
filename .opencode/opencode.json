@@ -1,1 +1,10 @@
-{}
+{
+  "$schema": "https://opencode.ai/config.json",
+  "autoupdate": true,
+  "theme": "system",
+  "command": {
+    "plan": "Use the shared commands/plan.md workflow and shared agents/skills.",
+    "verify": "Use the shared commands/verify.md workflow and relevant QA/review agents.",
+    "engine-review": "Pick one engine layer only and use the matching review command."
+  }
+}

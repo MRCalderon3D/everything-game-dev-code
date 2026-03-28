@@ -1,1 +1,10 @@
-{}
+{
+  "name": "everything-game-dev-code-opencode",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "lint": "echo adapter lint placeholder",
+    "check": "echo adapter check placeholder"
+  }
+}

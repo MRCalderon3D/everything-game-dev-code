@@ -1,0 +1,9 @@
+---
+description: Prevent Unity, Unreal, and Godot guidance from contaminating each other.
+---
+
+Engine isolation is mandatory.
+
+- Use `rules/common/` first.
+- Then use exactly one engine layer for implementation: `rules/unity/`, `rules/unreal/`, or `rules/godot/`.
+- Only compare engines in research contexts. Do not mix their implementation advice in production tasks.

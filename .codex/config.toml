@@ -1,1 +1,22 @@
-# TODO
+# Project-scoped Codex config.
+# Keep repo-specific behavior here; keep personal defaults in ~/.codex/config.toml.
+# See official Codex config docs for the full schema.
+
+profile = "game-dev"
+model = "gpt-5.4"
+model_reasoning_effort = "high"
+
+[profiles.game-dev]
+model = "gpt-5.4"
+model_reasoning_effort = "high"
+approval_policy = "on-request"
+
+[profiles.engine-review]
+model = "gpt-5.4"
+model_reasoning_effort = "high"
+approval_policy = "on-request"
+
+[profiles.fast-docs]
+model = "gpt-5.4-mini"
+model_reasoning_effort = "medium"
+approval_policy = "on-request"

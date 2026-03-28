@@ -1,3 +1,31 @@
 {
-  "hooks": []
+  "$schema": "https://cursor.com/docs/hooks",
+  "hooks": {
+    "preToolUse": [
+      {
+        "matcher": "edit|write|multi_edit",
+        "command": "node scripts/hooks/gdd-sync-warning.js"
+      },
+      {
+        "matcher": "bash",
+        "command": "node scripts/hooks/engine-profile-guard.js"
+      }
+    ],
+    "postToolUse": [
+      {
+        "matcher": "edit|write|multi_edit",
+        "command": "node scripts/hooks/scene-integrity-check.js"
+      },
+      {
+        "matcher": "bash",
+        "command": "node scripts/hooks/build-matrix-capture.js"
+      }
+    ],
+    "stop": [
+      {
+        "matcher": "*",
+        "command": "node scripts/hooks/session-summary.js"
+      }
+    ]
+  }
 }

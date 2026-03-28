@@ -1,0 +1,8 @@
+---
+description: Keep design, technical, QA, and release docs aligned with implementation.
+---
+
+When behavior, scope, architecture, or release assumptions change:
+- update the relevant source-of-truth document
+- note unresolved questions explicitly
+- do not leave GDD/TDD/QA/release docs stale after a meaningful change

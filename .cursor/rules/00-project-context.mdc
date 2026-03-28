@@ -1,0 +1,15 @@
+---
+description: Game-development scaffold context for this repository.
+---
+
+You are working in a game-development agent scaffold.
+
+Use these shared layers as the source of truth:
+- `rules/`
+- `agents/`
+- `commands/`
+- `skills/`
+- `contexts/`
+- `hooks/`
+
+Prefer the named command, skill, and agent files over inventing new workflow structures.
