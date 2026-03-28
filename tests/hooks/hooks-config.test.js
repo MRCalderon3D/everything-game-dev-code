@@ -12,7 +12,7 @@ const config = JSON.parse(fs.readFileSync(hooksPath, 'utf8'));
 assert.ok(config && typeof config === 'object', 'hooks config must be an object.');
 assert.ok(config.hooks && typeof config.hooks === 'object', 'hooks config must contain a hooks object.');
 
-const allowedPhases = new Set(['PreToolUse', 'PostToolUse', 'Stop', 'Start']);
+const allowedPhases = new Set(['PreToolUse', 'PostToolUse', 'Stop', 'SessionStart', 'SessionEnd']);
 for (const [phase, entries] of Object.entries(config.hooks)) {
   assert.ok(allowedPhases.has(phase), `Unexpected hook phase '${phase}'.`);
   assert.ok(Array.isArray(entries), `hooks.${phase} must be an array.`);

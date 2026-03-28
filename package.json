@@ -6,9 +6,9 @@
   "license": "MIT",
   "scripts": {
     "test": "node tests/run-all.js",
-    "validate:manifests": "echo manifests validation hook goes here",
-    "validate:hooks": "echo hooks validation hook goes here",
-    "validate:structure": "echo structure validation hook goes here",
+    "validate:manifests": "node scripts/validate-manifests.js",
+    "validate:hooks": "node scripts/validate-hooks.js",
+    "validate:structure": "node scripts/validate-structure.js",
     "lint:markdown": "echo markdown lint hook goes here"
   },
   "engines": {
