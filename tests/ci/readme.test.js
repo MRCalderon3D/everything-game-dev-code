@@ -3,7 +3,7 @@ const assert = require('assert');
 const fs = require('fs');
 const path = require('path');
 
-const repoRoot = path.resolve(__dirname, '..', '..', '..');
+const repoRoot = path.resolve(__dirname, '..', '..');
 const readmePath = path.join(repoRoot, 'README.md');
 
 assert.ok(fs.existsSync(readmePath), 'README.md must exist at repository root.');

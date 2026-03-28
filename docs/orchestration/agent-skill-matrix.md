@@ -218,6 +218,22 @@ Primary skills:
 - engineering-common/gameplay-architecture
 - engineering-common/tools-pipeline-patterns
 
+### doc-updater
+Primary skills:
+- workflow/gdd-writing
+- workflow/technical-design-document
+- workflow/continuous-learning
+- workflow/verification-loop
+
+Secondary skills:
+- workflow/milestone-planning
+
+Collaborates with:
+- producer
+- technical-design-lead
+- gdd-designer
+- release-manager
+
 ### security-reviewer
 Primary skills:
 - qa-release/compliance-checklists

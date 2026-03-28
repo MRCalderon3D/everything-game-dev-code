@@ -47,7 +47,7 @@ Build narrative structure, world logic, dialogue intent, and player motivation t
 ## Related Agents
 - narrative-designer
 - gdd-designer
-- dialogue-content-pipeline
+- audio-designer
 
 ## Related Commands
 - gdd

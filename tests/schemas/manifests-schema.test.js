@@ -3,7 +3,7 @@ const assert = require('assert');
 const fs = require('fs');
 const path = require('path');
 
-const repoRoot = path.resolve(__dirname, '..', '..', '..');
+const repoRoot = path.resolve(__dirname, '..', '..');
 const schemaDir = path.join(repoRoot, 'schemas');
 const manifestDir = path.join(repoRoot, 'manifests');
 

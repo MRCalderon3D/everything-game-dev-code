@@ -3,7 +3,7 @@ const assert = require('assert');
 const fs = require('fs');
 const path = require('path');
 
-const repoRoot = path.resolve(__dirname, '..', '..', '..');
+const repoRoot = path.resolve(__dirname, '..', '..');
 const modulesPath = path.join(repoRoot, 'manifests', 'install-modules.json');
 const profilesPath = path.join(repoRoot, 'manifests', 'install-profiles.json');
 const componentsPath = path.join(repoRoot, 'manifests', 'install-components.json');
@@ -29,7 +29,8 @@ for (const [componentId, prefixes] of Object.entries(engineModulePrefixes)) {
   const component = components.get(componentId);
   assert.ok(component, `Missing engine component '${componentId}'.`);
   for (const moduleId of component.modules || []) {
-    const globs = modules[moduleId] || [];
+    const moduleEntry = modules[moduleId];
+    const globs = Array.isArray(moduleEntry) ? moduleEntry : (moduleEntry && moduleEntry.includes) || [];
     assert.ok(Array.isArray(globs), `Module '${moduleId}' must map to an array of globs.`);
     for (const glob of globs) {
       const matchesOwnEngine = prefixes.some(prefix => glob.includes(prefix));

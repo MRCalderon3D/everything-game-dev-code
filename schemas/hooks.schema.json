@@ -70,11 +70,6 @@
           "anyOf": [
             {
               "required": [
-                "description"
-              ]
-            },
-            {
-              "required": [
                 "command"
               ]
             },

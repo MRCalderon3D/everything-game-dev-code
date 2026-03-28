@@ -30,6 +30,9 @@ This scaffold is organized in layers:
 - `contexts/` — how priorities shift by phase
 - `hooks/` — how workflow safeguards are enforced
 - `manifests/` — how subsets are installed by profile
+- `schemas/` — JSON validation for manifests, hooks, and plugins
+- `docs/templates/` — structured templates for GDD, TDD, QA plans, and other deliverables
+- `docs/orchestration/` — agent routing, role handoffs, and workflow sequences
 - `tests/` — how the scaffold verifies itself
 - harness adapters — how different AI clients consume the same source of truth
 

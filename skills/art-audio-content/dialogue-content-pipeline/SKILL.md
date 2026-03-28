@@ -46,8 +46,8 @@ Manage dialogue and text content so it remains editable, implementable, localiza
 
 ## Related Agents
 - narrative-designer
-- quest-design
-- localization-pipeline
+- level-designer
+- ui-ux-designer
 
 ## Related Commands
 - quest-design

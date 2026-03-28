@@ -3,7 +3,7 @@ const assert = require('assert');
 const fs = require('fs');
 const path = require('path');
 
-const repoRoot = path.resolve(__dirname, '..', '..', '..');
+const repoRoot = path.resolve(__dirname, '..', '..');
 const componentsPath = path.join(repoRoot, 'manifests', 'install-components.json');
 const modulesPath = path.join(repoRoot, 'manifests', 'install-modules.json');
 const profilesPath = path.join(repoRoot, 'manifests', 'install-profiles.json');

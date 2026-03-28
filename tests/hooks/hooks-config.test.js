@@ -3,7 +3,7 @@ const assert = require('assert');
 const fs = require('fs');
 const path = require('path');
 
-const repoRoot = path.resolve(__dirname, '..', '..', '..');
+const repoRoot = path.resolve(__dirname, '..', '..');
 const hooksPath = path.join(repoRoot, 'hooks', 'hooks.json');
 
 assert.ok(fs.existsSync(hooksPath), 'hooks/hooks.json must exist.');

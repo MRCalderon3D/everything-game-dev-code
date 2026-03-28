@@ -16,7 +16,9 @@ Update living documentation so design, implementation, and validation stay align
 - doc-updater
 
 ## Required Skills
-- Select the most relevant skill set for the task at hand.
+- workflow/gdd-writing
+- workflow/technical-design-document
+- workflow/continuous-learning
 
 ## Expected Output
 - A structured result that can be reviewed, acted on, or handed off.
