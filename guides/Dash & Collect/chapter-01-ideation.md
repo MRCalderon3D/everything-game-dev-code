@@ -4,6 +4,9 @@
 
 **Context:** `contexts/ideation.md`
 
+> **Start a new Claude Code session for this chapter.**
+> Each phase uses a different context — a fresh session ensures the previous phase's decisions don't carry over unintentionally.
+
 ---
 
 ## Scaffold Features Used
@@ -25,13 +28,15 @@
 
 ### 1. Load the ideation context
 
+In your new Claude Code session, tell Claude to read and apply the ideation context:
+
 ```
-contexts/ideation.md
+Read contexts/ideation.md and apply it to this session.
 ```
 
-Loading this context activates the ideation-phase agents (`gdd-designer`, `systems-designer`,
-`planner`, `producer`) and sets the priority to design exploration. No engine-specific rules
-are active yet — ideation is engine-neutral by design.
+This activates the ideation-phase agents (`gdd-designer`, `systems-designer`, `planner`,
+`producer`) and sets the priority to design exploration. No engine-specific rules are active
+yet — ideation is engine-neutral by design.
 
 ### 2. Invoke /plan to structure the concept work
 
@@ -39,23 +44,30 @@ are active yet — ideation is engine-neutral by design.
 /plan Define the concept for a 2D endless runner targeting casual players on PC and mobile.
 ```
 
-The `planner` agent uses `skills/workflow/vertical-slice-planning` and
-`skills/workflow/milestone-planning` to identify what must be resolved before moving to
-pre-production:
+The `planner` agent returns a structured concept exploration that resolves the key open
+questions before any document is written:
 
 - What is the player fantasy?
 - What are the 2-3 design pillars?
 - What is the minimum feature set for the vertical slice?
 - Who is the target audience?
 
+**Review the output before continuing.** The agent may surface open questions or risks —
+address them in the same session before moving to the next step. You follow the chapter steps,
+not the agent's suggested next steps. The agent's output is content to review, not a workflow
+to execute.
+
 ### 3. Invoke /gdd to write the Game Design Document
 
+Once you are satisfied with the /plan output, invoke /gdd in the same session:
+
 ```
-/gdd
+/gdd Create the Game Design Document for "Dash & Collect" — a 2D endless runner targeting casual players on PC and mobile.
 ```
 
-The `gdd-designer` agent uses `skills/workflow/gdd-writing` and `skills/design/core-loop-design`
-to produce a GDD following the `docs/templates/game-design-document.md` template.
+The `gdd-designer` agent uses the concept already established by /plan to produce a structured
+GDD following the `docs/templates/game-design-document.md` template. It uses
+`skills/workflow/gdd-writing` and `skills/design/core-loop-design` internally.
 
 **Example GDD excerpt — Core Loop:**
 

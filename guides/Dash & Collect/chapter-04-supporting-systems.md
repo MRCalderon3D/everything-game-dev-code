@@ -4,6 +4,9 @@
 
 **Context:** `contexts/production.md` (continued)
 
+> **Continue the same Claude Code session from Chapter 3.**
+> This chapter shares the production context — no context switch needed.
+
 ---
 
 ## Scaffold Features Used

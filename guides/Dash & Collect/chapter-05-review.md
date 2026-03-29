@@ -4,6 +4,9 @@
 
 **Context:** `contexts/review.md`
 
+> **Start a new Claude Code session for this chapter.**
+> Each phase uses a different context — a fresh session ensures the previous phase's decisions don't carry over unintentionally.
+
 ---
 
 ## Scaffold Features Used
