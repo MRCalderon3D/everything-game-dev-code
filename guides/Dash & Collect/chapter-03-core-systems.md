@@ -36,6 +36,20 @@
 
 ---
 
+## Steps
+
+### 1. Load the production context
+
+In your new Claude Code session, tell Claude to read and apply the production context:
+
+```
+Read contexts/production.md and apply it to this session.
+```
+
+This activates `gameplay-programmer` and `code-reviewer` as the lead agents for this phase.
+
+---
+
 ## Implementation Order
 
 Build systems in dependency order: Game Manager first (everything depends on game state),

@@ -33,10 +33,12 @@
 
 ## Steps
 
-### 1. Switch to the release context
+### 1. Load the release context
+
+In your new Claude Code session, tell Claude to read and apply the release context:
 
 ```
-contexts/release.md
+Read contexts/release.md and apply it to this session.
 ```
 
 This activates the `release-manager` as the lead agent. The `release-manager` owns the

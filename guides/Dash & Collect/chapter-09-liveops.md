@@ -31,10 +31,12 @@
 
 ## Steps
 
-### 1. Switch to the live ops context
+### 1. Load the live ops context
+
+In your new Claude Code session, tell Claude to read and apply the live ops context:
 
 ```
-contexts/liveops.md
+Read contexts/liveops.md and apply it to this session.
 ```
 
 This activates `telemetry-analyst` and `liveops-manager` as the lead agents. The

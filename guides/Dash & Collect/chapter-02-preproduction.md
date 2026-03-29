@@ -41,10 +41,12 @@
 
 ## Steps
 
-### 1. Switch to the pre-production context
+### 1. Load the pre-production context
+
+In your new Claude Code session, tell Claude to read and apply the pre-production context:
 
 ```
-contexts/preproduction.md
+Read contexts/preproduction.md and apply it to this session.
 ```
 
 This activates `technical-design-lead`, `architect`, and `qa-lead` in addition to the

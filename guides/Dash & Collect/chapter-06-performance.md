@@ -41,10 +41,12 @@ reject optimization proposals that are not backed by profiler data.
 
 ## Steps
 
-### 1. Switch to the performance context
+### 1. Load the performance context
+
+In your new Claude Code session, tell Claude to read and apply the performance context:
 
 ```
-contexts/performance.md
+Read contexts/performance.md and apply it to this session.
 ```
 
 This activates the `performance-reviewer` as the lead agent for this phase.

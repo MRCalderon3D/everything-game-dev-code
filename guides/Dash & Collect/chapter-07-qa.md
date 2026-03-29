@@ -36,10 +36,12 @@
 
 ## Steps
 
-### 1. Switch to the QA context
+### 1. Load the QA context
+
+In your new Claude Code session, tell Claude to read and apply the QA context:
 
 ```
-contexts/qa.md
+Read contexts/qa.md and apply it to this session.
 ```
 
 This activates the `qa-lead` as the lead agent. The `qa-lead` owns the test plan, the

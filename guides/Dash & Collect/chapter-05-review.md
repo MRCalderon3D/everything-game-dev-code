@@ -31,10 +31,12 @@
 
 ## Steps
 
-### 1. Switch to the review context
+### 1. Load the review context
+
+In your new Claude Code session, tell Claude to read and apply the review context:
 
 ```
-contexts/review.md
+Read contexts/review.md and apply it to this session.
 ```
 
 This activates `unity-reviewer`, `code-reviewer`, `refactor-cleaner`, and `doc-updater`.
