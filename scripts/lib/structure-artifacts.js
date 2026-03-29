@@ -8,12 +8,32 @@ function normalizePath(relPath) {
   return relPath.replace(/\\/g, "/");
 }
 
+function compareNames(a, b) {
+  const left = String(a);
+  const right = String(b);
+
+  if (left === right) {
+    return 0;
+  }
+
+  const leftLower = left.toLowerCase();
+  const rightLower = right.toLowerCase();
+  if (leftLower < rightLower) {
+    return -1;
+  }
+  if (leftLower > rightLower) {
+    return 1;
+  }
+
+  return left < right ? -1 : 1;
+}
+
 function sortEntries(entries) {
   return [...entries].sort((a, b) => {
     if (a.isDirectory() !== b.isDirectory()) {
       return a.isDirectory() ? -1 : 1;
     }
-    return a.name.localeCompare(b.name);
+    return compareNames(a.name, b.name);
   });
 }
 
@@ -87,19 +107,19 @@ function generateStructureOverview() {
     .readdirSync(path.join(repoRoot, "rules"), { withFileTypes: true })
     .filter((entry) => entry.isDirectory() && entry.name !== "common")
     .map((entry) => entry.name)
-    .sort();
+    .sort(compareNames);
 
   const domainDirs = fs
     .readdirSync(path.join(repoRoot, "skills"), { withFileTypes: true })
     .filter((entry) => entry.isDirectory())
     .map((entry) => entry.name)
-    .sort();
+    .sort(compareNames);
 
   const documentTemplates = fs
     .readdirSync(path.join(repoRoot, "docs", "templates"), { withFileTypes: true })
     .filter((entry) => entry.isFile() && entry.name.endsWith(".md"))
     .map((entry) => titleFromFilename(entry.name))
-    .sort();
+    .sort(compareNames);
 
   const lines = [
     "# Structure Overview",

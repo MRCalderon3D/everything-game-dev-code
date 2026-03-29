@@ -10,19 +10,23 @@ const {
 
 const errors = [];
 
+function normalizeLineEndings(text) {
+  return String(text).replace(/\r\n/g, "\n");
+}
+
 const structureTreePath = path.join(repoRoot, "STRUCTURE-TREE.txt");
 const structureOverviewPath = path.join(repoRoot, "docs", "structure-overview.md");
 
-const actualTree = fs.readFileSync(structureTreePath, "utf8");
-const expectedTree = generateStructureTree();
+const actualTree = normalizeLineEndings(fs.readFileSync(structureTreePath, "utf8"));
+const expectedTree = normalizeLineEndings(generateStructureTree());
 if (actualTree !== expectedTree) {
   errors.push(
     "STRUCTURE-TREE.txt is out of date. Run 'npm run sync:structure' to refresh it."
   );
 }
 
-const actualOverview = fs.readFileSync(structureOverviewPath, "utf8");
-const expectedOverview = generateStructureOverview();
+const actualOverview = normalizeLineEndings(fs.readFileSync(structureOverviewPath, "utf8"));
+const expectedOverview = normalizeLineEndings(generateStructureOverview());
 if (actualOverview !== expectedOverview) {
   errors.push(
     "docs/structure-overview.md is out of date. Run 'npm run sync:structure' to refresh it."
