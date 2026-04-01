@@ -190,6 +190,18 @@ Support:
 - `accessibility-reviewer`
 - `qa-lead`
 
+### /art-2d-pass
+Primary: `2d-artist`
+Support:
+- `technical-artist`
+- `performance-reviewer`
+
+### /ui-asset-pass
+Primary: `2d-artist`
+Support:
+- `ui-ux-designer`
+- `accessibility-reviewer`
+
 ### /tools-pass
 Primary: `tools-programmer`
 Support:
@@ -267,6 +279,19 @@ Primary: `unity-reviewer`
 Support:
 - `technical-artist`
 - `qa-lead`
+
+### /unity-placeholders
+Primary: `unity-reviewer`
+Support:
+- `2d-artist`
+- `technical-artist`
+- `build-engineer`
+
+### /scene-bootstrap
+Primary: `unity-reviewer`
+Support:
+- `architect`
+- `gameplay-programmer`
 
 ### /unreal-setup
 Primary: `unreal-reviewer`

@@ -113,7 +113,7 @@ Sequence:
 Goal: bootstrap or normalize a project inside one engine.
 
 Sequence:
-- Unity: `/unity-setup` → `/unity-review` → `/unity-scene-audit` or `/unity-build-fix` as needed
+- Unity: `/unity-setup` → `/unity-review` → `/unity-placeholders` → `/scene-bootstrap` → `/unity-scene-audit` or `/unity-build-fix` as needed
 - Unreal: `/unreal-setup` → `/unreal-review` → `/unreal-blueprint-audit` or `/unreal-build-fix` as needed
 - Godot: `/godot-setup` → `/godot-review` → `/godot-scene-audit` or `/godot-build-fix` as needed
 

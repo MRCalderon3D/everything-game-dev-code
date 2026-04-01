@@ -14,6 +14,7 @@ Deliver features, content, and systems against a defined milestone plan. Maintai
 - `level-designer` — builds and iterates levels or content zones against the vertical slice quality bar
 - `ui-ux-designer` — implements and iterates UI systems and player-facing flows
 - `audio-designer` — integrates audio assets and validates mix against the audio budget
+- `2d-artist` — validates 2D art assets, placeholders, and drop-in replacement readiness
 - `producer` — runs milestone reviews, manages scope trade-offs, and tracks delivery risk
 - `qa-lead` — runs regression and integration tests against each milestone candidate
 - `performance-reviewer` — tracks frame time, memory, and load times against established budgets
@@ -26,6 +27,8 @@ Deliver features, content, and systems against a defined milestone plan. Maintai
 - `/playtest-report` — capture structured feedback from internal playtests
 - `/perf-budget` — check current performance status against targets
 - `/memory-budget` — check current memory usage against targets
+- `/art-2d-pass` — review 2D art assets against pipeline conventions and placeholder readiness
+- `/ui-asset-pass` — review UI visual assets for theme consistency, 9-slice, and animations
 - `/milestone-plan` — review or revise the production milestone roadmap
 
 ## Source-of-Truth Documents

@@ -50,6 +50,7 @@ Agents do not self-select. Commands route work to agents. Agents do not cross en
 | `economy-designer` | Resource balance, progression curves, monetization design |
 | `ui-ux-designer` | Player-facing interface flow, accessibility, clarity |
 | `technical-artist` | Shaders, VFX, rig constraints, art-to-engine pipeline |
+| `2d-artist` | 2D art pipeline — sprites, tilemaps, 2D animations, placeholders |
 
 ### Production and leadership
 

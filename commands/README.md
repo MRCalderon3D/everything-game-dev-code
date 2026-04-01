@@ -42,9 +42,13 @@ Commands do not replace judgment. They channel it.
 | Command | Purpose |
 |---------|---------|
 | `/tdd` | Implement a feature using test-driven development |
+| `/unity-placeholders` | Generate placeholder sprites, prefabs, and audio stubs for testable gameplay |
+| `/scene-bootstrap` | Bootstrap a game scene with GameObjects, scripts, and wired inspector references |
 | `/evolve` | Iteratively refine an existing system or feature |
 | `/tools-pass` | Improve or extend editor and pipeline tooling |
 | `/audio-pass` | Review and implement audio integration for a system or scene |
+| `/art-2d-pass` | Review 2D art assets for naming, resolution, atlas config, animation, and placeholders |
+| `/ui-asset-pass` | Review UI visual assets for naming, 9-slice, atlas, theme consistency, and animations |
 | `/learn` | Synthesize a learning objective into reusable scaffold knowledge |
 | `/skill-create-game` | Create a new game-dev skill for this scaffold |
 
