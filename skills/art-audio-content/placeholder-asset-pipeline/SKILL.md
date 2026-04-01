@@ -24,13 +24,13 @@ Define creation, naming, and replacement rules for placeholder assets so the gam
 
 ## Process
 1. inventory all entities that need visual representation for the current milestone
-2. generate placeholder assets (colored shapes, labeled sprites) at correct gameplay scale
+2. generate placeholder assets (colored shapes for visuals, procedural audio for sounds) at correct gameplay scale
 3. place placeholders in the same folder path and with the same file name that final assets will use
 4. wire placeholders into prefabs or scenes so the game is immediately playable
 5. document the replacement checklist — what to swap, where, and how to validate after swapping
 
 ## Outputs
-- placeholder assets for all milestone entities (sprites, prefabs, audio stubs)
+- placeholder assets for all milestone entities (sprites, prefabs, procedurally generated audio clips)
 - drop-in replacement guide (file paths, naming, validation steps)
 - scene or prefab configuration with placeholders wired and playable
 - replacement validation checklist
@@ -61,3 +61,4 @@ Define creation, naming, and replacement rules for placeholder assets so the gam
 - Keep this skill aligned with the relevant rules layer and current project documentation.
 - If engine-specific constraints materially change the workflow, hand off to the matching engine skill or engine-specific reviewer.
 - This skill is engine-neutral. Engine-specific placeholder commands (e.g. `/unity-placeholders`) implement the concrete generation step using this skill's standards.
+- Audio placeholders should be procedurally generated (sine waves, square waves, noise, pitch sweeps) — not silent stubs. A placeholder sound that represents the intended audio event (e.g. a rising tone for a coin collect, a short burst for a jump) makes gameplay testing far more effective than silence.
