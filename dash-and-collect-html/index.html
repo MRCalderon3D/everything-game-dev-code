@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Dash & Collect</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body {
+            width: 100%; height: 100%;
+            background: #0a0a1a;
+            overflow: hidden;
+            touch-action: none;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            user-select: none;
+        }
+        canvas { display: block; }
+    </style>
+</head>
+<body>
+    <!-- Phaser 3 from CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3.80.1/dist/phaser.min.js"></script>
+
+    <!-- Config -->
+    <script src="src/config/GameConfig.js"></script>
+    <script src="src/config/ChunkData.js"></script>
+
+    <!-- Core -->
+    <script src="src/core/EventBus.js"></script>
+    <script src="src/persistence/SaveSystem.js"></script>
+    <script src="src/core/ScoreManager.js"></script>
+    <script src="src/core/GameManager.js"></script>
+
+    <!-- Systems -->
+    <script src="src/input/InputManager.js"></script>
+    <script src="src/player/PlayerController.js"></script>
+    <script src="src/spawn/SpawnManager.js"></script>
+    <script src="src/collision/CollisionHandler.js"></script>
+    <script src="src/modifiers/ModifierSystem.js"></script>
+    <script src="src/visuals/GroundScroller.js"></script>
+    <script src="src/visuals/ParallaxBackground.js"></script>
+    <script src="src/audio/AudioManager.js"></script>
+
+    <!-- UI -->
+    <script src="src/ui/UIAnimator.js"></script>
+    <script src="src/ui/MainMenu.js"></script>
+    <script src="src/ui/HUD.js"></script>
+    <script src="src/ui/DeathScreen.js"></script>
+    <script src="src/ui/ChainCounter.js"></script>
+    <script src="src/ui/ChainFlash.js"></script>
+    <script src="src/ui/ModifierLabel.js"></script>
+
+    <!-- Scenes -->
+    <script src="src/scenes/BootScene.js"></script>
+    <script src="src/scenes/GameScene.js"></script>
+
+    <!-- Game init -->
+    <script>
+        const game = new Phaser.Game({
+            type: Phaser.AUTO,
+            width: GAME_CONFIG.canvas.width,
+            height: GAME_CONFIG.canvas.height,
+            pixelArt: true,
+            roundPixels: true,
+            backgroundColor: '#1a1a2e',
+            scale: {
+                mode: Phaser.Scale.FIT,
+                autoCenter: Phaser.Scale.CENTER_BOTH
+            },
+            physics: {
+                default: 'arcade',
+                arcade: {
+                    gravity: { y: 0 },
+                    debug: false
+                }
+            },
+            scene: [BootScene, GameScene]
+        });
+    </script>
+</body>
+</html>
