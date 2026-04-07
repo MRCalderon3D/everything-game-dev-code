@@ -42,7 +42,7 @@ Commands do not replace judgment. They channel it.
 | Command | Purpose |
 |---------|---------|
 | `/tdd` | Implement a feature using test-driven development |
-| `/unity-placeholders` | Generate placeholder sprites, prefabs, and audio stubs for testable gameplay |
+| `/unity-placeholders` | Generate placeholder sprites, prefabs, and procedural audio for testable gameplay |
 | `/scene-bootstrap` | Bootstrap a game scene with GameObjects, scripts, and wired inspector references |
 | `/evolve` | Iteratively refine an existing system or feature |
 | `/tools-pass` | Improve or extend editor and pipeline tooling |

@@ -2,6 +2,17 @@
 
 A complete walkthrough for building a 2D endless runner using the **everything-game-dev-code** scaffold from concept to post-launch.
 
+> **This guide is a worked example, not a mandatory workflow.**
+> Its purpose is to show how the scaffold's features work together in practice — commands,
+> skills, agents, contexts, rules, hooks, and orchestration docs — applied to a real game
+> from ideation to live ops. It demonstrates one possible path through the scaffold.
+>
+> You are **not** required to follow these steps, this order, or this game type.
+> The scaffold is designed to be used however your project needs: pick individual commands,
+> activate a single context, invoke one agent, or use a specific skill in isolation.
+> Nothing in the scaffold depends on following this guide. Use it as a reference for how
+> the pieces connect, then adapt the workflow to your own project.
+
 ---
 
 ## Game Concept
@@ -55,14 +66,14 @@ you already know the basics and want to see how a specific phase works.
 
 | Scaffold Feature | Chapters |
 |-----------------|---------|
-| `agents/` | 1–9 |
-| `commands/` | 0–9 |
-| `skills/` | 1–9 |
-| `rules/common/` | 0–9 |
-| `rules/unity/` | 0, 2–9 |
-| `contexts/` | 1–9 |
-| `hooks/` | 0, 2–4, 7–8 |
+| `agents/` | 1–11 |
+| `commands/` | 0–11 |
+| `skills/` | 1–11 |
+| `rules/common/` | 0–11 |
+| `rules/unity/` | 0, 2–11 |
+| `contexts/` | 1–11 |
+| `hooks/` | 0, 2–4, 8–9 |
 | `manifests/` | 0 |
 | `schemas/` | 0 |
-| `docs/templates/` | 1, 2, 7–9 |
-| `docs/orchestration/` | 5 |
+| `docs/templates/` | 1, 2, 8–11 |
+| `docs/orchestration/` | 6–7 |

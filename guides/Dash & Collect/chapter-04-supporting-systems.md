@@ -54,11 +54,19 @@ First, generate the placeholder assets:
 - Coin: yellow circle sprite (0.5x0.5 units) → Prefabs/Collectibles/Coin.prefab
 - Ground: grey rectangle sprite (20x1 units) → Prefabs/Environment/Ground.prefab
 - Background: dark blue rectangle sprite (20x12 units) → Prefabs/Environment/Background.prefab
-- Audio stubs: silent AudioClip assets for Jump, Collect, GameOver, BGM in Audio/SFX/ and Audio/Music/
+- Audio: procedurally generated AudioClip assets (not silent) in Audio/SFX/ and Audio/Music/:
+  - Jump: quick rising sine sweep (0.1s, 400Hz→800Hz)
+  - Collect: bright double-ping sine tone (0.05s, 880Hz + 1100Hz)
+  - GameOver: descending square wave (0.3s, 300Hz→100Hz) with noise burst
+  - BGM: looping chiptune sequence — square wave arpeggio (120bpm, 4 bars, C-E-G-C pattern)
 ```
 
+The script generates audio using `AudioClip.Create()` + `SetData()` with math-based
+synthesis — sine waves, square waves, and white noise. No external audio tools or APIs
+are needed. The generated clips are saved as `.wav` assets.
+
 Run the generated script in Unity via **Tools → Generate Placeholders**. Verify all prefabs
-appear in the Project window, then delete the script.
+appear in the Project window and audio plays correctly in Play mode, then delete the script.
 
 Then, populate the scene:
 
@@ -75,8 +83,10 @@ Then, populate the scene:
 Run the generated script in Unity via **Tools → Bootstrap Scene**. Verify the scene opens,
 all objects are placed, and the game runs in Play mode before continuing.
 
-> These placeholders are intentionally minimal. Do not spend time on visuals here —
-> the goal is a playable loop you can observe and test, not a polished game.
+> These placeholders are intentionally minimal. Do not spend time on visuals or audio polish
+> here — the goal is a playable loop you can see and hear, not a polished game. The
+> procedural audio gives immediate gameplay feedback (you hear the jump, the coin, the death)
+> which makes testing far more effective than silent stubs.
 
 ---
 
