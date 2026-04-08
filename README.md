@@ -1,17 +1,35 @@
+<div align="center">
+
 # Everything Game Dev Code
 
-Initial structure inspired by `everything-claude-code`, but focused on game development and separated by engine to avoid interference between Unity, Unreal, and Godot.
+### A universal scaffold for AI-assisted game development.
+### Multi-engine. Multi-harness. One coordinated workflow.
 
-A universal scaffold for AI-assisted game development workflows across **Unity**, **Unreal Engine**, and **Godot**, with strict engine isolation and shared cross-discipline standards.
+<br>
 
-This repository is designed as a structured operating system for game projects, not just a prompt collection. It combines:
-- **rules** for policy and standards
-- **41 agents** for role specialization
-- **46 commands** for repeatable entry points
-- **80+ skills** for reusable execution patterns
-- **10 contexts** for phase-specific behavior
-- **hooks** for workflow automation
-- **harness adapters** for Claude, Codex, Cursor, OpenCode, and Kiro
+![license](https://img.shields.io/badge/license-MIT-blue)
+![agents](https://img.shields.io/badge/agents-42-blueviolet)
+![commands](https://img.shields.io/badge/commands-51-orange)
+![skills](https://img.shields.io/badge/skills-86-brightgreen)
+![rules](https://img.shields.io/badge/rules-92-yellow)
+![contexts](https://img.shields.io/badge/contexts-10-cyan)
+![harnesses](https://img.shields.io/badge/harnesses-5-red)
+![engines](https://img.shields.io/badge/engines-Unity%20%7C%20Unreal%20%7C%20Godot%20%7C%20HTML-8A2BE2)
+
+**Unity** · **Unreal Engine** · **Godot** · **HTML/JS** — strict engine isolation, shared standards.
+
+</div>
+
+---
+
+Not just a prompt collection — a structured operating system for game projects that combines:
+- **Rules** for policy and standards
+- **Agents** for role specialization
+- **Commands** for repeatable entry points
+- **Skills** for reusable execution patterns
+- **Contexts** for phase-specific behavior
+- **Hooks** for workflow automation
+- **Harness adapters** for Claude, Codex, Cursor, OpenCode, and Kiro
 
 ## Goals
 - Keep shared game-development standards engine-neutral.
