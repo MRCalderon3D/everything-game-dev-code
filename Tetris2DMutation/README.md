@@ -7,7 +7,7 @@ A Tetris-like 2D puzzle game for HTML5 with two unique mechanics: pieces can **m
 This entire game was created in a single pass using the `/full-game` command from the [everything-game-dev-code](https://github.com/mrcalderon3d/everything-game-dev-code) scaffold, with the following prompt:
 
 ```
-/full-game un juego tipo tetris en 2D para HTML donde aveces las piezas mutan en mitad de caida y tiene una opcion de cesta donde el usuario puede guardar la pieza que no quiere utilizar y para la siguiente jugada puede usar piezas de la cesta para remplazar la que esta cayendo.  metelo en la carpeta Tetris2DMutation
+/full-game a 2D Tetris-like game for HTML where sometimes the pieces mutate mid-fall and there is a basket option where the player can store a piece they don't want to use, and on the next turn they can use pieces from the basket to replace the one that is falling. Put it in the Tetris2DMutation folder
 ```
 
 No manual coding was involved. Every file — game logic, UI, audio, rendering — was generated end-to-end by the command pipeline.
@@ -19,7 +19,7 @@ cd Tetris2DMutation
 npx serve .
 ```
 
-Open `http://localhost:3000` in your browser.
+Open the URL shown in your terminal (usually `http://localhost:3000`).
 
 ## Controls
 
