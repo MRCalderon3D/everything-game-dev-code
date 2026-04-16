@@ -1,5 +1,5 @@
 import {
-    Actions, HIDDEN_ROWS, LOCK_DELAY,
+    Actions, HIDDEN_ROWS, LOCK_DELAY, CANVAS_WIDTH, CANVAS_HEIGHT,
     BASKET_SWAP_WINDOW, BOARD_X, BOARD_Y, COLS, ROWS, CELL_SIZE, COLORS,
 } from '../constants.js';
 import { Piece, PieceBag } from '../piece.js';
@@ -376,7 +376,34 @@ export class PlayState {
         }
     }
 
-    handleClick() {}
+    handleClick(x, y) {
+        if (!this.basketSelectMode) return;
+
+        // Check if click is on one of the basket overlay slots
+        const contents = this.basket.getContents();
+        const overlayW = 300;
+        const overlayH = 80 + contents.length * 80;
+        const ox = (CANVAS_WIDTH - overlayW) / 2;
+        const oy = (CANVAS_HEIGHT - overlayH) / 2;
+
+        for (let i = 0; i < contents.length; i++) {
+            const slotY = oy + 50 + i * 75;
+            if (x >= ox + 20 && x <= ox + overlayW - 20 && y >= slotY && y <= slotY + 65) {
+                const type = this.basket.retrieve(i);
+                if (type) {
+                    this.currentPiece = new Piece(type);
+                    this.fallTimer = 0;
+                    this.lockTimer = 0;
+                    this.isLocking = false;
+                    this.mutation.preparePiece(this.currentPiece, this.scoring.level);
+                    this.game.audio.playSFX('basketSwap');
+                }
+                this.basketSelectMode = false;
+                this.canSwapFromBasket = false;
+                return;
+            }
+        }
+    }
 
     exit() {
         this.game.audio.stopMusic();

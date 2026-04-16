@@ -22,6 +22,76 @@ export class InputSystem {
     attachCanvas(canvas) {
         canvas.addEventListener('click', this._onClick);
         this.canvas = canvas;
+        this._initTouchControls();
+    }
+
+    _initTouchControls() {
+        const buttons = document.querySelectorAll('.touch-btn');
+        if (!buttons.length) return;
+
+        this._touchHeldActions = new Set();
+        this._touchRepeatTimers = {};
+
+        for (const btn of buttons) {
+            const action = btn.dataset.action;
+            if (!action || !Actions[action]) continue;
+
+            btn.addEventListener('touchstart', (e) => {
+                e.preventDefault();
+                btn.classList.add('active');
+                const act = Actions[action];
+                this.justPressedSet.add(act);
+                this.pressed.add(act);
+                this._touchHeldActions.add(act);
+
+                // Start DAS for movement
+                if (act === Actions.MOVE_LEFT || act === Actions.MOVE_RIGHT) {
+                    this.dasAction = act;
+                    this.dasTimer = 0;
+                    this.dasPhase = 'initial';
+                }
+            }, { passive: false });
+
+            btn.addEventListener('touchend', (e) => {
+                e.preventDefault();
+                btn.classList.remove('active');
+                const act = Actions[action];
+                this.pressed.delete(act);
+                this._touchHeldActions.delete(act);
+
+                if (act === this.dasAction) {
+                    this.dasAction = null;
+                    this.dasPhase = 'idle';
+                    this.dasTimer = 0;
+                }
+            }, { passive: false });
+
+            btn.addEventListener('touchcancel', (e) => {
+                btn.classList.remove('active');
+                const act = Actions[action];
+                this.pressed.delete(act);
+                this._touchHeldActions.delete(act);
+
+                if (act === this.dasAction) {
+                    this.dasAction = null;
+                    this.dasPhase = 'idle';
+                    this.dasTimer = 0;
+                }
+            });
+        }
+
+        // Also handle touch on canvas for menu clicks
+        this.canvas.addEventListener('touchstart', (e) => {
+            e.preventDefault();
+            const touch = e.touches[0];
+            const rect = this.canvas.getBoundingClientRect();
+            const scaleX = this.canvas.width / rect.width;
+            const scaleY = this.canvas.height / rect.height;
+            this.mouseClick = {
+                x: (touch.clientX - rect.left) * scaleX,
+                y: (touch.clientY - rect.top) * scaleY,
+            };
+        }, { passive: false });
     }
 
     _onKeyDown(e) {

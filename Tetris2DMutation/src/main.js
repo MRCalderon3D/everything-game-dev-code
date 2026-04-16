@@ -47,15 +47,22 @@ class Game {
             },
         });
 
-        // Handle canvas clicks
-        canvas.addEventListener('click', (e) => {
+        // Handle canvas clicks (mouse + touch)
+        const handleCanvasInteraction = (clientX, clientY) => {
             const rect = canvas.getBoundingClientRect();
             const scaleX = canvas.width / rect.width;
             const scaleY = canvas.height / rect.height;
-            const x = (e.clientX - rect.left) * scaleX;
-            const y = (e.clientY - rect.top) * scaleY;
+            const x = (clientX - rect.left) * scaleX;
+            const y = (clientY - rect.top) * scaleY;
             this.fsm.handleClick(x, y);
+        };
+        canvas.addEventListener('click', (e) => {
+            handleCanvasInteraction(e.clientX, e.clientY);
         });
+        canvas.addEventListener('touchstart', (e) => {
+            const touch = e.touches[0];
+            handleCanvasInteraction(touch.clientX, touch.clientY);
+        }, { passive: true });
 
         // Start
         this.fsm.change('menu');
