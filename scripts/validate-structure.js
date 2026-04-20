@@ -65,6 +65,13 @@ for (const command of commandNames) {
   }
 }
 
+for (const command of commandNames) {
+  const codexCommandPath = `.codex/commands/${command}.md`;
+  if (!exists(codexCommandPath)) {
+    errors.push(`Missing Codex command wrapper '${codexCommandPath}'.`);
+  }
+}
+
 for (const agent of agentNames) {
   const relPath = `agents/${agent}.md`;
   const text = readText(relPath);
@@ -98,7 +105,13 @@ const adapterExpectations = [
   ".cursor/README.md",
   ".opencode/README.md",
   ".kiro/README.md",
+  ".codex/README.md",
   ".codex/AGENTS.md",
+  ".codex/commands/README.md",
+  ".codex/skills/README.md",
+  ".codex/rules/README.md",
+  ".codex/hooks/README.md",
+  ".codex/mcp/README.md",
   ".claude-plugin/plugin.json",
 ];
 

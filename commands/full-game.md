@@ -58,8 +58,14 @@ The user provides two things:
 - performance-budgeting
 - qa-test-matrix
 - release-readiness
-- Engine-specific skills based on target platform
-- For web: no engine skill needed — use standard web development practices
+- unity-project-structure
+- unity-build-release
+- unreal-project-structure
+- unreal-build-release
+- godot-project-structure
+- godot-build-release
+
+Select only the engine-specific skills that match the target platform. For web targets, use standard web development practices and do not load an engine skill.
 
 ## Execution Flow
 

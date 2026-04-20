@@ -4,7 +4,57 @@ everything-game-dev-code
 │       └── README.md
 ├── .claude
 │   ├── commands
-│   │   └── README.md
+│   │   ├── art-2d-pass.md
+│   │   ├── audio-pass.md
+│   │   ├── bug-triage.md
+│   │   ├── cert-check.md
+│   │   ├── combat-design.md
+│   │   ├── economy-balance.md
+│   │   ├── evolve.md
+│   │   ├── full-game.md
+│   │   ├── gdd.md
+│   │   ├── godot-build-fix.md
+│   │   ├── godot-review.md
+│   │   ├── godot-scene-audit.md
+│   │   ├── godot-setup.md
+│   │   ├── learn.md
+│   │   ├── level-beat.md
+│   │   ├── liveops-brief.md
+│   │   ├── memory-budget.md
+│   │   ├── milestone-plan.md
+│   │   ├── multiplayer-review.md
+│   │   ├── onboarding.md
+│   │   ├── orchestrate.md
+│   │   ├── patch-notes.md
+│   │   ├── perf-budget.md
+│   │   ├── plan.md
+│   │   ├── playtest-report.md
+│   │   ├── qa-plan.md
+│   │   ├── quest-design.md
+│   │   ├── README.md
+│   │   ├── refactor-clean.md
+│   │   ├── release-check.md
+│   │   ├── save-system-review.md
+│   │   ├── scene-bootstrap.md
+│   │   ├── skill-create-game.md
+│   │   ├── tdd.md
+│   │   ├── tech-design.md
+│   │   ├── telemetry-plan.md
+│   │   ├── tools-pass.md
+│   │   ├── ui-asset-pass.md
+│   │   ├── ui-flow-review.md
+│   │   ├── unity-build-fix.md
+│   │   ├── unity-placeholders.md
+│   │   ├── unity-review.md
+│   │   ├── unity-scene-audit.md
+│   │   ├── unity-setup.md
+│   │   ├── unreal-blueprint-audit.md
+│   │   ├── unreal-build-fix.md
+│   │   ├── unreal-review.md
+│   │   ├── unreal-setup.md
+│   │   ├── update-docs.md
+│   │   ├── verify.md
+│   │   └── vertical-slice.md
 │   ├── research
 │   │   └── README.md
 │   ├── rules
@@ -24,8 +74,69 @@ everything-game-dev-code
 ├── .codex
 │   ├── agents
 │   │   └── README.md
+│   ├── commands
+│   │   ├── art-2d-pass.md
+│   │   ├── audio-pass.md
+│   │   ├── bug-triage.md
+│   │   ├── cert-check.md
+│   │   ├── combat-design.md
+│   │   ├── economy-balance.md
+│   │   ├── evolve.md
+│   │   ├── full-game.md
+│   │   ├── gdd.md
+│   │   ├── godot-build-fix.md
+│   │   ├── godot-review.md
+│   │   ├── godot-scene-audit.md
+│   │   ├── godot-setup.md
+│   │   ├── learn.md
+│   │   ├── level-beat.md
+│   │   ├── liveops-brief.md
+│   │   ├── memory-budget.md
+│   │   ├── milestone-plan.md
+│   │   ├── multiplayer-review.md
+│   │   ├── onboarding.md
+│   │   ├── orchestrate.md
+│   │   ├── patch-notes.md
+│   │   ├── perf-budget.md
+│   │   ├── plan.md
+│   │   ├── playtest-report.md
+│   │   ├── qa-plan.md
+│   │   ├── quest-design.md
+│   │   ├── README.md
+│   │   ├── refactor-clean.md
+│   │   ├── release-check.md
+│   │   ├── save-system-review.md
+│   │   ├── scene-bootstrap.md
+│   │   ├── skill-create-game.md
+│   │   ├── tdd.md
+│   │   ├── tech-design.md
+│   │   ├── telemetry-plan.md
+│   │   ├── tools-pass.md
+│   │   ├── ui-asset-pass.md
+│   │   ├── ui-flow-review.md
+│   │   ├── unity-build-fix.md
+│   │   ├── unity-placeholders.md
+│   │   ├── unity-review.md
+│   │   ├── unity-scene-audit.md
+│   │   ├── unity-setup.md
+│   │   ├── unreal-blueprint-audit.md
+│   │   ├── unreal-build-fix.md
+│   │   ├── unreal-review.md
+│   │   ├── unreal-setup.md
+│   │   ├── update-docs.md
+│   │   ├── verify.md
+│   │   └── vertical-slice.md
+│   ├── hooks
+│   │   └── README.md
+│   ├── mcp
+│   │   └── README.md
+│   ├── rules
+│   │   └── README.md
+│   ├── skills
+│   │   └── README.md
 │   ├── AGENTS.md
-│   └── config.toml
+│   ├── config.toml
+│   └── README.md
 ├── .cursor
 │   ├── hooks
 │   │   └── README.md
@@ -77,6 +188,7 @@ everything-game-dev-code
 ├── .vscode
 │   └── settings.json
 ├── agents
+│   ├── 2d-artist.md
 │   ├── accessibility-reviewer.md
 │   ├── ai-programmer.md
 │   ├── animation-programmer.md
@@ -103,6 +215,7 @@ everything-game-dev-code
 │   ├── playtest-analyst.md
 │   ├── producer.md
 │   ├── qa-lead.md
+│   ├── README.md
 │   ├── refactor-cleaner.md
 │   ├── release-manager.md
 │   ├── security-reviewer.md
@@ -118,12 +231,14 @@ everything-game-dev-code
 │   ├── unreal-build-resolver.md
 │   └── unreal-reviewer.md
 ├── commands
+│   ├── art-2d-pass.md
 │   ├── audio-pass.md
 │   ├── bug-triage.md
 │   ├── cert-check.md
 │   ├── combat-design.md
 │   ├── economy-balance.md
 │   ├── evolve.md
+│   ├── full-game.md
 │   ├── gdd.md
 │   ├── godot-build-fix.md
 │   ├── godot-review.md
@@ -143,16 +258,20 @@ everything-game-dev-code
 │   ├── playtest-report.md
 │   ├── qa-plan.md
 │   ├── quest-design.md
+│   ├── README.md
 │   ├── refactor-clean.md
 │   ├── release-check.md
 │   ├── save-system-review.md
+│   ├── scene-bootstrap.md
 │   ├── skill-create-game.md
 │   ├── tdd.md
 │   ├── tech-design.md
 │   ├── telemetry-plan.md
 │   ├── tools-pass.md
+│   ├── ui-asset-pass.md
 │   ├── ui-flow-review.md
 │   ├── unity-build-fix.md
+│   ├── unity-placeholders.md
 │   ├── unity-review.md
 │   ├── unity-scene-audit.md
 │   ├── unity-setup.md
@@ -179,6 +298,7 @@ everything-game-dev-code
 │   │   ├── agent-skill-matrix.md
 │   │   ├── command-agent-map.md
 │   │   ├── engine-isolation.md
+│   │   ├── README.md
 │   │   ├── role-handoffs.md
 │   │   └── workflow-sequences.md
 │   ├── templates
@@ -188,6 +308,7 @@ everything-game-dev-code
 │   │   ├── milestone-plan.md
 │   │   ├── playtest-report.md
 │   │   ├── qa-test-plan.md
+│   │   ├── README.md
 │   │   ├── release-checklist.md
 │   │   ├── technical-design-document.md
 │   │   ├── telemetry-plan.md
@@ -210,11 +331,27 @@ everything-game-dev-code
 │   │   │   └── vertical-slice-plan.md
 │   │   ├── install-profile.example.json
 │   │   └── README.md
-│   └── unreal-fps
-│       ├── docs
-│       │   ├── release-checklist.md
-│       │   └── technical-design-snapshot.md
-│       ├── install-profile.example.json
+│   ├── unreal-fps
+│   │   ├── docs
+│   │   │   ├── release-checklist.md
+│   │   │   └── technical-design-snapshot.md
+│   │   ├── install-profile.example.json
+│   │   └── README.md
+│   └── README.md
+├── guides
+│   └── Dash & Collect
+│       ├── chapter-00-scaffold-onboarding.md
+│       ├── chapter-01-ideation.md
+│       ├── chapter-02-preproduction.md
+│       ├── chapter-03-core-systems.md
+│       ├── chapter-04-supporting-systems.md
+│       ├── chapter-05-2d-art.md
+│       ├── chapter-06-ui-art.md
+│       ├── chapter-07-review.md
+│       ├── chapter-08-performance.md
+│       ├── chapter-09-qa.md
+│       ├── chapter-10-release.md
+│       ├── chapter-11-liveops.md
 │       └── README.md
 ├── hooks
 │   ├── hooks.json
@@ -222,7 +359,8 @@ everything-game-dev-code
 ├── manifests
 │   ├── install-components.json
 │   ├── install-modules.json
-│   └── install-profiles.json
+│   ├── install-profiles.json
+│   └── README.md
 ├── mcp-configs
 │   └── mcp-servers.json
 ├── plugins
@@ -231,6 +369,7 @@ everything-game-dev-code
 │   ├── plan
 │   │   └── fix-audit-errors.md
 │   ├── audit-report.md
+│   ├── codex-adapter-audit-2026-04-20.md
 │   ├── how-to-evolve-this-repository.md
 │   └── template-development-analysis-2026-03-28.md
 ├── rules
@@ -334,6 +473,70 @@ everything-game-dev-code
 │   │   ├── uobject-architecture.md
 │   │   └── version-control.md
 │   └── README.md
+├── samples
+│   ├── PirateInvaders
+│   │   ├── dist
+│   │   │   ├── assets
+│   │   │   │   └── index-DT9L-HqE.js
+│   │   │   └── index.html
+│   │   ├── src
+│   │   │   ├── entities
+│   │   │   │   ├── Bullet.js
+│   │   │   │   ├── Enemy.js
+│   │   │   │   ├── Player.js
+│   │   │   │   └── PowerUp.js
+│   │   │   ├── scenes
+│   │   │   │   ├── BootScene.js
+│   │   │   │   ├── GameOverScene.js
+│   │   │   │   ├── GameScene.js
+│   │   │   │   ├── MenuScene.js
+│   │   │   │   └── PauseScene.js
+│   │   │   ├── systems
+│   │   │   │   ├── AudioManager.js
+│   │   │   │   ├── LeaderboardClient.js
+│   │   │   │   ├── SaveManager.js
+│   │   │   │   ├── ScoreManager.js
+│   │   │   │   └── WaveManager.js
+│   │   │   ├── utils
+│   │   │   │   ├── AssetGenerator.js
+│   │   │   │   └── TouchInput.js
+│   │   │   ├── config.js
+│   │   │   └── main.js
+│   │   ├── .gitignore
+│   │   ├── GDD.md
+│   │   ├── index.html
+│   │   ├── package-lock.json
+│   │   ├── package.json
+│   │   ├── TDD.md
+│   │   └── vite.config.js
+│   ├── Tetris2DMutation
+│   │   ├── src
+│   │   │   ├── states
+│   │   │   │   ├── gameover-state.js
+│   │   │   │   ├── highscores-state.js
+│   │   │   │   ├── menu-state.js
+│   │   │   │   ├── pause-state.js
+│   │   │   │   ├── play-state.js
+│   │   │   │   ├── settings-state.js
+│   │   │   │   └── state-machine.js
+│   │   │   ├── audio.js
+│   │   │   ├── basket.js
+│   │   │   ├── board.js
+│   │   │   ├── constants.js
+│   │   │   ├── input.js
+│   │   │   ├── main.js
+│   │   │   ├── mutation.js
+│   │   │   ├── particles.js
+│   │   │   ├── piece.js
+│   │   │   ├── renderer.js
+│   │   │   ├── score.js
+│   │   │   └── storage.js
+│   │   ├── .gitignore
+│   │   ├── GDD.md
+│   │   ├── index.html
+│   │   ├── README.md
+│   │   └── TDD.md
+│   └── README.md
 ├── schemas
 │   ├── hooks.schema.json
 │   ├── install-components.schema.json
@@ -342,6 +545,7 @@ everything-game-dev-code
 │   ├── install-state.schema.json
 │   ├── package-manager.schema.json
 │   ├── plugin.schema.json
+│   ├── README.md
 │   └── role-matrix.schema.json
 ├── scripts
 │   ├── hooks
@@ -362,6 +566,7 @@ everything-game-dev-code
 │   │   └── validation.js
 │   ├── install-profile.js
 │   ├── lint-markdown.js
+│   ├── README.md
 │   ├── setup-git-hooks.js
 │   ├── setup-profile.js
 │   ├── sync-structure-artifacts.js
@@ -372,6 +577,8 @@ everything-game-dev-code
 │   └── validate-structure.js
 ├── skills
 │   ├── art-audio-content
+│   │   ├── 2d-animation-pipeline
+│   │   │   └── SKILL.md
 │   │   ├── art-bible
 │   │   │   └── SKILL.md
 │   │   ├── audio-implementation
@@ -382,7 +589,17 @@ everything-game-dev-code
 │   │   │   └── SKILL.md
 │   │   ├── localization-pipeline
 │   │   │   └── SKILL.md
+│   │   ├── placeholder-asset-pipeline
+│   │   │   └── SKILL.md
+│   │   ├── sprite-pipeline
+│   │   │   └── SKILL.md
 │   │   ├── technical-art-pipeline
+│   │   │   └── SKILL.md
+│   │   ├── tilemap-pipeline
+│   │   │   └── SKILL.md
+│   │   ├── ui-animation-pipeline
+│   │   │   └── SKILL.md
+│   │   ├── ui-asset-pipeline
 │   │   │   └── SKILL.md
 │   │   ├── vfx-pipeline
 │   │   │   └── SKILL.md
@@ -525,28 +742,29 @@ everything-game-dev-code
 │   │   ├── unreal-testing
 │   │   │   └── SKILL.md
 │   │   └── README.md
-│   └── workflow
-│       ├── continuous-learning
-│       │   └── SKILL.md
-│       ├── gdd-writing
-│       │   └── SKILL.md
-│       ├── milestone-planning
-│       │   └── SKILL.md
-│       ├── orchestration-patterns
-│       │   └── SKILL.md
-│       ├── playtest-analysis
-│       │   └── SKILL.md
-│       ├── risk-register
-│       │   └── SKILL.md
-│       ├── tdd-workflow
-│       │   └── SKILL.md
-│       ├── technical-design-document
-│       │   └── SKILL.md
-│       ├── verification-loop
-│       │   └── SKILL.md
-│       ├── vertical-slice-planning
-│       │   └── SKILL.md
-│       └── README.md
+│   ├── workflow
+│   │   ├── continuous-learning
+│   │   │   └── SKILL.md
+│   │   ├── gdd-writing
+│   │   │   └── SKILL.md
+│   │   ├── milestone-planning
+│   │   │   └── SKILL.md
+│   │   ├── orchestration-patterns
+│   │   │   └── SKILL.md
+│   │   ├── playtest-analysis
+│   │   │   └── SKILL.md
+│   │   ├── risk-register
+│   │   │   └── SKILL.md
+│   │   ├── tdd-workflow
+│   │   │   └── SKILL.md
+│   │   ├── technical-design-document
+│   │   │   └── SKILL.md
+│   │   ├── verification-loop
+│   │   │   └── SKILL.md
+│   │   ├── vertical-slice-planning
+│   │   │   └── SKILL.md
+│   │   └── README.md
+│   └── README.md
 ├── tests
 │   ├── ci
 │   │   └── readme.test.js
@@ -561,6 +779,7 @@ everything-game-dev-code
 │   │   └── manifests-schema.test.js
 │   ├── scripts
 │   │   └── setup-profile.test.js
+│   ├── README.md
 │   └── run-all.js
 ├── .env.example
 ├── .gitignore

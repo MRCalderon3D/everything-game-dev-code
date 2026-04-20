@@ -46,7 +46,17 @@ Engine execution belongs in engine-specific layers.
 - `docs/templates/` define deliverable structure
 - `docs/orchestration/` define routing and sequencing
 
-### 4. Prefer explicit ownership
+### 4. Treat commands as portable workflow contracts
+When a user invokes a slash-style command such as `/plan`, `/gdd`, or `/unity-review`, agents should:
+
+- resolve the command to `commands/<name>.md`
+- read the command before acting
+- follow its declared agents, skills, expected output, and notes
+- use adapter-specific command wrappers only as routing hints
+
+Harnesses that do not provide native slash-command execution should still treat these command names as workflow entry points.
+
+### 5. Prefer explicit ownership
 Every substantial task should identify:
 
 - owning agent or role
@@ -55,7 +65,7 @@ Every substantial task should identify:
 - quality bar
 - validation path
 
-### 5. Keep documents alive
+### 6. Keep documents alive
 Agents must update or recommend updating the relevant documents when:
 
 - design intent changes

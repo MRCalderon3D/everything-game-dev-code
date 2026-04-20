@@ -116,6 +116,21 @@ Primary skills:
 - design/liveops-design
 - engineering-common/telemetry-instrumentation
 
+### 2d-artist
+Primary skills:
+- art-audio-content/sprite-pipeline
+- art-audio-content/tilemap-pipeline
+- art-audio-content/2d-animation-pipeline
+- art-audio-content/ui-asset-pipeline
+- art-audio-content/ui-animation-pipeline
+- art-audio-content/placeholder-asset-pipeline
+- art-audio-content/art-bible
+
+Secondary skills:
+- engineering-common/asset-management
+- engineering-common/performance-budgeting
+- design/accessibility-design
+
 ### technical-artist
 Primary skills:
 - art-audio-content/technical-art-pipeline

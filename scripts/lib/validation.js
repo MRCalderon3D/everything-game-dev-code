@@ -19,7 +19,7 @@ function exists(relPath) {
 function listMarkdownBasenames(relDir) {
   return fs
     .readdirSync(path.join(repoRoot, relDir))
-    .filter((name) => name.endsWith(".md"))
+    .filter((name) => name.endsWith(".md") && name !== "README.md")
     .map((name) => path.basename(name, ".md"))
     .sort();
 }
@@ -51,7 +51,9 @@ function listSkillNames() {
 
 function extractHeadingBullets(text, heading) {
   const escaped = heading.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-  const match = text.match(new RegExp(`## ${escaped}\\n([\\s\\S]*?)(\\n## |$)`));
+  const match = text.match(
+    new RegExp(`## ${escaped}\\r?\\n([\\s\\S]*?)(\\r?\\n## |$)`)
+  );
   if (!match) {
     return null;
   }
