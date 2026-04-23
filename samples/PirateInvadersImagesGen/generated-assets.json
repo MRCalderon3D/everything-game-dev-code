@@ -1,0 +1,167 @@
+{
+  "version": 1,
+  "description": "Accepted raster assets generated for PirateInvadersImagesGen.",
+  "assets": [
+    {
+      "id": "player",
+      "path": "public/assets/images/player.png",
+      "kind": "sprite",
+      "background_policy": "transparent",
+      "corner_alpha_policy": "all-zero",
+      "integration": {
+        "display_size": { "width": 52, "height": 52 },
+        "physics_role": "collidable",
+        "body_size": { "width": 36, "height": 26 }
+      }
+    },
+    {
+      "id": "sloop",
+      "path": "public/assets/images/sloop.png",
+      "kind": "sprite",
+      "background_policy": "transparent",
+      "corner_alpha_policy": "all-zero",
+      "integration": {
+        "display_size": { "width": 48, "height": 48 },
+        "physics_role": "collidable",
+        "body_size": { "width": 36, "height": 28 }
+      }
+    },
+    {
+      "id": "brigantine",
+      "path": "public/assets/images/brigantine.png",
+      "kind": "sprite",
+      "background_policy": "transparent",
+      "corner_alpha_policy": "all-zero",
+      "integration": {
+        "display_size": { "width": 50, "height": 50 },
+        "physics_role": "collidable",
+        "body_size": { "width": 36, "height": 28 }
+      }
+    },
+    {
+      "id": "galleon",
+      "path": "public/assets/images/galleon.png",
+      "kind": "sprite",
+      "background_policy": "transparent",
+      "corner_alpha_policy": "all-zero",
+      "integration": {
+        "display_size": { "width": 54, "height": 54 },
+        "physics_role": "collidable",
+        "body_size": { "width": 36, "height": 28 }
+      }
+    },
+    {
+      "id": "playerBullet",
+      "path": "public/assets/images/player-bullet.png",
+      "kind": "projectile",
+      "background_policy": "transparent",
+      "corner_alpha_policy": "all-zero",
+      "integration": {
+        "display_size": { "width": 12, "height": 12 },
+        "physics_role": "projectile",
+        "body_size": { "width": 6, "height": 10 }
+      }
+    },
+    {
+      "id": "enemyBullet",
+      "path": "public/assets/images/enemy-bullet.png",
+      "kind": "projectile",
+      "background_policy": "transparent",
+      "corner_alpha_policy": "all-zero",
+      "integration": {
+        "display_size": { "width": 14, "height": 14 },
+        "physics_role": "projectile",
+        "body_size": { "width": 6, "height": 10 }
+      }
+    },
+    {
+      "id": "powerup",
+      "path": "public/assets/images/powerup.png",
+      "kind": "pickup",
+      "background_policy": "transparent",
+      "corner_alpha_policy": "all-zero",
+      "integration": {
+        "display_size": { "width": 28, "height": 28 },
+        "physics_role": "pickup",
+        "body_size": { "width": 20, "height": 20 }
+      }
+    },
+    {
+      "id": "lifeIcon",
+      "path": "public/assets/images/life-icon.png",
+      "kind": "ui-icon",
+      "background_policy": "transparent",
+      "corner_alpha_policy": "all-zero",
+      "integration": {
+        "display_size": { "width": 22, "height": 18 },
+        "physics_role": "decorative"
+      }
+    },
+    {
+      "id": "button",
+      "path": "public/assets/images/button.png",
+      "kind": "ui-skin",
+      "background_policy": "transparent",
+      "corner_alpha_policy": "all-zero",
+      "integration": {
+        "display_size": { "width": 220, "height": 60 },
+        "physics_role": "decorative"
+      }
+    },
+    {
+      "id": "buttonHover",
+      "path": "public/assets/images/button-hover.png",
+      "kind": "ui-skin",
+      "background_policy": "transparent",
+      "corner_alpha_policy": "all-zero",
+      "integration": {
+        "display_size": { "width": 220, "height": 60 },
+        "physics_role": "decorative"
+      }
+    },
+    {
+      "id": "uiBarFrame",
+      "path": "public/assets/images/ui-bar-frame.png",
+      "kind": "ui-skin",
+      "background_policy": "transparent",
+      "corner_alpha_policy": "all-zero",
+      "integration": {
+        "display_size": { "width": 184, "height": 22 },
+        "physics_role": "decorative"
+      }
+    },
+    {
+      "id": "uiBarFill",
+      "path": "public/assets/images/ui-bar-fill.png",
+      "kind": "ui-skin",
+      "background_policy": "transparent",
+      "corner_alpha_policy": "all-zero",
+      "integration": {
+        "display_size": { "width": 160, "height": 10 },
+        "physics_role": "decorative"
+      }
+    },
+    {
+      "id": "menuBackground",
+      "path": "public/assets/images/menu-background.png",
+      "kind": "background",
+      "background_policy": "full-bleed",
+      "corner_alpha_policy": "ignore",
+      "integration": {
+        "display_size": { "width": 800, "height": 600 },
+        "physics_role": "decorative"
+      }
+    },
+    {
+      "id": "battleBackground",
+      "path": "public/assets/images/battle-background.png",
+      "kind": "background",
+      "background_policy": "full-bleed",
+      "corner_alpha_policy": "ignore",
+      "integration": {
+        "display_size": { "width": 800, "height": 600 },
+        "physics_role": "decorative"
+      }
+    }
+  ]
+}

@@ -26,6 +26,7 @@ Owns 2D art pipeline quality — sprites, tilemaps, 2D animations, UI visual ass
 - ui-asset-pipeline
 - ui-animation-pipeline
 - placeholder-asset-pipeline
+- generated-raster-asset-pipeline
 - art-bible
 
 ## Collaborates With

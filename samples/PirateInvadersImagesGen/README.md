@@ -21,6 +21,7 @@ the sample workspace.
 5. Preload those assets in `BootScene`.
 6. Preserve the original texture keys (`player`, `sloop`, `button`, etc.) so the rest of the game logic stays stable.
 7. Apply fixed display sizes in code so gameplay does not depend on the generated image dimensions.
+8. Track the accepted assets in `generated-assets.json` and validate them with `node ../../scripts/validate-generated-assets.js`.
 
 ## Included generated assets
 
@@ -57,5 +58,6 @@ npm run build
 ## Notes
 
 - `src/utils/GeneratedAssetConfig.js` is the small integration layer for image-based assets.
+- `generated-assets.json` is the acceptance contract for transparency, display size, and body size.
 - `src/utils/AssetGenerator.js` remains from the original sample as historical context, but this variant does not use it at runtime.
 - This is intentionally a sample-sized workflow: it demonstrates how `$imagegen` integrates into the scaffold without introducing engine-specific editor tooling.

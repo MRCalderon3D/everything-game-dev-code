@@ -29,6 +29,12 @@
 - Prompt keywords that should appear:
 - Prompt keywords to avoid:
 - Background / composition defaults:
+- Background policy by asset family (`transparent`, `opaque`, `full-bleed`):
+- Nominal source canvas expectations:
+- Intended runtime display size by asset family:
+- Physics or interaction envelope size by asset family:
+- Anchor / pivot policy:
+- Trim / crop policy:
 
 ## 5. World and Environment Rules
 - Environment scale:

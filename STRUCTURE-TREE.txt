@@ -305,6 +305,7 @@ everything-game-dev-code
 │   │   ├── art-bible.md
 │   │   ├── audio-bible.md
 │   │   ├── game-design-document.md
+│   │   ├── generated-raster-asset-manifest.md
 │   │   ├── milestone-plan.md
 │   │   ├── playtest-report.md
 │   │   ├── qa-test-plan.md
@@ -510,25 +511,6 @@ everything-game-dev-code
 │   │   ├── TDD.md
 │   │   └── vite.config.js
 │   ├── PirateInvadersImagesGen
-│   │   ├── dist
-│   │   │   ├── assets
-│   │   │   │   ├── images
-│   │   │   │   │   ├── battle-background.png
-│   │   │   │   │   ├── brigantine.png
-│   │   │   │   │   ├── button-hover.png
-│   │   │   │   │   ├── button.png
-│   │   │   │   │   ├── enemy-bullet.png
-│   │   │   │   │   ├── galleon.png
-│   │   │   │   │   ├── life-icon.png
-│   │   │   │   │   ├── menu-background.png
-│   │   │   │   │   ├── player-bullet.png
-│   │   │   │   │   ├── player.png
-│   │   │   │   │   ├── powerup.png
-│   │   │   │   │   ├── sloop.png
-│   │   │   │   │   ├── ui-bar-fill.png
-│   │   │   │   │   └── ui-bar-frame.png
-│   │   │   │   └── index-pA9_Ee8-.js
-│   │   │   └── index.html
 │   │   ├── public
 │   │   │   └── assets
 │   │   │       └── images
@@ -570,13 +552,19 @@ everything-game-dev-code
 │   │   │   │   └── TouchInput.js
 │   │   │   ├── config.js
 │   │   │   └── main.js
+│   │   ├── tools
+│   │   │   └── clean_generated_assets.py
+│   │   ├── .gitignore
 │   │   ├── GDD.md
+│   │   ├── generated-assets.json
 │   │   ├── index.html
 │   │   ├── package-lock.json
 │   │   ├── package.json
 │   │   ├── README.md
 │   │   ├── TDD.md
-│   │   └── vite.config.js
+│   │   ├── vite.config.js
+│   │   ├── vite.stderr.log
+│   │   └── vite.stdout.log
 │   ├── Tetris2DMutation
 │   │   ├── src
 │   │   │   ├── states
@@ -638,6 +626,7 @@ everything-game-dev-code
 │   ├── setup-git-hooks.js
 │   ├── setup-profile.js
 │   ├── sync-structure-artifacts.js
+│   ├── validate-generated-assets.js
 │   ├── validate-hooks.js
 │   ├── validate-manifests.js
 │   ├── validate-references.js
@@ -654,6 +643,8 @@ everything-game-dev-code
 │   │   ├── cinematic-pipeline
 │   │   │   └── SKILL.md
 │   │   ├── dialogue-content-pipeline
+│   │   │   └── SKILL.md
+│   │   ├── generated-raster-asset-pipeline
 │   │   │   └── SKILL.md
 │   │   ├── localization-pipeline
 │   │   │   └── SKILL.md

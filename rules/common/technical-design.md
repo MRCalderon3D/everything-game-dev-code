@@ -27,6 +27,7 @@ Applies to gameplay systems, tools, pipelines, services integrations, save syste
 - Interfaces should model domain intent, not implementation leakage.
 - Event contracts, schemas, and save formats must be version-aware where change risk exists.
 - Shared systems need clear lifecycle and ownership rules.
+- Runtime integrations that consume generated raster assets must declare how source pixels map to display size, anchor/pivot, and physics envelope.
 
 ## Data Rules
 - State ownership must be explicit.

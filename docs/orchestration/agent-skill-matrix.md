@@ -124,6 +124,7 @@ Primary skills:
 - art-audio-content/ui-asset-pipeline
 - art-audio-content/ui-animation-pipeline
 - art-audio-content/placeholder-asset-pipeline
+- art-audio-content/generated-raster-asset-pipeline
 - art-audio-content/art-bible
 
 Secondary skills:

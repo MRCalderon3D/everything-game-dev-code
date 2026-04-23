@@ -32,6 +32,7 @@ node scripts/install-profile.js --profile unity-production
 | `validate-manifests.js` | Validate all three manifest files against their JSON schemas |
 | `validate-hooks.js` | Validate `hooks/hooks.json` against `schemas/hooks.schema.json` |
 | `validate-references.js` | Cross-reference validation across agents, commands, skills, and docs |
+| `validate-generated-assets.js` | Validate accepted generated raster assets against their `generated-assets.json` manifests and PNG transparency rules |
 | `validate-structure-artifacts.js` | Check generated artifact consistency between structure documents and actual file lists |
 | `lint-markdown.js` | Lint all Markdown files for formatting and broken internal links |
 

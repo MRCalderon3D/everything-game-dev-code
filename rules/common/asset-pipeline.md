@@ -28,6 +28,9 @@ These rules are engine-neutral. Engine-specific importer settings and folder con
 - Runtime cost must be evaluated for textures, audio, meshes, animation, VFX, and fonts.
 - Compression choices must balance quality, platform limits, memory budgets, and iteration cost.
 - Assets with gameplay impact must be validated in representative gameplay contexts, not only isolated previews.
+- Generated raster assets must declare background policy, intended runtime display size, and gameplay body envelope before acceptance.
+- Transparent generated assets must be checked for real alpha; baked checkerboard or mock-transparency backgrounds are invalid runtime content.
+- Source image dimensions must not be treated as gameplay size by default; display size and collision size are separate integration contracts.
 
 ## Performance Rules
 - Every asset class must have platform-aware memory and runtime budgets.

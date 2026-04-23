@@ -60,3 +60,4 @@ Define import, slicing, atlas packing, and naming rules for 2D sprite assets so 
 ## Notes
 - Keep this skill aligned with the relevant rules layer and current project documentation.
 - If engine-specific constraints materially change the workflow, hand off to the matching engine skill or engine-specific reviewer.
+- If sprite assets are generated with an image model, pair this skill with `generated-raster-asset-pipeline` so transparency, crop cleanliness, display size, and body-size expectations are validated before acceptance.

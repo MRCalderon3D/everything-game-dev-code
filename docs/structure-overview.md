@@ -5,7 +5,7 @@ Generated from the current repository structure. Update with `npm run sync:struc
 ## Current Count
 - Agents: 42
 - Commands: 51
-- Skills: 86
+- Skills: 87
 - Rule files: 93
 
 ## Supported Engines
@@ -27,6 +27,7 @@ Generated from the current repository structure. Update with `npm run sync:struc
 - Art Bible
 - Audio Bible
 - Game Design Document
+- Generated Raster Asset Manifest
 - Milestone Plan
 - Playtest Report
 - Qa Test Plan

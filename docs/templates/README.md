@@ -17,6 +17,7 @@ Templates enforce completeness by making the required sections explicit. They do
 | `game-design-document.md` | Define the game's concept, core experience, systems, and content scope | `gdd-designer` |
 | `technical-design-document.md` | Define the architecture, data design, integration points, and performance contract for a system | `technical-design-lead` |
 | `art-bible.md` | Define the visual direction that artists, technical art, and marketing execute against | `technical-artist` |
+| `generated-raster-asset-manifest.md` | Define the acceptance and runtime integration contract for generated raster assets | `2d-artist` + `technical-artist` |
 | `audio-bible.md` | Define the audio direction, sound palette, and mixing philosophy | `audio-designer` |
 
 ### Planning documents

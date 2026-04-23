@@ -67,3 +67,4 @@ Define import, 9-slice configuration, atlas packing, theming, and naming rules f
 - Keep this skill aligned with the relevant rules layer and current project documentation.
 - If engine-specific constraints materially change the workflow, hand off to the matching engine skill or engine-specific reviewer.
 - UI assets can be generated programmatically via Editor scripts (Texture2D.SetPixel, SetPixels32) — this skill's conventions apply equally to hand-drawn and code-generated assets.
+- If UI skins or icons are generated with an image model, pair this skill with `generated-raster-asset-pipeline` so transparency, crop cleanliness, 9-slice readiness, and declared display-size expectations are validated before acceptance.

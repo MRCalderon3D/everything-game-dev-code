@@ -22,6 +22,7 @@ Review the project's UI visual assets — buttons, panels, icons, bars, fonts, a
 - ui-asset-pipeline
 - ui-animation-pipeline
 - placeholder-asset-pipeline
+- generated-raster-asset-pipeline
 - accessibility-design
 
 ## Expected Output
@@ -29,8 +30,10 @@ Review the project's UI visual assets — buttons, panels, icons, bars, fonts, a
   - UI asset naming, resolution, and import compliance
   - 9-slice border correctness for all scalable elements
   - UI atlas packing size and efficiency
+  - transparency readiness, crop cleanliness, and generated-raster acceptance checks where applicable
   - theme consistency (palette, fonts, spacing) across all screens
   - animation timing, easing, and reduced-motion fallback coverage
+  - declared display-size expectations for generated UI skins and icons
   - placeholder-to-final replacement readiness
 - Clear pass/fail per category with actionable fix recommendations.
 - Escalation notes for issues that affect accessibility or performance.

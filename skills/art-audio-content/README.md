@@ -11,6 +11,7 @@ Content pipeline skills for art direction, technical art, VFX, audio, localizati
 - `dialogue-content-pipeline`: Manage dialogue and text content so it remains editable, implementable, localizable, and testable.
 - `cinematic-pipeline`: Plan and implement cinematic content without breaking gameplay flow, performance, or content maintainability.
 - `sprite-pipeline`: Define import, slicing, atlas packing, and naming rules for 2D sprite assets.
+- `generated-raster-asset-pipeline`: Define acceptance, validation, and runtime integration rules for raster assets generated with image models.
 - `tilemap-pipeline`: Define tileset creation, auto-tile rules, collision shapes, and tilemap configuration for 2D levels.
 - `2d-animation-pipeline`: Define authoring, import, and state machine rules for frame-by-frame and skeletal 2D animations.
 - `placeholder-asset-pipeline`: Define creation, naming, and replacement rules for placeholder assets so the game is testable before final art exists.

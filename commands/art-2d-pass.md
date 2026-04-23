@@ -22,6 +22,7 @@ Review the project's 2D art assets — sprites, tilemaps, animations, and placeh
 - tilemap-pipeline
 - 2d-animation-pipeline
 - placeholder-asset-pipeline
+- generated-raster-asset-pipeline
 - art-bible
 
 ## Expected Output
@@ -29,6 +30,8 @@ Review the project's 2D art assets — sprites, tilemaps, animations, and placeh
   - sprite naming, resolution, and atlas compliance
   - tileset completeness and auto-tile rule correctness
   - animation frame rate, state machine, and memory validation
+  - transparency readiness, crop cleanliness, and generated-raster acceptance checks where applicable
+  - declared display-size vs body-size agreement for gameplay-relevant raster assets
   - placeholder-to-final replacement readiness
 - Clear pass/fail per category with actionable fix recommendations.
 - Escalation notes for issues that affect performance budgets or gameplay.

@@ -62,3 +62,4 @@ Define creation, naming, and replacement rules for placeholder assets so the gam
 - If engine-specific constraints materially change the workflow, hand off to the matching engine skill or engine-specific reviewer.
 - This skill is engine-neutral. Engine-specific placeholder commands (e.g. `/unity-placeholders`) implement the concrete generation step using this skill's standards.
 - Audio placeholders should be procedurally generated (sine waves, square waves, noise, pitch sweeps) — not silent stubs. A placeholder sound that represents the intended audio event (e.g. a rising tone for a coin collect, a short burst for a jump) makes gameplay testing far more effective than silence.
+- If placeholders are later replaced with generated raster art, hand off to `generated-raster-asset-pipeline` before acceptance so transparency and runtime-size issues are caught during the swap.
