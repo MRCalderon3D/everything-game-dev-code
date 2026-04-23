@@ -239,11 +239,13 @@ export default class GameScene extends Phaser.Scene {
       }
 
       // Destroy effect
+      const popScaleX = enemy.scaleX * 1.18;
+      const popScaleY = enemy.scaleY * 1.18;
       this.tweens.add({
         targets: enemy,
         alpha: 0,
-        scaleX: 1.5,
-        scaleY: 1.5,
+        scaleX: popScaleX,
+        scaleY: popScaleY,
         duration: 150,
         onComplete: () => {
           enemy.setActive(false);

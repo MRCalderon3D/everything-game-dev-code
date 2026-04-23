@@ -65,15 +65,25 @@ export default class PauseScene extends Phaser.Scene {
   createButton(x, y, label, callback) {
     const bg = this.add.image(x, y, 'button').setInteractive({ useHandCursor: true });
     applyDisplaySize(bg, 'button');
-    this.add.text(x, y, label, {
+    const labelText = this.add.text(x, y, label, {
       fontSize: '20px',
       color: '#ffd700',
       fontFamily: 'monospace',
       fontStyle: 'bold',
     }).setOrigin(0.5);
+    const baseScaleX = bg.scaleX;
+    const baseScaleY = bg.scaleY;
 
-    bg.on('pointerover', () => bg.setTexture('buttonHover'));
-    bg.on('pointerout', () => bg.setTexture('button'));
+    bg.on('pointerover', () => {
+      bg.setScale(baseScaleX * 1.03, baseScaleY * 1.03);
+      bg.setTint(0xfff2c4);
+      labelText.setColor('#fff2a8');
+    });
+    bg.on('pointerout', () => {
+      bg.setScale(baseScaleX, baseScaleY);
+      bg.clearTint();
+      labelText.setColor('#ffd700');
+    });
     bg.on('pointerdown', callback);
   }
 

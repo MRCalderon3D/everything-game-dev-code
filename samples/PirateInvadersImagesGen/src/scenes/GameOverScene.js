@@ -192,9 +192,19 @@ export default class GameOverScene extends Phaser.Scene {
       fontFamily: 'monospace',
       fontStyle: 'bold',
     }).setOrigin(0.5);
+    const baseScaleX = bg.scaleX;
+    const baseScaleY = bg.scaleY;
 
-    bg.on('pointerover', () => bg.setTexture('buttonHover'));
-    bg.on('pointerout', () => bg.setTexture('button'));
+    bg.on('pointerover', () => {
+      bg.setScale(baseScaleX * 1.03, baseScaleY * 1.03);
+      bg.setTint(0xfff2c4);
+      text.setColor('#fff2a8');
+    });
+    bg.on('pointerout', () => {
+      bg.setScale(baseScaleX, baseScaleY);
+      bg.clearTint();
+      text.setColor('#ffd700');
+    });
     bg.on('pointerdown', callback);
 
     return { bg, label: text };
