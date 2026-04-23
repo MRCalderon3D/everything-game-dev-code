@@ -7,6 +7,8 @@
 > **Start a new Claude Code session for this chapter.**
 > Although this chapter shares the production context with Chapters 3–5, a fresh session
 > keeps the UI art work isolated from gameplay art and systems implementation.
+>
+> **Codex note:** the same chapter works in Codex. Replace "Claude" with "Codex" in the prompts below. When you want raster UI source art, HUD mockups, icon sheets, or menu background exploration, use `$imagegen` and then move the accepted output into the project workspace using the UI asset pipeline naming and folder rules.
 
 ---
 
@@ -106,6 +108,28 @@ Border radius: 4px (buttons), 8px (panels), 0px (pixel-art icons).
 
 ---
 
+## Codex Option: Generate UI Mockups or Source PNGs with `$imagegen`
+
+If you are using Codex and want UI source art rather than only pixel-by-pixel Editor-script output,
+use `$imagegen` after the UI Style Guide exists. This is especially useful for menu backgrounds,
+HUD mockups, button/panel skin exploration, or icon source sheets that will later be imported and
+validated by the normal UI pipeline.
+
+Example Codex prompt:
+
+```
+$imagegen Create a UI concept sheet for "Dash & Collect" using the UI Style Guide in design/ART-BIBLE.md.
+- Include: menu background sample, dialog panel, HUD panel, play button states, retry button states, coin icon, pause icon
+- Style: pixel-consistent UI, high contrast, same palette family as gameplay art
+- Layout: clean concept sheet with each element isolated and readable
+- No branding text, no watermark
+```
+
+After approving a result, import the selected assets into `Assets/_Project/Art/UI/[Category]/`
+with the same names the UI asset pipeline expects.
+
+---
+
 ## Step 2: Define the UI asset pipeline
 
 Ask Claude to establish the UI asset conventions:
@@ -170,6 +194,18 @@ Using skills/art-audio-content/ui-asset-pipeline/SKILL.md and the UI Style Guide
 7. Save all assets to Assets/_Project/Art/UI/[Category]/
 
 Place the script at Assets/_Project/Editor/UIAssetGenerator.cs with a menu item at Tools -> Generate UI Assets.
+```
+
+Codex alternative for source PNGs:
+
+```
+$imagegen Create final UI source assets for "Dash & Collect".
+Use case: ui-mockup
+Asset type: Unity UI sprites imported as PNG
+Primary request: generate button states, 9-slice-ready panels, HUD icons, progress bar parts, and menu backgrounds
+Style/medium: crisp pixel UI, readable at 320x180 base resolution, high-contrast palette from the UI Style Guide
+Composition/framing: isolated assets on transparent backgrounds except for menu and overlay backgrounds
+Constraints: keep naming and replacement compatibility with the UI asset pipeline; no text baked into reusable components; no watermark
 ```
 
 Run the script in Unity via **Tools -> Generate UI Assets**. Verify:
@@ -332,6 +368,8 @@ Do not proceed to Chapter 7 until all M6 criteria are met.
 - Claude generates all UI visual assets via Unity Editor scripts (`Texture2D.SetPixel`) —
   no external design tools needed. The same drop-in replacement path works if you later
   replace generated assets with hand-designed assets
+- In Codex, `$imagegen` can be used for mockups or final raster source sheets before the
+  normal import, 9-slice, and validation steps
 - `/ui-asset-pass` and `/ui-flow-review` are complementary reviews: one checks visual
   quality, the other checks UX logic — running both ensures the full UI is validated
 - `skills/art-audio-content/ui-animation-pipeline` enforces that every animation has a

@@ -24,7 +24,10 @@ When a user types a scaffold command such as `/plan`, `/verify`, or `/unity-revi
 - Use `codex review` for code-review workflows when the user asks for a review.
 - Use `codex exec` for repeatable non-interactive validation or automation when appropriate.
 - Use `codex mcp` for external tool servers described by `mcp-configs/`.
+- Use `$imagegen` for raster-first asset generation or bitmap edits when the task is better served by PNG/WebP-style output than by repo-native code, SVG, or procedural placeholders.
 - Use Codex skills or plugins only as packaging layers over the shared `skills/` source of truth.
+
+If a `$imagegen` output becomes a real project asset, move the accepted file into the workspace and keep the naming and folder conventions defined by the relevant art pipeline skill.
 
 ## Engine isolation
 Never mix Unity, Unreal, and Godot implementation advice in the same production task.

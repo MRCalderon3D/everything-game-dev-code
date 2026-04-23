@@ -7,6 +7,8 @@
 > **Start a new Claude Code session for this chapter.**
 > Although this chapter shares the production context with Chapters 3–4, a fresh session
 > keeps the art-focused work isolated from the systems implementation that came before.
+>
+> **Codex note:** the same chapter works in Codex. Replace "Claude" with "Codex" in the prompts below. When you want raster source art, concept sheets, painted backgrounds, or bitmap edits instead of purely code-drawn assets, use `$imagegen` and then move the accepted output into the project workspace using the naming and paths defined by the sprite and placeholder pipelines.
 
 ---
 
@@ -84,6 +86,29 @@ Pixel art, clean silhouettes, limited palette. Readability over detail.
 
 ---
 
+## Codex Option: Generate Raster Source Art with `$imagegen`
+
+If you are using Codex and want source PNGs rather than only `Texture2D.SetPixel` output,
+you can use `$imagegen` after the Art Bible exists. This works especially well for concept
+sheets, painted/parallax backgrounds, UI-adjacent promo images, or higher-fidelity source art
+that will still follow the placeholder replacement path.
+
+Example Codex prompt:
+
+```
+$imagegen Create a pixel-art concept sheet for "Dash & Collect" using the Art Bible at design/ART-BIBLE.md as source of truth.
+- Asset set: player 16x32, obstacle 16x32, coin 16x16, ground tile 16x16, background sample 320x180
+- Style: clean silhouettes, limited palette, readability over detail
+- Keep transparent backgrounds for the individual gameplay assets
+- Keep each asset visually compatible with the placeholder names and paths from Chapter 4
+- No text, no watermark, no mockup framing
+```
+
+After approving a result, import or copy the selected PNGs into `Assets/_Project/Art/Sprites/[Category]/`
+using the same names and paths that the placeholder pipeline expects.
+
+---
+
 ## Step 1: Define the sprite pipeline
 
 Ask Claude to establish the sprite conventions for your project:
@@ -125,6 +150,19 @@ Using skills/art-audio-content/sprite-pipeline/SKILL.md and skills/art-audio-con
 5. Update existing prefab sprite references to point to the new assets
 
 Place the script at Assets/_Project/Editor/SpriteAssetGenerator.cs with a menu item at Tools → Generate Sprites.
+```
+
+Codex alternative for source PNGs:
+
+```
+$imagegen Create final source sprites for "Dash & Collect" from the Art Bible.
+Use case: stylized-concept
+Asset type: Unity gameplay sprites imported as PNG
+Primary request: generate clean pixel-art source images for player, obstacle, coin, ground tile, and background
+Scene/backdrop: transparent background for gameplay sprites; separate dark sky scene for the background image
+Style/medium: readable pixel art, limited palette, crisp silhouettes
+Composition/framing: one asset per output, centered, no mockup framing
+Constraints: keep exact gameplay sizes and placeholder replacement compatibility; no text; no watermark
 ```
 
 Run the generated script in Unity via **Tools → Generate Sprites**. Verify all sprites
@@ -292,6 +330,8 @@ Do not proceed to Chapter 6 until all M5 criteria are met.
 - Claude generates all visual assets via Unity Editor scripts (`Texture2D.SetPixel`) —
   no external art tools needed. The same drop-in replacement path works if you later swap
   Claude-generated art for hand-drawn art
+- In Codex, `$imagegen` can supply approved raster source art before the import/configuration
+  pass, while the same naming and replacement rules still apply
 - `skills/art-audio-content/placeholder-asset-pipeline` ensures zero-friction swap —
   same paths, same names, no code changes whether replacing placeholders or upgrading art
 - `skills/art-audio-content/sprite-pipeline` prevents ad-hoc import settings that cause

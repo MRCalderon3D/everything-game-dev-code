@@ -33,5 +33,16 @@ This adapter maps the shared scaffold to OpenAI Codex.
 | Claude hooks | Shared `hooks/` plus `npm run validate` and future Codex hooks integration |
 | Claude MCP/tool config | `mcp-configs/` plus `codex mcp` configuration guidance |
 
+## Raster asset generation in Codex
+- When a task is bitmap-first, prefer Codex `$imagegen` over ad-hoc placeholder code or external prompt text files.
+- Pair `$imagegen` with the shared scaffold skills that define quality bars and naming rules:
+  - `skills/art-audio-content/art-bible/SKILL.md`
+  - `skills/art-audio-content/sprite-pipeline/SKILL.md`
+  - `skills/art-audio-content/ui-asset-pipeline/SKILL.md`
+  - `skills/art-audio-content/placeholder-asset-pipeline/SKILL.md`
+- Good fits: concept sheets, painted or textured source art, sprite source PNGs, UI mockups, menu backgrounds, marketing art, and in-project bitmap edits.
+- Do not use `$imagegen` for deterministic placeholder generation when `/unity-placeholders` or equivalent is the intended workflow, and do not use it for vector/icon-system work that should stay code-native or SVG-native.
+- If the selected image becomes a project asset, move or copy it from `$CODEX_HOME/generated_images/...` into the workspace before treating it as source-of-truth content.
+
 ## Stability rule
 Prefer stable Codex surfaces first: `AGENTS.md`, profiles, shell execution, review mode, MCP, plugins, and skills. Treat experimental Codex hooks or nested AGENTS behavior as optional adapter targets until they are stable.

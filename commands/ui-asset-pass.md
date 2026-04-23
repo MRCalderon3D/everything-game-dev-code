@@ -38,5 +38,6 @@ Review the project's UI visual assets — buttons, panels, icons, bars, fonts, a
 ## Notes
 - This command reviews **visual assets**, not UX logic — use `/ui-flow-review` for navigation, flow, and interaction review.
 - Run after generating UI assets to verify quality before gameplay testing.
+- Treat externally generated raster UI art the same as hand-authored UI art: validate naming, 9-slice setup, atlas impact, and placeholder replacement compatibility before accepting it.
 - Escalate to `performance-reviewer` when UI atlas size exceeds platform budgets.
 - Escalate to `accessibility-reviewer` when reduced-motion fallbacks are missing.
