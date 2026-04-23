@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <title>Pirate Invaders</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #0a0a1a;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      overflow: hidden;
+      touch-action: none;
+      -webkit-user-select: none;
+      user-select: none;
+    }
+    #game { flex-shrink: 0; }
+    canvas { display: block; }
+
+    #touch-controls {
+      display: none;
+      width: 100%;
+      max-width: 800px;
+      height: 160px;
+      flex-shrink: 0;
+      padding: 10px 30px;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* D-pad */
+    .dpad {
+      display: grid;
+      grid-template-columns: 70px 70px 70px;
+      grid-template-rows: 70px 70px;
+      gap: 4px;
+    }
+    .dpad-btn {
+      width: 70px;
+      height: 70px;
+      border-radius: 12px;
+      border: 2px solid #ffd700;
+      background: rgba(22, 33, 62, 0.8);
+      color: #ffd700;
+      font-size: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .dpad-btn:active, .dpad-btn.pressed {
+      background: rgba(255, 215, 0, 0.3);
+    }
+    .dpad-spacer { visibility: hidden; }
+
+    /* Fire button */
+    .fire-btn {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      border: 3px solid #e74c3c;
+      background: rgba(231, 76, 60, 0.2);
+      color: #e74c3c;
+      font-size: 16px;
+      font-family: monospace;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .fire-btn:active, .fire-btn.pressed {
+      background: rgba(231, 76, 60, 0.5);
+      border-color: #ff6b5a;
+    }
+
+    @media (pointer: coarse) {
+      #touch-controls { display: flex; }
+    }
+  </style>
+</head>
+<body>
+  <div id="game"></div>
+
+  <div id="touch-controls">
+    <div class="dpad">
+      <div class="dpad-spacer"></div>
+      <div class="dpad-spacer"></div>
+      <div class="dpad-spacer"></div>
+      <div class="dpad-btn" id="btn-left">&larr;</div>
+      <div class="dpad-spacer"></div>
+      <div class="dpad-btn" id="btn-right">&rarr;</div>
+    </div>
+    <div class="fire-btn" id="btn-fire">FIRE</div>
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

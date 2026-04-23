@@ -20,6 +20,18 @@ These samples demonstrate the scaffold's ability to take a game idea and deliver
 
 ---
 
+## PirateInvadersImagesGen
+
+**Genre:** 2D Arcade Shooter (Space Invaders variant)
+**Platform:** Web (HTML5 — Phaser 3)
+**Features:** Same gameplay as `PirateInvaders`, but with gameplay and UI raster assets generated through Codex `$imagegen`
+
+This sample exists as a scaffold integration demo: it keeps the original texture keys and gameplay logic, swaps procedural runtime textures for generated image assets, and shows how to persist accepted outputs inside the workspace.
+
+**Run:** `cd samples/PirateInvadersImagesGen && npm install && npm run dev`
+
+---
+
 ## Tetris2DMutation
 
 **Genre:** 2D Puzzle / Arcade (Tetris variant)

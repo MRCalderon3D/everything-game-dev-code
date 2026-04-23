@@ -1,0 +1,17 @@
+{
+  "name": "pirate-invaders-images-gen",
+  "version": "1.0.0",
+  "description": "A pirate-themed Space Invaders sample using Codex image-generated raster assets",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "phaser": "^3.80.1"
+  },
+  "devDependencies": {
+    "vite": "^5.4.0"
+  }
+}

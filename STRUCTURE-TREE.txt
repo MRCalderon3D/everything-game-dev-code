@@ -509,6 +509,74 @@ everything-game-dev-code
 │   │   ├── package.json
 │   │   ├── TDD.md
 │   │   └── vite.config.js
+│   ├── PirateInvadersImagesGen
+│   │   ├── dist
+│   │   │   ├── assets
+│   │   │   │   ├── images
+│   │   │   │   │   ├── battle-background.png
+│   │   │   │   │   ├── brigantine.png
+│   │   │   │   │   ├── button-hover.png
+│   │   │   │   │   ├── button.png
+│   │   │   │   │   ├── enemy-bullet.png
+│   │   │   │   │   ├── galleon.png
+│   │   │   │   │   ├── life-icon.png
+│   │   │   │   │   ├── menu-background.png
+│   │   │   │   │   ├── player-bullet.png
+│   │   │   │   │   ├── player.png
+│   │   │   │   │   ├── powerup.png
+│   │   │   │   │   ├── sloop.png
+│   │   │   │   │   ├── ui-bar-fill.png
+│   │   │   │   │   └── ui-bar-frame.png
+│   │   │   │   └── index-pA9_Ee8-.js
+│   │   │   └── index.html
+│   │   ├── public
+│   │   │   └── assets
+│   │   │       └── images
+│   │   │           ├── battle-background.png
+│   │   │           ├── brigantine.png
+│   │   │           ├── button-hover.png
+│   │   │           ├── button.png
+│   │   │           ├── enemy-bullet.png
+│   │   │           ├── galleon.png
+│   │   │           ├── life-icon.png
+│   │   │           ├── menu-background.png
+│   │   │           ├── player-bullet.png
+│   │   │           ├── player.png
+│   │   │           ├── powerup.png
+│   │   │           ├── sloop.png
+│   │   │           ├── ui-bar-fill.png
+│   │   │           └── ui-bar-frame.png
+│   │   ├── src
+│   │   │   ├── entities
+│   │   │   │   ├── Bullet.js
+│   │   │   │   ├── Enemy.js
+│   │   │   │   ├── Player.js
+│   │   │   │   └── PowerUp.js
+│   │   │   ├── scenes
+│   │   │   │   ├── BootScene.js
+│   │   │   │   ├── GameOverScene.js
+│   │   │   │   ├── GameScene.js
+│   │   │   │   ├── MenuScene.js
+│   │   │   │   └── PauseScene.js
+│   │   │   ├── systems
+│   │   │   │   ├── AudioManager.js
+│   │   │   │   ├── LeaderboardClient.js
+│   │   │   │   ├── SaveManager.js
+│   │   │   │   ├── ScoreManager.js
+│   │   │   │   └── WaveManager.js
+│   │   │   ├── utils
+│   │   │   │   ├── AssetGenerator.js
+│   │   │   │   ├── GeneratedAssetConfig.js
+│   │   │   │   └── TouchInput.js
+│   │   │   ├── config.js
+│   │   │   └── main.js
+│   │   ├── GDD.md
+│   │   ├── index.html
+│   │   ├── package-lock.json
+│   │   ├── package.json
+│   │   ├── README.md
+│   │   ├── TDD.md
+│   │   └── vite.config.js
 │   ├── Tetris2DMutation
 │   │   ├── src
 │   │   │   ├── states
