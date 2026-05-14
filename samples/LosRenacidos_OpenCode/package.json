@@ -1,0 +1,12 @@
+{
+  "name": "los-renacidos-ecos-de-talasaria",
+  "version": "0.1.0",
+  "description": "Los Renacidos: Ecos de Talasaria - Roguelike narrativo de acción / LitRPG",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve .",
+    "dev": "npx serve ."
+  },
+  "keywords": ["game", "roguelike", "litrpg", "canvas"],
+  "license": "UNLICENSED"
+}
