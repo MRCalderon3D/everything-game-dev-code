@@ -1,0 +1,90 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 50% 15%, rgba(28, 108, 158, 0.3), transparent 34rem),
+    linear-gradient(180deg, #02040a 0%, #070b14 48%, #010104 100%);
+  color: #f7f0ad;
+  font-family: "Trebuchet MS", Verdana, sans-serif;
+  touch-action: none;
+  user-select: none;
+}
+
+.shell {
+  width: min(100vw, 720px);
+  min-height: 100vh;
+  margin: 0 auto;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  place-items: center;
+  padding: 12px;
+}
+
+#game {
+  width: min(100%, calc((100vh - 120px) * 0.9583));
+  max-height: calc(100vh - 112px);
+  aspect-ratio: 23 / 24;
+  border: 2px solid rgba(247, 240, 173, 0.34);
+  background: #01030a;
+  box-shadow: 0 0 34px rgba(43, 190, 255, 0.28);
+  image-rendering: pixelated;
+}
+
+.touch-pad {
+  width: min(270px, 92vw);
+  height: 86px;
+  margin-top: 10px;
+  display: none;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 8px;
+}
+
+.touch-pad button {
+  min-width: 0;
+  border: 1px solid rgba(117, 224, 255, 0.72);
+  background: rgba(4, 24, 42, 0.84);
+  color: #f7f0ad;
+  font-size: 22px;
+  line-height: 1;
+  border-radius: 6px;
+}
+
+.touch-pad button:active {
+  background: rgba(248, 216, 73, 0.28);
+}
+
+.touch-pad [data-dir="up"] {
+  grid-column: 2;
+}
+
+.touch-pad [data-dir="left"] {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.touch-pad [data-dir="down"] {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+.touch-pad [data-dir="right"] {
+  grid-column: 3;
+  grid-row: 2;
+}
+
+@media (pointer: coarse), (max-width: 760px) {
+  .shell {
+    padding: 8px;
+  }
+
+  .touch-pad {
+    display: grid;
+  }
+}
