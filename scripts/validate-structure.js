@@ -116,6 +116,7 @@ for (const skill of skillEntries) {
   const text = readText(skill.file);
   const relatedAgents = extractHeadingBullets(text, "Related Agents") || [];
   const relatedCommands = extractHeadingBullets(text, "Related Commands") || [];
+  const relatedSkills = extractHeadingBullets(text, "Related Skills") || [];
 
   for (const agent of relatedAgents) {
     if (!agentSet.has(agent)) {
@@ -126,6 +127,19 @@ for (const skill of skillEntries) {
     if (!commandSet.has(command)) {
       errors.push(`${skill.file} references unknown related command '${command}'.`);
     }
+  }
+  for (const related of relatedSkills) {
+    if (!skillNames.has(related) && !qualifiedSkills.has(related)) {
+      errors.push(`${skill.file} references unknown related skill '${related}'.`);
+    }
+  }
+}
+
+// Every skill must appear in the skills/README.md domain index.
+const skillsReadme = readText("skills/README.md");
+for (const skill of skillEntries) {
+  if (!skillsReadme.includes(`\`${skill.name}\``)) {
+    errors.push(`skills/README.md is missing skill '${skill.qualified}'.`);
   }
 }
 

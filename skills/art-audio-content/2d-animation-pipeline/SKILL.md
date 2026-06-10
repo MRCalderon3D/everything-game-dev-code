@@ -57,6 +57,10 @@ Define authoring, import, and state machine rules for 2D animations so they play
 - perf-budget
 - unity-placeholders
 
+## Related Skills
+- animation-state-patterns
+
 ## Notes
 - Keep this skill aligned with the relevant rules layer and current project documentation.
 - If engine-specific constraints materially change the workflow, hand off to the matching engine skill or engine-specific reviewer.
+- Boundary: this skill owns animation authoring, import, and wiring conventions; `animation-state-patterns` owns runtime state-machine architecture.

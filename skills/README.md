@@ -13,6 +13,8 @@ A skill gives an agent a concrete, repeatable process for a specific task. Witho
 
 Skills are invoked by agents when executing commands. They are not invoked directly.
 
+Each `SKILL.md` follows a shared section layout (Purpose, Use When, Inputs, Process, Outputs, Quality Bar, Common Failure Modes, Related Agents, Related Commands, Notes). Skills may additionally include an optional `## Related Skills` section (between Related Commands and Notes) listing complementary skills; entries are validated against the skill set by `npm run validate:structure`.
+
 ## Skill domains
 
 Skills are organized into eight domain folders. Each skill lives in its own subfolder with a `SKILL.md` file.
@@ -23,12 +25,19 @@ Skills for producing and integrating creative assets.
 
 | Skill | Purpose |
 |-------|---------|
+| `2d-animation-pipeline` | Author, import, and wire 2D animations with consistent naming and state conventions |
 | `art-bible` | Define a visual direction artists, UI, technical art, and marketing can execute consistently |
 | `audio-implementation` | Integrate audio assets into the engine with consistent mixing, triggering, and fallback rules |
 | `cinematic-pipeline` | Define cutscene production from animatic to in-engine delivery |
 | `dialogue-content-pipeline` | Structure dialogue authoring, localization handoff, and runtime integration |
+| `generated-raster-asset-pipeline` | Acceptance, validation, and runtime integration rules for image-model-generated raster assets |
 | `localization-pipeline` | Prepare text, audio, and assets for localized builds |
+| `placeholder-asset-pipeline` | Engine-neutral standards for placeholder sprites, prefabs, and procedural audio |
+| `sprite-pipeline` | Sprite authoring, import, atlas, and naming conventions |
 | `technical-art-pipeline` | Define the shader, VFX, and rig pipeline from DCC tools to engine |
+| `tilemap-pipeline` | Tileset and tilemap authoring, import, and collision conventions |
+| `ui-animation-pipeline` | UI motion conventions: transitions, feedback, and tuning rules |
+| `ui-asset-pipeline` | UI visual asset conventions: naming, 9-slice, atlas, and theming |
 | `vfx-pipeline` | Produce and integrate visual effects from concept to in-game playback |
 
 ### design/

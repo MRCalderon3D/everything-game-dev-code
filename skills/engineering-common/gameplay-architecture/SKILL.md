@@ -35,14 +35,16 @@ Define system ownership, boundaries, state flow, and extensibility for gameplay 
 - implementation constraints
 
 ## Quality Bar
-- makes ownership, state flow, and failure behavior explicit
-- improves maintainability without over-abstracting
-- supports testing, debugging, and safe iteration
+- gameplay systems communicate through explicit interfaces or events, not direct cross-references
+- game state ownership is unambiguous: each piece of state has exactly one writer
+- systems can be tested in isolation with stubbed dependencies
+- the update/tick flow is documented: what runs in what order, and why
 
 ## Common Failure Modes
-- coupling systems through hidden globals or timing assumptions
-- writing logic that is hard to test or debug
-- optimizing the wrong layer before measuring
+- god objects that accumulate every gameplay responsibility
+- bidirectional dependencies between systems that make any change risky
+- state mutated from multiple systems with no clear owner
+- architecture that only works at current scale and collapses with content growth
 
 ## Related Agents
 - architect

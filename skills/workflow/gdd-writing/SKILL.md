@@ -35,14 +35,16 @@ Create or update a Game Design Document that is actionable for design, engineeri
 - cross-discipline follow-up items
 
 ## Quality Bar
-- produces a current source of truth, not disconnected notes
-- names owners, risks, and next actions explicitly
-- separates decisions from assumptions and open questions
+- every system section states player-facing rules concretely enough that a developer could implement them without asking the designer
+- each feature section carries acceptance criteria QA can test against
+- decisions, assumptions, and open questions are kept in separate, labeled lists
+- the document reflects the game as currently intended — superseded sections are removed or marked, never left to contradict
 
 ## Common Failure Modes
-- outdated docs that no longer match reality
-- plans with no owner or no exit criteria
-- hiding risks until they become schedule blockers
+- describing intent ("combat should feel punchy") without rules a developer can implement
+- features documented without acceptance criteria, leaving QA to guess
+- the GDD silently diverging from what was actually built after iteration
+- open questions buried inside prose instead of tracked in the open questions list
 
 ## Related Agents
 - gdd-designer

@@ -35,14 +35,16 @@ Build a coverage matrix that shows what must be tested, on which configurations,
 - test-pass priorities
 
 ## Quality Bar
-- turns risk into explicit evidence and ownership
-- keeps release blockers visible instead of implicit
-- connects quality decisions to milestone and platform impact
+- every shipped feature is covered with at least its happy path, key edge cases, and failure handling
+- each test case states preconditions, steps, and an observable expected result
+- coverage is traceable: every GDD acceptance criterion maps to at least one test case
+- platform and device variations appear as explicit matrix axes, not assumptions
 
 ## Common Failure Modes
-- severity inflation or minimization without player-impact context
-- treating waived risks as invisible
-- submission checklists that are incomplete or stale
+- test cases written from implementation knowledge instead of player-facing behavior
+- matrices that grow stale as features change, testing what no longer exists
+- edge cases and failure paths omitted because the happy path passes
+- no traceability, so removed features leave orphan tests and new ones ship untested
 
 ## Related Agents
 - qa-lead

@@ -57,9 +57,13 @@ Define creation, naming, and replacement rules for placeholder assets so the gam
 - scene-bootstrap
 - art-2d-pass
 
+## Related Skills
+- generated-raster-asset-pipeline
+
 ## Notes
 - Keep this skill aligned with the relevant rules layer and current project documentation.
 - If engine-specific constraints materially change the workflow, hand off to the matching engine skill or engine-specific reviewer.
 - This skill is engine-neutral. Engine-specific placeholder commands (e.g. `/unity-placeholders`) implement the concrete generation step using this skill's standards.
+- Tracked asymmetry: Unity is currently the only engine with concrete placeholder generation commands (`/unity-placeholders`, `/scene-bootstrap`). Godot and Unreal equivalents are a deliberate pending decision, not an oversight — until they exist, apply this skill's standards manually in those engines.
 - Audio placeholders should be procedurally generated (sine waves, square waves, noise, pitch sweeps) — not silent stubs. A placeholder sound that represents the intended audio event (e.g. a rising tone for a coin collect, a short burst for a jump) makes gameplay testing far more effective than silence.
 - If placeholders are later replaced with generated raster art, hand off to `generated-raster-asset-pipeline` before acceptance so transparency and runtime-size issues are caught during the swap.

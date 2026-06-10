@@ -35,14 +35,16 @@ Design input around player intent and supported device families instead of hardc
 - rebinding requirements
 
 ## Quality Bar
-- makes ownership, state flow, and failure behavior explicit
-- improves maintainability without over-abstracting
-- supports testing, debugging, and safe iteration
+- gameplay consumes named actions, never raw device inputs
+- rebinding, device switching, and multiple control schemes work without touching gameplay code
+- input contexts (gameplay, menu, cutscene) are explicit, with defined push/pop behavior
+- dead zones, buffering, and repeat behavior are configured per action, not hardcoded
 
 ## Common Failure Modes
-- coupling systems through hidden globals or timing assumptions
-- writing logic that is hard to test or debug
-- optimizing the wrong layer before measuring
+- raw key or button checks scattered through gameplay code
+- input consumed by multiple contexts at once (menu and gameplay both react)
+- device-specific assumptions that break on controller or touch
+- buffering and coyote-time tuning embedded in mechanics instead of the input layer
 
 ## Related Agents
 - ui-programmer

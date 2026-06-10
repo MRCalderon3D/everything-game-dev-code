@@ -9,6 +9,7 @@ everything-game-dev-code
 │   │   ├── bug-triage.md
 │   │   ├── cert-check.md
 │   │   ├── combat-design.md
+│   │   ├── context.md
 │   │   ├── economy-balance.md
 │   │   ├── evolve.md
 │   │   ├── full-game.md
@@ -80,6 +81,7 @@ everything-game-dev-code
 │   │   ├── bug-triage.md
 │   │   ├── cert-check.md
 │   │   ├── combat-design.md
+│   │   ├── context.md
 │   │   ├── economy-balance.md
 │   │   ├── evolve.md
 │   │   ├── full-game.md
@@ -173,6 +175,7 @@ everything-game-dev-code
 │   │   ├── bug-triage.md
 │   │   ├── cert-check.md
 │   │   ├── combat-design.md
+│   │   ├── context.md
 │   │   ├── economy-balance.md
 │   │   ├── evolve.md
 │   │   ├── full-game.md
@@ -290,6 +293,7 @@ everything-game-dev-code
 │   ├── bug-triage.md
 │   ├── cert-check.md
 │   ├── combat-design.md
+│   ├── context.md
 │   ├── economy-balance.md
 │   ├── evolve.md
 │   ├── full-game.md

@@ -36,14 +36,16 @@ Build milestone plans that are dependency-aware, risk-aware, and tied to real de
 - risk-aware scope breakdown
 
 ## Quality Bar
-- produces a current source of truth, not disconnected notes
-- names owners, risks, and next actions explicitly
-- separates decisions from assumptions and open questions
+- each milestone has exit criteria a reviewer can check without interpretation
+- dependencies between workstreams are mapped before dates are committed
+- every milestone names its owner and the decision that unblocks the next one
+- risks carry probability, impact, and a named mitigation owner
 
 ## Common Failure Modes
-- outdated docs that no longer match reality
-- plans with no owner or no exit criteria
-- hiding risks until they become schedule blockers
+- milestones defined by dates instead of demonstrable outcomes
+- hidden dependencies discovered mid-milestone, invalidating the schedule
+- "90% done" syndrome — no binary exit criteria to call a milestone complete
+- risk lists written once at kickoff and never re-reviewed
 
 ## Related Agents
 - producer

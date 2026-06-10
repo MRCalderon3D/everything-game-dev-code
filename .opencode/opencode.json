@@ -21,6 +21,10 @@
       "description": "Design or revise combat rules, variables, readability, and tuning direction.",
       "template": "Read .opencode/commands/combat-design.md and execute the shared commands/combat-design.md workflow."
     },
+    "context": {
+      "description": "Activate a project phase context and align agents, commands, and priorities to it.",
+      "template": "Read .opencode/commands/context.md and execute the shared commands/context.md workflow."
+    },
     "economy-balance": {
       "description": "Design or review the economy, sinks, faucets, rewards, and balance assumptions.",
       "template": "Read .opencode/commands/economy-balance.md and execute the shared commands/economy-balance.md workflow."

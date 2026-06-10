@@ -28,3 +28,4 @@ Run a release readiness review with blockers, waivers, and go/no-go signals.
 ## Notes
 - Keep engine-neutral commands free of engine-specific implementation detail unless an engine-specific command is being called.
 - Escalate to the relevant reviewer or specialist when risks exceed the command's normal scope.
+- Phase context: run `/context release` (see `contexts/release.md`) first so phase agents and priorities are active.

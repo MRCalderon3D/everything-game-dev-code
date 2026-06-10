@@ -35,14 +35,16 @@ Set and manage frame, load, memory, streaming, or bandwidth budgets before perfo
 - regression review cadence
 
 ## Quality Bar
-- makes ownership, state flow, and failure behavior explicit
-- improves maintainability without over-abstracting
-- supports testing, debugging, and safe iteration
+- budgets are set per system (frame time, memory, draw calls, asset sizes) against the weakest target device
+- every budget has an owner and a repeatable measurement method
+- regressions are caught by measurement at integration time, not discovered in QA
+- budget exceptions are negotiated and recorded, not silently absorbed
 
 ## Common Failure Modes
-- coupling systems through hidden globals or timing assumptions
-- writing logic that is hard to test or debug
-- optimizing the wrong layer before measuring
+- budgets defined as totals with no per-system allocation, so no one owns overruns
+- profiling only on developer hardware, missing the real target floor
+- performance treated as a polish-phase task instead of a standing budget
+- one-off optimizations that decay because no measurement guards them
 
 ## Related Agents
 - performance-reviewer

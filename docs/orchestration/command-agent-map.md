@@ -9,6 +9,11 @@ This file defines the default agent routing for each command. Commands may invok
 
 ## Core Planning and Documentation
 
+### /context
+Primary: `producer`
+Support:
+- `planner`
+
 ### /plan
 Primary: `planner`
 Support:

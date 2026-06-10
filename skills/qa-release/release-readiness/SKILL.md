@@ -35,14 +35,16 @@ Evaluate whether a build is genuinely ready for external testing, certification,
 - waiver register
 
 ## Quality Bar
-- turns risk into explicit evidence and ownership
-- keeps release blockers visible instead of implicit
-- connects quality decisions to milestone and platform impact
+- the release decision is checkable: every gate is a binary criterion with current status and owner
+- blockers are separated from waivable issues, and waivers carry a named approver and rationale
+- the build under review is the build that ships — no untested last-minute changes
+- rollback or hotfix paths are defined before release, not improvised after
 
 ## Common Failure Modes
-- severity inflation or minimization without player-impact context
-- treating waived risks as invisible
-- submission checklists that are incomplete or stale
+- go/no-go meetings run on opinions because gates were never made binary
+- waivers granted without an owner, so the same issue resurfaces every release
+- "one last fix" merged after QA sign-off, invalidating the tested build
+- no rollback plan, turning a bad release into an emergency rebuild
 
 ## Related Agents
 - release-manager
