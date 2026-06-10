@@ -3,9 +3,26 @@ const fs = require("fs");
 const path = require("path");
 const { ensureDir, writeJson } = require("./lib/utils");
 const { getWorkspaceRoot } = require("./lib/profile-resolution");
+const { walk } = require("./lib/structure-artifacts");
 
 const repoRoot = path.resolve(__dirname, "..");
-const requestedProfile = String(process.argv[2] || "").trim().toLowerCase();
+
+// Accept both the positional form and the --profile flag form so every
+// documented invocation works.
+function parseRequestedProfile(argv) {
+  const args = argv.slice(2);
+  for (let i = 0; i < args.length; i += 1) {
+    if (args[i] === "--profile" || args[i] === "-p") {
+      return String(args[i + 1] || "").trim().toLowerCase();
+    }
+    if (!args[i].startsWith("-")) {
+      return String(args[i]).trim().toLowerCase();
+    }
+  }
+  return "";
+}
+
+const requestedProfile = parseRequestedProfile(process.argv);
 
 function readJson(relPath) {
   return JSON.parse(fs.readFileSync(path.join(repoRoot, relPath), "utf8"));
@@ -13,30 +30,6 @@ function readJson(relPath) {
 
 function normalizePath(relPath) {
   return relPath.replace(/\\/g, "/");
-}
-
-function walkFiles(currentDir, relDir = "") {
-  const entries = fs
-    .readdirSync(currentDir, { withFileTypes: true })
-    .filter((entry) => ![".git", ".game-dev", "node_modules", "temp"].includes(entry.name))
-    .sort((a, b) => {
-      if (a.isDirectory() !== b.isDirectory()) {
-        return a.isDirectory() ? -1 : 1;
-      }
-      return a.name.localeCompare(b.name);
-    });
-
-  const files = [];
-  for (const entry of entries) {
-    const relPath = relDir ? `${relDir}/${entry.name}` : entry.name;
-    const fullPath = path.join(currentDir, entry.name);
-    if (entry.isDirectory()) {
-      files.push(...walkFiles(fullPath, relPath));
-      continue;
-    }
-    files.push(normalizePath(relPath));
-  }
-  return files;
 }
 
 function globToRegExp(globPattern) {
@@ -78,7 +71,10 @@ function resolveModuleFiles(moduleEntry, repoFiles) {
 }
 
 function printUsage(validProfiles) {
-  process.stderr.write("Usage: node scripts/install-profile.js <profile>\n\n");
+  process.stderr.write(
+    "Usage: node scripts/install-profile.js <profile>\n" +
+      "       node scripts/install-profile.js --profile <profile>\n\n"
+  );
   process.stderr.write("Available profiles:\n");
   for (const profile of validProfiles) {
     process.stderr.write(`  ${profile}\n`);
@@ -106,7 +102,7 @@ if (!profile) {
 
 const components = new Map((componentsDoc.components || []).map((entry) => [entry.id, entry]));
 const modules = modulesDoc.modules || {};
-const repoFiles = walkFiles(repoRoot);
+const repoFiles = walk(repoRoot);
 
 const resolvedComponents = [];
 const resolvedModules = [];

@@ -31,7 +31,7 @@ All schemas follow [JSON Schema Draft 2020-12](https://json-schema.org/draft/202
 |--------|----------|
 | `hooks.schema.json` | `hooks/hooks.json` — hook event configuration |
 | `package-manager.schema.json` | `.claude/package-manager.json` — harness package configuration |
-| `role-matrix.schema.json` | Role-to-skill and role-to-command mapping documents |
+| `mcp-servers.schema.json` | `mcp-configs/mcp-servers.json` — MCP server registry and profiles |
 | `plugin.schema.json` | Plugin metadata files in `plugins/` |
 
 ## Key validation rules

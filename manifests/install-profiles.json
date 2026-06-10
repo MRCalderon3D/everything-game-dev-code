@@ -1,4 +1,5 @@
 {
+  "$schema": "../schemas/install-profiles.schema.json",
   "version": 1,
   "description": "Recommended installation profiles for common game-development setups.",
   "profiles": [

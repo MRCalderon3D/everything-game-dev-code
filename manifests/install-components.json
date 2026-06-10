@@ -1,4 +1,5 @@
 {
+  "$schema": "../schemas/install-components.schema.json",
   "version": 1,
   "description": "Installable component registry for the game-development scaffold.",
   "components": [

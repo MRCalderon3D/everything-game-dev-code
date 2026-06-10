@@ -13,9 +13,9 @@ const schemaFiles = [
   'install-state.schema.json',
   'install-modules.schema.json',
   'install-profiles.schema.json',
+  'mcp-servers.schema.json',
   'package-manager.schema.json',
   'plugin.schema.json',
-  'role-matrix.schema.json',
 ];
 
 const manifestFiles = [
@@ -52,7 +52,23 @@ const schemaBackedDocuments = [
   },
   {
     file: path.join(repoRoot, 'mcp-configs', 'mcp-servers.json'),
-    expectedSchema: '../schemas/plugin.schema.json',
+    expectedSchema: '../schemas/mcp-servers.schema.json',
+  },
+  {
+    file: path.join(repoRoot, 'hooks', 'hooks.json'),
+    expectedSchema: '../schemas/hooks.schema.json',
+  },
+  {
+    file: path.join(repoRoot, 'manifests', 'install-components.json'),
+    expectedSchema: '../schemas/install-components.schema.json',
+  },
+  {
+    file: path.join(repoRoot, 'manifests', 'install-modules.json'),
+    expectedSchema: '../schemas/install-modules.schema.json',
+  },
+  {
+    file: path.join(repoRoot, 'manifests', 'install-profiles.json'),
+    expectedSchema: '../schemas/install-profiles.schema.json',
   },
 ];
 

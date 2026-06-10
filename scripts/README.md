@@ -29,8 +29,9 @@ node scripts/install-profile.js --profile unity-production
 | Script | Purpose |
 |--------|---------|
 | `validate-structure.js` | Verify agents, commands, and skills against `command-agent-map.md` and `agent-skill-matrix.md` — catches dangling references |
-| `validate-manifests.js` | Validate all three manifest files against their JSON schemas |
-| `validate-hooks.js` | Validate `hooks/hooks.json` against `schemas/hooks.schema.json` |
+| `validate-manifests.js` | Cross-reference checks across the three manifest files (components, modules, profiles) |
+| `validate-schemas.js` | Validate every document that declares a local `$schema` against that schema via ajv |
+| `validate-hooks.js` | Check hook ids, script files, and that generated harness wiring matches `hooks/hooks.json` |
 | `validate-references.js` | Cross-reference validation across agents, commands, skills, and docs |
 | `validate-generated-assets.js` | Validate accepted generated raster assets against their `generated-assets.json` manifests and PNG transparency rules |
 | `validate-structure-artifacts.js` | Check generated artifact consistency between structure documents and actual file lists |

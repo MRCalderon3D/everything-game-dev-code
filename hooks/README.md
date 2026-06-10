@@ -15,14 +15,15 @@ With hooks active:
 
 ## Hook phases
 
-Hooks fire at four points in the work cycle:
+Hooks fire at three points in the work cycle:
 
 | Phase | When it fires | Typical use |
 |-------|--------------|-------------|
 | `PreToolUse` | Before the agent uses a tool | Warn about risky actions, check preconditions |
 | `PostToolUse` | After the agent uses a tool | Capture context, log structured metadata |
 | `Stop` | When the agent stops working | Write session summary |
-| `SessionStart` | When a session begins | Restore context, check profile state |
+
+The schema also reserves `SessionStart` and `SessionEnd` phases for future use; no hooks are currently defined for them.
 
 ## Active hooks
 
@@ -71,12 +72,21 @@ The JSON structure is validated against `schemas/hooks.schema.json`.
 - The active engine profile is read from the `GAME_DEV_PROFILE` environment variable
 - The workspace root is read from the `WORKSPACE_ROOT` environment variable
 
+## Harness wiring
+
+Per-harness wiring is generated from `hooks/hooks.json` — never edit the wiring files by hand:
+
+- `.claude/settings.json` (hooks block) — Claude Code fires `scripts/hooks/claude-adapter.js` once per phase event; the adapter runs every matching hook script and surfaces warnings as a system message. Hooks are warn-only: the adapter always exits 0 and never blocks the session.
+- `.cursor/hooks.json` — Cursor invokes each hook script directly with translated phase and matcher names.
+
+Run `npm run sync:hook-wiring` after changing `hooks.json`; `npm run validate:hooks` fails when committed wiring drifts from the source.
+
 ## How to adapt hooks to a different harness
 
 The hook scripts are written as reusable Node-based templates. To port them to a different AI harness:
 
-1. Map the harness's event model to the four hook phases above
-2. Update the event format in `scripts/lib/utils.js` to match the harness's stdin/stdout contract
+1. Map the harness's event model to the three hook phases above
+2. Add a builder to `scripts/lib/hook-wiring.js` that emits the harness's wiring format (see the Claude and Cursor builders), or write an adapter like `scripts/hooks/claude-adapter.js` that translates the stdin/stdout contract
 3. Confirm the `GAME_DEV_PROFILE` and `WORKSPACE_ROOT` environment variables are set by the harness
 4. Validate the updated `hooks.json` against `schemas/hooks.schema.json`
 

@@ -66,7 +66,8 @@ everything-game-dev-code
 │   │   └── README.md
 │   ├── identity.json
 │   ├── package-manager.json
-│   └── README.md
+│   ├── README.md
+│   └── settings.json
 ├── .claude-plugin
 │   ├── marketplace.json
 │   └── plugin.json
@@ -799,14 +800,15 @@ everything-game-dev-code
 │   ├── install-modules.schema.json
 │   ├── install-profiles.schema.json
 │   ├── install-state.schema.json
+│   ├── mcp-servers.schema.json
 │   ├── package-manager.schema.json
 │   ├── plugin.schema.json
-│   ├── README.md
-│   └── role-matrix.schema.json
+│   └── README.md
 ├── scripts
 │   ├── hooks
 │   │   ├── asset-size-warning.js
 │   │   ├── build-matrix-capture.js
+│   │   ├── claude-adapter.js
 │   │   ├── crash-log-capture.js
 │   │   ├── engine-profile-guard.js
 │   │   ├── gdd-sync-warning.js
@@ -816,10 +818,13 @@ everything-game-dev-code
 │   │   ├── scene-integrity-check.js
 │   │   └── session-summary.js
 │   ├── lib
+│   │   ├── hook-wiring.js
 │   │   ├── profile-resolution.js
+│   │   ├── schema-validation.js
 │   │   ├── structure-artifacts.js
 │   │   ├── utils.js
 │   │   └── validation.js
+│   ├── generate-hook-wiring.js
 │   ├── install-profile.js
 │   ├── lint-markdown.js
 │   ├── README.md
@@ -830,6 +835,7 @@ everything-game-dev-code
 │   ├── validate-hooks.js
 │   ├── validate-manifests.js
 │   ├── validate-references.js
+│   ├── validate-schemas.js
 │   ├── validate-structure-artifacts.js
 │   └── validate-structure.js
 ├── skills
@@ -1033,6 +1039,7 @@ everything-game-dev-code
 │   │   ├── install-profile-script.test.js
 │   │   └── profile-install.test.js
 │   ├── lib
+│   │   ├── engine-content-isolation.test.js
 │   │   └── engine-isolation.test.js
 │   ├── schemas
 │   │   └── manifests-schema.test.js
@@ -1051,6 +1058,7 @@ everything-game-dev-code
 ├── install.ps1
 ├── install.sh
 ├── LICENSE
+├── package-lock.json
 ├── package.json
 ├── README.md
 ├── SECURITY.md

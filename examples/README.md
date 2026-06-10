@@ -81,8 +81,8 @@ Files: `release-checklist.md`, `README.md`
 ## How to use an example
 
 1. Read the example's `README.md` to confirm the project type matches your situation.
-2. Copy the `install-profile.example.json` to your project root and rename it `install-profile.json`.
-3. Run `node scripts/install-profile.js` to install the recommended scaffold subset.
+2. Open the example's `install-profile.example.json` and note its `recommended_profile` id.
+3. Run `node scripts/install-profile.js --profile <recommended_profile>` to resolve that profile and record the active engine and scaffold subset under `.game-dev/` (the scaffold is consumed in place — nothing is copied).
 4. Use the sample documents as a format reference when authoring your own GDD, TDD, or test plans.
 
 ## Relationship to other folders
@@ -90,4 +90,4 @@ Files: `release-checklist.md`, `README.md`
 - **manifests/** — each example references a profile from `install-profiles.json`
 - **docs/templates/** — sample documents in examples are filled-in instances of the templates
 - **contexts/** — examples note which context files are most relevant for the starting phase
-- **scripts/** — `install-profile.js` executes the profile referenced in the example's JSON
+- **scripts/** — `install-profile.js` resolves the profile referenced in the example's JSON

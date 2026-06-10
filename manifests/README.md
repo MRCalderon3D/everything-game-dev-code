@@ -65,14 +65,14 @@ Each profile lists its component set. Profiles that include an engine component 
 ## How to use manifests
 
 1. Choose the profile that matches your project type from `install-profiles.json`.
-2. Run the setup script: `node scripts/install-profile.js --profile <profile-id>`
-3. The script resolves the profile to its component list, then resolves each component to its module list, then copies or links the correct files.
+2. Run the resolver script: `node scripts/install-profile.js --profile <profile-id>`
+3. The script resolves the profile to its component list, then resolves each component to its module list, and records the result under `.game-dev/` (`install-state.json`, `profile.json`, and `install-report.json` with the full resolved file list). Nothing is copied or moved — the scaffold is consumed in place, and the state files tell agents and hooks which profile and engine are active.
 
 To see what a profile installs before running it, inspect the profile's `components` array in `install-profiles.json`, then trace each component's `modules` in `install-components.json`, then check each module's `includes` in `install-modules.json`.
 
 ## Relationship to other folders
 
 - **schemas/** — each manifest file is validated against a corresponding JSON schema in `schemas/`
-- **scripts/** — `install-profile.js` and `setup-profile.js` execute the manifest installation
+- **scripts/** — `install-profile.js` and `setup-profile.js` resolve manifests into `.game-dev/` state files
 - **rules/**, **agents/**, **commands/**, **skills/**, **docs/**, **contexts/** — manifests reference files in all of these folders via module glob patterns
 - **examples/** — each example includes an `install-profile.example.json` showing the recommended profile for that project type

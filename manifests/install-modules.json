@@ -1,4 +1,5 @@
 {
+  "$schema": "../schemas/install-modules.schema.json",
   "version": 1,
   "description": "File-level module map for selective installation of the scaffold.",
   "modules": {

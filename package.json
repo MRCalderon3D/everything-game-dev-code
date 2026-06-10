@@ -7,10 +7,12 @@
   "scripts": {
     "setup:hooks": "node scripts/setup-git-hooks.js",
     "test": "node tests/run-all.js",
-    "validate": "npm run validate:manifests && npm run validate:hooks && npm run validate:structure && npm run validate:references && npm run validate:generated-assets && npm run validate:structure-artifacts && npm run lint:markdown",
+    "validate": "npm run validate:manifests && npm run validate:hooks && npm run validate:schemas && npm run validate:structure && npm run validate:references && npm run validate:generated-assets && npm run validate:structure-artifacts && npm run lint:markdown",
     "sync:structure": "node scripts/sync-structure-artifacts.js",
+    "sync:hook-wiring": "node scripts/generate-hook-wiring.js",
     "validate:manifests": "node scripts/validate-manifests.js",
     "validate:hooks": "node scripts/validate-hooks.js",
+    "validate:schemas": "node scripts/validate-schemas.js",
     "validate:structure": "node scripts/validate-structure.js",
     "validate:references": "node scripts/validate-references.js",
     "validate:generated-assets": "node scripts/validate-generated-assets.js",
@@ -19,5 +21,9 @@
   },
   "engines": {
     "node": ">=18"
+  },
+  "devDependencies": {
+    "ajv": "^8.20.0",
+    "ajv-formats": "^3.0.1"
   }
 }

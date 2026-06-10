@@ -10,6 +10,9 @@
     "components"
   ],
   "properties": {
+    "$schema": {
+      "type": "string"
+    },
     "version": {
       "type": "integer",
       "minimum": 1

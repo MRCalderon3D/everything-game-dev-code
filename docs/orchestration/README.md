@@ -71,5 +71,5 @@ These documents are consumed by agents, not by users directly. When an agent exe
 - **agents/** — orchestration documents define how agents coordinate, not what each agent does internally
 - **commands/** — commands initiate sequences; orchestration documents define what those sequences look like
 - **skills/workflow/orchestration-patterns** — the skill for implementing multi-agent workflows uses these documents as its reference
-- **schemas/role-matrix.schema.json** — the role matrix schema validates any structured role-to-skill mapping document that extends this folder
+- **schemas/** — JSON schemas validate the structured configuration documents that support orchestration (hooks, manifests, MCP registry)
 - **contexts/** — active phase contexts reference the relevant workflow sequences for that phase

@@ -1,5 +1,5 @@
 {
-  "$schema": "../schemas/plugin.schema.json",
+  "$schema": "../schemas/mcp-servers.schema.json",
   "version": 1,
   "description": "Recommended MCP server registry for the game-development scaffold. This file is intentionally configuration-oriented and uses placeholder commands or environment keys where local setup differs by team.",
   "profiles": {
