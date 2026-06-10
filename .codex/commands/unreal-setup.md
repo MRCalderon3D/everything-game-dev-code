@@ -3,4 +3,3 @@ description: Set up or normalize an Unreal project according to the scaffold rul
 ---
 
 Read `commands/unreal-setup.md` and execute it as instructed.
-

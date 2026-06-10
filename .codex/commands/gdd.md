@@ -3,4 +3,3 @@ description: Create or update the Game Design Document for the current feature, 
 ---
 
 Read `commands/gdd.md` and execute it as instructed.
-

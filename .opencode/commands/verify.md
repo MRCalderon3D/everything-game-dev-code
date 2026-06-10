@@ -3,6 +3,5 @@
 Resolve to the shared `commands/verify.md` workflow.
 
 ## Adapter behavior
-- use `qa-lead`, `code-reviewer`, and `performance-reviewer` as needed
-- check docs, tests, risks, and release impact
-- escalate engine-specific failures to the corresponding engine reviewer
+- primary owners: `qa-lead`, `code-reviewer`, `performance-reviewer`
+- follow the shared command instructions for invoked agents, required skills, and expected output

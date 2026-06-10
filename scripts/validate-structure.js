@@ -142,6 +142,7 @@ const adapterExpectations = [
   ".codex/hooks/README.md",
   ".codex/mcp/README.md",
   ".claude-plugin/plugin.json",
+  "docs/harness-support.md",
 ];
 
 for (const relPath of adapterExpectations) {

@@ -24,6 +24,16 @@ node scripts/setup-profile.js --engine unity
 node scripts/install-profile.js --profile unity-production
 ```
 
+### Generation (single source of truth -> derived artifacts)
+
+| Script | Purpose |
+|--------|---------|
+| `sync-structure-artifacts.js` | Regenerate `STRUCTURE-TREE.txt` and `docs/structure-overview.md` from `git ls-files` |
+| `generate-wrappers.js` | Regenerate harness command wrappers (`.claude/`, `.codex/`, `.opencode/`) and `opencode.json` from `commands/*.md` |
+| `generate-hook-wiring.js` | Regenerate `.claude/settings.json` (hooks block) and `.cursor/hooks.json` from `hooks/hooks.json` |
+
+Never edit generated files by hand — `npm run validate` fails when they drift from their source.
+
 ### Validation
 
 | Script | Purpose |

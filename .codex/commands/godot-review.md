@@ -3,4 +3,3 @@ description: Review a Godot project for structure, architecture, maintainability
 ---
 
 Read `commands/godot-review.md` and execute it as instructed.
-

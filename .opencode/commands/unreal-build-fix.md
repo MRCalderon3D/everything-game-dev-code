@@ -3,7 +3,5 @@
 Resolve to the shared `commands/unreal-build-fix.md` workflow.
 
 ## Adapter behavior
-- primary owner: `unreal-build-resolver`
-- this command targets Unreal only — do not mix other engine guidance
-- diagnose and fix Unreal build errors
+- primary owners: `unreal-build-resolver`, `unreal-reviewer`
 - follow the shared command instructions for invoked agents, required skills, and expected output

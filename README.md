@@ -29,7 +29,7 @@ Not just a prompt collection — a structured operating system for game projects
 - **Skills** for reusable execution patterns
 - **Contexts** for phase-specific behavior
 - **Hooks** for workflow automation
-- **Harness adapters** for Claude, Codex, Cursor, OpenCode, and Kiro
+- **Harness adapters** for Claude, Codex, Cursor, OpenCode, and Kiro (see [docs/harness-support.md](docs/harness-support.md) for what each one supports)
 
 ## Quickstart
 

@@ -44,7 +44,7 @@ High-value skills: `godot-project-structure`, `godot-scene-architecture`, `godot
 
 Risks to watch: scene sprawl, signal misuse, save/load inconsistency, physics feel drift, editor-only assumptions in release builds
 
-Files: `install-profile.example.json`, `playtest-report.md`, `qa-test-matrix.md`, `README.md`
+Files: `install-profile.example.json`, `docs/playtest-report.md`, `docs/qa-test-matrix.md`, `README.md`
 
 ---
 
@@ -61,7 +61,7 @@ High-value skills: `unity-project-structure`, `unity-gameplay-patterns`, `unity-
 
 Risks to watch: prefab sprawl, ScriptableObject misuse, Addressables drift, scene initialization order bugs, memory spikes on level load
 
-Files: `install-profile.example.json`, `vertical-slice-plan.md`, `telemetry-plan.md`, `README.md`
+Files: `install-profile.example.json`, `docs/vertical-slice-plan.md`, `docs/telemetry-plan.md`, `README.md`
 
 ---
 
@@ -76,7 +76,7 @@ Key commands: `/plan`, `/tech-design`, `/unreal-setup`, `/unreal-review`, `/unre
 
 High-value skills: `unreal-project-structure`, `unreal-gameplay-framework`, `unreal-cpp-standards`, `unreal-blueprint-patterns`, `unreal-performance`, `unreal-replication`, `console-certification`
 
-Files: `release-checklist.md`, `README.md`
+Files: `install-profile.example.json`, `docs/release-checklist.md`, `docs/technical-design-snapshot.md`, `README.md`
 
 ## How to use an example
 

@@ -3,4 +3,3 @@ description: Generate placeholder sprites, prefabs, and audio stubs for a Unity 
 ---
 
 Read `commands/unity-placeholders.md` and execute it as instructed.
-

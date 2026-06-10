@@ -368,6 +368,7 @@ everything-game-dev-code
 │   │   ├── technical-design-document.md
 │   │   ├── telemetry-plan.md
 │   │   └── vertical-slice-plan.md
+│   ├── harness-support.md
 │   └── structure-overview.md
 ├── examples
 │   ├── cross-engine-gdd
@@ -825,6 +826,7 @@ everything-game-dev-code
 │   │   ├── utils.js
 │   │   └── validation.js
 │   ├── generate-hook-wiring.js
+│   ├── generate-wrappers.js
 │   ├── install-profile.js
 │   ├── lint-markdown.js
 │   ├── README.md

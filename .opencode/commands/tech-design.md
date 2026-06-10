@@ -3,6 +3,5 @@
 Resolve to the shared `commands/tech-design.md` workflow.
 
 ## Adapter behavior
-- primary owner: `technical-design-lead`
-- define technical architecture and constraints
+- primary owners: `technical-design-lead`, `architect`
 - follow the shared command instructions for invoked agents, required skills, and expected output

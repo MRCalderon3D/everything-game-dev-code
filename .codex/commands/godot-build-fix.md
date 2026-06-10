@@ -3,4 +3,3 @@ description: Diagnose and resolve Godot export, script, or project configuration
 ---
 
 Read `commands/godot-build-fix.md` and execute it as instructed.
-
