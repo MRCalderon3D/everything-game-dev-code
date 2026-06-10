@@ -135,6 +135,19 @@ for (const skill of skillEntries) {
   }
 }
 
+// VERSION, package.json, and CHANGELOG.md must move together.
+const versionValue = readText("VERSION").trim();
+const changelogText = readText("CHANGELOG.md");
+if (!changelogText.includes(`## ${versionValue}`)) {
+  errors.push(`CHANGELOG.md has no entry for VERSION '${versionValue}'.`);
+}
+const packageVersion = readJson("package.json").version;
+if (packageVersion !== versionValue) {
+  errors.push(
+    `package.json version '${packageVersion}' does not match VERSION '${versionValue}'.`
+  );
+}
+
 // Every skill must appear in the skills/README.md domain index.
 const skillsReadme = readText("skills/README.md");
 for (const skill of skillEntries) {

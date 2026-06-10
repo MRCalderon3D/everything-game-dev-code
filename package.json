@@ -1,6 +1,6 @@
 {
   "name": "everything-game-dev-code",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "description": "A universal AI-assisted scaffold for game development across Unity, Unreal, Godot, and the web (HTML5).",
   "license": "MIT",

@@ -839,6 +839,8 @@ everything-game-dev-code
 │   │   ├── index.html
 │   │   ├── README.md
 │   │   └── TDD.md
+│   ├── CONVENTIONS.md
+│   ├── harness-comparison.md
 │   └── README.md
 ├── schemas
 │   ├── hooks.schema.json

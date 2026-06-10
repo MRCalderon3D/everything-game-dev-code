@@ -2,6 +2,28 @@
 
 All notable changes to this scaffold should be documented here.
 
+## 0.2.0
+
+### Added
+- Web (HTML5/canvas) as a fourth engine layer: `rules/web/` (23 rule files), `skills/web/` (8 skills), `/web-setup` `/web-review` `/web-build-fix` `/web-scene-audit` commands, `web-reviewer` agent, `engine:web` component and `web-production` install profile
+- Generated asset pipeline: 7 asset skills (sprite, tilemap, 2d-animation, ui-asset, ui-animation, placeholder, generated-raster) plus `validate:generated-assets`
+- `/context` command to activate `contexts/` phase files; phase commands now reference their matching context
+- `/full-game` samples: 9 complete web games (PirateInvaders ×2, Tetris2DMutation, LosRenacidos ×3, pacmanAI ×3) with conventions (`samples/CONVENTIONS.md`) and a harness comparison writeup
+- Real validation layer: ajv JSON Schema validation (`validate:schemas`), two-way wrapper parity, generated-vs-committed drift checks, engine content-isolation test, skills index completeness check
+- Generators as single source of truth: `sync:wrappers` (harness command wrappers + opencode.json from `commands/`), `sync:hook-wiring` (`.claude/settings.json` + `.cursor/hooks.json` from `hooks/hooks.json`), `sync:structure` (structure artifacts from `git ls-files`)
+- Hook execution on Claude Code via `scripts/hooks/claude-adapter.js` (warn-only)
+- Harness support tier matrix (`docs/harness-support.md`)
+- OpenCode harness adapter parity with Claude and Codex
+
+### Fixed
+- CI green for the first time: structure artifacts are now derived from `git ls-files`, so local and CI output always match (gitignored content can no longer leak into committed artifacts)
+- `/tdd` meant "Technical Design Document" on OpenCode and test-driven development everywhere else; unified to test-driven development
+- Install pipeline re-documented as a resolver (nothing is copied); documented `--profile`/`--engine` invocations now work
+- Schema/instance divergences reconciled (hooks, mcp-servers, package-manager); `mcp-servers.json` no longer points at the plugin schema
+- Examples now teach the real manifest component vocabulary; `.env.example` documents only variables the tooling reads
+- Engine- and harness-specific content removed from engine-neutral asset skills
+- Test path resolution bug (all test files); tests are now discovered instead of hard-coded
+
 ## 0.1.0
 - Initial public scaffold structure defined
 - Core layers established for rules, agents, commands, skills, contexts, hooks, and harness adapters
