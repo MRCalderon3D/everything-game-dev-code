@@ -26,20 +26,11 @@ jobs:
       - name: Run tests
         run: npm test
 
-      - name: Validate manifests
-        run: npm run validate:manifests
-
-      - name: Validate hooks
-        run: npm run validate:hooks
-
-      - name: Validate structure
-        run: npm run validate:structure
-
-      - name: Validate references
-        run: npm run validate:references
-
-      - name: Validate structure artifacts
-        run: npm run validate:structure-artifacts
+      # Single entry point shared with local development: the validator list
+      # lives only in package.json's "validate" script, so CI and local runs
+      # can never drift apart.
+      - name: Validate
+        run: npm run validate
 
       - name: Show structure artifact diff on failure
         if: failure()
@@ -48,6 +39,3 @@ jobs:
           npm run sync:structure
           echo "Changed structure artifact files:"
           git diff -- STRUCTURE-TREE.txt docs/structure-overview.md || true
-
-      - name: Lint Markdown
-        run: npm run lint:markdown

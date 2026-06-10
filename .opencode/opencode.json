@@ -9,16 +9,12 @@
       "description": "Verify implementation quality",
       "template": "Read .opencode/commands/verify.md and execute the shared commands/verify.md workflow."
     },
-    "engine-review": {
-      "description": "Review one engine layer (Unity/Unreal/Godot)",
-      "template": "Read .opencode/commands/engine-review.md. Pick one engine layer only."
-    },
     "gdd": {
       "description": "Generate a Game Design Document",
       "template": "Read .opencode/commands/gdd.md and execute the shared commands/gdd.md workflow."
     },
     "tdd": {
-      "description": "Generate a Technical Design Document",
+      "description": "Apply test-driven development for the current task",
       "template": "Read .opencode/commands/tdd.md and execute the shared commands/tdd.md workflow."
     },
     "tech-design": {

@@ -5,6 +5,7 @@ const {
   extractLevelThreeHeadings,
   listMarkdownBasenames,
   listSkillNames,
+  readJson,
   readText,
   report,
 } = require("./lib/validation");
@@ -65,10 +66,38 @@ for (const command of commandNames) {
   }
 }
 
+// Two-way parity: every source command needs a wrapper in each mirroring
+// adapter, and every wrapper needs a source command (no orphans).
+const wrapperAdapters = [".claude/commands", ".codex/commands", ".opencode/commands"];
+
+for (const adapterDir of wrapperAdapters) {
+  const wrapperNames = listMarkdownBasenames(adapterDir);
+  const wrapperSet = new Set(wrapperNames);
+  for (const command of commandNames) {
+    if (!wrapperSet.has(command)) {
+      errors.push(`Missing command wrapper '${adapterDir}/${command}.md'.`);
+    }
+  }
+  for (const wrapper of wrapperNames) {
+    if (!commandSet.has(wrapper)) {
+      errors.push(
+        `Orphan command wrapper '${adapterDir}/${wrapper}.md' has no source in commands/.`
+      );
+    }
+  }
+}
+
+const opencodeConfig = readJson(".opencode/opencode.json");
+const opencodeCommandKeys = Object.keys(opencodeConfig.command || {});
+const opencodeCommandSet = new Set(opencodeCommandKeys);
 for (const command of commandNames) {
-  const codexCommandPath = `.codex/commands/${command}.md`;
-  if (!exists(codexCommandPath)) {
-    errors.push(`Missing Codex command wrapper '${codexCommandPath}'.`);
+  if (!opencodeCommandSet.has(command)) {
+    errors.push(`.opencode/opencode.json is missing command entry '${command}'.`);
+  }
+}
+for (const key of opencodeCommandKeys) {
+  if (!commandSet.has(key)) {
+    errors.push(`.opencode/opencode.json has orphan command entry '${key}'.`);
   }
 }
 

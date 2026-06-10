@@ -1,36 +1,25 @@
 #!/usr/bin/env node
 const fs = require("fs");
 const path = require("path");
-const { repoRoot, report } = require("./lib/validation");
+const { report } = require("./lib/validation");
+const { repoRoot, walk } = require("./lib/structure-artifacts");
 
 const errors = [];
-const ignoredDirs = new Set([
-  ".git",
-  "node_modules",
-  ".dist",
-  "coverage",
-  "temp",
-  "private",
-]);
 
-function walk(dir) {
-  for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
-    if (ignoredDirs.has(entry.name)) {
-      continue;
-    }
-    const fullPath = path.join(dir, entry.name);
-    if (entry.isDirectory()) {
-      walk(fullPath);
-      continue;
-    }
-    if (entry.isFile() && entry.name.endsWith(".md")) {
-      lintFile(fullPath);
-    }
-  }
+// samples/ holds verbatim output of external AI harnesses; it is not held to
+// scaffold authoring style.
+const ignoredPrefixes = ["samples/"];
+
+function lintableMarkdownFiles() {
+  return walk(repoRoot).filter(
+    (relPath) =>
+      relPath.endsWith(".md") &&
+      !ignoredPrefixes.some((prefix) => relPath.startsWith(prefix))
+  );
 }
 
-function lintFile(fullPath) {
-  const relPath = path.relative(repoRoot, fullPath).replace(/\\/g, "/");
+function lintFile(relPath) {
+  const fullPath = path.join(repoRoot, relPath);
   const text = fs.readFileSync(fullPath, "utf8");
   const lines = text.split(/\r?\n/);
   const endsWithNewline = /\r?\n$/.test(text);
@@ -65,5 +54,7 @@ function lintFile(fullPath) {
   }
 }
 
-walk(repoRoot);
+for (const relPath of lintableMarkdownFiles()) {
+  lintFile(relPath);
+}
 report(errors, "PASS lint:markdown");

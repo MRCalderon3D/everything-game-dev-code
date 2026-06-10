@@ -7,4 +7,10 @@ npm run sync:structure
 echo "[pre-commit] Validating structure artifacts..."
 npm run validate:structure-artifacts
 
+echo "[pre-commit] Validating structure cross-references..."
+npm run validate:structure
+
+echo "[pre-commit] Linting markdown..."
+npm run lint:markdown
+
 git add STRUCTURE-TREE.txt docs/structure-overview.md

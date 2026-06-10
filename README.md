@@ -36,7 +36,10 @@ Not just a prompt collection — a structured operating system for game projects
 ```bash
 git clone https://github.com/MRCalderon3D/everything-game-dev-code.git
 cd everything-game-dev-code
+npm run setup:hooks
 ```
+
+`npm run setup:hooks` wires the repo's pre-commit checks (structure sync + validation) so committed artifacts never drift; it needs Node.js 18+ and takes one second.
 
 Open the folder in your AI coding assistant (Claude Code, Cursor, Codex, OpenCode, or Kiro). The scaffold is loaded from the assistant's adapter plus the shared `AGENTS.md`, `rules/`, `commands/`, `agents/`, and `skills/` layers.
 
@@ -46,7 +49,7 @@ Then type commands in the chat:
 |---------|-------------|
 | `/plan` | Outline your project before coding |
 | `/gdd` | Generate a Game Design Document |
-| `/tdd` | Generate a Technical Design Document |
+| `/tdd` | Apply test-driven development to the current task |
 | `/scene-bootstrap` | Scaffold a new scene |
 | `/unity-setup` | Bootstrap a Unity project with conventions |
 | `/unity-build-fix` | Diagnose and fix Unity build errors |

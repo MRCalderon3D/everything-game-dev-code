@@ -1,6 +1,6 @@
 #!/usr/bin/env node
-const fs = require("fs");
 const path = require("path");
+const { execFileSync } = require("child_process");
 
 const repoRoot = path.resolve(__dirname, "..", "..");
 
@@ -28,50 +28,83 @@ function compareNames(a, b) {
   return left < right ? -1 : 1;
 }
 
-function sortEntries(entries) {
-  return [...entries].sort((a, b) => {
-    if (a.isDirectory() !== b.isDirectory()) {
-      return a.isDirectory() ? -1 : 1;
+let trackedFilesCache = null;
+
+// Structure artifacts are derived from `git ls-files`, not a filesystem walk,
+// so local output always matches what CI regenerates from a clean checkout
+// (gitignored and untracked content can never leak into committed artifacts).
+// Files deleted locally but not yet committed are subtracted so the artifacts
+// reflect what the next commit will actually contain.
+function gitListFiles(args) {
+  const stdout = execFileSync("git", ["ls-files", "-z", ...args], {
+    cwd: repoRoot,
+    encoding: "utf8",
+    maxBuffer: 16 * 1024 * 1024,
+  });
+  return stdout.split("\0").filter(Boolean).map(normalizePath);
+}
+
+function trackedFiles() {
+  if (!trackedFilesCache) {
+    const deleted = new Set(gitListFiles(["--deleted"]));
+    trackedFilesCache = gitListFiles([]).filter((relPath) => !deleted.has(relPath));
+  }
+  return trackedFilesCache;
+}
+
+function walk(currentDir) {
+  const rel = normalizePath(path.relative(repoRoot, currentDir));
+  const prefix = rel === "" || rel === "." ? "" : `${rel}/`;
+  return trackedFiles()
+    .filter((relPath) => relPath.startsWith(prefix))
+    .map((relPath) => relPath.slice(prefix.length));
+}
+
+function buildTree(paths) {
+  const root = new Map();
+  for (const relPath of paths) {
+    const parts = relPath.split("/");
+    let node = root;
+    for (let i = 0; i < parts.length; i += 1) {
+      const part = parts[i];
+      const isFile = i === parts.length - 1;
+      if (isFile) {
+        if (!node.has(part)) {
+          node.set(part, null);
+        }
+      } else {
+        if (!(node.get(part) instanceof Map)) {
+          node.set(part, new Map());
+        }
+        node = node.get(part);
+      }
     }
-    return compareNames(a.name, b.name);
+  }
+  return root;
+}
+
+function sortTreeEntries(node) {
+  return [...node.entries()].sort((a, b) => {
+    const aIsDir = a[1] instanceof Map;
+    const bIsDir = b[1] instanceof Map;
+    if (aIsDir !== bIsDir) {
+      return aIsDir ? -1 : 1;
+    }
+    return compareNames(a[0], b[0]);
   });
 }
 
-function walk(currentDir, relDir = "") {
-  const entries = sortEntries(
-    fs
-      .readdirSync(currentDir, { withFileTypes: true })
-      .filter((entry) => ![".git", ".game-dev", "node_modules", "temp"].includes(entry.name))
-  );
-
-  const files = [];
-  for (const entry of entries) {
-    const relPath = relDir ? `${relDir}/${entry.name}` : entry.name;
-    const fullPath = path.join(currentDir, entry.name);
-    if (entry.isDirectory()) {
-      files.push(...walk(fullPath, relPath));
-      continue;
-    }
-    files.push(normalizePath(relPath));
-  }
-  return files;
-}
-
-function renderTree(dirPath, prefix = "") {
-  const entries = sortEntries(
-    fs
-      .readdirSync(dirPath, { withFileTypes: true })
-      .filter((entry) => ![".git", ".game-dev", "node_modules", "temp"].includes(entry.name))
-  );
+function renderTree(node, prefix = "") {
+  const entries = sortTreeEntries(node);
   const lines = [];
 
-  entries.forEach((entry, index) => {
+  entries.forEach(([name, child], index) => {
     const isLast = index === entries.length - 1;
     const branch = isLast ? "└── " : "├── ";
     const childPrefix = prefix + (isLast ? "    " : "│   ");
-    lines.push(`${prefix}${branch}${entry.name}`);
-    if (entry.isDirectory()) {
-      lines.push(...renderTree(path.join(dirPath, entry.name), childPrefix));
+    lines.push(`${prefix}${branch}${name}`);
+    if (child instanceof Map) {
+      lines.push(...renderTree(child, childPrefix));
     }
   });
 
@@ -98,27 +131,43 @@ function titleFromFilename(filename) {
     .join(" ");
 }
 
+function trackedDirectoriesUnder(relDir) {
+  const prefix = `${relDir}/`;
+  const dirs = new Set();
+  for (const relPath of trackedFiles()) {
+    if (!relPath.startsWith(prefix)) {
+      continue;
+    }
+    const remainder = relPath.slice(prefix.length);
+    const slashIndex = remainder.indexOf("/");
+    if (slashIndex > 0) {
+      dirs.add(remainder.slice(0, slashIndex));
+    }
+  }
+  return [...dirs].sort(compareNames);
+}
+
 function generateStructureTree() {
-  return [path.basename(repoRoot), ...renderTree(repoRoot)].join("\n") + "\n";
+  return (
+    [path.basename(repoRoot), ...renderTree(buildTree(trackedFiles()))].join("\n") + "\n"
+  );
 }
 
 function generateStructureOverview() {
-  const engineDirs = fs
-    .readdirSync(path.join(repoRoot, "rules"), { withFileTypes: true })
-    .filter((entry) => entry.isDirectory() && entry.name !== "common")
-    .map((entry) => entry.name)
-    .sort(compareNames);
+  const engineDirs = trackedDirectoriesUnder("rules").filter(
+    (name) => name !== "common"
+  );
 
-  const domainDirs = fs
-    .readdirSync(path.join(repoRoot, "skills"), { withFileTypes: true })
-    .filter((entry) => entry.isDirectory())
-    .map((entry) => entry.name)
-    .sort(compareNames);
+  const domainDirs = trackedDirectoriesUnder("skills");
 
-  const documentTemplates = fs
-    .readdirSync(path.join(repoRoot, "docs", "templates"), { withFileTypes: true })
-    .filter((entry) => entry.isFile() && entry.name.endsWith(".md"))
-    .map((entry) => titleFromFilename(entry.name))
+  const documentTemplates = trackedFiles()
+    .filter(
+      (relPath) =>
+        relPath.startsWith("docs/templates/") &&
+        relPath.endsWith(".md") &&
+        relPath.split("/").length === 3
+    )
+    .map((relPath) => titleFromFilename(path.basename(relPath)))
     .sort(compareNames);
 
   const lines = [
