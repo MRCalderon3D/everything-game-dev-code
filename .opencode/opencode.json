@@ -204,6 +204,22 @@
     "vertical-slice": {
       "description": "Define or review a vertical slice with clear goals, proof points, and acceptance criteria.",
       "template": "Read .opencode/commands/vertical-slice.md and execute the shared commands/vertical-slice.md workflow."
+    },
+    "web-build-fix": {
+      "description": "Diagnose and resolve web build, bundling, or deployment issues.",
+      "template": "Read .opencode/commands/web-build-fix.md and execute the shared commands/web-build-fix.md workflow."
+    },
+    "web-review": {
+      "description": "Review a web (HTML5) project for structure, architecture, maintainability, and risk.",
+      "template": "Read .opencode/commands/web-review.md and execute the shared commands/web-review.md workflow."
+    },
+    "web-scene-audit": {
+      "description": "Audit web game scenes, screen flow, state transitions, and teardown patterns.",
+      "template": "Read .opencode/commands/web-scene-audit.md and execute the shared commands/web-scene-audit.md workflow."
+    },
+    "web-setup": {
+      "description": "Set up or normalize a web (HTML5) project according to the scaffold rules.",
+      "template": "Read .opencode/commands/web-setup.md and execute the shared commands/web-setup.md workflow."
     }
   }
 }

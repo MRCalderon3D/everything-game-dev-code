@@ -363,3 +363,29 @@ Primary: `godot-reviewer`
 Support:
 - `technical-artist`
 - `qa-lead`
+
+## Web Engine Commands
+
+### /web-setup
+Primary: `web-reviewer`
+Support:
+- `architect`
+- `technical-design-lead`
+
+### /web-review
+Primary: `web-reviewer`
+Support:
+- `code-reviewer`
+- `performance-reviewer`
+
+### /web-build-fix
+Primary: `web-reviewer`
+Support:
+- `build-engineer`
+- `gameplay-programmer`
+
+### /web-scene-audit
+Primary: `web-reviewer`
+Support:
+- `ui-programmer`
+- `qa-lead`

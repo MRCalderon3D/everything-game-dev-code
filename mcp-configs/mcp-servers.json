@@ -38,6 +38,14 @@
       "godot-docs",
       "issue-tracker"
     ],
+    "web": [
+      "filesystem",
+      "git",
+      "github",
+      "ripgrep",
+      "fetch-docs",
+      "issue-tracker"
+    ],
     "liveops": [
       "filesystem",
       "git",

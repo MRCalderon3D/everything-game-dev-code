@@ -2,7 +2,7 @@
   "name": "everything-game-dev-code",
   "version": "0.1.0",
   "private": true,
-  "description": "A universal AI-assisted scaffold for game development across Unity, Unreal, and Godot.",
+  "description": "A universal AI-assisted scaffold for game development across Unity, Unreal, Godot, and the web (HTML5).",
   "license": "MIT",
   "scripts": {
     "setup:hooks": "node scripts/setup-git-hooks.js",

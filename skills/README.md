@@ -17,7 +17,7 @@ Each `SKILL.md` follows a shared section layout (Purpose, Use When, Inputs, Proc
 
 ## Skill domains
 
-Skills are organized into eight domain folders. Each skill lives in its own subfolder with a `SKILL.md` file.
+Skills are organized into nine domain folders. Each skill lives in its own subfolder with a `SKILL.md` file.
 
 ### art-audio-content/
 
@@ -144,6 +144,21 @@ Skills for quality assurance and release delivery.
 | `qa-test-matrix` | Define test coverage by feature, platform, and risk area |
 | `release-readiness` | Validate that a build meets all exit criteria before submission |
 | `store-submission` | Prepare store assets, metadata, and build packages for platform stores |
+
+### web/
+
+Web (HTML5/canvas/browser) engine-specific skills. Strictly isolated from the other engine layers.
+
+| Skill | Purpose |
+|-------|---------|
+| `web-build-release` | Build tooling, bundling decisions, and deployment to static hosts |
+| `web-canvas-rendering` | Canvas 2D/WebGL rendering conventions, pixel-art crispness, scaling, and batching |
+| `web-game-architecture` | Game loop, fixed timestep, state machines, and system boundaries |
+| `web-input-touch` | Named-action input abstraction across keyboard, mouse, touch, and gamepad |
+| `web-js-ts-standards` | JS/TS coding standards for browser game code |
+| `web-performance` | Frame budget, allocation/GC discipline, pooling, and devtools profiling |
+| `web-project-structure` | Organize a web game project: entry, modules, assets, config, tests |
+| `web-testing` | Unit tests for pure logic, headless smoke tests, and browser matrix passes |
 
 ### workflow/
 

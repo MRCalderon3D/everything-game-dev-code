@@ -69,7 +69,7 @@ The `PirateInvaders/` folder contains a complete HTML game built with the `/full
 
 ## Goals
 - Keep shared game-development standards engine-neutral.
-- Let Unity, Unreal, and Godot each extend the base cleanly without contaminating one another.
+- Let Unity, Unreal, Godot, and the web layer each extend the base cleanly without contaminating one another.
 - Support real production work across design, engineering, content, QA, release, and live ops.
 - Turn repeated solutions into reusable skills and structured workflows.
 - Make the repository portable across multiple coding assistants and harnesses.

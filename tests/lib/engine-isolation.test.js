@@ -23,6 +23,7 @@ const engineModulePrefixes = {
   'engine:unity': ['rules/unity/', 'skills/unity/', 'agents/unity-', 'commands/unity-'],
   'engine:unreal': ['rules/unreal/', 'skills/unreal/', 'agents/unreal-', 'commands/unreal-'],
   'engine:godot': ['rules/godot/', 'skills/godot/', 'agents/godot-', 'commands/godot-'],
+  'engine:web': ['rules/web/', 'skills/web/', 'agents/web-', 'commands/web-'],
 };
 
 for (const [componentId, prefixes] of Object.entries(engineModulePrefixes)) {
@@ -45,7 +46,8 @@ for (const [componentId, prefixes] of Object.entries(engineModulePrefixes)) {
 
       if (glob.includes('rules/') || glob.includes('skills/') || glob.includes('agents/') || glob.includes('commands/')) {
         assert.ok(
-          matchesOwnEngine || !glob.includes('unity/') && !glob.includes('unreal/') && !glob.includes('godot/'),
+          matchesOwnEngine ||
+            (!glob.includes('unity/') && !glob.includes('unreal/') && !glob.includes('godot/') && !glob.includes('web/')),
           `Module '${moduleId}' includes unexpected engine-scoped path: ${glob}`
         );
       }

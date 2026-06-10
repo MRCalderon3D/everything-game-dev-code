@@ -71,6 +71,15 @@
       ],
       "notes": "Godot engine surface. Use with baseline components and avoid mixing with other engine packs in active production profiles."
     },
+    "engine-web": {
+      "includes": [
+        "rules/web/**",
+        "skills/web/**",
+        "agents/web-*.md",
+        "commands/web-*.md"
+      ],
+      "notes": "Web (HTML5/canvas) engine surface. Use with baseline components and avoid mixing with other engine packs in active production profiles."
+    },
     "domain-workflow": {
       "includes": [
         "skills/workflow/**",

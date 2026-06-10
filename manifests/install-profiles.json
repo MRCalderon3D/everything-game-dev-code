@@ -70,6 +70,24 @@
       ]
     },
     {
+      "id": "web-production",
+      "summary": "Baseline scaffold plus web (HTML5/canvas) surface for a browser game project.",
+      "components": [
+        "baseline:rules",
+        "baseline:agents",
+        "baseline:commands",
+        "baseline:skills",
+        "baseline:docs",
+        "baseline:contexts",
+        "engine:web",
+        "domain:workflow",
+        "domain:design",
+        "domain:engineering-common",
+        "domain:art-audio-content",
+        "domain:qa-release"
+      ]
+    },
+    {
       "id": "unity-multiplayer",
       "summary": "Unity production profile with explicit multiplayer support.",
       "components": [

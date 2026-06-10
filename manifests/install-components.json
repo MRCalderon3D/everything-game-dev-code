@@ -58,6 +58,12 @@
       "modules": ["engine-godot"]
     },
     {
+      "id": "engine:web",
+      "family": "engine",
+      "summary": "Web (HTML5/canvas) rule, skill, command, and review surface.",
+      "modules": ["engine-web"]
+    },
+    {
       "id": "domain:workflow",
       "family": "domain",
       "summary": "Planning, TDD, verification, orchestration, and learning workflow skills.",

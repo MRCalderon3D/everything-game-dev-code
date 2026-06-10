@@ -12,6 +12,7 @@ const ENGINE_MARKERS = {
   unity: /\b(MonoBehaviour|ScriptableObject|UnityEngine|ProjectSettings)\b|\.unity\b/,
   unreal: /\b(UCLASS|UPROPERTY|UFUNCTION|AActor|Blueprints?)\b|\.uasset\b|\.umap\b|\.uproject\b/,
   godot: /\b(GDScript|PackedScene|CharacterBody2D|Node2D|onready)\b|\.tscn\b|\.tres\b|project\.godot/,
+  web: /\b(Phaser|WebAudio|WebGL|requestAnimationFrame|IndexedDB|localStorage|sendBeacon)\b|\bindex\.html\b/,
 };
 
 const SCAN_ROOTS = ['rules', 'skills'];

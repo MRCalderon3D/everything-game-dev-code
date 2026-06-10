@@ -334,6 +334,15 @@ Primary skills:
 - godot/godot-editor-tooling
 - godot/godot-project-structure
 
+### web-reviewer
+Primary skills:
+- web/web-project-structure
+- web/web-js-ts-standards
+- web/web-game-architecture
+- web/web-canvas-rendering
+- web/web-performance
+- web/web-testing
+
 ## Routing Rules
 - If a task changes player-facing goals, route through the relevant design agent before engineering finalization.
 - If a task changes architecture, persistence, networking, or build strategy, route through `technical-design-lead` or `architect`.

@@ -14,7 +14,7 @@ It is a layered workflow system for:
 - harness portability
 
 ## Primary Intent
-Use this repository to coordinate work across shared game-development standards while preserving strict isolation between Unity, Unreal, and Godot execution layers.
+Use this repository to coordinate work across shared game-development standards while preserving strict isolation between the Unity, Unreal, Godot, and web (HTML5) execution layers.
 
 ## How To Read The Repository
 - Start with `README.md` for repository purpose.
@@ -23,6 +23,7 @@ Use this repository to coordinate work across shared game-development standards 
 - Use `rules/unity/` for Unity-specific execution
 - Use `rules/unreal/` for Unreal-specific execution
 - Use `rules/godot/` for Godot-specific execution
+- Use `rules/web/` for web (HTML5)-specific execution
 - Use `commands/` as the preferred task entry points.
 - Use `skills/` for execution depth.
 - Use `contexts/` to adapt to project phase.
@@ -48,7 +49,7 @@ When uncertain:
 ## What To Avoid
 - creating duplicate sources of truth
 - silently inventing new repository structure without justification
-- mixing Unity, Unreal, and Godot implementation guidance
+- mixing Unity, Unreal, Godot, and web implementation guidance
 - replacing structured process with ad hoc chat outputs
 
 ## Repository Maintenance Rule

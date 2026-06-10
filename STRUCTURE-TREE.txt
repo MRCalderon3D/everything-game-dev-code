@@ -55,7 +55,11 @@ everything-game-dev-code
 │   │   ├── unreal-setup.md
 │   │   ├── update-docs.md
 │   │   ├── verify.md
-│   │   └── vertical-slice.md
+│   │   ├── vertical-slice.md
+│   │   ├── web-build-fix.md
+│   │   ├── web-review.md
+│   │   ├── web-scene-audit.md
+│   │   └── web-setup.md
 │   ├── research
 │   │   └── README.md
 │   ├── rules
@@ -127,7 +131,11 @@ everything-game-dev-code
 │   │   ├── unreal-setup.md
 │   │   ├── update-docs.md
 │   │   ├── verify.md
-│   │   └── vertical-slice.md
+│   │   ├── vertical-slice.md
+│   │   ├── web-build-fix.md
+│   │   ├── web-review.md
+│   │   ├── web-scene-audit.md
+│   │   └── web-setup.md
 │   ├── hooks
 │   │   └── README.md
 │   ├── mcp
@@ -221,7 +229,11 @@ everything-game-dev-code
 │   │   ├── unreal-setup.md
 │   │   ├── update-docs.md
 │   │   ├── verify.md
-│   │   └── vertical-slice.md
+│   │   ├── vertical-slice.md
+│   │   ├── web-build-fix.md
+│   │   ├── web-review.md
+│   │   ├── web-scene-audit.md
+│   │   └── web-setup.md
 │   ├── hooks
 │   │   └── README.md
 │   ├── instructions
@@ -286,7 +298,8 @@ everything-game-dev-code
 │   ├── unity-build-resolver.md
 │   ├── unity-reviewer.md
 │   ├── unreal-build-resolver.md
-│   └── unreal-reviewer.md
+│   ├── unreal-reviewer.md
+│   └── web-reviewer.md
 ├── commands
 │   ├── art-2d-pass.md
 │   ├── audio-pass.md
@@ -339,7 +352,11 @@ everything-game-dev-code
 │   ├── unreal-setup.md
 │   ├── update-docs.md
 │   ├── verify.md
-│   └── vertical-slice.md
+│   ├── vertical-slice.md
+│   ├── web-build-fix.md
+│   ├── web-review.md
+│   ├── web-scene-audit.md
+│   └── web-setup.md
 ├── contexts
 │   ├── ideation.md
 │   ├── liveops.md
@@ -524,6 +541,30 @@ everything-game-dev-code
 │   │   ├── tooling.md
 │   │   ├── ui.md
 │   │   ├── uobject-architecture.md
+│   │   └── version-control.md
+│   ├── web
+│   │   ├── agents.md
+│   │   ├── asset-pipeline.md
+│   │   ├── audio.md
+│   │   ├── build-release.md
+│   │   ├── coding-style.md
+│   │   ├── documentation.md
+│   │   ├── export-platforms.md
+│   │   ├── memory.md
+│   │   ├── networking.md
+│   │   ├── patterns.md
+│   │   ├── performance.md
+│   │   ├── project-structure.md
+│   │   ├── qa.md
+│   │   ├── README.md
+│   │   ├── rendering-canvas.md
+│   │   ├── save-persistence.md
+│   │   ├── scenes-state.md
+│   │   ├── telemetry.md
+│   │   ├── testing.md
+│   │   ├── tooling.md
+│   │   ├── ui-input.md
+│   │   ├── ui.md
 │   │   └── version-control.md
 │   └── README.md
 ├── samples
@@ -1013,6 +1054,23 @@ everything-game-dev-code
 │   │   ├── unreal-testing
 │   │   │   └── SKILL.md
 │   │   └── README.md
+│   ├── web
+│   │   ├── web-build-release
+│   │   │   └── SKILL.md
+│   │   ├── web-canvas-rendering
+│   │   │   └── SKILL.md
+│   │   ├── web-game-architecture
+│   │   │   └── SKILL.md
+│   │   ├── web-input-touch
+│   │   │   └── SKILL.md
+│   │   ├── web-js-ts-standards
+│   │   │   └── SKILL.md
+│   │   ├── web-performance
+│   │   │   └── SKILL.md
+│   │   ├── web-project-structure
+│   │   │   └── SKILL.md
+│   │   └── web-testing
+│   │       └── SKILL.md
 │   ├── workflow
 │   │   ├── continuous-learning
 │   │   │   └── SKILL.md

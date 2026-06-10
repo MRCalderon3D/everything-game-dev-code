@@ -2,7 +2,7 @@
 const path = require("path");
 const fs = require("fs");
 
-const ENGINE_PROFILES = ["unity", "unreal", "godot"];
+const ENGINE_PROFILES = ["unity", "unreal", "godot", "web"];
 
 function getWorkspaceRoot() {
   return process.env.WORKSPACE_ROOT || process.cwd();
@@ -38,6 +38,16 @@ function getActiveProfile() {
 
 function detectProfileFromPaths(text) {
   const source = String(text || "").toLowerCase();
+  // Web markers are checked first: web projects commonly contain generic
+  // "assets/" paths that would otherwise false-positive as Unity.
+  if (
+    source.includes("index.html") ||
+    source.includes("<canvas") ||
+    source.includes("phaser") ||
+    source.includes("requestanimationframe")
+  ) {
+    return "web";
+  }
   if (source.includes("assets/") || source.includes(".unity") || source.includes("projectsettings/")) {
     return "unity";
   }

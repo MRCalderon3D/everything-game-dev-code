@@ -12,7 +12,7 @@ They should route work through the correct role, use the correct skills, respect
 Agents should:
 
 - respect the layered rules model
-- keep Unity, Unreal, and Godot guidance isolated
+- keep Unity, Unreal, Godot, and web guidance isolated
 - route work to the correct role or command
 - use templates for high-value deliverables
 - preserve source-of-truth discipline across GDD, TDD, QA, telemetry, and release docs
