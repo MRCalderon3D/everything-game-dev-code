@@ -1,8 +1,9 @@
 #!/usr/bin/env node
 const path = require("path");
 const fs = require("fs");
+const { loadEngines, engineIds } = require("./engines");
 
-const ENGINE_PROFILES = ["unity", "unreal", "godot", "web"];
+const ENGINE_PROFILES = engineIds();
 
 function getWorkspaceRoot() {
   return process.env.WORKSPACE_ROOT || process.cwd();
@@ -38,24 +39,13 @@ function getActiveProfile() {
 
 function detectProfileFromPaths(text) {
   const source = String(text || "").toLowerCase();
-  // Web markers are checked first: web projects commonly contain generic
-  // "assets/" paths that would otherwise false-positive as Unity.
-  if (
-    source.includes("index.html") ||
-    source.includes("<canvas") ||
-    source.includes("phaser") ||
-    source.includes("requestanimationframe")
-  ) {
-    return "web";
-  }
-  if (source.includes("assets/") || source.includes(".unity") || source.includes("projectsettings/")) {
-    return "unity";
-  }
-  if (source.includes(".uproject") || source.includes("/content/") || source.includes(".uasset") || source.includes(".umap")) {
-    return "unreal";
-  }
-  if (source.includes("project.godot") || source.includes(".tscn") || source.includes(".tres")) {
-    return "godot";
+  // Registry array order is detection priority: engines with the most
+  // specific markers come first (web precedes unity because web projects
+  // commonly contain generic "assets/" paths).
+  for (const engine of loadEngines()) {
+    if (engine.pathMarkers.some((marker) => source.includes(marker))) {
+      return engine.id;
+    }
   }
   return "";
 }

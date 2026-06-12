@@ -1,0 +1,31 @@
+{
+  "$schema": "../schemas/engines.schema.json",
+  "version": 1,
+  "description": "Engine layer registry — the single source of truth for which engine layers exist. Scripts, tests, and hooks derive engine lists from this file. Array order is path-detection priority: engines with the most specific path markers come first (web precedes unity because web projects commonly contain generic 'assets/' paths).",
+  "engines": [
+    {
+      "id": "web",
+      "display": "Web (HTML5/canvas)",
+      "pathMarkers": ["index.html", "<canvas", "phaser", "requestanimationframe"],
+      "buildResolverAgent": false
+    },
+    {
+      "id": "unity",
+      "display": "Unity",
+      "pathMarkers": ["assets/", ".unity", "projectsettings/"],
+      "buildResolverAgent": true
+    },
+    {
+      "id": "unreal",
+      "display": "Unreal Engine",
+      "pathMarkers": [".uproject", "/content/", ".uasset", ".umap"],
+      "buildResolverAgent": true
+    },
+    {
+      "id": "godot",
+      "display": "Godot",
+      "pathMarkers": ["project.godot", ".tscn", ".tres"],
+      "buildResolverAgent": true
+    }
+  ]
+}

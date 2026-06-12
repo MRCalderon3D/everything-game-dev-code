@@ -8,6 +8,7 @@ const schemaDir = path.join(repoRoot, 'schemas');
 const manifestDir = path.join(repoRoot, 'manifests');
 
 const schemaFiles = [
+  'engines.schema.json',
   'hooks.schema.json',
   'install-components.schema.json',
   'install-state.schema.json',
@@ -19,6 +20,7 @@ const schemaFiles = [
 ];
 
 const manifestFiles = [
+  'engines.json',
   'install-components.json',
   'install-modules.json',
   'install-profiles.json',
@@ -57,6 +59,10 @@ const schemaBackedDocuments = [
   {
     file: path.join(repoRoot, 'hooks', 'hooks.json'),
     expectedSchema: '../schemas/hooks.schema.json',
+  },
+  {
+    file: path.join(repoRoot, 'manifests', 'engines.json'),
+    expectedSchema: '../schemas/engines.schema.json',
   },
   {
     file: path.join(repoRoot, 'manifests', 'install-components.json'),

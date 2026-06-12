@@ -470,6 +470,7 @@ everything-game-dev-code
 │   ├── hooks.json
 │   └── README.md
 ├── manifests
+│   ├── engines.json
 │   ├── install-components.json
 │   ├── install-modules.json
 │   ├── install-profiles.json
@@ -879,6 +880,7 @@ everything-game-dev-code
 │   ├── harness-comparison.md
 │   └── README.md
 ├── schemas
+│   ├── engines.schema.json
 │   ├── hooks.schema.json
 │   ├── install-components.schema.json
 │   ├── install-modules.schema.json
@@ -902,6 +904,7 @@ everything-game-dev-code
 │   │   ├── scene-integrity-check.js
 │   │   └── session-summary.js
 │   ├── lib
+│   │   ├── engines.js
 │   │   ├── hook-wiring.js
 │   │   ├── profile-resolution.js
 │   │   ├── schema-validation.js
@@ -916,6 +919,7 @@ everything-game-dev-code
 │   ├── setup-git-hooks.js
 │   ├── setup-profile.js
 │   ├── sync-structure-artifacts.js
+│   ├── validate-engines.js
 │   ├── validate-generated-assets.js
 │   ├── validate-hooks.js
 │   ├── validate-manifests.js

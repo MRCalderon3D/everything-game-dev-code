@@ -19,12 +19,15 @@ const componentsDoc = JSON.parse(fs.readFileSync(componentsPath, 'utf8'));
 const modules = modulesDoc.modules || {};
 const components = new Map((componentsDoc.components || []).map(c => [c.id, c]));
 
-const engineModulePrefixes = {
-  'engine:unity': ['rules/unity/', 'skills/unity/', 'agents/unity-', 'commands/unity-'],
-  'engine:unreal': ['rules/unreal/', 'skills/unreal/', 'agents/unreal-', 'commands/unreal-'],
-  'engine:godot': ['rules/godot/', 'skills/godot/', 'agents/godot-', 'commands/godot-'],
-  'engine:web': ['rules/web/', 'skills/web/', 'agents/web-', 'commands/web-'],
-};
+// Engine list derives from the registry so new engine layers are covered
+// automatically (see manifests/engines.json).
+const { engineIds } = require('../../scripts/lib/engines');
+const engineModulePrefixes = Object.fromEntries(
+  engineIds().map(id => [
+    `engine:${id}`,
+    [`rules/${id}/`, `skills/${id}/`, `agents/${id}-`, `commands/${id}-`],
+  ])
+);
 
 for (const [componentId, prefixes] of Object.entries(engineModulePrefixes)) {
   const component = components.get(componentId);
@@ -46,8 +49,7 @@ for (const [componentId, prefixes] of Object.entries(engineModulePrefixes)) {
 
       if (glob.includes('rules/') || glob.includes('skills/') || glob.includes('agents/') || glob.includes('commands/')) {
         assert.ok(
-          matchesOwnEngine ||
-            (!glob.includes('unity/') && !glob.includes('unreal/') && !glob.includes('godot/') && !glob.includes('web/')),
+          matchesOwnEngine || !engineIds().some(id => glob.includes(`${id}/`)),
           `Module '${moduleId}' includes unexpected engine-scoped path: ${glob}`
         );
       }

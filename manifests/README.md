@@ -14,16 +14,24 @@ A profile install activates the right rules, agents, commands, skills, and docs 
 
 ## Files
 
+### engines.json
+
+The engine layer registry — the single source of truth for which engine layers exist. Scripts, tests, and hooks derive engine lists from this file instead of hardcoding them: `scripts/lib/profile-resolution.js` (valid profiles and path detection), `tests/lib/engine-isolation.test.js` (isolation prefixes), and `scripts/validate-engines.js` (structural contract per engine). Array order is path-detection priority — engines with the most specific markers come first.
+
+Each entry declares an `id` (kebab-case, matching `rules/<id>/`, `skills/<id>/`, `agents/<id>-*`, `commands/<id>-*`), a `display` name, `pathMarkers` for project detection, and whether the layer ships a dedicated `buildResolverAgent`.
+
+To add a new engine layer, run `npm run new:engine` rather than editing this file by hand.
+
 ### install-components.json
 
-Defines the 17 components that form the scaffold's logical groupings.
+Defines the 18 components that form the scaffold's logical groupings.
 
 **Component families:**
 
 | Family | Components | Purpose |
 |--------|-----------|---------|
 | `baseline` | rules, agents, commands, skills, docs, contexts | Core scaffold — required for all profiles |
-| `engine` | unity, unreal, godot | Engine-specific rules, skills, commands, and review agents |
+| `engine` | unity, unreal, godot, web | Engine-specific rules, skills, commands, and review agents |
 | `domain` | workflow, design, engineering-common, art-audio-content, qa-release | Discipline-specific skill and agent subsets |
 | `capability` | multiplayer, liveops, mobile-f2p | Cross-cutting feature capability packs |
 
@@ -42,7 +50,7 @@ Modules are the file-resolution layer. Components reference modules by name; mod
 
 ### install-profiles.json
 
-Defines 9 predefined installation profiles for common project configurations.
+Defines 10 predefined installation profiles for common project configurations.
 
 | Profile | Use when |
 |---------|---------|
@@ -50,6 +58,7 @@ Defines 9 predefined installation profiles for common project configurations.
 | `unity-production` | Standard Unity project for a small-to-mid team |
 | `unreal-production` | Standard Unreal project for a small-to-mid team |
 | `godot-production` | Standard Godot project for a small-to-mid team |
+| `web-production` | Standard web (HTML5/canvas) browser game project |
 | `unity-multiplayer` | Unity project with explicit multiplayer architecture support |
 | `unreal-aaa-console` | Unreal project at AAA or console scale |
 | `godot-indie-2d` | Small Godot team with a constrained scope (2D platformer, puzzle, etc.) |

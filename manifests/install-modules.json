@@ -8,7 +8,8 @@
         "rules/common/**",
         "rules/unity/**",
         "rules/unreal/**",
-        "rules/godot/**"
+        "rules/godot/**",
+        "rules/web/**"
       ],
       "notes": "Installs the full rules layer, including engine-specific overrides. Consumers should still activate only one engine profile at runtime unless doing comparison work."
     },
