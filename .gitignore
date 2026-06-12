@@ -13,3 +13,7 @@ AGENTS.override.md
 CLAUDE.local.md
 .claude/settings.local.json
 .vscode
+
+# Local environment files (never commit API keys)
+.env
+.env.local
