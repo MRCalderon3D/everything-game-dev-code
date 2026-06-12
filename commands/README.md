@@ -22,7 +22,9 @@ Commands do not replace judgment. They channel it.
 | `/unity-setup` | Initialize Unity project structure, packages, and CI configuration |
 | `/unreal-setup` | Initialize Unreal project structure, modules, and build toolchain |
 | `/godot-setup` | Initialize Godot project structure, scene layout, and export profiles |
+| `/web-setup` | Initialize web (HTML5) project structure, build tooling, and deployment targets |
 | `/onboarding` | Orient a new contributor to the project scaffold and active context |
+| `/context` | Activate a project phase context and align agents, commands, and priorities to it |
 
 ### Planning and design
 
@@ -32,6 +34,7 @@ Commands do not replace judgment. They channel it.
 | `/gdd` | Author or update the game design document |
 | `/tech-design` | Author or update a technical design document |
 | `/combat-design` | Design or tune combat systems, abilities, and encounters |
+| `/economy-balance` | Design or review the economy, sinks, faucets, rewards, and balance assumptions |
 | `/quest-design` | Design quest structure, objectives, and narrative hooks |
 | `/dialogue-design` | Design dialogue structure, branching, variables, and the conversation content pipeline |
 | `/procgen-design` | Design procedural generation systems, seeds, constraints, and validation gates |
@@ -70,6 +73,9 @@ Commands do not replace judgment. They channel it.
 | `/unreal-blueprint-audit` | Audit Unreal Blueprints for complexity and anti-patterns |
 | `/godot-review` | Review Godot GDScript/C# and scenes for quality and compliance |
 | `/godot-scene-audit` | Audit a Godot scene for structural issues and performance risk |
+| `/web-review` | Review web (HTML5) code and architecture for quality and compliance |
+| `/web-scene-audit` | Audit web game scenes, screen flow, state transitions, and teardown patterns |
+| `/ui-flow-review` | Review menus, HUD, navigation, and player flow from a UX perspective |
 | `/multiplayer-review` | Review network architecture, replication, and latency handling |
 | `/save-system-review` | Review save/load implementation for correctness and resilience |
 | `/input-review` | Review input handling, device coverage, buffering, and control responsiveness |
@@ -81,6 +87,7 @@ Commands do not replace judgment. They channel it.
 | `/unity-build-fix` | Diagnose and resolve Unity build failures |
 | `/unreal-build-fix` | Diagnose and resolve Unreal build failures |
 | `/godot-build-fix` | Diagnose and resolve Godot build failures |
+| `/web-build-fix` | Diagnose and resolve web build, bundling, or deployment issues |
 
 ### Testing and quality
 

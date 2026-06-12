@@ -15,6 +15,8 @@ Prevent defects from reaching players and ensure that shipped features behave as
 ## Key Commands
 - `/plan` — scope the test pass for a milestone or feature, including coverage targets and acceptance criteria
 - `/playtest-report` — document structured playtest findings with severity classifications
+- `/accessibility-pass` — verify accessibility option coverage and verification targets
+- `/localization-pass` — verify text expansion, truncation, and locale-sensitive screens
 - `/tdd` — apply test-driven practices to high-risk systems to prevent defects before they occur
 - `/perf-budget` — include performance regression as part of the QA pass
 - `/milestone-plan` — verify that QA exit criteria are defined for each milestone gate

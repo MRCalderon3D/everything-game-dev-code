@@ -29,6 +29,9 @@ Deliver features, content, and systems against a defined milestone plan. Maintai
 - `/memory-budget` — check current memory usage against targets
 - `/art-2d-pass` — review 2D art assets against pipeline conventions and placeholder readiness
 - `/ui-asset-pass` — review UI visual assets for theme consistency, 9-slice, and animations
+- `/animation-pass` — review animation state machines, transitions, and gameplay readability
+- `/game-feel-pass` — review moment-to-moment feedback, response timing, and juice budgets
+- `/input-review` — review input device coverage, buffering, and control responsiveness
 - `/milestone-plan` — review or revise the production milestone roadmap
 
 ## Source-of-Truth Documents

@@ -2,6 +2,18 @@
 
 All notable changes to this scaffold should be documented here.
 
+## 0.3.0
+
+### Added
+- Content-domain pass commands over previously command-less skills: `/localization-pass`, `/accessibility-pass`, `/animation-pass`, `/dialogue-design`, `/input-review`
+- Two new design skills with entry points: `design/game-feel-design` + `/game-feel-pass` (feedback stacks, response timing, juice budgets) and `design/procgen-design` + `/procgen-design` (seeds, determinism, validation gates)
+- Placeholder generation commands for the remaining 2D-capable engine layers: `/godot-placeholders` (EditorScript, ImageTexture, AudioStreamWAV PCM synthesis) and `/web-placeholders` (Canvas 2D sprites, Web Audio synthesis), mirroring the `/unity-placeholders` drop-in-replacement contract (Unreal deliberately deferred)
+- Phase contexts now reference the new commands: production (animation/game-feel/input passes), preproduction (dialogue/procgen design), QA (accessibility/localization passes)
+
+### Fixed
+- `commands/README.md` index was missing `/context`, `/economy-balance`, `/ui-flow-review`, and the four web commands
+- `.opencode/commands/README.md` listed a phantom `engine-review` command and omitted `context` and the web commands
+
 ## 0.2.0
 
 ### Added
