@@ -17,11 +17,13 @@ Scripts also handle runtime concerns: activating an engine profile, wiring git h
 | `setup-profile.js` | Activate an engine profile by writing `.game-dev/profile.json` with the selected engine and a timestamp |
 | `install-profile.js` | Bootstrap a profile installation from `install-profiles.json` by resolving components to modules to file paths |
 | `setup-git-hooks.js` | Link git hooks to the scaffold's hook handlers for pre-commit validation |
+| `new-engine.js` | Scaffold a new engine layer (rules, skills, reviewer agent, commands, manifests, doc wiring) as a TODO stub set that passes validation; supports `--dry-run` |
 
 **Usage:**
 ```bash
 node scripts/setup-profile.js --engine unity
 node scripts/install-profile.js --profile unity-production
+npm run new:engine -- bevy "Bevy" --dry-run
 ```
 
 ### Generation (single source of truth -> derived artifacts)
@@ -39,7 +41,8 @@ Never edit generated files by hand — `npm run validate` fails when they drift 
 | Script | Purpose |
 |--------|---------|
 | `validate-structure.js` | Verify agents, commands, and skills against `command-agent-map.md` and `agent-skill-matrix.md` — catches dangling references |
-| `validate-manifests.js` | Cross-reference checks across the three manifest files (components, modules, profiles) |
+| `validate-manifests.js` | Cross-reference checks across the installation manifest files (components, modules, profiles) |
+| `validate-engines.js` | Verify every engine in `manifests/engines.json` ships its full structural contract (rules, skills, agents, commands, manifest entries) |
 | `validate-schemas.js` | Validate every document that declares a local `$schema` against that schema via ajv |
 | `validate-hooks.js` | Check hook ids, script files, and that generated harness wiring matches `hooks/hooks.json` |
 | `validate-references.js` | Cross-reference validation across agents, commands, skills, and docs |
@@ -77,7 +80,8 @@ These scripts are the implementations for the hooks declared in `hooks/hooks.jso
 
 | Library | Exports |
 |---------|---------|
-| `profile-resolution.js` | `getActiveProfile()`, `detectProfileFromPaths()` — read and infer the active engine profile |
+| `engines.js` | `loadEngines()`, `engineIds()` — load the engine layer registry (`manifests/engines.json`) |
+| `profile-resolution.js` | `getActiveProfile()`, `detectProfileFromPaths()` — read and infer the active engine profile (engine list derives from the registry) |
 | `structure-artifacts.js` | Agent, command, and skill enumeration; artifact generation for structure validation |
 | `utils.js` | Shared I/O: file reading, stdin event parsing, JSON result formatting |
 | `validation.js` | Markdown heading and bullet extraction; file listing; cross-reference checks |

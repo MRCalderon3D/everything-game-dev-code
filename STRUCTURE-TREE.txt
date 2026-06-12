@@ -915,6 +915,7 @@ everything-game-dev-code
 │   ├── generate-wrappers.js
 │   ├── install-profile.js
 │   ├── lint-markdown.js
+│   ├── new-engine.js
 │   ├── README.md
 │   ├── setup-git-hooks.js
 │   ├── setup-profile.js
@@ -1154,6 +1155,7 @@ everything-game-dev-code
 │   ├── schemas
 │   │   └── manifests-schema.test.js
 │   ├── scripts
+│   │   ├── new-engine.test.js
 │   │   └── setup-profile.test.js
 │   ├── README.md
 │   └── run-all.js
