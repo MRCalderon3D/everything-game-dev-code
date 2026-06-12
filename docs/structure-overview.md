@@ -3,10 +3,10 @@
 Generated from the current repository structure. Update with `npm run sync:structure`.
 
 ## Current Count
-- Agents: 43
-- Commands: 65
+- Agents: 42
+- Commands: 64
 - Skills: 97
-- Rule files: 115
+- Rule files: 114
 
 ## Supported Engines
 - Godot

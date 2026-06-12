@@ -6,6 +6,7 @@ const {
   generateStructureOverview,
   generateStructureTree,
   repoRoot,
+  updateReadmeBadges,
 } = require("./lib/structure-artifacts");
 
 const errors = [];
@@ -30,6 +31,13 @@ const expectedOverview = normalizeLineEndings(generateStructureOverview());
 if (actualOverview !== expectedOverview) {
   errors.push(
     "docs/structure-overview.md is out of date. Run 'npm run sync:structure' to refresh it."
+  );
+}
+
+const readmeText = fs.readFileSync(path.join(repoRoot, "README.md"), "utf8");
+if (normalizeLineEndings(readmeText) !== normalizeLineEndings(updateReadmeBadges(readmeText))) {
+  errors.push(
+    "README.md count badges are out of date. Run 'npm run sync:structure' to refresh them."
   );
 }
 

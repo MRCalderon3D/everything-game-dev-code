@@ -116,11 +116,38 @@ function countMarkdownFiles(relDir, { excludeReadme = false } = {}) {
     if (!relPath.endsWith(".md")) {
       return false;
     }
-    if (excludeReadme && relPath.endsWith("/README.md")) {
+    if (excludeReadme && (relPath === "README.md" || relPath.endsWith("/README.md"))) {
       return false;
     }
     return true;
   }).length;
+}
+
+// READMEs document a layer; they are not agents, commands, rules, or contexts.
+function structureCounts() {
+  return {
+    agents: countMarkdownFiles("agents", { excludeReadme: true }),
+    commands: countMarkdownFiles("commands", { excludeReadme: true }),
+    skills: walk(path.join(repoRoot, "skills")).filter((relPath) =>
+      relPath.endsWith("/SKILL.md")
+    ).length,
+    rules: countMarkdownFiles("rules", { excludeReadme: true }),
+    contexts: countMarkdownFiles("contexts", { excludeReadme: true }),
+  };
+}
+
+// Rewrites the shields.io count badges in README.md from the live counts so
+// they can never drift. Badge colors and any other badges are left untouched.
+function updateReadmeBadges(readmeText) {
+  const counts = structureCounts();
+  let result = readmeText;
+  for (const [name, value] of Object.entries(counts)) {
+    result = result.replace(
+      new RegExp(`(!\\[${name}\\]\\(https://img\\.shields\\.io/badge/${name}-)\\d+(-[a-z]+\\))`),
+      `$1${value}$2`
+    );
+  }
+  return result;
 }
 
 function titleFromFilename(filename) {
@@ -176,10 +203,10 @@ function generateStructureOverview() {
     "Generated from the current repository structure. Update with `npm run sync:structure`.",
     "",
     "## Current Count",
-    `- Agents: ${countMarkdownFiles("agents")}`,
-    `- Commands: ${countMarkdownFiles("commands")}`,
-    `- Skills: ${walk(path.join(repoRoot, "skills")).filter((relPath) => relPath.endsWith("/SKILL.md")).length}`,
-    `- Rule files: ${countMarkdownFiles("rules", { excludeReadme: true })}`,
+    `- Agents: ${structureCounts().agents}`,
+    `- Commands: ${structureCounts().commands}`,
+    `- Skills: ${structureCounts().skills}`,
+    `- Rule files: ${structureCounts().rules}`,
     "",
     "## Supported Engines",
     ...engineDirs.map((engine) => `- ${engine.charAt(0).toUpperCase() + engine.slice(1)}`),
@@ -199,5 +226,7 @@ module.exports = {
   generateStructureOverview,
   generateStructureTree,
   repoRoot,
+  structureCounts,
+  updateReadmeBadges,
   walk,
 };
