@@ -5,7 +5,7 @@ Extends `rules/common/` with Unreal-specific conventions.
 ## Layering
 - `rules/common/` defines engine-neutral policy.
 - `rules/unreal/` adds Unreal-only implementation rules.
-- Unreal rules must never prescribe Unity or Godot patterns.
+- Unreal rules must never prescribe patterns from the other engine layers.
 
 ## Coverage
 - coding style

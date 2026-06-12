@@ -16,7 +16,7 @@
 ![harnesses](https://img.shields.io/badge/harnesses-5-red)
 ![engines](https://img.shields.io/badge/engines-Unity%20%7C%20Unreal%20%7C%20Godot%20%7C%20HTML-8A2BE2)
 
-**Unity** · **Unreal Engine** · **Godot** · **HTML/JS** — strict engine isolation, shared standards.
+**Unity** · **Unreal Engine** · **Godot** · **HTML/JS** — 2D and 3D, strict engine isolation, shared standards.
 
 </div>
 

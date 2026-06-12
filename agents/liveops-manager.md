@@ -36,5 +36,5 @@ Owns live events, offers, telemetry-informed updates, and post-launch operationa
 
 ## Activation Guidance
 - Use this agent when the task clearly belongs to this specialty.
-- Keep engine-neutral outputs free of Unity, Unreal, or Godot implementation detail unless the task is engine-specific.
+- Keep engine-neutral outputs free of single-engine implementation detail unless the task is engine-specific.
 - Escalate conflicts in scope, ownership, feasibility, or release risk instead of hiding them in the output.
