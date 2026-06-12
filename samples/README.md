@@ -205,4 +205,6 @@ This variant exists because the user asked for a more visual pass with real imag
 
 This variant exists as the live demo of the AI asset generation layer: same drop-in-replacement contract as the placeholder pipeline, exercised end-to-end against a real provider.
 
+**Deployed:** http://51.75.26.136/prism-defense-gen/ (the original variants remain at `/prism-defense/`)
+
 **Run:** `cd samples/PrismDefense3DAssetsGen && npm install && npm run dev` (`npm run smoke` still passes — the sim is untouched)
