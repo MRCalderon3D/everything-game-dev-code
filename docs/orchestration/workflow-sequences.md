@@ -5,7 +5,7 @@ These are the default execution sequences for the most important game developmen
 ## How to Use This File
 - Use these sequences as the default path unless the project has a better documented alternative.
 - Skip steps only when the task is genuinely small and the omission does not create downstream ambiguity.
-- Add engine-specific review where implementation is Unity, Unreal, or Godot-specific.
+- Add engine-specific review where implementation is Unity, Unreal, Godot, or web-specific.
 
 ## 1. New Feature Workflow
 Goal: move a feature from idea to validated implementation.

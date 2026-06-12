@@ -4,7 +4,7 @@ Orchestration documents define how work flows between agents. They specify which
 
 ## What orchestration documents do
 
-The scaffold has 40+ agents and 45+ commands. Without explicit routing, work either stalls (no one knows who acts next) or duplicates (two agents act on the same problem independently).
+The scaffold has 40+ agents and 60+ commands. Without explicit routing, work either stalls (no one knows who acts next) or duplicates (two agents act on the same problem independently).
 
 Orchestration documents answer three questions:
 
@@ -59,7 +59,7 @@ Sequences defined:
 
 ### engine-isolation.md
 
-Documents the strict policy preventing Unity, Unreal, and Godot implementation guidance from mixing in the same agent pass. Defines what counts as contamination, when cross-engine work is legitimate (comparison, migration research), and how to detect and correct a contamination incident.
+Documents the strict policy preventing Unity, Unreal, Godot, and web implementation guidance from mixing in the same agent pass. Defines what counts as contamination, when cross-engine work is legitimate (comparison, migration research), and how to detect and correct a contamination incident.
 
 ## How to use these documents
 

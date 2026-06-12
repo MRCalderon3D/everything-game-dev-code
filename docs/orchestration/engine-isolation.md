@@ -1,6 +1,6 @@
 # Engine Isolation Policy
 
-This file defines how the scaffold prevents Unity, Unreal, and Godot practices from contaminating each other while still allowing shared game development standards.
+This file defines how the scaffold prevents Unity, Unreal, Godot, and web (HTML5) practices from contaminating each other while still allowing shared game development standards. The authoritative list of engine layers is `manifests/engines.json`.
 
 ## Core Rule
 Keep shared policy common and implementation policy engine-specific.
@@ -10,9 +10,9 @@ Different engines encourage different architecture, content workflows, debugging
 
 ## Isolation Model
 - `rules/common/` contains engine-neutral policy.
-- `rules/unity/`, `rules/unreal/`, and `rules/godot/` extend common policy with engine-specific implementation guidance.
+- `rules/unity/`, `rules/unreal/`, `rules/godot/`, and `rules/web/` extend common policy with engine-specific implementation guidance.
 - `skills/workflow`, `skills/design`, `skills/engineering-common`, `skills/art-audio-content`, and `skills/qa-release` remain engine-neutral.
-- `skills/unity`, `skills/unreal`, and `skills/godot` contain only engine-specific execution knowledge.
+- `skills/unity`, `skills/unreal`, `skills/godot`, and `skills/web` contain only engine-specific execution knowledge.
 - engine-specific commands route to engine-specific agents when the task is implementation-bound.
 
 ## What May Be Shared
@@ -43,12 +43,12 @@ The following must stay inside the relevant engine pack:
 - If a task compares engines, route through `planner`, `architect`, or `technical-design-lead` and keep the result in neutral documentation unless a final engine choice has already been made.
 
 ## Documentation Rules
-- Shared docs must not silently embed Unity, Unreal, or Godot assumptions.
+- Shared docs must not silently embed Unity, Unreal, Godot, or web assumptions.
 - Engine implementation notes must live in engine-specific rules, skills, technical design docs, or review outputs.
 - Migration or comparison docs may mention multiple engines, but they must be clearly marked as comparison work rather than active implementation policy.
 
 ## Command Rules
-- `/unity-*`, `/unreal-*`, and `/godot-*` commands should only be used when the task is already known to belong to that engine.
+- `/unity-*`, `/unreal-*`, `/godot-*`, and `/web-*` commands should only be used when the task is already known to belong to that engine.
 - General commands such as `/plan`, `/gdd`, `/tech-design`, and `/verify` must remain safe to use before engine-specific choices are locked.
 
 ## Exception Handling
@@ -63,7 +63,7 @@ Even then, the result should not overwrite active engine-specific rules unless t
 ## Warning Signs of Contamination
 - common docs prescribing one engine's object model
 - commands that route to the wrong engine reviewer
-- skills teaching Unity-only, Unreal-only, or Godot-only workflow inside common domains
+- skills teaching single-engine workflow (Unity, Unreal, Godot, or web) inside common domains
 - architecture docs that assume engine-specific lifecycle behavior without saying so
 
 ## Success Criteria

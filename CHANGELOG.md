@@ -15,6 +15,7 @@ All notable changes to this scaffold should be documented here.
 - `install-modules.json` `rules-core` was missing `rules/web/**`, silently dropping web rules from baseline installs
 - `engine-profile-guard` hook told users to activate "unity, unreal, or godot" — message now derives from the registry and includes web
 - `manifests/README.md` counts and tables were stale (17 -> 18 components, 9 -> 10 profiles, missing web rows)
+- Documentation sweep for stale pre-web and pre-0.3.0 content: root README badges (51 -> 64 commands, 86 -> 97 skills, 92 -> 114 rules), `PirateInvaders/` -> `samples/`, missing `rules/web/` and `/web-setup` mentions, engine-isolation policy docs, and the Claude/Codex/OpenCode adapter READMEs that still listed three engines
 
 ## 0.3.0
 

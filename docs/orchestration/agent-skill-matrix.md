@@ -6,7 +6,7 @@ This matrix defines which skill groups each agent should reach for first. It is 
 - Start with the agent's primary skill set.
 - Pull adjacent skills only when the task crosses boundaries.
 - Escalate to `planner`, `producer`, or `technical-design-lead` when a task spans multiple domains or changes project-level decisions.
-- Use engine-specific skill groups only when the implementation is explicitly inside Unity, Unreal, or Godot.
+- Use engine-specific skill groups only when the implementation is explicitly inside Unity, Unreal, Godot, or the web layer.
 
 ## Core Delivery Agents
 

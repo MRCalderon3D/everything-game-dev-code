@@ -9,10 +9,10 @@
 
 ![license](https://img.shields.io/badge/license-MIT-blue)
 ![agents](https://img.shields.io/badge/agents-42-blueviolet)
-![commands](https://img.shields.io/badge/commands-51-orange)
-![skills](https://img.shields.io/badge/skills-86-brightgreen)
-![rules](https://img.shields.io/badge/rules-92-yellow)
-![contexts](https://img.shields.io/badge/contexts-10-cyan)
+![commands](https://img.shields.io/badge/commands-64-orange)
+![skills](https://img.shields.io/badge/skills-97-brightgreen)
+![rules](https://img.shields.io/badge/rules-114-yellow)
+![contexts](https://img.shields.io/badge/contexts-9-cyan)
 ![harnesses](https://img.shields.io/badge/harnesses-5-red)
 ![engines](https://img.shields.io/badge/engines-Unity%20%7C%20Unreal%20%7C%20Godot%20%7C%20HTML-8A2BE2)
 
@@ -39,7 +39,7 @@ cd everything-game-dev-code
 npm run setup:hooks
 ```
 
-`npm run setup:hooks` wires the repo's pre-commit checks (structure sync + validation) so committed artifacts never drift; it needs Node.js 18+ and takes one second.
+`npm run setup:hooks` wires the repo's pre-commit checks (structure sync + validation) so committed artifacts never drift; it needs Node.js 18+ and takes one second. Run `npm run doctor` at any time to diagnose your installation (environment, hooks, active engine profile, generated-artifact drift) with remediation hints.
 
 Open the folder in your AI coding assistant (Claude Code, Cursor, Codex, OpenCode, or Kiro). The scaffold is loaded from the assistant's adapter plus the shared `AGENTS.md`, `rules/`, `commands/`, `agents/`, and `skills/` layers.
 
@@ -55,6 +55,7 @@ Then type commands in the chat:
 | `/unity-build-fix` | Diagnose and fix Unity build errors |
 | `/godot-setup` | Bootstrap a Godot project |
 | `/unreal-setup` | Bootstrap an Unreal project |
+| `/web-setup` | Bootstrap a web (HTML5/canvas) project |
 | `/full-game` | Orchestrate an entire game from scratch (experimental) |
 
 You don't have to follow a specific order. Pick whatever command fits your current need — start a new project, generate a GDD for an existing one, run a QA review, or fix a build error.
@@ -63,9 +64,9 @@ You don't have to follow a specific order. Pick whatever command fits your curre
 
 The `guides/Dash & Collect/` folder contains a full tutorial that walks through building a game using the scaffold's commands, agents, skills, and contexts across all project phases.
 
-### Example project
+### Example projects
 
-The `PirateInvaders/` folder contains a complete HTML game built with the `/full-game` command in a single pass. For real projects, we recommend going step by step.
+The `samples/` folder contains nine complete HTML games built with the `/full-game` command in a single pass each (PirateInvaders, Tetris2DMutation, LosRenacidos, pacmanAI, and harness-comparison variants), plus a writeup comparing how different AI harnesses performed on the same brief. For real projects, we recommend going step by step.
 
 ## Goals
 - Keep shared game-development standards engine-neutral.
@@ -83,8 +84,9 @@ This scaffold is organized in layers:
 - `skills/` — how work is executed well
 - `contexts/` — how priorities shift by phase
 - `hooks/` — how workflow safeguards are enforced
-- `manifests/` — how subsets are installed by profile
+- `manifests/` — how subsets are installed by profile, plus the engine layer registry (`engines.json`)
 - `schemas/` — JSON validation for manifests, hooks, and plugins
+- `scripts/` — generators, validators, and diagnostics (`new:engine`, `doctor`, `sync:*`)
 - `docs/templates/` — structured templates for GDD, TDD, QA plans, and other deliverables
 - `docs/orchestration/` — agent routing, role handoffs, and workflow sequences
 - `tests/` — how the scaffold verifies itself
@@ -96,6 +98,7 @@ The repository is intentionally split into:
 - `rules/unity/`
 - `rules/unreal/`
 - `rules/godot/`
+- `rules/web/`
 
 And equivalent skill / command / review layers where needed.
 

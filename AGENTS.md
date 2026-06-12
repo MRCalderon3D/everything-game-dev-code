@@ -115,6 +115,7 @@ Use `docs/orchestration/` as the source for routing and handoff expectations.
 - Unity tasks should route through Unity rules and Unity-specialized roles when implementation is engine-specific.
 - Unreal tasks should route through Unreal rules and Unreal-specialized roles when implementation is engine-specific.
 - Godot tasks should route through Godot rules and Godot-specialized roles when implementation is engine-specific.
+- Web (HTML5) tasks should route through web rules and web-specialized roles when implementation is engine-specific.
 
 If the work is engine-neutral, stay in common layers.
 

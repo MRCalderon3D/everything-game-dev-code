@@ -11,7 +11,7 @@ This adapter maps the shared scaffold to Claude Code.
 - keep Claude-specific guidance thin
 - avoid duplicating the common source of truth
 - point Claude toward the right shared layer for each task
-- preserve engine isolation between Unity, Unreal, and Godot
+- preserve engine isolation between Unity, Unreal, Godot, and web
 
 ## Expected workflow
 1. Read root `CLAUDE.md`.
