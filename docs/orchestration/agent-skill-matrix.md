@@ -333,6 +333,7 @@ Primary skills:
 
 Secondary skills:
 - unreal/unreal-gameplay-framework
+- unreal/unreal-enhanced-input
 - unreal/unreal-gas-patterns
 - unreal/unreal-replication
 - unreal/unreal-build-release
@@ -354,6 +355,7 @@ Primary skills:
 Secondary skills:
 - godot/godot-csharp-patterns
 - godot/godot-signals-patterns
+- godot/godot-input-patterns
 - godot/godot-resource-management
 - godot/godot-build-release
 

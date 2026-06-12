@@ -92,6 +92,7 @@ Godot-specific engineering skills. Only apply within a Godot project.
 | `godot-csharp-patterns` | Apply idiomatic C# in Godot with proper lifecycle and signal integration |
 | `godot-editor-tooling` | Build Godot editor plugins and pipeline tools using EditorPlugin |
 | `godot-gdscript-standards` | Write readable, maintainable GDScript following community standards |
+| `godot-input-patterns` | Implement input through InputMap actions with correct propagation, devices, and rebinding |
 | `godot-performance` | Profile and optimize Godot projects against platform performance budgets |
 | `godot-project-structure` | Organize a Godot project for team clarity and maintainability |
 | `godot-resource-management` | Load, cache, and unload Godot resources without memory leaks |
@@ -126,6 +127,7 @@ Unreal Engine-specific engineering skills. Only apply within an Unreal project.
 | `unreal-build-release` | Configure Unreal build, cooking, packaging, and platform submission |
 | `unreal-cpp-standards` | Write idiomatic Unreal C++ respecting the UObject lifecycle and reflection system |
 | `unreal-editor-tooling` | Build Unreal Editor utilities, slate widgets, and pipeline automation |
+| `unreal-enhanced-input` | Implement Enhanced Input with Input Actions, Mapping Contexts, triggers, and remapping |
 | `unreal-gameplay-framework` | Use GameMode, GameState, PlayerController, and Pawn correctly |
 | `unreal-gas-patterns` | Implement the Gameplay Ability System with attributes, effects, and cues |
 | `unreal-performance` | Profile and optimize Unreal projects against platform performance budgets |

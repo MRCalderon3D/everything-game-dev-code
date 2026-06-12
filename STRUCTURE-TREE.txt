@@ -1031,6 +1031,8 @@ everything-game-dev-code
 │   │   │   └── SKILL.md
 │   │   ├── godot-gdscript-standards
 │   │   │   └── SKILL.md
+│   │   ├── godot-input-patterns
+│   │   │   └── SKILL.md
 │   │   ├── godot-performance
 │   │   │   └── SKILL.md
 │   │   ├── godot-project-structure
@@ -1090,6 +1092,8 @@ everything-game-dev-code
 │   │   ├── unreal-cpp-standards
 │   │   │   └── SKILL.md
 │   │   ├── unreal-editor-tooling
+│   │   │   └── SKILL.md
+│   │   ├── unreal-enhanced-input
 │   │   │   └── SKILL.md
 │   │   ├── unreal-gameplay-framework
 │   │   │   └── SKILL.md

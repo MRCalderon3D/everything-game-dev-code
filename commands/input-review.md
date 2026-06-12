@@ -26,6 +26,6 @@ Review input handling, device coverage, buffering, and control responsiveness fr
 
 ## Notes
 - Keep engine-neutral commands free of engine-specific implementation detail unless an engine-specific command is being called.
-- Hand off to the matching engine layer (for example `unity-input-system` or `web-input-touch` skills) when implementation detail is required.
+- Hand off to the matching engine layer when implementation detail is required: `unity-input-system`, `unreal-enhanced-input`, `godot-input-patterns`, or `web-input-touch`.
 - Coordinate with `/accessibility-pass` for remapping and input accessibility options.
 - Escalate to the relevant reviewer or specialist when risks exceed the command's normal scope.

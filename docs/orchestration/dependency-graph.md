@@ -557,5 +557,5 @@ graph LR
 
 ## Orphaned Skills
 
-Skills referenced by no command (Required Skills) and no agent (Uses These Skills): 0 of 97. These are reachable only through the agent-skill matrix or ad hoc use — candidates for a command entry point or an explicit agent assignment.
+Skills referenced by no command (Required Skills) and no agent (Uses These Skills): 0 of 99. These are reachable only through the agent-skill matrix or ad hoc use — candidates for a command entry point or an explicit agent assignment.
 

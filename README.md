@@ -10,7 +10,7 @@
 ![license](https://img.shields.io/badge/license-MIT-blue)
 ![agents](https://img.shields.io/badge/agents-42-blueviolet)
 ![commands](https://img.shields.io/badge/commands-64-orange)
-![skills](https://img.shields.io/badge/skills-97-brightgreen)
+![skills](https://img.shields.io/badge/skills-99-brightgreen)
 ![rules](https://img.shields.io/badge/rules-114-yellow)
 ![contexts](https://img.shields.io/badge/contexts-9-cyan)
 ![harnesses](https://img.shields.io/badge/harnesses-5-red)

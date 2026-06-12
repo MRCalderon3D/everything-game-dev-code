@@ -19,6 +19,7 @@ Reviews Unreal architecture, content boundaries, engine integration, and Unreal-
 - unreal-project-structure
 - unreal-cpp-standards
 - unreal-gameplay-framework
+- unreal-enhanced-input
 - unreal-gas-patterns
 - unreal-replication
 - unreal-testing
