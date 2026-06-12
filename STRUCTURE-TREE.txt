@@ -4,12 +4,15 @@ everything-game-dev-code
 │       └── README.md
 ├── .claude
 │   ├── commands
+│   │   ├── accessibility-pass.md
+│   │   ├── animation-pass.md
 │   │   ├── art-2d-pass.md
 │   │   ├── audio-pass.md
 │   │   ├── bug-triage.md
 │   │   ├── cert-check.md
 │   │   ├── combat-design.md
 │   │   ├── context.md
+│   │   ├── dialogue-design.md
 │   │   ├── economy-balance.md
 │   │   ├── evolve.md
 │   │   ├── full-game.md
@@ -18,9 +21,11 @@ everything-game-dev-code
 │   │   ├── godot-review.md
 │   │   ├── godot-scene-audit.md
 │   │   ├── godot-setup.md
+│   │   ├── input-review.md
 │   │   ├── learn.md
 │   │   ├── level-beat.md
 │   │   ├── liveops-brief.md
+│   │   ├── localization-pass.md
 │   │   ├── memory-budget.md
 │   │   ├── milestone-plan.md
 │   │   ├── multiplayer-review.md
@@ -80,12 +85,15 @@ everything-game-dev-code
 │   ├── agents
 │   │   └── README.md
 │   ├── commands
+│   │   ├── accessibility-pass.md
+│   │   ├── animation-pass.md
 │   │   ├── art-2d-pass.md
 │   │   ├── audio-pass.md
 │   │   ├── bug-triage.md
 │   │   ├── cert-check.md
 │   │   ├── combat-design.md
 │   │   ├── context.md
+│   │   ├── dialogue-design.md
 │   │   ├── economy-balance.md
 │   │   ├── evolve.md
 │   │   ├── full-game.md
@@ -94,9 +102,11 @@ everything-game-dev-code
 │   │   ├── godot-review.md
 │   │   ├── godot-scene-audit.md
 │   │   ├── godot-setup.md
+│   │   ├── input-review.md
 │   │   ├── learn.md
 │   │   ├── level-beat.md
 │   │   ├── liveops-brief.md
+│   │   ├── localization-pass.md
 │   │   ├── memory-budget.md
 │   │   ├── milestone-plan.md
 │   │   ├── multiplayer-review.md
@@ -178,12 +188,15 @@ everything-game-dev-code
 │   ├── agents
 │   │   └── README.md
 │   ├── commands
+│   │   ├── accessibility-pass.md
+│   │   ├── animation-pass.md
 │   │   ├── art-2d-pass.md
 │   │   ├── audio-pass.md
 │   │   ├── bug-triage.md
 │   │   ├── cert-check.md
 │   │   ├── combat-design.md
 │   │   ├── context.md
+│   │   ├── dialogue-design.md
 │   │   ├── economy-balance.md
 │   │   ├── evolve.md
 │   │   ├── full-game.md
@@ -192,9 +205,11 @@ everything-game-dev-code
 │   │   ├── godot-review.md
 │   │   ├── godot-scene-audit.md
 │   │   ├── godot-setup.md
+│   │   ├── input-review.md
 │   │   ├── learn.md
 │   │   ├── level-beat.md
 │   │   ├── liveops-brief.md
+│   │   ├── localization-pass.md
 │   │   ├── memory-budget.md
 │   │   ├── milestone-plan.md
 │   │   ├── multiplayer-review.md
@@ -301,12 +316,15 @@ everything-game-dev-code
 │   ├── unreal-reviewer.md
 │   └── web-reviewer.md
 ├── commands
+│   ├── accessibility-pass.md
+│   ├── animation-pass.md
 │   ├── art-2d-pass.md
 │   ├── audio-pass.md
 │   ├── bug-triage.md
 │   ├── cert-check.md
 │   ├── combat-design.md
 │   ├── context.md
+│   ├── dialogue-design.md
 │   ├── economy-balance.md
 │   ├── evolve.md
 │   ├── full-game.md
@@ -315,9 +333,11 @@ everything-game-dev-code
 │   ├── godot-review.md
 │   ├── godot-scene-audit.md
 │   ├── godot-setup.md
+│   ├── input-review.md
 │   ├── learn.md
 │   ├── level-beat.md
 │   ├── liveops-brief.md
+│   ├── localization-pass.md
 │   ├── memory-budget.md
 │   ├── milestone-plan.md
 │   ├── multiplayer-review.md

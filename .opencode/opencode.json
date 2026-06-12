@@ -1,6 +1,14 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "command": {
+    "accessibility-pass": {
+      "description": "Review accessibility coverage for input, readability, audio, and difficulty options against design intent.",
+      "template": "Read .opencode/commands/accessibility-pass.md and execute the shared commands/accessibility-pass.md workflow."
+    },
+    "animation-pass": {
+      "description": "Review animation implementation, state machines, transitions, and gameplay readability.",
+      "template": "Read .opencode/commands/animation-pass.md and execute the shared commands/animation-pass.md workflow."
+    },
     "art-2d-pass": {
       "description": "Review 2D art assets for naming, resolution, atlas config, animation, tilemap rules, and placeholder readiness.",
       "template": "Read .opencode/commands/art-2d-pass.md and execute the shared commands/art-2d-pass.md workflow."
@@ -24,6 +32,10 @@
     "context": {
       "description": "Activate a project phase context and align agents, commands, and priorities to it.",
       "template": "Read .opencode/commands/context.md and execute the shared commands/context.md workflow."
+    },
+    "dialogue-design": {
+      "description": "Design or revise dialogue structure, branching, variables, and the content pipeline for conversations.",
+      "template": "Read .opencode/commands/dialogue-design.md and execute the shared commands/dialogue-design.md workflow."
     },
     "economy-balance": {
       "description": "Design or review the economy, sinks, faucets, rewards, and balance assumptions.",
@@ -57,6 +69,10 @@
       "description": "Set up or normalize a Godot project according to the scaffold rules.",
       "template": "Read .opencode/commands/godot-setup.md and execute the shared commands/godot-setup.md workflow."
     },
+    "input-review": {
+      "description": "Review input handling, device coverage, buffering, and control responsiveness from an engine-neutral perspective.",
+      "template": "Read .opencode/commands/input-review.md and execute the shared commands/input-review.md workflow."
+    },
     "learn": {
       "description": "Capture and summarize project learnings worth preserving.",
       "template": "Read .opencode/commands/learn.md and execute the shared commands/learn.md workflow."
@@ -68,6 +84,10 @@
     "liveops-brief": {
       "description": "Create a concise live operations brief for an event, offer, patch, or campaign.",
       "template": "Read .opencode/commands/liveops-brief.md and execute the shared commands/liveops-brief.md workflow."
+    },
+    "localization-pass": {
+      "description": "Review localization readiness for text, UI expansion, locale risks, and translation workflow.",
+      "template": "Read .opencode/commands/localization-pass.md and execute the shared commands/localization-pass.md workflow."
     },
     "memory-budget": {
       "description": "Define or review memory budgets, ownership, and key memory risks.",

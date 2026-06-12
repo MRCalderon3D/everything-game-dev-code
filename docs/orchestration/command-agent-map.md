@@ -149,6 +149,11 @@ Support:
 - `level-designer`
 - `systems-designer`
 
+### /dialogue-design
+Primary: `narrative-designer`
+Support:
+- `gdd-designer`
+
 ### /onboarding
 Primary: `ui-ux-designer`
 Support:
@@ -212,6 +217,28 @@ Primary: `audio-designer`
 Support:
 - `accessibility-reviewer`
 - `qa-lead`
+
+### /localization-pass
+Primary: `narrative-designer`
+Support:
+- `ui-ux-designer`
+- `doc-updater`
+
+### /accessibility-pass
+Primary: `accessibility-reviewer`
+Support:
+- `ui-ux-designer`
+
+### /animation-pass
+Primary: `animation-programmer`
+Support:
+- `2d-artist`
+- `technical-artist`
+
+### /input-review
+Primary: `gameplay-programmer`
+Support:
+- `ui-programmer`
 
 ### /art-2d-pass
 Primary: `2d-artist`
