@@ -34,6 +34,7 @@ npm run new:engine -- bevy "Bevy" --dry-run
 | `sync-structure-artifacts.js` | Regenerate `STRUCTURE-TREE.txt` and `docs/structure-overview.md` from `git ls-files` |
 | `generate-wrappers.js` | Regenerate harness command wrappers (`.claude/`, `.codex/`, `.opencode/`) and `opencode.json` from `commands/*.md` |
 | `generate-hook-wiring.js` | Regenerate `.claude/settings.json` (hooks block) and `.cursor/hooks.json` from `hooks/hooks.json` |
+| `generate-dependency-graph.js` | Regenerate `docs/orchestration/dependency-graph.md` (Mermaid command/agent/skill graph + orphaned-skills report) from `commands/*.md` and `command-agent-map.md` |
 
 Never edit generated files by hand — `npm run validate` fails when they drift from their source.
 

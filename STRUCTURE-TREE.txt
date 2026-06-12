@@ -408,6 +408,7 @@ everything-game-dev-code
 │   ├── orchestration
 │   │   ├── agent-skill-matrix.md
 │   │   ├── command-agent-map.md
+│   │   ├── dependency-graph.md
 │   │   ├── engine-isolation.md
 │   │   ├── README.md
 │   │   ├── role-handoffs.md
@@ -912,6 +913,7 @@ everything-game-dev-code
 │   │   ├── utils.js
 │   │   └── validation.js
 │   ├── doctor.js
+│   ├── generate-dependency-graph.js
 │   ├── generate-hook-wiring.js
 │   ├── generate-wrappers.js
 │   ├── install-profile.js

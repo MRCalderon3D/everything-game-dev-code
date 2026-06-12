@@ -2,6 +2,20 @@
 
 All notable changes to this scaffold should be documented here.
 
+## 0.4.0
+
+### Added
+- Engine layer registry (`manifests/engines.json` + schema): the single source of truth for which engine layers exist; `profile-resolution`, the engine-isolation test, and the engine-profile-guard hook now derive from it, and `validate:engines` enforces the per-engine structural contract (rules, skills, reviewer agent, commands, manifest entries) in both directions
+- `npm run new:engine -- <id> [display]` — scaffolds a complete engine layer as a validation-passing TODO stub set (rules, 4 starter skills, reviewer agent, 4 commands, registry/manifest/doc wiring, harness wrappers); supports `--dry-run`; verified end-to-end against the full validate chain with a sandbox engine
+- `npm run doctor` — installation diagnostics with PASS/WARN/FAIL and remediation hints: environment, git hook path, active profile, `.game-dev/` state consistency, harness adapters, generated-artifact drift, MCP placeholders
+- `npm run sync:graph` / `validate:graph` — generated Mermaid dependency graph (`docs/orchestration/dependency-graph.md`) of command -> agent and command -> skill edges grouped by command-agent-map sections, plus an orphaned-skills report (16 skills currently unreferenced by any command or agent); wired into the validate chain (closes the audit P5 visual-graph item)
+
+### Fixed
+- `extractHeadingBullets` in `scripts/lib/validation.js` had a double-escaped regex (`\\s`) that never matched, silently turning the Required Skills / Uses These Skills / Related-references checks of `validate:structure` into no-ops; the references were verified clean once the check became real
+- `install-modules.json` `rules-core` was missing `rules/web/**`, silently dropping web rules from baseline installs
+- `engine-profile-guard` hook told users to activate "unity, unreal, or godot" — message now derives from the registry and includes web
+- `manifests/README.md` counts and tables were stale (17 -> 18 components, 9 -> 10 profiles, missing web rows)
+
 ## 0.3.0
 
 ### Added

@@ -22,6 +22,10 @@ Maps every command to the agent or agents responsible for executing it. Use this
 
 Maps every agent to its primary and secondary skill domains. Use this when you need to know what skills an agent brings to a task, or when an agent needs to route a subtask to a more appropriate role.
 
+### dependency-graph.md
+
+Generated Mermaid visualization of command -> agent and command -> skill edges, grouped by the sections of `command-agent-map.md`, plus an orphaned-skills report. Regenerate with `npm run sync:graph`; `npm run validate` fails when it drifts from its sources. Do not edit by hand.
+
 ### role-handoffs.md
 
 Defines the minimum content required for each role transition. Handoffs are structured packets — not chat summaries — that ensure the receiving agent has everything it needs to continue without re-doing work.

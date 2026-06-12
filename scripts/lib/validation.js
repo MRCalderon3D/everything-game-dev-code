@@ -57,7 +57,7 @@ function extractHeadingBullets(text, heading) {
   if (!match) {
     return null;
   }
-  return [...match[1].matchAll(/^-\\s+(.+)$/gm)].map((item) => item[1].trim());
+  return [...match[1].matchAll(/^-\s+(.+)$/gm)].map((item) => item[1].trim());
 }
 
 function extractLevelThreeHeadings(text) {
