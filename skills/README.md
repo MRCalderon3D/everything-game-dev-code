@@ -26,13 +26,18 @@ Skills for producing and integrating creative assets.
 | Skill | Purpose |
 |-------|---------|
 | `2d-animation-pipeline` | Author, import, and wire 2D animations with consistent naming and state conventions |
+| `3d-animation-pipeline` | Skeletal clip authoring, root motion policy, retargeting, and compression rules |
+| `3d-asset-pipeline` | Export, scale, pivot, and naming rules so 3D models import without per-asset fixes |
 | `art-bible` | Define a visual direction artists, UI, technical art, and marketing can execute consistently |
 | `audio-implementation` | Integrate audio assets into the engine with consistent mixing, triggering, and fallback rules |
 | `cinematic-pipeline` | Define cutscene production from animatic to in-engine delivery |
 | `dialogue-content-pipeline` | Structure dialogue authoring, localization handoff, and runtime integration |
 | `generated-raster-asset-pipeline` | Acceptance, validation, and runtime integration rules for image-model-generated raster assets |
+| `lighting-lod-pipeline` | Lighting policy, light budgets, LOD chains, and culling for 3D scenes |
 | `localization-pipeline` | Prepare text, audio, and assets for localized builds |
+| `materials-shading-pipeline` | Material libraries, PBR texture conventions, and shader budgets |
 | `placeholder-asset-pipeline` | Engine-neutral standards for placeholder sprites, prefabs, and procedural audio |
+| `rigging-skinning-pipeline` | Skeleton, skinning, and attachment conventions for shareable, budget-safe rigs |
 | `sprite-pipeline` | Sprite authoring, import, atlas, and naming conventions |
 | `technical-art-pipeline` | Define the shader, VFX, and rig pipeline from DCC tools to engine |
 | `tilemap-pipeline` | Tileset and tilemap authoring, import, and collision conventions |

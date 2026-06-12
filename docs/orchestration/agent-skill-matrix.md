@@ -144,8 +144,14 @@ Primary skills:
 - art-audio-content/technical-art-pipeline
 - art-audio-content/vfx-pipeline
 - art-audio-content/cinematic-pipeline
+- art-audio-content/3d-asset-pipeline
+- art-audio-content/materials-shading-pipeline
+- art-audio-content/lighting-lod-pipeline
 - engineering-common/asset-management
 - engineering-common/performance-budgeting
+
+Secondary skills:
+- art-audio-content/rigging-skinning-pipeline
 
 ### audio-designer
 Primary skills:
@@ -179,7 +185,11 @@ Primary skills:
 ### animation-programmer
 Primary skills:
 - engineering-common/animation-state-patterns
+- art-audio-content/3d-animation-pipeline
 - engineering-common/gameplay-architecture
+
+Secondary skills:
+- art-audio-content/rigging-skinning-pipeline
 
 ### ui-programmer
 Primary skills:

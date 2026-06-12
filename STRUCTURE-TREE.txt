@@ -7,6 +7,7 @@ everything-game-dev-code
 │   │   ├── accessibility-pass.md
 │   │   ├── animation-pass.md
 │   │   ├── art-2d-pass.md
+│   │   ├── art-3d-pass.md
 │   │   ├── audio-pass.md
 │   │   ├── bug-triage.md
 │   │   ├── cert-check.md
@@ -92,6 +93,7 @@ everything-game-dev-code
 │   │   ├── accessibility-pass.md
 │   │   ├── animation-pass.md
 │   │   ├── art-2d-pass.md
+│   │   ├── art-3d-pass.md
 │   │   ├── audio-pass.md
 │   │   ├── bug-triage.md
 │   │   ├── cert-check.md
@@ -199,6 +201,7 @@ everything-game-dev-code
 │   │   ├── accessibility-pass.md
 │   │   ├── animation-pass.md
 │   │   ├── art-2d-pass.md
+│   │   ├── art-3d-pass.md
 │   │   ├── audio-pass.md
 │   │   ├── bug-triage.md
 │   │   ├── cert-check.md
@@ -331,6 +334,7 @@ everything-game-dev-code
 │   ├── accessibility-pass.md
 │   ├── animation-pass.md
 │   ├── art-2d-pass.md
+│   ├── art-3d-pass.md
 │   ├── audio-pass.md
 │   ├── bug-triage.md
 │   ├── cert-check.md
@@ -936,6 +940,10 @@ everything-game-dev-code
 │   ├── art-audio-content
 │   │   ├── 2d-animation-pipeline
 │   │   │   └── SKILL.md
+│   │   ├── 3d-animation-pipeline
+│   │   │   └── SKILL.md
+│   │   ├── 3d-asset-pipeline
+│   │   │   └── SKILL.md
 │   │   ├── art-bible
 │   │   │   └── SKILL.md
 │   │   ├── audio-implementation
@@ -946,9 +954,15 @@ everything-game-dev-code
 │   │   │   └── SKILL.md
 │   │   ├── generated-raster-asset-pipeline
 │   │   │   └── SKILL.md
+│   │   ├── lighting-lod-pipeline
+│   │   │   └── SKILL.md
 │   │   ├── localization-pipeline
 │   │   │   └── SKILL.md
+│   │   ├── materials-shading-pipeline
+│   │   │   └── SKILL.md
 │   │   ├── placeholder-asset-pipeline
+│   │   │   └── SKILL.md
+│   │   ├── rigging-skinning-pipeline
 │   │   │   └── SKILL.md
 │   │   ├── sprite-pipeline
 │   │   │   └── SKILL.md

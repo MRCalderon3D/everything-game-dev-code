@@ -19,6 +19,10 @@ Owns art pipeline quality, shaders, import settings, and runtime visual performa
 - technical-art-pipeline
 - vfx-pipeline
 - cinematic-pipeline
+- 3d-asset-pipeline
+- rigging-skinning-pipeline
+- materials-shading-pipeline
+- lighting-lod-pipeline
 - asset-management
 - performance-budgeting
 

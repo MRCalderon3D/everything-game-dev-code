@@ -290,6 +290,12 @@ graph LR
   s_placeholder_asset_pipeline{{"placeholder-asset-pipeline"}}:::skill
   s_generated_raster_asset_pipeline{{"generated-raster-asset-pipeline"}}:::skill
   s_art_bible{{"art-bible"}}:::skill
+  c_art_3d_pass["/art-3d-pass"]:::command
+  s_3d_asset_pipeline{{"3d-asset-pipeline"}}:::skill
+  s_rigging_skinning_pipeline{{"rigging-skinning-pipeline"}}:::skill
+  s_3d_animation_pipeline{{"3d-animation-pipeline"}}:::skill
+  s_materials_shading_pipeline{{"materials-shading-pipeline"}}:::skill
+  s_lighting_lod_pipeline{{"lighting-lod-pipeline"}}:::skill
   c_ui_asset_pass["/ui-asset-pass"]:::command
   s_ui_asset_pipeline{{"ui-asset-pipeline"}}:::skill
   c_tools_pass["/tools-pass"]:::command
@@ -345,6 +351,16 @@ graph LR
   c_art_2d_pass -.-> s_placeholder_asset_pipeline
   c_art_2d_pass -.-> s_generated_raster_asset_pipeline
   c_art_2d_pass -.-> s_art_bible
+  c_art_3d_pass --> a_technical_artist
+  c_art_3d_pass --> a_animation_programmer
+  c_art_3d_pass --> a_performance_reviewer
+  c_art_3d_pass -.-> s_3d_asset_pipeline
+  c_art_3d_pass -.-> s_rigging_skinning_pipeline
+  c_art_3d_pass -.-> s_3d_animation_pipeline
+  c_art_3d_pass -.-> s_materials_shading_pipeline
+  c_art_3d_pass -.-> s_lighting_lod_pipeline
+  c_art_3d_pass -.-> s_placeholder_asset_pipeline
+  c_art_3d_pass -.-> s_art_bible
   c_ui_asset_pass --> a_2d_artist
   c_ui_asset_pass --> a_ui_ux_designer
   c_ui_asset_pass --> a_accessibility_reviewer
@@ -557,5 +573,5 @@ graph LR
 
 ## Orphaned Skills
 
-Skills referenced by no command (Required Skills) and no agent (Uses These Skills): 0 of 100. These are reachable only through the agent-skill matrix or ad hoc use — candidates for a command entry point or an explicit agent assignment.
+Skills referenced by no command (Required Skills) and no agent (Uses These Skills): 0 of 105. These are reachable only through the agent-skill matrix or ad hoc use — candidates for a command entry point or an explicit agent assignment.
 

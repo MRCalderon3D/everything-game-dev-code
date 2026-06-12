@@ -258,6 +258,12 @@ Support:
 - `technical-artist`
 - `performance-reviewer`
 
+### /art-3d-pass
+Primary: `technical-artist`
+Support:
+- `animation-programmer`
+- `performance-reviewer`
+
 ### /ui-asset-pass
 Primary: `2d-artist`
 Support:

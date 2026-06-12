@@ -17,6 +17,8 @@ Implements animation state logic, blending, sync, and event-driven hooks.
 
 ## Uses These Skills
 - animation-state-patterns
+- 3d-animation-pipeline
+- rigging-skinning-pipeline
 - gameplay-architecture
 - performance-budgeting
 - verification-loop

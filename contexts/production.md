@@ -28,6 +28,7 @@ Deliver features, content, and systems against a defined milestone plan. Maintai
 - `/perf-budget` — check current performance status against targets
 - `/memory-budget` — check current memory usage against targets
 - `/art-2d-pass` — review 2D art assets against pipeline conventions and placeholder readiness
+- `/art-3d-pass` — review 3D assets: exports, rigs, clips, materials, lighting, and LODs
 - `/ui-asset-pass` — review UI visual assets for theme consistency, 9-slice, and animations
 - `/animation-pass` — review animation state machines, transitions, and gameplay readability
 - `/game-feel-pass` — review moment-to-moment feedback, response timing, and juice budgets

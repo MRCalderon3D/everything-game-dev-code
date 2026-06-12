@@ -13,6 +13,10 @@
       "description": "Review 2D art assets for naming, resolution, atlas config, animation, tilemap rules, and placeholder readiness.",
       "template": "Read .opencode/commands/art-2d-pass.md and execute the shared commands/art-2d-pass.md workflow."
     },
+    "art-3d-pass": {
+      "description": "Review 3D art assets for export conventions, rigs, animation clips, materials, lighting, and LOD compliance.",
+      "template": "Read .opencode/commands/art-3d-pass.md and execute the shared commands/art-3d-pass.md workflow."
+    },
     "audio-pass": {
       "description": "Functional audio review for implementation, mix coverage, clarity, and player feedback.",
       "template": "Read .opencode/commands/audio-pass.md and execute the shared commands/audio-pass.md workflow."

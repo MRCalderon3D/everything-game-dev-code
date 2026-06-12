@@ -55,6 +55,7 @@ Commands do not replace judgment. They channel it.
 | `/tools-pass` | Improve or extend editor and pipeline tooling |
 | `/audio-pass` | Review and implement audio integration for a system or scene |
 | `/art-2d-pass` | Review 2D art assets for naming, resolution, atlas config, animation, and placeholders |
+| `/art-3d-pass` | Review 3D assets: export conventions, rigs, clips, materials, lighting, and LODs |
 | `/ui-asset-pass` | Review UI visual assets for naming, 9-slice, atlas, theme consistency, and animations |
 | `/animation-pass` | Review animation implementation, state machines, transitions, and gameplay readability |
 | `/game-feel-pass` | Review moment-to-moment feedback, response timing, and juice for readable, satisfying actions |
