@@ -1,0 +1,276 @@
+:root {
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-left: env(safe-area-inset-left, 0px);
+  --safe-right: env(safe-area-inset-right, 0px);
+  --panel-bg: rgba(16, 20, 31, 0.92);
+  --chip-bg: rgba(16, 20, 31, 0.78);
+  --accent: #7fd4ff;
+  --text: #e8eefc;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+  background: #10141f;
+  color: var(--text);
+  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+#app {
+  position: fixed;
+  inset: 0;
+}
+
+#game-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  touch-action: none;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* ---------- HUD ---------- */
+
+#hud {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.hud-top {
+  position: absolute;
+  top: calc(var(--safe-top) + 8px);
+  left: calc(var(--safe-left) + 8px);
+  right: calc(var(--safe-right) + 8px);
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.hud-chip {
+  background: var(--chip-bg);
+  border: 1px solid rgba(127, 212, 255, 0.25);
+  border-radius: 10px;
+  padding: 8px 12px;
+  font-size: 15px;
+  font-weight: 600;
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+}
+
+.hud-actions {
+  margin-left: auto;
+  display: flex;
+  gap: 8px;
+  pointer-events: auto;
+}
+
+.icon-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  border: 1px solid rgba(127, 212, 255, 0.35);
+  background: var(--chip-bg);
+  color: var(--text);
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.icon-btn.off {
+  opacity: 0.45;
+}
+
+#btn-wave {
+  position: absolute;
+  right: calc(var(--safe-right) + 12px);
+  bottom: calc(var(--safe-bottom) + 16px);
+  min-height: 56px;
+  min-width: 170px;
+  padding: 0 18px;
+  border-radius: 14px;
+  border: 1px solid var(--accent);
+  background: rgba(20, 48, 66, 0.92);
+  color: var(--text);
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+#boss-bar-wrap {
+  position: absolute;
+  top: calc(var(--safe-top) + 64px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(70vw, 420px);
+  height: 12px;
+  border-radius: 6px;
+  border: 1px solid rgba(177, 76, 230, 0.8);
+  background: rgba(16, 20, 31, 0.8);
+  overflow: hidden;
+}
+
+#boss-bar {
+  height: 100%;
+  width: 100%;
+  background: #b14ce6;
+}
+
+/* ---------- Build / tower sheet ---------- */
+
+#sheet {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: calc(var(--safe-bottom) + 12px);
+  width: min(96vw, 460px);
+  background: var(--panel-bg);
+  border: 1px solid rgba(127, 212, 255, 0.3);
+  border-radius: 16px;
+  padding: 10px;
+  display: flex;
+  gap: 8px;
+  z-index: 5;
+}
+
+.sheet-card {
+  flex: 1;
+  min-height: 72px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  font-size: 13px;
+  padding: 8px 4px;
+}
+
+.sheet-card .dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+}
+
+.sheet-card b {
+  font-size: 14px;
+}
+
+.sheet-card .cost {
+  opacity: 0.85;
+}
+
+.sheet-card:disabled {
+  opacity: 0.38;
+  cursor: default;
+}
+
+.sheet-card.danger {
+  border-color: rgba(217, 79, 79, 0.6);
+}
+
+/* ---------- Overlays ---------- */
+
+#overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(10, 13, 22, 0.72);
+  z-index: 10;
+  padding: 16px;
+  overflow: hidden;
+}
+
+/* Generated intro cinematic (image-to-video from the key art) fills the menu
+   backdrop; the key art PNG is the poster so the menu is dressed even before
+   the video streams in. Hidden outside menu mode. */
+#intro-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: none;
+}
+
+#overlay.menu-mode #intro-video {
+  display: block;
+}
+
+#overlay.menu-mode .panel {
+  position: relative;
+  background: rgba(16, 20, 31, 0.82);
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.55);
+}
+
+.panel {
+  background: var(--panel-bg);
+  border: 1px solid rgba(127, 212, 255, 0.35);
+  border-radius: 20px;
+  padding: clamp(20px, 5vw, 36px);
+  text-align: center;
+  max-width: 420px;
+  width: 100%;
+}
+
+.panel h1 {
+  font-size: clamp(26px, 7vw, 40px);
+  letter-spacing: 1px;
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+
+.panel p {
+  margin: 6px 0;
+  font-size: 15px;
+  line-height: 1.4;
+}
+
+.panel .hint {
+  opacity: 0.6;
+  font-size: 13px;
+  margin-top: 14px;
+}
+
+.big-btn {
+  margin-top: 16px;
+  min-height: 56px;
+  width: 100%;
+  border-radius: 14px;
+  border: none;
+  background: var(--accent);
+  color: #0b1320;
+  font-size: 18px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+#overlay-score {
+  font-size: 18px;
+  font-weight: 700;
+}

@@ -195,3 +195,14 @@ This variant exists because the user asked for a more visual pass with real imag
 **Deployed:** http://51.75.26.136/prism-defense/ (replaced the flat-color build on 2026-06-12)
 
 **Run:** `cd samples/PrismDefense3DVisuals && npm install && npm run dev` (`npm run smoke` still passes — the sim is untouched)
+
+## PrismDefense3DAssetsGen
+
+**Genre:** 3D Tower Defense (AI-generated-assets variant of `PrismDefense3DVisuals`)
+**Platform:** Web (HTML5 — Three.js + Vite, ES modules)
+**Harness:** Claude Code (June 2026), built with the scaffold's `/generate-assets` layer
+**Features:** Identical gameplay/sim to `PrismDefense3D`; every visual and audio asset was generated through `manifests/asset-providers.json` (fal.ai, one API key) via `scripts/generate-assets.js` — a 21:9 equirectangular aurora skybox, three seamless tileable board/path/terrain textures, seven Hunyuan3D GLB models (3 towers, 3 enemies, the crystal) produced with a concept-image → Rapid image-to-3D pipeline, ten ElevenLabs sound effects + a CassetteAI battle-music loop, nano-banana-pro menu key art, and a Seedance image-to-video intro cinematic playing behind the menu. Every asset has a `.provenance.json` sidecar (provider, model, prompt, seed, request id) and the raster acceptances live in `generated-assets.json`. GLBs upgrade the instanced primitives asynchronously by swapping geometry/material on the live `InstancedMesh` — instancing, per-instance damage tinting, and the flat-color fallback all survive, so the game stays playable with zero generated files present.
+
+This variant exists as the live demo of the AI asset generation layer: same drop-in-replacement contract as the placeholder pipeline, exercised end-to-end against a real provider.
+
+**Run:** `cd samples/PrismDefense3DAssetsGen && npm install && npm run dev` (`npm run smoke` still passes — the sim is untouched)

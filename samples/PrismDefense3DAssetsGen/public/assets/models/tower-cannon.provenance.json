@@ -1,0 +1,24 @@
+{
+  "provider": "fal",
+  "model": "fal-ai/hunyuan-3d/v3.1/rapid/image-to-3d",
+  "type": "model3d",
+  "input": {
+    "input_image_url": "https://v3b.fal.media/files/b/0a9e0c0c/xe6FhdvZZ7ljaiYeuZGE8_ApFhF6IJ.png"
+  },
+  "seed": null,
+  "requestId": "019ebdb6-ea5a-7340-b9fc-dbe27b243425",
+  "generatedAt": "2026-06-12T21:23:51.915Z",
+  "sourceUrls": [
+    "https://v3b.fal.media/files/b/0a9e0c16/3wVcJaVpCo4ui9S_f12p6_a10fff15b335d026622d811293cc83e9.obj",
+    "https://v3b.fal.media/files/b/0a9e0c16/X_rJqm5-hvnAtTbZVnRG7_material.mtl",
+    "https://v3b.fal.media/files/b/0a9e0c16/1chXm7eXtUyIeMHYrzrhM_texture_20250901.png",
+    "https://v3b.fal.media/files/b/0a9e0c16/Ozf27jCNntPtuPgDIjuBg_preview.png"
+  ],
+  "files": [
+    "tower-cannon-1.obj",
+    "tower-cannon-2.bin",
+    "tower-cannon-3.png",
+    "tower-cannon-4.png"
+  ],
+  "license": "Generated via fal.ai; review provider and upstream model license terms before shipping."
+}

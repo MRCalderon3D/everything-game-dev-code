@@ -1,0 +1,24 @@
+{
+  "provider": "fal",
+  "model": "fal-ai/hunyuan-3d/v3.1/rapid/image-to-3d",
+  "type": "model3d",
+  "input": {
+    "input_image_url": "https://v3b.fal.media/files/b/0a9e0c17/a-FcN8Kx5OjKaZ5-U_mTF_OYYU9BP4.png"
+  },
+  "seed": null,
+  "requestId": "019ebdb8-870b-79c1-9775-0924594e9545",
+  "generatedAt": "2026-06-12T21:25:21.323Z",
+  "sourceUrls": [
+    "https://v3b.fal.media/files/b/0a9e0c1f/pT9ORzB61YFRqRbnvkmnu_43a30ac1c3d261c09d879dd594991d5e.obj",
+    "https://v3b.fal.media/files/b/0a9e0c1f/CmoBLfYUrGPnclfbVhSps_material.mtl",
+    "https://v3b.fal.media/files/b/0a9e0c1f/aUttAAjXkJcqDRndibMum_texture_20250901.png",
+    "https://v3b.fal.media/files/b/0a9e0c1f/K5CTGjPfQMrk6u2JjgBQ7_preview.png"
+  ],
+  "files": [
+    "tower-frost-1.obj",
+    "tower-frost-2.bin",
+    "tower-frost-3.png",
+    "tower-frost-4.png"
+  ],
+  "license": "Generated via fal.ai; review provider and upstream model license terms before shipping."
+}

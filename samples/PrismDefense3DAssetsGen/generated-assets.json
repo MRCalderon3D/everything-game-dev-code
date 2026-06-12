@@ -1,0 +1,46 @@
+{
+  "version": 1,
+  "description": "AI-generated raster assets accepted into the AssetsGen variant. Every file has a .provenance.json sidecar (provider, model, prompt, seed, request id). 3D models, SFX, music, and the intro video carry sidecars too but are outside this raster manifest's scope.",
+  "assets": [
+    {
+      "id": "skybox-aurora",
+      "path": "public/assets/img/skybox-aurora.png",
+      "background_policy": "full-bleed",
+      "integration": {
+        "role": "equirectangular scene background (THREE.EquirectangularReflectionMapping)"
+      }
+    },
+    {
+      "id": "menu-keyart",
+      "path": "public/assets/img/menu-keyart.png",
+      "background_policy": "full-bleed",
+      "integration": {
+        "role": "menu backdrop poster for the intro video, object-fit cover"
+      }
+    },
+    {
+      "id": "texture-rock",
+      "path": "public/assets/textures/rock.png",
+      "background_policy": "full-bleed",
+      "integration": {
+        "role": "tileable map on buildable board tiles (repeat 1 per tile)"
+      }
+    },
+    {
+      "id": "texture-dirt",
+      "path": "public/assets/textures/dirt.png",
+      "background_policy": "full-bleed",
+      "integration": {
+        "role": "tileable map on path tiles (repeat 1 per tile)"
+      }
+    },
+    {
+      "id": "texture-grass",
+      "path": "public/assets/textures/grass.png",
+      "background_policy": "full-bleed",
+      "integration": {
+        "role": "tileable map on the terrain plane (repeat 26)"
+      }
+    }
+  ]
+}

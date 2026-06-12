@@ -1,0 +1,21 @@
+{
+  "provider": "fal",
+  "model": "fal-ai/nano-banana-pro",
+  "type": "image",
+  "prompt": "epic cinematic key art for a 3D fantasy tower defense game called PrismDefense: a giant radiant prismatic crystal on a stone pedestal at the center of a winding path across a floating island, crystal towers firing cyan and magenta energy beams at approaching shadow golems, dramatic night sky with swirling auroras, volumetric light, vibrant cyan and magenta palette, no text",
+  "input": {
+    "image_size": "landscape_16_9",
+    "num_images": 1,
+    "prompt": "epic cinematic key art for a 3D fantasy tower defense game called PrismDefense: a giant radiant prismatic crystal on a stone pedestal at the center of a winding path across a floating island, crystal towers firing cyan and magenta energy beams at approaching shadow golems, dramatic night sky with swirling auroras, volumetric light, vibrant cyan and magenta palette, no text"
+  },
+  "seed": null,
+  "requestId": "019ebdad-bdda-7ab3-98ac-9e5646ecc534",
+  "generatedAt": "2026-06-12T21:12:41.440Z",
+  "sourceUrls": [
+    "https://v3b.fal.media/files/b/0a9e0bd2/2i5KFJXPaDNIij12c6HIl_SLHS9fD0.png"
+  ],
+  "files": [
+    "menu-keyart.png"
+  ],
+  "license": "Generated via fal.ai; review provider and upstream model license terms before shipping."
+}

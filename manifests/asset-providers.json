@@ -65,12 +65,16 @@
           "notes": "Voice-over and character barks. Localized VO must follow the localization pipeline, not ad hoc generation."
         },
         "video": {
-          "model": "fal-ai/seedance-1-0-pro",
-          "alternatives": ["fal-ai/kling-video/v3/pro", "fal-ai/veo-3"],
+          "model": "fal-ai/bytedance/seedance/v1/pro/text-to-video",
+          "alternatives": [
+            "fal-ai/bytedance/seedance/v1/pro/image-to-video",
+            "bytedance/seedance-2.0/image-to-video",
+            "fal-ai/veo3"
+          ],
           "promptField": "prompt",
-          "defaults": { "duration": "5s", "aspect_ratio": "16:9" },
+          "defaults": { "duration": "5", "aspect_ratio": "16:9" },
           "output": "mp4",
-          "notes": "Intro videos, cinematics, trailers. Image-to-video (pass image_url via --input-json) gives more art-directed control than pure text-to-video. Veo 3 and Kling v3 generate audio natively. Video is the most expensive capability — always dry-run and estimate before batch runs."
+          "notes": "Intro videos, cinematics, trailers. Image-to-video (the first alternative; pass image_url via --input-json) gives more art-directed control than pure text-to-video. Seedance 2.0 and Veo 3 generate audio natively. Video is the most expensive capability — always dry-run and estimate before batch runs."
         }
       }
     }

@@ -1,0 +1,22 @@
+{
+  "provider": "fal",
+  "model": "fal-ai/bytedance/seedance/v1/pro/image-to-video",
+  "type": "video",
+  "prompt": "slow cinematic camera push-in toward the glowing prismatic crystal, towers firing colorful energy beams, drifting sparks and floating dust particles, aurora sky shimmering, epic fantasy atmosphere",
+  "input": {
+    "duration": "5",
+    "aspect_ratio": "16:9",
+    "prompt": "slow cinematic camera push-in toward the glowing prismatic crystal, towers firing colorful energy beams, drifting sparks and floating dust particles, aurora sky shimmering, epic fantasy atmosphere",
+    "image_url": "https://v3b.fal.media/files/b/0a9e0bd2/2i5KFJXPaDNIij12c6HIl_SLHS9fD0.png"
+  },
+  "seed": null,
+  "requestId": "019ebdaf-7eda-7983-b554-07ca09197fbf",
+  "generatedAt": "2026-06-12T21:15:08.069Z",
+  "sourceUrls": [
+    "https://v3b.fal.media/files/b/0a9e0be8/0i3fcjzbZ4M3kQDrJKcUA_video.mp4"
+  ],
+  "files": [
+    "intro.mp4"
+  ],
+  "license": "Generated via fal.ai; review provider and upstream model license terms before shipping."
+}

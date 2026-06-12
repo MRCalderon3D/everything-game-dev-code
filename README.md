@@ -67,7 +67,7 @@ The `guides/Dash & Collect/` folder contains a full tutorial that walks through 
 
 ### Example projects
 
-The `samples/` folder contains eleven complete HTML games built with the `/full-game` command in a single pass each (PirateInvaders, Tetris2DMutation, LosRenacidos, pacmanAI, harness-comparison variants, and PrismDefense3D — the first 3D sample, built on Three.js against the web 3D rules, plus its CC0-textured Visuals variant), plus a writeup comparing how different AI harnesses performed on the same brief. For real projects, we recommend going step by step.
+The `samples/` folder contains twelve complete HTML games built with the `/full-game` command in a single pass each (PirateInvaders, Tetris2DMutation, LosRenacidos, pacmanAI, harness-comparison variants, and PrismDefense3D — the first 3D sample, built on Three.js against the web 3D rules, plus its CC0-textured Visuals variant and its AssetsGen variant where every model, texture, skybox, sound, and the intro cinematic were generated through the `/generate-assets` layer), plus a writeup comparing how different AI harnesses performed on the same brief. For real projects, we recommend going step by step.
 
 ## Goals
 - Keep shared game-development standards engine-neutral.

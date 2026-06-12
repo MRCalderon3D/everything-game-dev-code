@@ -1,0 +1,19 @@
+{
+  "provider": "fal",
+  "model": "fal-ai/elevenlabs/sound-effects/v2",
+  "type": "sfx",
+  "prompt": "heavy stone block slamming into place with a short magical crystal chime, fantasy game build sound, short",
+  "input": {
+    "text": "heavy stone block slamming into place with a short magical crystal chime, fantasy game build sound, short"
+  },
+  "seed": null,
+  "requestId": "019ebdab-a0a3-74b1-abd9-7b7c07b7d35c",
+  "generatedAt": "2026-06-12T21:10:06.891Z",
+  "sourceUrls": [
+    "https://v3b.fal.media/files/b/0a9e0bc4/YSkC4d675o22YafWXHOzt_sound_effect.mp3"
+  ],
+  "files": [
+    "sfx-build.mp3"
+  ],
+  "license": "Generated via fal.ai; review provider and upstream model license terms before shipping."
+}

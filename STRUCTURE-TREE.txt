@@ -893,6 +893,102 @@ everything-game-dev-code
 │   │   ├── package.json
 │   │   ├── TDD.md
 │   │   └── vite.config.js
+│   ├── PrismDefense3DAssetsGen
+│   │   ├── public
+│   │   │   └── assets
+│   │   │       ├── audio
+│   │   │       │   ├── music-battle.provenance.json
+│   │   │       │   ├── music-battle.wav
+│   │   │       │   ├── sfx-build.mp3
+│   │   │       │   ├── sfx-build.provenance.json
+│   │   │       │   ├── sfx-death.mp3
+│   │   │       │   ├── sfx-death.provenance.json
+│   │   │       │   ├── sfx-frost.mp3
+│   │   │       │   ├── sfx-frost.provenance.json
+│   │   │       │   ├── sfx-horn.mp3
+│   │   │       │   ├── sfx-horn.provenance.json
+│   │   │       │   ├── sfx-leak.mp3
+│   │   │       │   ├── sfx-leak.provenance.json
+│   │   │       │   ├── sfx-lose.mp3
+│   │   │       │   ├── sfx-lose.provenance.json
+│   │   │       │   ├── sfx-shot-cannon.mp3
+│   │   │       │   ├── sfx-shot-cannon.provenance.json
+│   │   │       │   ├── sfx-shot-laser.mp3
+│   │   │       │   ├── sfx-shot-laser.provenance.json
+│   │   │       │   ├── sfx-upgrade.mp3
+│   │   │       │   ├── sfx-upgrade.provenance.json
+│   │   │       │   ├── sfx-win.mp3
+│   │   │       │   └── sfx-win.provenance.json
+│   │   │       ├── img
+│   │   │       │   ├── menu-keyart.png
+│   │   │       │   ├── menu-keyart.provenance.json
+│   │   │       │   ├── skybox-aurora.png
+│   │   │       │   └── skybox-aurora.provenance.json
+│   │   │       ├── models
+│   │   │       │   ├── crystal-base-tex.jpg
+│   │   │       │   ├── crystal-base.obj
+│   │   │       │   ├── crystal-base.provenance.json
+│   │   │       │   ├── enemy-boss-tex.jpg
+│   │   │       │   ├── enemy-boss.obj
+│   │   │       │   ├── enemy-boss.provenance.json
+│   │   │       │   ├── enemy-runner-tex.jpg
+│   │   │       │   ├── enemy-runner.obj
+│   │   │       │   ├── enemy-runner.provenance.json
+│   │   │       │   ├── enemy-tank-tex.jpg
+│   │   │       │   ├── enemy-tank.obj
+│   │   │       │   ├── enemy-tank.provenance.json
+│   │   │       │   ├── tower-cannon-tex.jpg
+│   │   │       │   ├── tower-cannon.obj
+│   │   │       │   ├── tower-cannon.provenance.json
+│   │   │       │   ├── tower-frost-tex.jpg
+│   │   │       │   ├── tower-frost.obj
+│   │   │       │   ├── tower-frost.provenance.json
+│   │   │       │   ├── tower-laser-tex.jpg
+│   │   │       │   ├── tower-laser.obj
+│   │   │       │   └── tower-laser.provenance.json
+│   │   │       ├── textures
+│   │   │       │   ├── dirt.png
+│   │   │       │   ├── dirt.provenance.json
+│   │   │       │   ├── grass.png
+│   │   │       │   ├── grass.provenance.json
+│   │   │       │   ├── rock.png
+│   │   │       │   └── rock.provenance.json
+│   │   │       └── video
+│   │   │           ├── intro.mp4
+│   │   │           └── intro.provenance.json
+│   │   ├── scripts
+│   │   │   └── sim-smoke.mjs
+│   │   ├── src
+│   │   │   ├── audio
+│   │   │   │   └── audio.js
+│   │   │   ├── core
+│   │   │   │   ├── events.js
+│   │   │   │   └── loop.js
+│   │   │   ├── input
+│   │   │   │   └── input.js
+│   │   │   ├── render
+│   │   │   │   ├── camera-rig.js
+│   │   │   │   └── rendering.js
+│   │   │   ├── save
+│   │   │   │   └── storage.js
+│   │   │   ├── sim
+│   │   │   │   ├── config.js
+│   │   │   │   ├── path.js
+│   │   │   │   └── sim-game.js
+│   │   │   ├── ui
+│   │   │   │   ├── build-menu.js
+│   │   │   │   ├── hud.js
+│   │   │   │   └── screens.js
+│   │   │   ├── main.js
+│   │   │   └── style.css
+│   │   ├── .gitignore
+│   │   ├── GDD.md
+│   │   ├── generated-assets.json
+│   │   ├── index.html
+│   │   ├── package-lock.json
+│   │   ├── package.json
+│   │   ├── TDD.md
+│   │   └── vite.config.js
 │   ├── PrismDefense3DVisuals
 │   │   ├── public
 │   │   │   └── assets

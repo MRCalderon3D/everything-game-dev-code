@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#10141f" />
+    <title>PrismDefense</title>
+  </head>
+  <body>
+    <div id="app">
+      <canvas id="game-canvas"></canvas>
+
+      <div id="hud" class="hidden">
+        <div class="hud-top">
+          <div class="hud-chip" id="hud-gold" aria-label="Gold">0</div>
+          <div class="hud-chip" id="hud-wave">Wave 0/10</div>
+          <div class="hud-chip" id="hud-lives" aria-label="Lives">10</div>
+          <div class="hud-actions">
+            <button id="btn-pause" class="icon-btn" aria-label="Pause">II</button>
+            <button id="btn-mute" class="icon-btn" aria-label="Mute">&#9835;</button>
+          </div>
+        </div>
+        <div id="boss-bar-wrap" class="hidden">
+          <div id="boss-bar"></div>
+        </div>
+        <button id="btn-wave" class="hidden">Start wave</button>
+      </div>
+
+      <div id="sheet" class="hidden"></div>
+
+      <div id="overlay">
+        <video
+          id="intro-video"
+          autoplay
+          muted
+          loop
+          playsinline
+          src="./assets/video/intro.mp4"
+          poster="./assets/img/menu-keyart.png"
+        ></video>
+        <div class="panel" id="overlay-panel">
+          <h1>PrismDefense</h1>
+          <p id="overlay-sub">Stop the waves before they reach the crystal.</p>
+          <p id="overlay-score" class="hidden"></p>
+          <p id="overlay-high"></p>
+          <button id="btn-overlay" class="big-btn">Tap to play</button>
+          <p class="hint">Drag to orbit &middot; pinch or wheel to zoom &middot; tap a tile to build</p>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>

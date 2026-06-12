@@ -200,7 +200,9 @@ async function main() {
   }
   Object.assign(input, extraInput);
 
-  if (input[capability.promptField] === undefined) {
+  // Some models take no text prompt at all (e.g. image-to-3d): an explicit
+  // --input-json is then the full request and the prompt requirement is waived.
+  if (input[capability.promptField] === undefined && !args["input-json"]) {
     fail(`Missing --prompt (or '${capability.promptField}' inside --input-json).`);
   }
 
