@@ -54,10 +54,12 @@ function modelDef(name, height) {
   };
 }
 const MODELS = {
+  // aimOffset aligns each generated model's authored facing with the +Z aim
+  // convention (tuned visually; concepts were generated in 3/4 view).
   towers: {
-    cannon: modelDef('tower-cannon', 0.92),
-    frost: modelDef('tower-frost', 1.05),
-    laser: modelDef('tower-laser', 1.12),
+    cannon: { ...modelDef('tower-cannon', 0.92), aimOffset: 0 },
+    frost: { ...modelDef('tower-frost', 1.05), aimOffset: 0 },
+    laser: { ...modelDef('tower-laser', 1.12), aimOffset: 0 },
   },
   enemies: {
     runner: modelDef('enemy-runner', 0.62),
@@ -65,6 +67,12 @@ const MODELS = {
     boss: modelDef('enemy-boss', 1.4),
   },
   crystal: modelDef('crystal-base', 1.5),
+  // Environment props scattered on the terrain around the board.
+  props: {
+    crystals: { ...modelDef('prop-crystals', 1.7), count: 24, minR: 11, maxR: 36, minS: 0.6, maxS: 1.8 },
+    tree: { ...modelDef('prop-tree', 2.6), count: 18, minR: 12, maxR: 38, minS: 0.7, maxS: 1.5 },
+    boulder: { ...modelDef('prop-boulder', 1.0), count: 26, minR: 10, maxR: 36, minS: 0.6, maxS: 2.0 },
+  },
 };
 
 const COLORS = {
@@ -181,11 +189,34 @@ export function createRendering(canvas) {
   const dummy = new THREE.Object3D();
   const tmpColor = new THREE.Color();
 
-  // Terrain plane under and around the board (grass, fades into the fog).
+  // Terrain: a displaced plane instead of a flat one. Rolling hills rise away
+  // from the board (the board area itself stays perfectly flat) and fade into
+  // the fog. terrainHeight() is shared with the prop scatter so environment
+  // models sit on the surface.
+  const GROUND_Y = -0.28;
+  function terrainHeight(wx, wz) {
+    const d = Math.max(Math.abs(wx), Math.abs(wz));
+    const ramp = THREE.MathUtils.smoothstep(d, 8.5, 17);
+    if (ramp === 0) return 0;
+    const n =
+      Math.sin(wx * 0.23) * Math.sin(wz * 0.27) * 0.55 +
+      Math.sin(wx * 0.11 + wz * 0.17) * 0.3 +
+      Math.sin(wx * 0.43 - wz * 0.31) * 0.15;
+    return ramp * (1.6 + n * 1.5);
+  }
   const groundMat = lambert(0x3a4a32);
-  const groundMesh = new THREE.Mesh(geo(new THREE.PlaneGeometry(90, 90)), groundMat);
+  const groundGeo = geo(new THREE.PlaneGeometry(90, 90, 80, 80));
+  {
+    const pos = groundGeo.attributes.position;
+    for (let i = 0; i < pos.count; i++) {
+      // Plane local XY maps to world X,-Z after the -90° X rotation.
+      pos.setZ(i, terrainHeight(pos.getX(i), -pos.getY(i)));
+    }
+    groundGeo.computeVertexNormals();
+  }
+  const groundMesh = new THREE.Mesh(groundGeo, groundMat);
   groundMesh.rotation.x = -Math.PI / 2;
-  groundMesh.position.y = -0.28;
+  groundMesh.position.y = GROUND_Y;
   scene.add(groundMesh);
   applyMap(groundMat, TEXTURES.ground);
 
@@ -344,6 +375,34 @@ export function createRendering(canvas) {
     baseMat = material;
   });
 
+  // Environment props: each prop type is one InstancedMesh scattered once on
+  // the terrain ring around the board (deterministic enough — placement only
+  // affects visuals, never the sim).
+  let propSeed = 1234567;
+  function srand() {
+    propSeed = (propSeed * 16807) % 2147483647;
+    return propSeed / 2147483647;
+  }
+  for (const def of Object.values(MODELS.props)) {
+    loadModel(def, 0, (geometry, material) => {
+      const mesh = new THREE.InstancedMesh(geometry, material, def.count);
+      for (let i = 0; i < def.count; i++) {
+        const ang = srand() * Math.PI * 2;
+        const r = def.minR + srand() * (def.maxR - def.minR);
+        const x = Math.cos(ang) * r;
+        const z = Math.sin(ang) * r;
+        const s = def.minS + srand() * (def.maxS - def.minS);
+        dummy.position.set(x, GROUND_Y + terrainHeight(x, z) - 0.05 * s, z);
+        dummy.rotation.set(0, srand() * Math.PI * 2, 0);
+        dummy.scale.set(s, s, s);
+        dummy.updateMatrix();
+        mesh.setMatrixAt(i, dummy.matrix);
+      }
+      mesh.instanceMatrix.needsUpdate = true;
+      scene.add(mesh);
+    });
+  }
+
   // ---------- selection + range indicator ----------
 
   const selectionMesh = new THREE.Mesh(
@@ -455,14 +514,51 @@ export function createRendering(canvas) {
     }
   }
 
+  // View-side aim: mirrors the sim's targeting rules (cannon = furthest along
+  // the path in range, laser = highest hp in range) by reading sim state —
+  // never mutating it. Frost has no single target and idles in a slow spin.
+  const towerYaw = new Map(); // "x,z" -> current smoothed yaw
+  function aimTarget(sim, t) {
+    const stats = TOWER_TYPES[t.type].levels[t.level];
+    const r2 = stats.range * stats.range;
+    let best = null;
+    let bestKey = -Infinity;
+    for (const e of sim.enemies) {
+      if (!e.active) continue;
+      const dx = e.x - t.x;
+      const dz = e.z - t.z;
+      if (dx * dx + dz * dz > r2) continue;
+      const key = t.type === 'cannon' ? e.pathDist : e.hp;
+      if (key > bestKey) {
+        bestKey = key;
+        best = e;
+      }
+    }
+    return best;
+  }
+
   function packTowers(sim) {
     const counts = { cannon: 0, frost: 0, laser: 0 };
     for (const t of sim.towers) {
       const mesh = towerMeshes[t.type];
       const i = counts[t.type]++;
       const s = t.level > 0 ? 1.25 : 1;
+      const id = `${t.x},${t.z}`;
+      let yaw = towerYaw.get(id) ?? 0;
+      if (t.type === 'frost') {
+        yaw += 0.012; // idle spin, ~0.7 rad/s at 60fps
+      } else {
+        const target = aimTarget(sim, t);
+        if (target) {
+          const want =
+            Math.atan2(target.x - t.x, target.z - t.z) + MODELS.towers[t.type].aimOffset;
+          const dy = Math.atan2(Math.sin(want - yaw), Math.cos(want - yaw));
+          yaw += dy * 0.25; // smooth shortest-arc turn; holds last aim when idle
+        }
+      }
+      towerYaw.set(id, yaw);
       dummy.position.set(t.x, TOWER_Y[t.type] * s, t.z);
-      dummy.rotation.set(0, 0, 0);
+      dummy.rotation.set(0, yaw, 0);
       dummy.scale.set(s, s, s);
       dummy.updateMatrix();
       mesh.setMatrixAt(i, dummy.matrix);

@@ -205,6 +205,8 @@ This variant exists because the user asked for a more visual pass with real imag
 
 This variant exists as the live demo of the AI asset generation layer: same drop-in-replacement contract as the placeholder pipeline, exercised end-to-end against a real provider.
 
+Second pass (same day): towers now turn toward their current target (view-side aim that mirrors the sim's targeting rules by reading sim state — cannon tracks the furthest enemy in range, laser the highest-hp one, frost idles in a slow spin), and the flat terrain plane became a displaced-relief mesh (board area stays flat) dressed with three more generated environment props (crystal formations, alien spire trees, runed boulders) scattered as `InstancedMesh` rings around the board.
+
 **Deployed:** http://51.75.26.136/prism-defense-gen/ (the original variants remain at `/prism-defense/`)
 
 **Run:** `cd samples/PrismDefense3DAssetsGen && npm install && npm run dev` (`npm run smoke` still passes — the sim is untouched)

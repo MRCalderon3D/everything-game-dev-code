@@ -1,0 +1,24 @@
+{
+  "provider": "fal",
+  "model": "fal-ai/hunyuan-3d/v3.1/rapid/image-to-3d",
+  "type": "model3d",
+  "input": {
+    "input_image_url": "https://v3b.fal.media/files/b/0a9e0d52/yEk99EIXu-FgWpCJj8Lkx_O1KZFeOn.png"
+  },
+  "seed": null,
+  "requestId": "019ebde8-9546-74d1-8840-f321a54dba3d",
+  "generatedAt": "2026-06-12T22:17:51.041Z",
+  "sourceUrls": [
+    "https://v3b.fal.media/files/b/0a9e0d5a/zVClgdIhLZRgOW1pVFG4v_55edcf0830ea99484f5b5ef9152b9951.obj",
+    "https://v3b.fal.media/files/b/0a9e0d5a/I42RxkoUn7u8a8AVkt-OV_material.mtl",
+    "https://v3b.fal.media/files/b/0a9e0d5a/YYaN_qOdsvvX14zaebh6F_texture_20250901.png",
+    "https://v3b.fal.media/files/b/0a9e0d5a/bPN0tLbQokNCjlQ3Lhb4W_preview.png"
+  ],
+  "files": [
+    "prop-boulder-3d-1.obj",
+    "prop-boulder-3d-2.bin",
+    "prop-boulder-3d-3.png",
+    "prop-boulder-3d-4.png"
+  ],
+  "license": "Generated via fal.ai; review provider and upstream model license terms before shipping."
+}

@@ -937,6 +937,15 @@ everything-game-dev-code
 │   │   │       │   ├── enemy-tank-tex.jpg
 │   │   │       │   ├── enemy-tank.obj
 │   │   │       │   ├── enemy-tank.provenance.json
+│   │   │       │   ├── prop-boulder-tex.jpg
+│   │   │       │   ├── prop-boulder.obj
+│   │   │       │   ├── prop-boulder.provenance.json
+│   │   │       │   ├── prop-crystals-tex.jpg
+│   │   │       │   ├── prop-crystals.obj
+│   │   │       │   ├── prop-crystals.provenance.json
+│   │   │       │   ├── prop-tree-tex.jpg
+│   │   │       │   ├── prop-tree.obj
+│   │   │       │   ├── prop-tree.provenance.json
 │   │   │       │   ├── tower-cannon-tex.jpg
 │   │   │       │   ├── tower-cannon.obj
 │   │   │       │   ├── tower-cannon.provenance.json
