@@ -19,6 +19,7 @@ everything-game-dev-code
 │   │   ├── full-game.md
 │   │   ├── game-feel-pass.md
 │   │   ├── gdd.md
+│   │   ├── generate-assets.md
 │   │   ├── godot-build-fix.md
 │   │   ├── godot-placeholders.md
 │   │   ├── godot-review.md
@@ -105,6 +106,7 @@ everything-game-dev-code
 │   │   ├── full-game.md
 │   │   ├── game-feel-pass.md
 │   │   ├── gdd.md
+│   │   ├── generate-assets.md
 │   │   ├── godot-build-fix.md
 │   │   ├── godot-placeholders.md
 │   │   ├── godot-review.md
@@ -213,6 +215,7 @@ everything-game-dev-code
 │   │   ├── full-game.md
 │   │   ├── game-feel-pass.md
 │   │   ├── gdd.md
+│   │   ├── generate-assets.md
 │   │   ├── godot-build-fix.md
 │   │   ├── godot-placeholders.md
 │   │   ├── godot-review.md
@@ -346,6 +349,7 @@ everything-game-dev-code
 │   ├── full-game.md
 │   ├── game-feel-pass.md
 │   ├── gdd.md
+│   ├── generate-assets.md
 │   ├── godot-build-fix.md
 │   ├── godot-placeholders.md
 │   ├── godot-review.md
@@ -475,6 +479,7 @@ everything-game-dev-code
 │   ├── hooks.json
 │   └── README.md
 ├── manifests
+│   ├── asset-providers.json
 │   ├── engines.json
 │   ├── install-components.json
 │   ├── install-modules.json
@@ -958,6 +963,7 @@ everything-game-dev-code
 │   ├── harness-comparison.md
 │   └── README.md
 ├── schemas
+│   ├── asset-providers.schema.json
 │   ├── engines.schema.json
 │   ├── hooks.schema.json
 │   ├── install-components.schema.json
@@ -990,6 +996,7 @@ everything-game-dev-code
 │   │   ├── utils.js
 │   │   └── validation.js
 │   ├── doctor.js
+│   ├── generate-assets.js
 │   ├── generate-dependency-graph.js
 │   ├── generate-hook-wiring.js
 │   ├── generate-wrappers.js
@@ -1015,6 +1022,8 @@ everything-game-dev-code
 │   │   ├── 3d-animation-pipeline
 │   │   │   └── SKILL.md
 │   │   ├── 3d-asset-pipeline
+│   │   │   └── SKILL.md
+│   │   ├── ai-asset-generation
 │   │   │   └── SKILL.md
 │   │   ├── art-bible
 │   │   │   └── SKILL.md

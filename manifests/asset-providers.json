@@ -1,0 +1,78 @@
+{
+  "$schema": "../schemas/asset-providers.schema.json",
+  "version": 1,
+  "description": "Generative asset provider registry — the single source of truth for which AI generation provider and model serves each asset capability. scripts/generate-assets.js resolves capability-to-model routing from this file; swapping a default model or adding a provider is a manifest edit, not a code edit. Model catalogs rotate quickly: verify a model id against the provider catalog before relying on it in a new project.",
+  "defaultProvider": "fal",
+  "providers": [
+    {
+      "id": "fal",
+      "display": "fal.ai",
+      "queueBaseUrl": "https://queue.fal.run",
+      "apiKeyEnv": "FAL_KEY",
+      "docsUrl": "https://docs.fal.ai",
+      "notes": [
+        "Chosen as default because one pay-per-use API key covers every asset modality (3D, image, audio, video) with no monthly subscription.",
+        "All endpoints use the async queue API: POST https://queue.fal.run/<model> returns request_id + status_url + response_url.",
+        "Review fal.ai and upstream model license terms before shipping generated content commercially.",
+        "An optional MCP server ('fal-media' in mcp-configs/mcp-servers.json) exposes the same catalog interactively; the script remains the reproducible path."
+      ],
+      "capabilities": {
+        "image": {
+          "model": "fal-ai/nano-banana-2",
+          "alternatives": ["fal-ai/nano-banana-pro"],
+          "promptField": "prompt",
+          "defaults": { "image_size": "square", "num_images": 1 },
+          "output": "png",
+          "notes": "Sprites, textures, UI art, concept art. Iterate on nano-banana-2 (fast/cheap), switch to nano-banana-pro for finals. For tileable textures, ask for 'seamless tileable texture' explicitly and verify edges."
+        },
+        "skybox": {
+          "model": "fal-ai/nano-banana-pro",
+          "promptField": "prompt",
+          "defaults": { "image_size": "landscape_16_9", "num_images": 1 },
+          "output": "png",
+          "notes": "Prompt for a '360 degree equirectangular panorama' and validate the horizon line before engine import; engines expect a 2:1 equirectangular projection for sky materials."
+        },
+        "model3d": {
+          "model": "fal-ai/hunyuan3d-v3/text-to-3d",
+          "alternatives": ["fal-ai/hunyuan-3d/v3.1/rapid/image-to-3d"],
+          "promptField": "prompt",
+          "defaults": {},
+          "output": "glb",
+          "notes": "Tencent Hunyuan3D. GLB output imports into Unity, Unreal, Godot, and Three.js without conversion. Use the image-to-3d variant to lift accepted concept art into 3D. Static meshes only — rigging/animation needs a dedicated provider."
+        },
+        "sfx": {
+          "model": "fal-ai/elevenlabs/sound-effects/v2",
+          "alternatives": ["cassetteai/sound-effects-generator"],
+          "promptField": "text",
+          "defaults": {},
+          "output": "mp3",
+          "notes": "Short gameplay sound effects from a text description. Keep descriptions physical and concrete ('metal coin dropping on stone, short, bright')."
+        },
+        "music": {
+          "model": "cassetteai/music-generator",
+          "alternatives": ["fal-ai/elevenlabs/music"],
+          "promptField": "prompt",
+          "defaults": { "duration": 30 },
+          "output": "wav",
+          "notes": "Background music and stingers. Specify genre, tempo, mood, and loopability in the prompt; verify loop points manually before integration."
+        },
+        "speech": {
+          "model": "fal-ai/elevenlabs/tts/eleven-v3",
+          "alternatives": ["fal-ai/csm-1b"],
+          "promptField": "text",
+          "defaults": {},
+          "output": "mp3",
+          "notes": "Voice-over and character barks. Localized VO must follow the localization pipeline, not ad hoc generation."
+        },
+        "video": {
+          "model": "fal-ai/seedance-1-0-pro",
+          "alternatives": ["fal-ai/kling-video/v3/pro", "fal-ai/veo-3"],
+          "promptField": "prompt",
+          "defaults": { "duration": "5s", "aspect_ratio": "16:9" },
+          "output": "mp4",
+          "notes": "Intro videos, cinematics, trailers. Image-to-video (pass image_url via --input-json) gives more art-directed control than pure text-to-video. Veo 3 and Kling v3 generate audio natively. Video is the most expensive capability — always dry-run and estimate before batch runs."
+        }
+      }
+    }
+  ]
+}

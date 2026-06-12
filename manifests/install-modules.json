@@ -142,9 +142,12 @@
         "agents/audio-designer.md",
         "docs/templates/art-bible.md",
         "docs/templates/audio-bible.md",
-        "commands/audio-pass.md"
+        "commands/audio-pass.md",
+        "commands/generate-assets.md",
+        "manifests/asset-providers.json",
+        "scripts/generate-assets.js"
       ],
-      "notes": "Content pipeline and presentation layer."
+      "notes": "Content pipeline and presentation layer, including AI asset generation via the provider registry."
     },
     "domain-qa-release": {
       "includes": [

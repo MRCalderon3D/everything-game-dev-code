@@ -9,8 +9,8 @@
 
 ![license](https://img.shields.io/badge/license-MIT-blue)
 ![agents](https://img.shields.io/badge/agents-42-blueviolet)
-![commands](https://img.shields.io/badge/commands-65-orange)
-![skills](https://img.shields.io/badge/skills-106-brightgreen)
+![commands](https://img.shields.io/badge/commands-66-orange)
+![skills](https://img.shields.io/badge/skills-107-brightgreen)
 ![rules](https://img.shields.io/badge/rules-115-yellow)
 ![contexts](https://img.shields.io/badge/contexts-9-cyan)
 ![harnesses](https://img.shields.io/badge/harnesses-5-red)
@@ -84,7 +84,7 @@ This scaffold is organized in layers:
 - `skills/` — how work is executed well
 - `contexts/` — how priorities shift by phase
 - `hooks/` — how workflow safeguards are enforced
-- `manifests/` — how subsets are installed by profile, plus the engine layer registry (`engines.json`)
+- `manifests/` — how subsets are installed by profile, plus the engine layer registry (`engines.json`) and the generative asset provider registry (`asset-providers.json`)
 - `schemas/` — JSON validation for manifests, hooks, and plugins
 - `scripts/` — generators, validators, and diagnostics (`new:engine`, `doctor`, `sync:*`)
 - `docs/templates/` — structured templates for GDD, TDD, QA plans, and other deliverables

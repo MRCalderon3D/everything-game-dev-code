@@ -50,6 +50,7 @@ Commands do not replace judgment. They channel it.
 | `/unity-placeholders` | Generate placeholder sprites, 3D primitives, prefabs, and procedural audio for testable gameplay |
 | `/godot-placeholders` | Generate placeholder textures, scenes, 3D primitive meshes, and procedural audio for a Godot project |
 | `/web-placeholders` | Generate placeholder sprites, 3D primitives, and Web Audio sound stubs for a web game |
+| `/generate-assets` | Generate real assets (images, skyboxes, 3D models, SFX, music, voice, video) from prompts via the provider registry |
 | `/scene-bootstrap` | Bootstrap a game scene with GameObjects, scripts, and wired inspector references |
 | `/evolve` | Iteratively refine an existing system or feature |
 | `/tools-pass` | Improve or extend editor and pipeline tooling |

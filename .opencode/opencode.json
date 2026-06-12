@@ -61,6 +61,10 @@
       "description": "Create or update the Game Design Document for the current feature, system, or project.",
       "template": "Read .opencode/commands/gdd.md and execute the shared commands/gdd.md workflow."
     },
+    "generate-assets": {
+      "description": "Generate real game assets — images, textures, skyboxes, 3D models, SFX, music, voice, and intro/cinematic video — from text prompts via the generative provider registry.",
+      "template": "Read .opencode/commands/generate-assets.md and execute the shared commands/generate-assets.md workflow."
+    },
     "godot-build-fix": {
       "description": "Diagnose and resolve Godot export, script, or project configuration issues.",
       "template": "Read .opencode/commands/godot-build-fix.md and execute the shared commands/godot-build-fix.md workflow."

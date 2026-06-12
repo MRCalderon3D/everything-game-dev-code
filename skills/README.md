@@ -28,6 +28,7 @@ Skills for producing and integrating creative assets.
 | `2d-animation-pipeline` | Author, import, and wire 2D animations with consistent naming and state conventions |
 | `3d-animation-pipeline` | Skeletal clip authoring, root motion policy, retargeting, and compression rules |
 | `3d-asset-pipeline` | Export, scale, pivot, and naming rules so 3D models import without per-asset fixes |
+| `ai-asset-generation` | Generate real assets (images, skyboxes, 3D models, SFX, music, voice, video) via the provider registry with provenance and acceptance gates |
 | `art-bible` | Define a visual direction artists, UI, technical art, and marketing can execute consistently |
 | `audio-implementation` | Integrate audio assets into the engine with consistent mixing, triggering, and fallback rules |
 | `cinematic-pipeline` | Define cutscene production from animatic to in-engine delivery |

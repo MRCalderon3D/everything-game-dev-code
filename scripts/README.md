@@ -38,6 +38,21 @@ npm run new:engine -- bevy "Bevy" --dry-run
 
 Never edit generated files by hand — `npm run validate` fails when they drift from their source.
 
+### Asset generation
+
+| Script | Purpose |
+|--------|---------|
+| `generate-assets.js` | Generate real game assets (images, skyboxes, 3D models, SFX, music, speech, video) from text prompts via the provider registry in `manifests/asset-providers.json`; writes a `.provenance.json` sidecar per run |
+
+**Usage:**
+```bash
+node scripts/generate-assets.js --type image --prompt "pixel-art gold coin" --out staging/
+node scripts/generate-assets.js --type model3d --prompt "low poly crystal tower" --out staging/ --name tower-crystal
+node scripts/generate-assets.js --type video --prompt "studio logo reveal" --out staging/ --dry-run
+```
+
+Requires the provider's API key in the environment (`FAL_KEY` for the default fal.ai provider). Entry point: the `/generate-assets` command. Always `--dry-run` first for expensive capabilities (video).
+
 ### Validation
 
 | Script | Purpose |

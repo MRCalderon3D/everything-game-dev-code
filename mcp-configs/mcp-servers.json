@@ -286,6 +286,30 @@
         "Avoid exposing unnecessary player-level data."
       ]
     },
+    "fal-media": {
+      "category": "asset-generation",
+      "enabled_by_default": false,
+      "recommended": true,
+      "purpose": "Interactive AI asset generation via the fal.ai model catalog: images, skyboxes, 3D models, sound effects, music, speech, and video.",
+      "when_to_use": [
+        "explore or compare generation models before committing them to the provider registry",
+        "iterate interactively on prompts before a reproducible generation run",
+        "estimate generation cost before batch work"
+      ],
+      "transport": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "fal-ai-mcp-server"
+      ],
+      "env": {
+        "FAL_KEY": "<required>"
+      },
+      "notes": [
+        "Optional convenience layer. Reproducible production generation goes through scripts/generate-assets.js and manifests/asset-providers.json so provenance sidecars are written.",
+        "Follow the AI-generated asset rules in rules/common/asset-pipeline.md regardless of which path generated the file."
+      ]
+    },
     "storefront-docs": {
       "category": "release",
       "enabled_by_default": false,

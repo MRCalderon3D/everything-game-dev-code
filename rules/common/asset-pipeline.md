@@ -42,6 +42,15 @@ These rules are engine-neutral. Engine-specific importer settings and folder con
 - Avoid hidden coupling between gameplay logic and content naming or directory paths.
 - Replacing a shared asset must trigger impact review for all known consumers.
 
+## AI-Generated Asset Rules
+- Generation must go through the provider registry (`manifests/asset-providers.json`); model ids must not be hardcoded in project code or docs.
+- Generation is engine-neutral: outputs land in neutral formats (PNG, GLB, MP3/WAV, MP4) in a staging area, and engine import follows the active engine layer only.
+- Every generated file must keep a provenance record (provider, model, prompt, seed, request id, timestamp) — an asset without provenance is treated as unlicensed third-party content.
+- Provider API keys live only in environment variables (the registry's `apiKeyEnv`); they are never committed or written to disk.
+- Generated assets pass the same acceptance, naming, budget, and review gates as authored content; raster outputs follow the generated-raster acceptance contract.
+- Generation cost is managed deliberately: iterate on fast/cheap models with fixed seeds, finalize on higher-fidelity models, and confirm cost before batch video runs.
+- Provider and upstream model license terms must be reviewed before shipping generated content commercially.
+
 ## Third-Party Content Rules
 - Third-party assets must track license, source, version, modification status, and allowed usage.
 - Vendor content must be wrapped or documented so it can be upgraded or replaced safely.

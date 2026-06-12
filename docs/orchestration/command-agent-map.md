@@ -264,6 +264,12 @@ Support:
 - `animation-programmer`
 - `performance-reviewer`
 
+### /generate-assets
+Primary: `technical-artist`
+Support:
+- `2d-artist`
+- `audio-designer`
+
 ### /ui-asset-pass
 Primary: `2d-artist`
 Support:

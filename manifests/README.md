@@ -22,6 +22,14 @@ Each entry declares an `id` (kebab-case, matching `rules/<id>/`, `skills/<id>/`,
 
 To add a new engine layer, run `npm run new:engine` rather than editing this file by hand.
 
+### asset-providers.json
+
+The generative asset provider registry — the single source of truth for which AI generation provider and model serves each asset capability (`image`, `skybox`, `model3d`, `sfx`, `music`, `speech`, `video`). `scripts/generate-assets.js` and the `/generate-assets` command resolve capability-to-model routing from this file; swapping a default model or adding a provider is a manifest edit, not a code edit.
+
+Each provider declares an `id`, `display` name, `queueBaseUrl` (async queue API), `apiKeyEnv` (the environment variable holding the API key — keys are never committed), `docsUrl`, and a `capabilities` map. Each capability entry declares the default `model`, optional `alternatives`, the `promptField` name, request `defaults`, and the expected `output` format. Validated against `schemas/asset-providers.schema.json`.
+
+The default provider is fal.ai because one pay-per-use key covers every asset modality. Model catalogs rotate quickly — verify model ids against the provider catalog when starting a new project.
+
 ### install-components.json
 
 Defines the 18 components that form the scaffold's logical groupings.
