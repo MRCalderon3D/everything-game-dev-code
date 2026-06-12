@@ -16,6 +16,7 @@ everything-game-dev-code
 │   │   ├── economy-balance.md
 │   │   ├── evolve.md
 │   │   ├── full-game.md
+│   │   ├── game-feel-pass.md
 │   │   ├── gdd.md
 │   │   ├── godot-build-fix.md
 │   │   ├── godot-review.md
@@ -35,6 +36,7 @@ everything-game-dev-code
 │   │   ├── perf-budget.md
 │   │   ├── plan.md
 │   │   ├── playtest-report.md
+│   │   ├── procgen-design.md
 │   │   ├── qa-plan.md
 │   │   ├── quest-design.md
 │   │   ├── README.md
@@ -97,6 +99,7 @@ everything-game-dev-code
 │   │   ├── economy-balance.md
 │   │   ├── evolve.md
 │   │   ├── full-game.md
+│   │   ├── game-feel-pass.md
 │   │   ├── gdd.md
 │   │   ├── godot-build-fix.md
 │   │   ├── godot-review.md
@@ -116,6 +119,7 @@ everything-game-dev-code
 │   │   ├── perf-budget.md
 │   │   ├── plan.md
 │   │   ├── playtest-report.md
+│   │   ├── procgen-design.md
 │   │   ├── qa-plan.md
 │   │   ├── quest-design.md
 │   │   ├── README.md
@@ -200,6 +204,7 @@ everything-game-dev-code
 │   │   ├── economy-balance.md
 │   │   ├── evolve.md
 │   │   ├── full-game.md
+│   │   ├── game-feel-pass.md
 │   │   ├── gdd.md
 │   │   ├── godot-build-fix.md
 │   │   ├── godot-review.md
@@ -219,6 +224,7 @@ everything-game-dev-code
 │   │   ├── perf-budget.md
 │   │   ├── plan.md
 │   │   ├── playtest-report.md
+│   │   ├── procgen-design.md
 │   │   ├── qa-plan.md
 │   │   ├── quest-design.md
 │   │   ├── README.md
@@ -328,6 +334,7 @@ everything-game-dev-code
 │   ├── economy-balance.md
 │   ├── evolve.md
 │   ├── full-game.md
+│   ├── game-feel-pass.md
 │   ├── gdd.md
 │   ├── godot-build-fix.md
 │   ├── godot-review.md
@@ -347,6 +354,7 @@ everything-game-dev-code
 │   ├── perf-budget.md
 │   ├── plan.md
 │   ├── playtest-report.md
+│   ├── procgen-design.md
 │   ├── qa-plan.md
 │   ├── quest-design.md
 │   ├── README.md
@@ -947,6 +955,8 @@ everything-game-dev-code
 │   │   │   └── SKILL.md
 │   │   ├── economy-balancing
 │   │   │   └── SKILL.md
+│   │   ├── game-feel-design
+│   │   │   └── SKILL.md
 │   │   ├── level-design
 │   │   │   └── SKILL.md
 │   │   ├── liveops-design
@@ -956,6 +966,8 @@ everything-game-dev-code
 │   │   ├── narrative-design
 │   │   │   └── SKILL.md
 │   │   ├── onboarding-tutorial-design
+│   │   │   └── SKILL.md
+│   │   ├── procgen-design
 │   │   │   └── SKILL.md
 │   │   ├── progression-design
 │   │   │   └── SKILL.md

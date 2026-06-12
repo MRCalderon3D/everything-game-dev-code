@@ -34,6 +34,7 @@ Commands do not replace judgment. They channel it.
 | `/combat-design` | Design or tune combat systems, abilities, and encounters |
 | `/quest-design` | Design quest structure, objectives, and narrative hooks |
 | `/dialogue-design` | Design dialogue structure, branching, variables, and the conversation content pipeline |
+| `/procgen-design` | Design procedural generation systems, seeds, constraints, and validation gates |
 | `/level-beat` | Define level beat, pacing, and landmark layout |
 | `/milestone-plan` | Define milestone scope, sequencing, and exit criteria |
 | `/vertical-slice` | Scope and plan a vertical slice as the core loop proof |
@@ -51,6 +52,7 @@ Commands do not replace judgment. They channel it.
 | `/art-2d-pass` | Review 2D art assets for naming, resolution, atlas config, animation, and placeholders |
 | `/ui-asset-pass` | Review UI visual assets for naming, 9-slice, atlas, theme consistency, and animations |
 | `/animation-pass` | Review animation implementation, state machines, transitions, and gameplay readability |
+| `/game-feel-pass` | Review moment-to-moment feedback, response timing, and juice for readable, satisfying actions |
 | `/localization-pass` | Review localization readiness for text, UI expansion, locale risks, and translation workflow |
 | `/accessibility-pass` | Review accessibility coverage for input, readability, audio, and difficulty options |
 | `/learn` | Synthesize a learning objective into reusable scaffold knowledge |

@@ -84,6 +84,7 @@ Primary skills:
 - design/progression-design
 - design/economy-balancing
 - design/liveops-design
+- design/procgen-design
 
 ### combat-designer
 Primary skills:
@@ -97,6 +98,9 @@ Primary skills:
 - design/onboarding-tutorial-design
 - design/quest-design
 
+Secondary skills:
+- design/procgen-design
+
 ### narrative-designer
 Primary skills:
 - design/narrative-design
@@ -108,6 +112,9 @@ Primary skills:
 - design/accessibility-design
 - design/onboarding-tutorial-design
 - engineering-common/ui-hud-patterns
+
+Secondary skills:
+- design/game-feel-design
 
 ### economy-designer
 Primary skills:
@@ -153,6 +160,9 @@ Primary skills:
 - engineering-common/input-abstraction
 - engineering-common/save-system-patterns
 - engineering-common/event-bus-patterns
+
+Secondary skills:
+- design/game-feel-design
 
 ### ai-programmer
 Primary skills:

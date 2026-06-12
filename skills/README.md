@@ -50,11 +50,13 @@ Skills for game design work across all genres and phases.
 | `combat-design` | Define the combat loop, ability vocabulary, and encounter tuning process |
 | `core-loop-design` | Define the primary player activity and the support loops that sustain it |
 | `economy-balancing` | Balance resource income, spend, and progression curves against player psychology |
+| `game-feel-design` | Design hit-stop, screen shake, tweening, and response timing for readable, satisfying actions |
 | `level-design` | Design level layout, pacing, landmark placement, and player guidance |
 | `liveops-design` | Design live events, seasonal content, and limited-time mechanics |
 | `monetization-design` | Define monetization strategy and validate against retention and fairness |
 | `narrative-design` | Structure story beats, character arcs, and world-building for player agency |
 | `onboarding-tutorial-design` | Design first-hour experience that teaches through play, not interruption |
+| `procgen-design` | Design procedural content systems with seeds, constraints, and validation gates |
 | `progression-design` | Define player growth curves, unlock gates, and mastery signals |
 | `quest-design` | Design quest structure, objective clarity, and branching outcomes |
 

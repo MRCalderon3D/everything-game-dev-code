@@ -154,6 +154,12 @@ Primary: `narrative-designer`
 Support:
 - `gdd-designer`
 
+### /procgen-design
+Primary: `systems-designer`
+Support:
+- `level-designer`
+- `gameplay-programmer`
+
 ### /onboarding
 Primary: `ui-ux-designer`
 Support:
@@ -239,6 +245,12 @@ Support:
 Primary: `gameplay-programmer`
 Support:
 - `ui-programmer`
+
+### /game-feel-pass
+Primary: `gameplay-programmer`
+Support:
+- `ui-ux-designer`
+- `audio-designer`
 
 ### /art-2d-pass
 Primary: `2d-artist`
