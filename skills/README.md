@@ -93,6 +93,7 @@ Godot-specific engineering skills. Only apply within a Godot project.
 
 | Skill | Purpose |
 |-------|---------|
+| `godot-3d-scenes` | Compose 3D scenes: Node3D structure, cameras, physics bodies, environment, and density |
 | `godot-build-release` | Configure export profiles, signing, and release packaging for Godot |
 | `godot-csharp-patterns` | Apply idiomatic C# in Godot with proper lifecycle and signal integration |
 | `godot-editor-tooling` | Build Godot editor plugins and pipeline tools using EditorPlugin |

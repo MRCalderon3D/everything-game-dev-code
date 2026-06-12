@@ -1038,6 +1038,8 @@ everything-game-dev-code
 │   │   │   └── SKILL.md
 │   │   └── README.md
 │   ├── godot
+│   │   ├── godot-3d-scenes
+│   │   │   └── SKILL.md
 │   │   ├── godot-build-release
 │   │   │   └── SKILL.md
 │   │   ├── godot-csharp-patterns

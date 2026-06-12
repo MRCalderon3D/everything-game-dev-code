@@ -25,4 +25,5 @@ Audit Godot scenes, nodes, autoloads, and scene composition patterns.
 
 ## Notes
 - Keep engine-neutral commands free of engine-specific implementation detail unless an engine-specific command is being called.
+- For 3D scenes, audit through the `godot-3d-scenes` skill as well: root transforms, physics body choice, collision layers/masks, WorldEnvironment ownership, and 3D density.
 - Escalate to the relevant reviewer or specialist when risks exceed the command's normal scope.

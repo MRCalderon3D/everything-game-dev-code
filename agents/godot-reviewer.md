@@ -21,6 +21,7 @@ Reviews Godot architecture, scene structure, resource usage, and engine-specific
 - godot-csharp-patterns
 - godot-signals-patterns
 - godot-input-patterns
+- godot-3d-scenes
 - godot-resource-management
 - godot-testing
 - godot-performance

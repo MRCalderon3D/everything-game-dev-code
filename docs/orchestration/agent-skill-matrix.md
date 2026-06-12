@@ -366,6 +366,7 @@ Secondary skills:
 - godot/godot-csharp-patterns
 - godot/godot-signals-patterns
 - godot/godot-input-patterns
+- godot/godot-3d-scenes
 - godot/godot-resource-management
 - godot/godot-build-release
 
