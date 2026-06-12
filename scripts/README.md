@@ -18,6 +18,7 @@ Scripts also handle runtime concerns: activating an engine profile, wiring git h
 | `install-profile.js` | Bootstrap a profile installation from `install-profiles.json` by resolving components to modules to file paths |
 | `setup-git-hooks.js` | Link git hooks to the scaffold's hook handlers for pre-commit validation |
 | `new-engine.js` | Scaffold a new engine layer (rules, skills, reviewer agent, commands, manifests, doc wiring) as a TODO stub set that passes validation; supports `--dry-run` |
+| `doctor.js` | Diagnose an installation: environment, git hook wiring, active profile, harness adapters, and generated-artifact drift, with remediation hints (`npm run doctor`) |
 
 **Usage:**
 ```bash

@@ -7,6 +7,7 @@
   "scripts": {
     "setup:hooks": "node scripts/setup-git-hooks.js",
     "new:engine": "node scripts/new-engine.js",
+    "doctor": "node scripts/doctor.js",
     "test": "node tests/run-all.js",
     "validate": "npm run validate:manifests && npm run validate:engines && npm run validate:hooks && npm run validate:schemas && npm run validate:structure && npm run validate:wrappers && npm run validate:references && npm run validate:generated-assets && npm run validate:structure-artifacts && npm run lint:markdown",
     "sync:structure": "node scripts/sync-structure-artifacts.js",

@@ -911,6 +911,7 @@ everything-game-dev-code
 │   │   ├── structure-artifacts.js
 │   │   ├── utils.js
 │   │   └── validation.js
+│   ├── doctor.js
 │   ├── generate-hook-wiring.js
 │   ├── generate-wrappers.js
 │   ├── install-profile.js
