@@ -56,6 +56,7 @@ Sequences defined:
 | Release | `release-manager` → `build-engineer` → `qa-lead` → `console-compliance-reviewer` → `release-manager` |
 | Live ops event | `liveops-manager` → `economy-designer` → `gameplay-programmer` → `qa-lead` → `telemetry-analyst` |
 | Engine setup | `build-engineer` → `architect` → `gameplay-programmer` → `doc-updater` |
+| Asset generation | `technical-artist` → `2d-artist` / `audio-designer` → engine import → art/audio pass review |
 
 ### engine-isolation.md
 

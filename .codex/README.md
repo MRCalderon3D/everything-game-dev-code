@@ -43,6 +43,7 @@ This adapter maps the shared scaffold to OpenAI Codex.
 - Good fits: concept sheets, painted or textured source art, sprite source PNGs, UI mockups, menu backgrounds, marketing art, and in-project bitmap edits.
 - Do not use `$imagegen` for deterministic placeholder generation when `/unity-placeholders` or equivalent is the intended workflow, and do not use it for vector/icon-system work that should stay code-native or SVG-native.
 - If the selected image becomes a project asset, move or copy it from `$CODEX_HOME/generated_images/...` into the workspace before treating it as source-of-truth content.
+- For harness-neutral generation across all modalities (images, skyboxes, 3D models, SFX, music, voice, video), use the shared `/generate-assets` command backed by `manifests/asset-providers.json` and `scripts/generate-assets.js` — it writes the provenance sidecars the asset pipeline rules require.
 
 ## Stability rule
 Prefer stable Codex surfaces first: `AGENTS.md`, profiles, shell execution, review mode, MCP, plugins, and skills. Treat experimental Codex hooks or nested AGENTS behavior as optional adapter targets until they are stable.

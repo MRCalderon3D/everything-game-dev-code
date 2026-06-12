@@ -56,6 +56,7 @@ Then type commands in the chat:
 | `/godot-setup` | Bootstrap a Godot project |
 | `/unreal-setup` | Bootstrap an Unreal project |
 | `/web-setup` | Bootstrap a web (HTML5) project, 2D canvas or 3D WebGL |
+| `/generate-assets` | Generate real assets — images, skyboxes, 3D models, SFX, music, voice, video — from text prompts |
 | `/full-game` | Orchestrate an entire game from scratch (experimental) |
 
 You don't have to follow a specific order. Pick whatever command fits your current need — start a new project, generate a GDD for an existing one, run a QA review, or fix a build error.
@@ -103,6 +104,15 @@ The repository is intentionally split into:
 And equivalent skill / command / review layers where needed.
 
 Shared documents should describe **intent**, **ownership**, and **quality bars**. Engine-specific files should describe **implementation conventions** inside that engine only.
+
+## AI Asset Generation
+The scaffold ships an engine-neutral asset generation layer so a project can move from procedural placeholders to real content without leaving the workflow:
+
+1. Generate placeholders first (`/unity-placeholders`, `/godot-placeholders`, `/web-placeholders`) so every asset has a stable name and path.
+2. Run `/generate-assets` to produce real content from text prompts — images and textures, equirectangular skyboxes, 3D models (GLB), sound effects, music, voice lines, and intro/cinematic video — dropped onto the same names and paths.
+3. Import through the active engine layer and review with the matching pass command (`/art-2d-pass`, `/art-3d-pass`, `/audio-pass`).
+
+Capability-to-model routing lives in [manifests/asset-providers.json](manifests/asset-providers.json) (default provider: fal.ai — one pay-per-use key, set via the `FAL_KEY` environment variable, covers every modality). `scripts/generate-assets.js` performs the generation and writes a `.provenance.json` sidecar (provider, model, prompt, seed, request id) per run; assets without provenance are treated as unlicensed content. Governance rules live in [rules/common/asset-pipeline.md](rules/common/asset-pipeline.md).
 
 ## Intended Use Cases
 - New game project setup
