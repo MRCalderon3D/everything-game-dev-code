@@ -60,31 +60,50 @@ const menu = createBuildMenu({
   onClose: () => closeSheet(),
 });
 
+let currentLevel = 0;
+
 const screens = createScreens({
   onAction(mode) {
-    if (mode === 'menu') {
-      // First user gesture: unlocks WebAudio and starts the game.
-      audio.unlock();
-      audio.startMusic();
-      startRun();
-    } else if (mode === 'pause') {
+    if (mode === 'pause') {
       appPhase = 'playing';
       screens.hide();
       loop.resetClock();
     } else if (mode === 'end') {
       logRendererInfo('restart');
-      startRun();
+      startRun(currentLevel);
     }
+  },
+  onStartLevel(levelIndex) {
+    // First user gesture: unlocks WebAudio and starts the chosen level.
+    audio.unlock();
+    audio.startMusic();
+    startRun(levelIndex);
+  },
+  onMenu() {
+    goToMenu();
   },
 });
 
-function startRun() {
-  sim.reset();
+function startRun(levelIndex) {
+  if (levelIndex !== currentLevel) {
+    currentLevel = levelIndex;
+  }
+  rendering.setLevel(levelIndex);
+  sim.reset(levelIndex);
   closeSheet();
   appPhase = 'playing';
   screens.hide();
   hud.show();
   loop.resetClock();
+}
+
+function goToMenu() {
+  sim.reset(currentLevel); // clears towers/enemies behind the menu
+  closeSheet();
+  audio.stopMusic();
+  hud.hide();
+  appPhase = 'menu';
+  screens.showMenu(loadHighScore());
 }
 
 function closeSheet() {

@@ -13,6 +13,27 @@ export const PATH_WAYPOINTS = [
   [10, 8],
 ];
 
+// Selectable levels. Each level owns its path; visual theming (textures,
+// skybox, props) lives in the render layer keyed by the same index.
+export const LEVELS = [
+  { id: 'vale', name: 'Crystal Vale', waypoints: PATH_WAYPOINTS },
+  {
+    id: 'mars',
+    name: 'Mars Outpost',
+    // Longer 4-run zigzag entering from the right edge.
+    waypoints: [
+      [11, 1],
+      [3, 1],
+      [3, 4],
+      [9, 4],
+      [9, 7],
+      [2, 7],
+      [2, 10],
+      [8, 10],
+    ],
+  },
+];
+
 export const START_GOLD = 120;
 export const START_LIVES = 10;
 export const SELL_REFUND = 0.7;

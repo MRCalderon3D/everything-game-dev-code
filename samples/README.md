@@ -207,6 +207,8 @@ This variant exists as the live demo of the AI asset generation layer: same drop
 
 Second pass (same day): towers now turn toward their current target (view-side aim that mirrors the sim's targeting rules by reading sim state — cannon tracks the furthest enemy in range, laser the highest-hp one, frost idles in a slow spin), and the flat terrain plane became a displaced-relief mesh (board area stays flat) dressed with three more generated environment props (crystal formations, alien spire trees, runed boulders) scattered as `InstancedMesh` rings around the board.
 
+Third pass: two selectable levels. `LEVELS` in `sim/config.js` owns per-level paths (`buildPath` parameterized, `sim.reset(levelIndex)`), and the render layer mirrors the index with per-level themes (`setLevel`: board rebuild from waypoints, texture/skybox/fog/light swap, prop-set visibility). Level 2 "Mars Outpost" has a longer zigzag path and a fully generated Martian set — butterscotch-haze skybox, red rock/regolith/dust textures, hoodoo spire and rock arch props. The menu gained level-select buttons and pause/end screens gained a Main menu button.
+
 **Deployed:** http://51.75.26.136/prism-defense-gen/ (the original variants remain at `/prism-defense/`)
 
 **Run:** `cd samples/PrismDefense3DAssetsGen && npm install && npm run dev` (`npm run smoke` still passes — the sim is untouched)

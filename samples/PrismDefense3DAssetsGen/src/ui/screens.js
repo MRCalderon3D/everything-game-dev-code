@@ -1,16 +1,27 @@
-// Full-screen overlays: menu, pause, victory, defeat. One overlay element,
-// reconfigured per state.
-export function createScreens({ onAction }) {
+// Full-screen overlays: menu (with level select), pause, victory, defeat.
+// One overlay element, reconfigured per state.
+import { LEVELS } from '../sim/config.js';
+
+export function createScreens({ onAction, onStartLevel, onMenu }) {
   const overlay = document.getElementById('overlay');
   const sub = document.getElementById('overlay-sub');
   const scoreEl = document.getElementById('overlay-score');
   const highEl = document.getElementById('overlay-high');
   const title = document.querySelector('#overlay-panel h1');
   const button = document.getElementById('btn-overlay');
+  const menuButton = document.getElementById('btn-menu');
+  const levelButtons = document.getElementById('level-buttons');
   const introVideo = document.getElementById('intro-video');
 
   let mode = 'menu';
   button.addEventListener('click', () => onAction(mode));
+  menuButton.addEventListener('click', () => onMenu());
+  LEVELS.forEach((level, index) => {
+    const el = document.getElementById(`btn-level-${index}`);
+    if (!el) return;
+    el.textContent = level.name;
+    el.addEventListener('click', () => onStartLevel(index));
+  });
 
   // The generated intro cinematic only plays behind the menu; pausing it
   // elsewhere keeps it from decoding frames under the gameplay overlays.
@@ -25,9 +36,12 @@ export function createScreens({ onAction }) {
     }
   }
 
-  function show({ newMode, titleText, subText, score, high, buttonText }) {
+  function show({ newMode, titleText, subText, score, high, buttonText, withMenu }) {
     mode = newMode;
     setIntroVideo(newMode === 'menu');
+    levelButtons.classList.toggle('hidden', newMode !== 'menu');
+    button.classList.toggle('hidden', newMode === 'menu');
+    menuButton.classList.toggle('hidden', !withMenu);
     title.textContent = titleText;
     sub.textContent = subText;
     if (score == null) {
@@ -51,10 +65,11 @@ export function createScreens({ onAction }) {
       show({
         newMode: 'menu',
         titleText: 'PrismDefense',
-        subText: 'Stop the waves before they reach the crystal.',
+        subText: 'Pick a battlefield. Stop the waves before they reach the crystal.',
         score: null,
         high,
-        buttonText: 'Tap to play',
+        buttonText: '',
+        withMenu: false,
       });
     },
 
@@ -66,6 +81,7 @@ export function createScreens({ onAction }) {
         score: null,
         high: 0,
         buttonText: 'Resume',
+        withMenu: true,
       });
     },
 
@@ -77,6 +93,7 @@ export function createScreens({ onAction }) {
         score,
         high,
         buttonText: 'Play again',
+        withMenu: true,
       });
     },
 
@@ -88,6 +105,7 @@ export function createScreens({ onAction }) {
         score,
         high,
         buttonText: 'Play again',
+        withMenu: true,
       });
     },
   };

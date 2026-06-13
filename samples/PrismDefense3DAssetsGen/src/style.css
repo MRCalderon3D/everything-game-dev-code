@@ -270,6 +270,25 @@ body {
   cursor: pointer;
 }
 
+#level-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.big-btn.level-mars {
+  background: #ff9e64;
+}
+
+.big-btn.secondary {
+  background: transparent;
+  border: 1px solid rgba(127, 212, 255, 0.55);
+  color: var(--text);
+  margin-top: 10px;
+  min-height: 48px;
+  font-weight: 600;
+}
+
 #overlay-score {
   font-size: 18px;
   font-weight: 700;

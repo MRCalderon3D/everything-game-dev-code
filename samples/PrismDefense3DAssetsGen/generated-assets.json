@@ -39,7 +39,39 @@
       "path": "public/assets/textures/grass.png",
       "background_policy": "full-bleed",
       "integration": {
-        "role": "tileable map on the terrain plane (repeat 26)"
+        "role": "tileable map on the terrain plane (repeat 10)"
+      }
+    },
+    {
+      "id": "skybox-mars",
+      "path": "public/assets/img/skybox-mars.png",
+      "background_policy": "full-bleed",
+      "integration": {
+        "role": "equirectangular scene background for the Mars Outpost level"
+      }
+    },
+    {
+      "id": "texture-mars-rock",
+      "path": "public/assets/textures/mars-rock.png",
+      "background_policy": "full-bleed",
+      "integration": {
+        "role": "tileable map on Mars buildable board tiles (repeat 0.5 per tile)"
+      }
+    },
+    {
+      "id": "texture-mars-dirt",
+      "path": "public/assets/textures/mars-dirt.png",
+      "background_policy": "full-bleed",
+      "integration": {
+        "role": "tileable map on Mars path tiles (repeat 0.5 per tile)"
+      }
+    },
+    {
+      "id": "texture-mars-ground",
+      "path": "public/assets/textures/mars-ground.png",
+      "background_policy": "full-bleed",
+      "integration": {
+        "role": "tileable map on the Mars terrain plane (repeat 10)"
       }
     }
   ]

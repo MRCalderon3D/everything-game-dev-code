@@ -5,7 +5,7 @@ import {
   MAX_ENEMIES,
   MAX_PROJECTILES,
   TOWER_TYPES,
-  PATH_WAYPOINTS,
+  LEVELS,
   tileToWorldX,
   tileToWorldZ,
   worldToCol,
@@ -31,15 +31,29 @@ import { CameraRig } from './camera-rig.js';
 const MAX_TOWERS_PER_TYPE = 60;
 const DPR_CAP = 2;
 
-const TEXTURES = {
-  // repeat 0.5 crops each tile face to a quarter of the generated texture:
-  // bigger stone blocks, clearer glowing veins at gameplay zoom.
-  tile: { url: './assets/textures/rock.png', tint: 0xffffff, repeat: 0.5 },
-  path: { url: './assets/textures/dirt.png', tint: 0xffe2c4, repeat: 0.5 },
-  ground: { url: './assets/textures/grass.png', tint: 0xe9f2ee, repeat: 10 },
-};
-
-const SKYBOX_URL = './assets/img/skybox-aurora.png';
+// Per-level visual themes, indexed like LEVELS. repeat 0.5 crops each tile
+// face to a quarter of the generated texture: bigger blocks, clearer glowing
+// veins at gameplay zoom.
+const THEMES = [
+  {
+    sky: './assets/img/skybox-aurora.png',
+    fog: 0x141b30,
+    hemi: [0xcfe0ff, 0x4a4636],
+    sun: 0xfff4e0,
+    tile: { url: './assets/textures/rock.png', tint: 0xffffff, repeat: 0.5 },
+    path: { url: './assets/textures/dirt.png', tint: 0xffe2c4, repeat: 0.5 },
+    ground: { url: './assets/textures/grass.png', tint: 0xe9f2ee, repeat: 10 },
+  },
+  {
+    sky: './assets/img/skybox-mars.png',
+    fog: 0x3d1f12,
+    hemi: [0xffd9b4, 0x4a2418],
+    sun: 0xffd9a8,
+    tile: { url: './assets/textures/mars-rock.png', tint: 0xffffff, repeat: 0.5 },
+    path: { url: './assets/textures/mars-dirt.png', tint: 0xffd9b8, repeat: 0.5 },
+    ground: { url: './assets/textures/mars-ground.png', tint: 0xf2e0d4, repeat: 10 },
+  },
+];
 
 // Generated model upgrades (Hunyuan3D Rapid ships OBJ + a baked diffuse map).
 // height is the target world-unit height; placeY must equal the Y the packing
@@ -67,11 +81,14 @@ const MODELS = {
     boss: modelDef('enemy-boss', 1.4),
   },
   crystal: modelDef('crystal-base', 1.5),
-  // Environment props scattered on the terrain around the board.
+  // Environment props scattered on the terrain around the board; `theme`
+  // matches the LEVELS index that shows them.
   props: {
-    crystals: { ...modelDef('prop-crystals', 1.7), count: 24, minR: 11, maxR: 36, minS: 0.6, maxS: 1.8 },
-    tree: { ...modelDef('prop-tree', 2.6), count: 18, minR: 12, maxR: 38, minS: 0.7, maxS: 1.5 },
-    boulder: { ...modelDef('prop-boulder', 1.0), count: 26, minR: 10, maxR: 36, minS: 0.6, maxS: 2.0 },
+    crystals: { ...modelDef('prop-crystals', 1.7), count: 24, minR: 11, maxR: 36, minS: 0.6, maxS: 1.8, theme: 0 },
+    tree: { ...modelDef('prop-tree', 2.6), count: 18, minR: 12, maxR: 38, minS: 0.7, maxS: 1.5, theme: 0 },
+    boulder: { ...modelDef('prop-boulder', 1.0), count: 26, minR: 10, maxR: 36, minS: 0.6, maxS: 2.0, theme: 0 },
+    marsSpire: { ...modelDef('prop-mars-spire', 3.0), count: 20, minR: 11, maxR: 38, minS: 0.7, maxS: 1.8, theme: 1 },
+    marsArch: { ...modelDef('prop-mars-arch', 1.9), count: 16, minR: 12, maxR: 36, minS: 0.8, maxS: 1.9, theme: 1 },
   },
 };
 
@@ -117,22 +134,14 @@ export function createRendering(canvas) {
   scene.background = skyTexture;
   scene.fog = new THREE.Fog(0x1b2a47, 28, 85);
 
-  // Generated equirectangular skybox replaces the gradient when it loads;
-  // the gradient stays as the no-network fallback.
-  new THREE.TextureLoader().load(SKYBOX_URL, (t) => {
-    t.colorSpace = THREE.SRGBColorSpace;
-    t.mapping = THREE.EquirectangularReflectionMapping;
-    scene.background = t;
-    scene.fog.color.setHex(0x141b30);
-    textures.push(t);
-  });
-
   const camera = new THREE.PerspectiveCamera(50, 1, 0.1, 120);
   const rig = new CameraRig(camera);
 
   // Brighter than the Visuals variant: the generated texture set is darker
   // (slate + night palette), so the light rig compensates to keep readability.
-  scene.add(new THREE.HemisphereLight(0xcfe0ff, 0x4a4636, 1.95));
+  // Colors are retinted per level by setLevel().
+  const hemi = new THREE.HemisphereLight(0xcfe0ff, 0x4a4636, 1.95);
+  scene.add(hemi);
   const sun = new THREE.DirectionalLight(0xfff4e0, 2.3);
   sun.position.set(6, 10, 4);
   scene.add(sun);
@@ -142,19 +151,64 @@ export function createRendering(canvas) {
 
   const textures = [skyTexture];
   const texLoader = new THREE.TextureLoader();
-  // Async map load with flat-color fallback: the game is playable before (or
-  // without) textures; on load the material tint multiplies the map.
-  function applyMap(material, { url, tint, repeat = 1 }) {
-    texLoader.load(url, (t) => {
+
+  // Theme texture cache + deferred assignment: a material never gets a map
+  // before its image is decoded (an incomplete map renders black), so the
+  // tint color remains the flat fallback. Textures load once and are reused
+  // across level switches.
+  const themeMaps = new Map(); // url -> texture
+  const pendingSurface = new Map(); // material -> awaited url
+  function themeMap({ url, repeat = 1 }) {
+    let t = themeMaps.get(url);
+    if (!t) {
+      t = texLoader.load(url, (tex) => {
+        for (const [material, wanted] of pendingSurface) {
+          if (wanted === url) {
+            material.map = tex;
+            material.needsUpdate = true;
+            pendingSurface.delete(material);
+          }
+        }
+      });
       t.colorSpace = THREE.SRGBColorSpace;
       t.wrapS = THREE.RepeatWrapping;
       t.wrapT = THREE.RepeatWrapping;
       t.repeat.set(repeat, repeat);
       t.anisotropy = Math.min(renderer.capabilities.getMaxAnisotropy(), 4);
-      material.map = t;
-      material.color.setHex(tint);
-      material.needsUpdate = true;
+      themeMaps.set(url, t);
       textures.push(t);
+    }
+    return t;
+  }
+  function applyThemeSurface(material, def) {
+    material.color.setHex(def.tint);
+    const t = themeMap(def);
+    if (t.image) {
+      material.map = t;
+      pendingSurface.delete(material);
+    } else {
+      material.map = null;
+      pendingSurface.set(material, def.url);
+    }
+    material.needsUpdate = true;
+  }
+
+  // Equirectangular skyboxes load lazily per level; the gradient canvas stays
+  // as the no-network fallback until the first one arrives.
+  let currentLevel = 0;
+  const skyTexById = [];
+  function applySky(levelIndex) {
+    const loaded = skyTexById[levelIndex];
+    if (loaded) {
+      scene.background = loaded;
+      return;
+    }
+    texLoader.load(THEMES[levelIndex].sky, (t) => {
+      t.colorSpace = THREE.SRGBColorSpace;
+      t.mapping = THREE.EquirectangularReflectionMapping;
+      skyTexById[levelIndex] = t;
+      textures.push(t);
+      if (currentLevel === levelIndex) scene.background = t;
     });
   }
 
@@ -173,18 +227,7 @@ export function createRendering(canvas) {
     return mat(new THREE.MeshLambertMaterial({ color }));
   }
 
-  // ---------- static board ----------
-
-  const pathTiles = new Set();
-  for (let i = 1; i < PATH_WAYPOINTS.length; i++) {
-    const [c0, r0] = PATH_WAYPOINTS[i - 1];
-    const [c1, r1] = PATH_WAYPOINTS[i];
-    const steps = Math.abs(c1 - c0) + Math.abs(r1 - r0);
-    const dc = Math.sign(c1 - c0);
-    const dr = Math.sign(r1 - r0);
-    for (let s = 0; s <= steps; s++) pathTiles.add(`${c0 + dc * s},${r0 + dr * s}`);
-  }
-  const baseTile = PATH_WAYPOINTS[PATH_WAYPOINTS.length - 1];
+  // ---------- board (rebuilt per level by setLevel) ----------
 
   const dummy = new THREE.Object3D();
   const tmpColor = new THREE.Color();
@@ -218,17 +261,28 @@ export function createRendering(canvas) {
   groundMesh.rotation.x = -Math.PI / 2;
   groundMesh.position.y = GROUND_Y;
   scene.add(groundMesh);
-  applyMap(groundMat, TEXTURES.ground);
 
+  // Both instanced board meshes are allocated at full-board capacity so any
+  // level's tile/path split fits without reallocation.
   const tileGeo = geo(new THREE.BoxGeometry(0.94, 0.22, 0.94));
   const tileMat = lambert(COLORS.tile);
   const tileMesh = new THREE.InstancedMesh(tileGeo, tileMat, BOARD_SIZE * BOARD_SIZE);
-  applyMap(tileMat, TEXTURES.tile);
   const pathGeo = geo(new THREE.BoxGeometry(1.0, 0.12, 1.0));
   const pathMat = lambert(COLORS.path);
-  const pathMesh = new THREE.InstancedMesh(pathGeo, pathMat, pathTiles.size);
-  applyMap(pathMat, TEXTURES.path);
-  {
+  const pathMesh = new THREE.InstancedMesh(pathGeo, pathMat, BOARD_SIZE * BOARD_SIZE);
+  scene.add(tileMesh, pathMesh);
+
+  function rebuildBoard(levelIndex) {
+    const waypoints = LEVELS[levelIndex].waypoints;
+    const pathTiles = new Set();
+    for (let i = 1; i < waypoints.length; i++) {
+      const [c0, r0] = waypoints[i - 1];
+      const [c1, r1] = waypoints[i];
+      const steps = Math.abs(c1 - c0) + Math.abs(r1 - r0);
+      const dc = Math.sign(c1 - c0);
+      const dr = Math.sign(r1 - r0);
+      for (let s = 0; s <= steps; s++) pathTiles.add(`${c0 + dc * s},${r0 + dr * s}`);
+    }
     let ti = 0;
     let pi = 0;
     for (let row = 0; row < BOARD_SIZE; row++) {
@@ -246,8 +300,10 @@ export function createRendering(canvas) {
     pathMesh.count = pi;
     tileMesh.instanceMatrix.needsUpdate = true;
     pathMesh.instanceMatrix.needsUpdate = true;
+    const baseTile = waypoints[waypoints.length - 1];
+    baseGroup.position.set(tileToWorldX(baseTile[0]), 0, tileToWorldZ(baseTile[1]));
+    crystalLight.position.set(baseGroup.position.x, 1.3, baseGroup.position.z);
   }
-  scene.add(tileMesh, pathMesh);
 
   // Crystal base: two cones forming a diamond, with a pulsing glow.
   // (let: the generated crystal GLB material takes over the pulse on load.)
@@ -261,9 +317,7 @@ export function createRendering(canvas) {
   coneDown.rotation.x = Math.PI;
   coneDown.position.y = 0.3;
   baseGroup.add(coneUp, coneDown);
-  baseGroup.position.set(tileToWorldX(baseTile[0]), 0, tileToWorldZ(baseTile[1]));
-  scene.add(baseGroup);
-  crystalLight.position.set(baseGroup.position.x, 1.3, baseGroup.position.z);
+  scene.add(baseGroup); // positioned per level by rebuildBoard()
 
   // ---------- instanced entity views ----------
 
@@ -383,6 +437,7 @@ export function createRendering(canvas) {
     propSeed = (propSeed * 16807) % 2147483647;
     return propSeed / 2147483647;
   }
+  const propMeshes = [];
   for (const def of Object.values(MODELS.props)) {
     loadModel(def, 0, (geometry, material) => {
       const mesh = new THREE.InstancedMesh(geometry, material, def.count);
@@ -399,7 +454,9 @@ export function createRendering(canvas) {
         mesh.setMatrixAt(i, dummy.matrix);
       }
       mesh.instanceMatrix.needsUpdate = true;
+      mesh.visible = def.theme === currentLevel;
       scene.add(mesh);
+      propMeshes.push({ mesh, def });
     });
   }
 
@@ -613,6 +670,25 @@ export function createRendering(canvas) {
     }
   }
 
+  // ---------- level switching ----------
+
+  function setLevel(levelIndex) {
+    currentLevel = levelIndex;
+    const theme = THEMES[levelIndex];
+    applySky(levelIndex);
+    scene.fog.color.setHex(theme.fog);
+    hemi.color.setHex(theme.hemi[0]);
+    hemi.groundColor.setHex(theme.hemi[1]);
+    sun.color.setHex(theme.sun);
+    applyThemeSurface(tileMat, theme.tile);
+    applyThemeSurface(pathMat, theme.path);
+    applyThemeSurface(groundMat, theme.ground);
+    rebuildBoard(levelIndex);
+    for (const p of propMeshes) p.mesh.visible = p.def.theme === levelIndex;
+    towerYaw.clear();
+  }
+  setLevel(0);
+
   // ---------- public API ----------
 
   let firstFit = true;
@@ -620,6 +696,7 @@ export function createRendering(canvas) {
   return {
     rig,
     pickTile,
+    setLevel,
 
     resize() {
       const w = canvas.clientWidth;

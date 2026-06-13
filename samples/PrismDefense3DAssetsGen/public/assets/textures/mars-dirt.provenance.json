@@ -1,0 +1,22 @@
+{
+  "provider": "fal",
+  "model": "fal-ai/nano-banana-2",
+  "type": "image",
+  "prompt": "seamless tileable texture, rusty Martian regolith track with cracked dried mud plates and faint warm glow between cracks, top-down, stylized game texture, uniform lighting, perfectly tileable",
+  "input": {
+    "image_size": "square",
+    "num_images": 1,
+    "prompt": "seamless tileable texture, rusty Martian regolith track with cracked dried mud plates and faint warm glow between cracks, top-down, stylized game texture, uniform lighting, perfectly tileable",
+    "seed": 7
+  },
+  "seed": 7,
+  "requestId": "019ebe80-7ea7-7322-b0ab-723e277547f0",
+  "generatedAt": "2026-06-13T01:02:47.292Z",
+  "sourceUrls": [
+    "https://v3b.fal.media/files/b/0a9e1137/ffeISIJ47LT7waggcHfab_8BjHl1Dc.png"
+  ],
+  "files": [
+    "mars-dirt.png"
+  ],
+  "license": "Generated via fal.ai; review provider and upstream model license terms before shipping."
+}

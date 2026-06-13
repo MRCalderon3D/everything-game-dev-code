@@ -1,9 +1,10 @@
 import { PATH_WAYPOINTS, tileToWorldX, tileToWorldZ } from './config.js';
 
-// Precomputed S-curve polyline in world space, with cumulative segment lengths
+// Precomputed path polyline in world space, with cumulative segment lengths
 // so enemies can be positioned from a single scalar (distance along path).
-export function buildPath() {
-  const points = PATH_WAYPOINTS.map(([col, row]) => ({
+// Waypoints default to the original S-curve; levels pass their own.
+export function buildPath(waypoints = PATH_WAYPOINTS) {
+  const points = waypoints.map(([col, row]) => ({
     x: tileToWorldX(col),
     z: tileToWorldZ(row),
   }));
@@ -18,9 +19,9 @@ export function buildPath() {
 
   // Every tile the path crosses (waypoints are axis-aligned), keyed "col,row".
   const tiles = new Set();
-  for (let i = 1; i < PATH_WAYPOINTS.length; i++) {
-    const [c0, r0] = PATH_WAYPOINTS[i - 1];
-    const [c1, r1] = PATH_WAYPOINTS[i];
+  for (let i = 1; i < waypoints.length; i++) {
+    const [c0, r0] = waypoints[i - 1];
+    const [c1, r1] = waypoints[i];
     const steps = Math.abs(c1 - c0) + Math.abs(r1 - r0);
     const dc = Math.sign(c1 - c0);
     const dr = Math.sign(r1 - r0);

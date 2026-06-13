@@ -1,0 +1,22 @@
+{
+  "provider": "fal",
+  "model": "fal-ai/nano-banana-2",
+  "type": "image",
+  "prompt": "seamless tileable texture, red Martian desert dust with scattered dark pebbles and subtle wind ripples, top-down, stylized game texture, uniform lighting, perfectly tileable",
+  "input": {
+    "image_size": "square",
+    "num_images": 1,
+    "prompt": "seamless tileable texture, red Martian desert dust with scattered dark pebbles and subtle wind ripples, top-down, stylized game texture, uniform lighting, perfectly tileable",
+    "seed": 7
+  },
+  "seed": 7,
+  "requestId": "019ebe80-b931-7201-813b-cbf187b4b06a",
+  "generatedAt": "2026-06-13T01:03:02.196Z",
+  "sourceUrls": [
+    "https://v3b.fal.media/files/b/0a9e1138/Kp3a6eOgJplCdr185yhUE_uMDEYoSw.png"
+  ],
+  "files": [
+    "mars-ground.png"
+  ],
+  "license": "Generated via fal.ai; review provider and upstream model license terms before shipping."
+}

@@ -17,6 +17,7 @@ import {
   tileToWorldZ,
 } from './config.js';
 import { buildPath } from './path.js';
+import { LEVELS } from './config.js';
 
 // Scratch payloads reused for high-frequency events so the steady-state sim
 // step allocates nothing. Listeners must consume synchronously, never retain.
@@ -29,7 +30,8 @@ const leakEvent = { type: '', lives: 0 };
 export class SimGame {
   constructor(events) {
     this.events = events;
-    this.path = buildPath();
+    this.levelIndex = 0;
+    this.path = buildPath(LEVELS[0].waypoints);
 
     this.enemies = [];
     for (let i = 0; i < MAX_ENEMIES; i++) {
@@ -73,7 +75,12 @@ export class SimGame {
     this.reset();
   }
 
-  reset() {
+  // Resets the run; passing a level index also switches the active path.
+  reset(levelIndex = this.levelIndex) {
+    if (levelIndex !== this.levelIndex) {
+      this.levelIndex = levelIndex;
+      this.path = buildPath(LEVELS[levelIndex].waypoints);
+    }
     this.gold = START_GOLD;
     this.lives = START_LIVES;
     this.waveIndex = -1;

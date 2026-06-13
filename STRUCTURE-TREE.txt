@@ -923,7 +923,9 @@ everything-game-dev-code
 │   │   │       │   ├── menu-keyart.png
 │   │   │       │   ├── menu-keyart.provenance.json
 │   │   │       │   ├── skybox-aurora.png
-│   │   │       │   └── skybox-aurora.provenance.json
+│   │   │       │   ├── skybox-aurora.provenance.json
+│   │   │       │   ├── skybox-mars.png
+│   │   │       │   └── skybox-mars.provenance.json
 │   │   │       ├── models
 │   │   │       │   ├── crystal-base-tex.jpg
 │   │   │       │   ├── crystal-base.obj
@@ -943,6 +945,12 @@ everything-game-dev-code
 │   │   │       │   ├── prop-crystals-tex.jpg
 │   │   │       │   ├── prop-crystals.obj
 │   │   │       │   ├── prop-crystals.provenance.json
+│   │   │       │   ├── prop-mars-arch-tex.jpg
+│   │   │       │   ├── prop-mars-arch.obj
+│   │   │       │   ├── prop-mars-arch.provenance.json
+│   │   │       │   ├── prop-mars-spire-tex.jpg
+│   │   │       │   ├── prop-mars-spire.obj
+│   │   │       │   ├── prop-mars-spire.provenance.json
 │   │   │       │   ├── prop-tree-tex.jpg
 │   │   │       │   ├── prop-tree.obj
 │   │   │       │   ├── prop-tree.provenance.json
@@ -960,6 +968,12 @@ everything-game-dev-code
 │   │   │       │   ├── dirt.provenance.json
 │   │   │       │   ├── grass.png
 │   │   │       │   ├── grass.provenance.json
+│   │   │       │   ├── mars-dirt.png
+│   │   │       │   ├── mars-dirt.provenance.json
+│   │   │       │   ├── mars-ground.png
+│   │   │       │   ├── mars-ground.provenance.json
+│   │   │       │   ├── mars-rock.png
+│   │   │       │   ├── mars-rock.provenance.json
 │   │   │       │   ├── rock.png
 │   │   │       │   └── rock.provenance.json
 │   │   │       └── video
