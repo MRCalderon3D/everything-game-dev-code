@@ -257,6 +257,9 @@ everything-game-dev-code
 │   ├── workflows
 │   │   └── ci.yml
 │   └── copilot-instructions.md
+├── .grok
+│   ├── config.toml
+│   └── README.md
 ├── .kiro
 │   ├── settings
 │   │   └── mcp.json

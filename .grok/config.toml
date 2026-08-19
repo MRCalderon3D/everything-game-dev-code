@@ -1,0 +1,29 @@
+# Generated from mcp-configs/mcp-servers.json by scripts/generate-mcp-configs.js.
+# Do not edit by hand; run `npm run sync:mcp`. Project-scoped MCP servers for
+# harnesses that read a config.toml with [mcp_servers.*] sections (Grok Build).
+# ${VAR} env values are expanded by the harness at launch.
+
+[mcp_servers.blender]
+command = "uvx"
+args = ["blender-mcp"]
+
+[mcp_servers.fal-media]
+command = "npx"
+args = ["-y", "fal-ai-mcp-server"]
+[mcp_servers.fal-media.env]
+FAL_KEY = "${FAL_KEY}"
+
+[mcp_servers.godot-editor]
+command = "npx"
+args = ["-y", "@coding-solo/godot-mcp"]
+
+[mcp_servers.playwright]
+command = "npx"
+args = ["-y", "@playwright/mcp@latest"]
+
+[mcp_servers.unity-editor]
+command = "uvx"
+args = ["--from", "mcpforunityserver", "mcp-for-unity", "--transport", "stdio"]
+
+[mcp_servers.unreal-editor]
+url = "http://127.0.0.1:8000/mcp"

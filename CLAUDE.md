@@ -75,7 +75,7 @@ content never leaks in, and local output matches what CI regenerates from a clea
 (all engine lists derive from `manifests/engines.json`), `structure-artifacts.js`, and
 `profile-resolution.js`. Per-event hook implementations are in `scripts/hooks/`.
 
-**Harness adapters** (`.claude/`, `.codex/`, `.cursor/`, `.opencode/`, `.kiro/`): each points back
+**Harness adapters** (`.claude/`, `.codex/`, `.cursor/`, `.opencode/`, `.kiro/`, `.grok/`): each points back
 to the shared scaffold rather than being a second source of truth. Their command wrappers are generated.
 
 ## Engine isolation (hard rule)

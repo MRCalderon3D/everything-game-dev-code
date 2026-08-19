@@ -7,28 +7,51 @@
       "id": "claude",
       "display": "Claude Code",
       "dir": ".claude",
-      "commands": { "dir": ".claude/commands", "style": "claude" },
+      "commands": {
+        "dir": ".claude/commands",
+        "style": "claude"
+      },
       "hooks": true,
-      "mcp": { "path": ".mcp.json", "format": "universal" },
-      "entryPoints": [".claude/settings.json", ".claude/commands"]
+      "mcp": {
+        "path": ".mcp.json",
+        "format": "universal"
+      },
+      "entryPoints": [
+        ".claude/settings.json",
+        ".claude/commands"
+      ]
     },
     {
       "id": "codex",
       "display": "Codex",
       "dir": ".codex",
-      "commands": { "dir": ".codex/commands", "style": "claude" },
+      "commands": {
+        "dir": ".codex/commands",
+        "style": "claude"
+      },
       "hooks": false,
       "mcp": null,
-      "entryPoints": [".codex/commands"]
+      "entryPoints": [
+        ".codex/commands"
+      ]
     },
     {
       "id": "cursor",
       "display": "Cursor",
       "dir": ".cursor",
-      "commands": { "dir": ".cursor/commands", "style": "claude" },
+      "commands": {
+        "dir": ".cursor/commands",
+        "style": "claude"
+      },
       "hooks": true,
-      "mcp": { "path": ".cursor/mcp.json", "format": "universal" },
-      "entryPoints": [".cursor/hooks.json", ".cursor/commands"]
+      "mcp": {
+        "path": ".cursor/mcp.json",
+        "format": "universal"
+      },
+      "entryPoints": [
+        ".cursor/hooks.json",
+        ".cursor/commands"
+      ]
     },
     {
       "id": "opencode",
@@ -40,8 +63,13 @@
         "registry": ".opencode/opencode.json"
       },
       "hooks": false,
-      "mcp": { "path": ".opencode/opencode.json", "format": "opencode" },
-      "entryPoints": [".opencode/opencode.json"]
+      "mcp": {
+        "path": ".opencode/opencode.json",
+        "format": "opencode"
+      },
+      "entryPoints": [
+        ".opencode/opencode.json"
+      ]
     },
     {
       "id": "kiro",
@@ -49,8 +77,28 @@
       "dir": ".kiro",
       "commands": null,
       "hooks": false,
-      "mcp": { "path": ".kiro/settings/mcp.json", "format": "universal" },
-      "entryPoints": [".kiro/README.md"]
+      "mcp": {
+        "path": ".kiro/settings/mcp.json",
+        "format": "universal"
+      },
+      "entryPoints": [
+        ".kiro/README.md"
+      ]
+    },
+    {
+      "id": "grok",
+      "display": "Grok Build",
+      "dir": ".grok",
+      "commands": null,
+      "hooks": false,
+      "mcp": {
+        "path": ".grok/config.toml",
+        "format": "toml"
+      },
+      "entryPoints": [
+        ".grok/README.md",
+        ".grok/config.toml"
+      ]
     }
   ]
 }
