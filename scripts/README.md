@@ -98,8 +98,11 @@ These scripts are the implementations for the hooks declared in `hooks/hooks.jso
 | Library | Exports |
 |---------|---------|
 | `engines.js` | `loadEngines()`, `engineIds()` — load the engine layer registry (`manifests/engines.json`) |
+| `hook-wiring.js` | `buildClaudeHooks()`, `buildCursorHooks()` — derive per-harness hook wiring from `hooks/hooks.json` |
 | `profile-resolution.js` | `getActiveProfile()`, `detectProfileFromPaths()` — read and infer the active engine profile (engine list derives from the registry) |
+| `schema-validation.js` | `validateAgainstSchema()` — ajv-backed JSON Schema validation used by the schema validators |
 | `structure-artifacts.js` | Agent, command, and skill enumeration; artifact generation for structure validation |
+| `text.js` | `normalizeEol()`, `sameText()` — line-ending-tolerant comparison for all generated-artifact drift checks |
 | `utils.js` | Shared I/O: file reading, stdin event parsing, JSON result formatting |
 | `validation.js` | Markdown heading and bullet extraction; file listing; cross-reference checks |
 

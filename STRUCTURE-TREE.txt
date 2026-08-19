@@ -1207,6 +1207,7 @@ everything-game-dev-code
 │   │   ├── profile-resolution.js
 │   │   ├── schema-validation.js
 │   │   ├── structure-artifacts.js
+│   │   ├── text.js
 │   │   ├── utils.js
 │   │   └── validation.js
 │   ├── doctor.js
@@ -1483,6 +1484,7 @@ everything-game-dev-code
 │   ├── README.md
 │   └── run-all.js
 ├── .env.example
+├── .gitattributes
 ├── .gitignore
 ├── .markdownlint.json
 ├── .mcp.json

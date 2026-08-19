@@ -21,6 +21,7 @@
 
 const fs = require("fs");
 const path = require("path");
+const { sameText } = require("./lib/text");
 
 const repoRoot = path.resolve(__dirname, "..");
 const outDir = path.join("mcp-configs", "generated");
@@ -232,7 +233,7 @@ const changed = [];
 for (const [relPath, content] of outputs) {
   const fullPath = path.join(repoRoot, relPath);
   const current = fs.existsSync(fullPath) ? fs.readFileSync(fullPath, "utf8") : null;
-  if (current !== content) {
+  if (!sameText(current, content)) {
     changed.push(relPath.split(path.sep).join("/"));
     if (!checkOnly) {
       fs.mkdirSync(path.dirname(fullPath), { recursive: true });

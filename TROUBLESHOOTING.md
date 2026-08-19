@@ -177,6 +177,19 @@ Update:
 6. schemas and tests
 7. adapters and MCP configs
 
+## 13. Validation reports drift for a generated file, but the diff is empty
+
+### Likely cause
+Line endings, not content. On Windows, `git config core.autocrlf true` used to check text files out with CRLF while the generators emit LF, so drift checks (`validate:wrappers`, `validate:mcp`, and friends) failed on byte comparison even though `git diff` showed nothing.
+
+### What to check
+- `git diff <file>` is empty while the validator still reports the file as out of sync
+- `git ls-files --eol <file>` shows `i/lf w/crlf` (LF in the index, CRLF in the working tree)
+
+### Fix
+- both defenses ship with the scaffold: `.gitattributes` forces `eol=lf` on checkout (overriding any local `autocrlf`), and every drift check compares through `scripts/lib/text.js`, which normalizes line endings first
+- in a clone checked out before `.gitattributes` existed, refresh the working copy: delete the affected file and run `git checkout -- <file>`
+
 ## Final Advice
 
 When the scaffold feels confusing, the problem is usually one of these:

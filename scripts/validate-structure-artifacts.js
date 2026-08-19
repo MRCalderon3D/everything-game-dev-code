@@ -9,25 +9,23 @@ const {
   updateReadmeBadges,
 } = require("./lib/structure-artifacts");
 
-const errors = [];
+const { normalizeEol } = require("./lib/text");
 
-function normalizeLineEndings(text) {
-  return String(text).replace(/\r\n/g, "\n");
-}
+const errors = [];
 
 const structureTreePath = path.join(repoRoot, "STRUCTURE-TREE.txt");
 const structureOverviewPath = path.join(repoRoot, "docs", "structure-overview.md");
 
-const actualTree = normalizeLineEndings(fs.readFileSync(structureTreePath, "utf8"));
-const expectedTree = normalizeLineEndings(generateStructureTree());
+const actualTree = normalizeEol(fs.readFileSync(structureTreePath, "utf8"));
+const expectedTree = normalizeEol(generateStructureTree());
 if (actualTree !== expectedTree) {
   errors.push(
     "STRUCTURE-TREE.txt is out of date. Run 'npm run sync:structure' to refresh it."
   );
 }
 
-const actualOverview = normalizeLineEndings(fs.readFileSync(structureOverviewPath, "utf8"));
-const expectedOverview = normalizeLineEndings(generateStructureOverview());
+const actualOverview = normalizeEol(fs.readFileSync(structureOverviewPath, "utf8"));
+const expectedOverview = normalizeEol(generateStructureOverview());
 if (actualOverview !== expectedOverview) {
   errors.push(
     "docs/structure-overview.md is out of date. Run 'npm run sync:structure' to refresh it."
@@ -35,7 +33,7 @@ if (actualOverview !== expectedOverview) {
 }
 
 const readmeText = fs.readFileSync(path.join(repoRoot, "README.md"), "utf8");
-if (normalizeLineEndings(readmeText) !== normalizeLineEndings(updateReadmeBadges(readmeText))) {
+if (normalizeEol(readmeText) !== normalizeEol(updateReadmeBadges(readmeText))) {
   errors.push(
     "README.md count badges are out of date. Run 'npm run sync:structure' to refresh them."
   );

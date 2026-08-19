@@ -1,0 +1,12 @@
+# All text files are LF in the repository AND in the working tree. Generated
+# artifacts are compared byte-for-byte against their generators' LF output, so
+# a CRLF checkout (core.autocrlf=true on Windows) must never occur — eol=lf
+# here overrides any local autocrlf setting.
+* text=auto eol=lf
+
+# Binary assets — never subject to EOL conversion.
+*.png binary
+*.jpg binary
+*.mp3 binary
+*.mp4 binary
+*.wav binary

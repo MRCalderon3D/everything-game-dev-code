@@ -16,6 +16,7 @@ const {
   readText,
   repoRoot,
 } = require("./lib/validation");
+const { normalizeEol } = require("./lib/text");
 
 const checkOnly = process.argv.includes("--check");
 const OUTPUT_PATH = "docs/orchestration/dependency-graph.md";
@@ -132,7 +133,7 @@ const output = lines.join("\n");
 // --- Write or check --------------------------------------------------------------
 
 const fullPath = path.join(repoRoot, OUTPUT_PATH);
-const current = fs.existsSync(fullPath) ? fs.readFileSync(fullPath, "utf8").replace(/\r\n/g, "\n") : null;
+const current = fs.existsSync(fullPath) ? normalizeEol(fs.readFileSync(fullPath, "utf8")) : null;
 
 if (checkOnly) {
   if (current !== output) {
