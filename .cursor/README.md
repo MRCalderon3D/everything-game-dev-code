@@ -4,6 +4,7 @@ This adapter keeps Cursor rules thin and routes behavior back to the shared scaf
 
 ## Structure
 - `.cursor/rules/` — thin rule files that orient Cursor toward shared scaffold layers
+- `.cursor/commands/` — generated slash-command wrappers, one per `commands/*.md` (`npm run sync:wrappers`)
 - `.cursor/hooks.json` — hook routing to shared scripts
 - `.cursor/skills/` — skill routing
 

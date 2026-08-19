@@ -25,10 +25,10 @@
       "id": "cursor",
       "display": "Cursor",
       "dir": ".cursor",
-      "commands": null,
+      "commands": { "dir": ".cursor/commands", "style": "claude" },
       "hooks": true,
       "mcp": { "path": ".cursor/mcp.json", "format": "universal" },
-      "entryPoints": [".cursor/hooks.json"]
+      "entryPoints": [".cursor/hooks.json", ".cursor/commands"]
     },
     {
       "id": "opencode",

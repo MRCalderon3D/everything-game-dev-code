@@ -4,6 +4,11 @@ Each AI harness gets a declared support tier. The tier states what an adapter
 exposes — and what it deliberately does not — so coverage differences are a
 documented decision instead of silent drift.
 
+The machine-readable source of truth behind this matrix is
+`manifests/harnesses.json`: the generators (`sync:wrappers`, `sync:mcp`) and
+`npm run doctor` derive their harness lists from it. This document adds the
+human context (tiers, rationale, notes).
+
 ## Tiers
 
 - **Full** — command wrappers for all shared commands, generated from
@@ -17,10 +22,10 @@ documented decision instead of silent drift.
 
 | Adapter | Tier | Commands | Rules | Hooks | Notes |
 |---------|------|----------|-------|-------|-------|
-| `.claude/` | Full | 50 generated wrappers | `CLAUDE.md` + shared `rules/` | 10, generated `settings.json` block (warn-only adapter) | Primary harness; plugin packaging lives in `.claude-plugin/` |
-| `.codex/` | Full | 50 generated wrappers | `AGENTS.md` + shared `rules/` | none (run `npm run validate` manually) | |
-| `.opencode/` | Full | 50 generated wrappers + `opencode.json` registry | `AGENTS.md` + shared `rules/` | none | |
-| `.cursor/` | Rules + hooks | none by design | `.cursor/rules/*.mdc` | 10, generated `hooks.json` | |
+| `.claude/` | Full | 66 generated wrappers | `CLAUDE.md` + shared `rules/` | 10, generated `settings.json` block (warn-only adapter) | Primary harness; plugin packaging lives in `.claude-plugin/` |
+| `.codex/` | Full | 66 generated wrappers | `AGENTS.md` + shared `rules/` | none (run `npm run validate` manually) | |
+| `.opencode/` | Full | 66 generated wrappers + `opencode.json` registry | `AGENTS.md` + shared `rules/` | none | |
+| `.cursor/` | Full | 66 generated wrappers (`.cursor/commands/`) | `.cursor/rules/*.mdc` | 10, generated `hooks.json` | |
 | `.kiro/` | Rules only | none by design | `.kiro/steering/*.md` | none | |
 | `.agents/` | Experimental | none | none | none | Reserved for external-agent compatibility |
 
