@@ -1290,6 +1290,7 @@ everything-game-dev-code
 │   ├── install-profile.js
 │   ├── lint-markdown.js
 │   ├── new-engine.js
+│   ├── new-harness.js
 │   ├── README.md
 │   ├── setup-git-hooks.js
 │   ├── setup-profile.js
@@ -1551,6 +1552,7 @@ everything-game-dev-code
 │   ├── scripts
 │   │   ├── mcp-configs.test.js
 │   │   ├── new-engine.test.js
+│   │   ├── new-harness.test.js
 │   │   └── setup-profile.test.js
 │   ├── README.md
 │   └── run-all.js

@@ -87,7 +87,8 @@ by `tests/lib/engine-isolation.test.js` and `engine-content-isolation.test.js` â
 references will fail the suite.
 
 Adding a new engine layer is done via `npm run new:engine` (driven by `manifests/engines.json`),
-not by hand-creating directories.
+not by hand-creating directories. Likewise, a new harness adapter is added via
+`npm run new:harness` (driven by `manifests/harnesses.json`).
 
 ## Conventions to preserve
 

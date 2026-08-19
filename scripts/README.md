@@ -18,6 +18,7 @@ Scripts also handle runtime concerns: activating an engine profile, wiring git h
 | `install-profile.js` | Bootstrap a profile installation from `install-profiles.json` by resolving components to modules to file paths |
 | `setup-git-hooks.js` | Link git hooks to the scaffold's hook handlers for pre-commit validation |
 | `new-engine.js` | Scaffold a new engine layer (rules, skills, reviewer agent, commands, manifests, doc wiring) as a TODO stub set that passes validation; supports `--dry-run` |
+| `new-harness.js` | Scaffold a new harness adapter (thin `.<id>/README.md`, registry entry in `manifests/harnesses.json`, support-matrix and README rows) at the "Rules only" tier; supports `--dry-run` |
 | `doctor.js` | Diagnose an installation: environment, git hook wiring, active profile, harness adapters, and generated-artifact drift, with remediation hints (`npm run doctor`) |
 
 **Usage:**
@@ -25,6 +26,7 @@ Scripts also handle runtime concerns: activating an engine profile, wiring git h
 node scripts/setup-profile.js --engine unity
 node scripts/install-profile.js --profile unity-production
 npm run new:engine -- bevy "Bevy" --dry-run
+npm run new:harness -- windsurf "Windsurf" --dry-run
 ```
 
 ### Generation (single source of truth -> derived artifacts)
@@ -32,7 +34,7 @@ npm run new:engine -- bevy "Bevy" --dry-run
 | Script | Purpose |
 |--------|---------|
 | `sync-structure-artifacts.js` | Regenerate `STRUCTURE-TREE.txt`, `docs/structure-overview.md`, and the README count badges from `git ls-files` |
-| `generate-wrappers.js` | Regenerate harness command wrappers (`.claude/`, `.codex/`, `.opencode/`) and `opencode.json` from `commands/*.md` |
+| `generate-wrappers.js` | Regenerate harness command wrappers and the OpenCode command registry from `commands/*.md`; which adapters get wrappers (and in which format) is declared in `manifests/harnesses.json` |
 | `generate-hook-wiring.js` | Regenerate `.claude/settings.json` (hooks block) and `.cursor/hooks.json` from `hooks/hooks.json` |
 | `generate-dependency-graph.js` | Regenerate `docs/orchestration/dependency-graph.md` (Mermaid command/agent/skill graph + orphaned-skills report) from `commands/*.md` and `command-agent-map.md` |
 

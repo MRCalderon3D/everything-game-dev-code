@@ -28,6 +28,8 @@ The harness adapter registry — the single source of truth for which harness ad
 
 Each entry declares an `id` (kebab-case), a `display` name, the adapter `dir`, a `commands` block (`dir` + wrapper `style`, or `null` when the harness has no project-scoped command support), a `hooks` flag (whether `sync:hook-wiring` emits executable wiring for it), an `mcp` block (`path` + `format`, or `null` for home-config-only harnesses like Codex), and the `entryPoints` doctor asserts.
 
+To add a new harness adapter, run `npm run new:harness` rather than editing this file by hand.
+
 ### asset-providers.json
 
 The generative asset provider registry — the single source of truth for which AI generation provider and model serves each asset capability (`image`, `skybox`, `model3d`, `sfx`, `music`, `speech`, `video`). `scripts/generate-assets.js` and the `/generate-assets` command resolve capability-to-model routing from this file; swapping a default model or adding a provider is a manifest edit, not a code edit.
