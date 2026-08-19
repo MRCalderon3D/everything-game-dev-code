@@ -62,9 +62,11 @@ content never leaks in, and local output matches what CI regenerates from a clea
 - `skills/` — reusable execution patterns, **grouped by category**, each leaf a folder with a `SKILL.md`.
 - `contexts/` — phase-specific priority shifts (e.g. prototype vs. release).
 - `hooks/` — workflow safety automation (`hooks/hooks.json` is the source).
-- `manifests/` — install profiles/components and two key registries: `engines.json` (the single
-  source of truth for which engine layers exist; array order is path-detection priority) and
-  `asset-providers.json` (capability→model routing for AI asset generation).
+- `manifests/` — install profiles/components and three key registries: `engines.json` (the single
+  source of truth for which engine layers exist; array order is path-detection priority),
+  `harnesses.json` (which harness adapters exist and what each supports — wrappers, MCP, and
+  doctor checks derive from it), and `asset-providers.json` (capability→model routing for AI
+  asset generation).
 - `schemas/` — JSON Schema (ajv) validation for every manifest, hook config, and plugin.
 - `docs/templates/` — structured deliverable templates (GDD, TDD, QA plan, etc.).
 

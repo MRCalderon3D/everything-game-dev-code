@@ -22,6 +22,12 @@ Each entry declares an `id` (kebab-case, matching `rules/<id>/`, `skills/<id>/`,
 
 To add a new engine layer, run `npm run new:engine` rather than editing this file by hand.
 
+### harnesses.json
+
+The harness adapter registry — the single source of truth for which harness adapters exist (`.claude/`, `.codex/`, `.cursor/`, `.opencode/`, `.kiro/`) and what each supports. Scripts derive their harness lists from this file instead of hardcoding them: `scripts/generate-wrappers.js` (which adapters get command wrappers, in which format, and where), `scripts/generate-mcp-configs.js` (which adapters get a live project-scoped MCP config), and `scripts/doctor.js` (which entry points must exist for an adapter to count as installed). Validated against `schemas/harnesses.schema.json`.
+
+Each entry declares an `id` (kebab-case), a `display` name, the adapter `dir`, a `commands` block (`dir` + wrapper `style`, or `null` when the harness has no project-scoped command support), a `hooks` flag (whether `sync:hook-wiring` emits executable wiring for it), an `mcp` block (`path` + `format`, or `null` for home-config-only harnesses like Codex), and the `entryPoints` doctor asserts.
+
 ### asset-providers.json
 
 The generative asset provider registry — the single source of truth for which AI generation provider and model serves each asset capability (`image`, `skybox`, `model3d`, `sfx`, `music`, `speech`, `video`). `scripts/generate-assets.js` and the `/generate-assets` command resolve capability-to-model routing from this file; swapping a default model or adding a provider is a manifest edit, not a code edit.

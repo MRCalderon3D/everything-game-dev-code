@@ -98,6 +98,7 @@ These scripts are the implementations for the hooks declared in `hooks/hooks.jso
 | Library | Exports |
 |---------|---------|
 | `engines.js` | `loadEngines()`, `engineIds()` — load the engine layer registry (`manifests/engines.json`) |
+| `harnesses.js` | `loadHarnesses()`, `harnessIds()` — load the harness adapter registry (`manifests/harnesses.json`) |
 | `hook-wiring.js` | `buildClaudeHooks()`, `buildCursorHooks()` — derive per-harness hook wiring from `hooks/hooks.json` |
 | `profile-resolution.js` | `getActiveProfile()`, `detectProfileFromPaths()` — read and infer the active engine profile (engine list derives from the registry) |
 | `schema-validation.js` | `validateAgainstSchema()` — ajv-backed JSON Schema validation used by the schema validators |

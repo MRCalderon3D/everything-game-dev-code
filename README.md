@@ -85,7 +85,7 @@ This scaffold is organized in layers:
 - `skills/` — how work is executed well
 - `contexts/` — how priorities shift by phase
 - `hooks/` — how workflow safeguards are enforced
-- `manifests/` — how subsets are installed by profile, plus the engine layer registry (`engines.json`) and the generative asset provider registry (`asset-providers.json`)
+- `manifests/` — how subsets are installed by profile, plus the engine layer registry (`engines.json`), the harness adapter registry (`harnesses.json`), and the generative asset provider registry (`asset-providers.json`)
 - `schemas/` — JSON validation for manifests, hooks, and plugins
 - `scripts/` — generators, validators, and diagnostics (`new:engine`, `doctor`, `sync:*`)
 - `docs/templates/` — structured templates for GDD, TDD, QA plans, and other deliverables

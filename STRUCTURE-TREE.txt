@@ -485,6 +485,7 @@ everything-game-dev-code
 ├── manifests
 │   ├── asset-providers.json
 │   ├── engines.json
+│   ├── harnesses.json
 │   ├── install-components.json
 │   ├── install-modules.json
 │   ├── install-profiles.json
@@ -1179,6 +1180,7 @@ everything-game-dev-code
 ├── schemas
 │   ├── asset-providers.schema.json
 │   ├── engines.schema.json
+│   ├── harnesses.schema.json
 │   ├── hooks.schema.json
 │   ├── install-components.schema.json
 │   ├── install-modules.schema.json
@@ -1203,6 +1205,7 @@ everything-game-dev-code
 │   │   └── session-summary.js
 │   ├── lib
 │   │   ├── engines.js
+│   │   ├── harnesses.js
 │   │   ├── hook-wiring.js
 │   │   ├── profile-resolution.js
 │   │   ├── schema-validation.js

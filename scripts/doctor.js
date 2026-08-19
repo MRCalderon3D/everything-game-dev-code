@@ -10,6 +10,7 @@ const fs = require("fs");
 const path = require("path");
 const { spawnSync } = require("child_process");
 const { engineIds } = require("./lib/engines");
+const { loadHarnesses } = require("./lib/harnesses");
 const { getActiveProfile, isValidProfile } = require("./lib/profile-resolution");
 
 const repoRoot = path.resolve(__dirname, "..");
@@ -111,14 +112,7 @@ if (profileEngine && installEngine && profileEngine !== installEngine) {
 
 // --- Harness adapters ------------------------------------------------------
 
-const adapterFiles = [
-  ".claude/settings.json",
-  ".claude/commands",
-  ".codex/commands",
-  ".opencode/opencode.json",
-  ".cursor/hooks.json",
-  ".kiro/README.md",
-];
+const adapterFiles = loadHarnesses().flatMap((harness) => harness.entryPoints);
 const missingAdapters = adapterFiles.filter(
   (relPath) => !fs.existsSync(path.join(repoRoot, relPath))
 );

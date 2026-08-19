@@ -22,6 +22,7 @@
 const fs = require("fs");
 const path = require("path");
 const { sameText } = require("./lib/text");
+const { loadHarnesses } = require("./lib/harnesses");
 
 const repoRoot = path.resolve(__dirname, "..");
 const outDir = path.join("mcp-configs", "generated");
@@ -219,15 +220,20 @@ const outputs = new Map([
   [path.join(outDir, "opencode.mcp.json"), buildOpencode()],
   [path.join(outDir, "codex.toml"), buildCodex()],
   [path.join(outDir, "README.md"), buildReadme()],
-  // Live, project-scoped configs committed into the harness-native locations so
-  // anyone who opens the scaffold gets the servers pre-wired — no copy step.
-  // Portable bare commands only (no machine paths). The OpenCode `mcp` block is
-  // emitted by generate-wrappers.js (it owns .opencode/opencode.json), and Codex
-  // is home-config only, so neither has a live file here.
-  [".mcp.json", universal],
-  [path.join(".cursor", "mcp.json"), universal],
-  [path.join(".kiro", "settings", "mcp.json"), universal],
 ]);
+
+// Live, project-scoped configs committed into the harness-native locations so
+// anyone who opens the scaffold gets the servers pre-wired — no copy step.
+// Portable bare commands only (no machine paths). Which harnesses get one is
+// declared in manifests/harnesses.json: every `mcp.format: "universal"` entry.
+// The OpenCode `mcp` block ("opencode" format) is emitted by
+// generate-wrappers.js (it owns the whole registry file), and harnesses with
+// `mcp: null` (Codex is home-config only) have no live file here.
+for (const harness of loadHarnesses()) {
+  if (harness.mcp && harness.mcp.format === "universal") {
+    outputs.set(harness.mcp.path.split("/").join(path.sep), universal);
+  }
+}
 
 const changed = [];
 for (const [relPath, content] of outputs) {
