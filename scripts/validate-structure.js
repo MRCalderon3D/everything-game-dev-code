@@ -161,6 +161,8 @@ const adapterExpectations = [
   ".cursor/README.md",
   ".opencode/README.md",
   ".kiro/README.md",
+  ".grok/README.md",
+  ".kilo/README.md",
   ".codex/README.md",
   ".codex/AGENTS.md",
   ".codex/commands/README.md",

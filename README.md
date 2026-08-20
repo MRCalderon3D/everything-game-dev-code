@@ -29,7 +29,7 @@ Not just a prompt collection — a structured operating system for game projects
 - **Skills** for reusable execution patterns
 - **Contexts** for phase-specific behavior
 - **Hooks** for workflow automation
-- **Harness adapters** for Claude, Codex, Cursor, OpenCode, Kiro, and Grok Build (see [docs/harness-support.md](docs/harness-support.md) for what each one supports)
+- **Harness adapters** for Claude, Codex, Cursor, OpenCode, Kiro, Grok Build, and Kilo (see [docs/harness-support.md](docs/harness-support.md) for what each one supports)
 
 ## Quickstart
 
@@ -41,7 +41,7 @@ npm run setup:hooks
 
 `npm run setup:hooks` wires the repo's pre-commit checks (structure sync + validation) so committed artifacts never drift; it needs Node.js 18+ and takes one second. Run `npm run doctor` at any time to diagnose your installation (environment, hooks, active engine profile, generated-artifact drift) with remediation hints.
 
-Open the folder in your AI coding assistant (Claude Code, Cursor, Codex, OpenCode, Kiro, or Grok Build). The scaffold is loaded from the assistant's adapter plus the shared `AGENTS.md`, `rules/`, `commands/`, `agents/`, and `skills/` layers.
+Open the folder in your AI coding assistant (Claude Code, Cursor, Codex, OpenCode, Kiro, Grok Build, or Kilo). The scaffold is loaded from the assistant's adapter plus the shared `AGENTS.md`, `rules/`, `commands/`, `agents/`, and `skills/` layers.
 
 Then type commands in the chat:
 
@@ -152,6 +152,7 @@ Capability-to-model routing lives in [manifests/asset-providers.json](manifests/
 - OpenCode
 - Kiro
 - Grok Build
+- Kilo
 
 Each harness adapter points back to the same shared scaffold rather than becoming a second source of truth.
 

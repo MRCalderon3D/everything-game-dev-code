@@ -24,7 +24,7 @@ To add a new engine layer, run `npm run new:engine` rather than editing this fil
 
 ### harnesses.json
 
-The harness adapter registry — the single source of truth for which harness adapters exist (`.claude/`, `.codex/`, `.cursor/`, `.opencode/`, `.kiro/`) and what each supports. Scripts derive their harness lists from this file instead of hardcoding them: `scripts/generate-wrappers.js` (which adapters get command wrappers, in which format, and where), `scripts/generate-mcp-configs.js` (which adapters get a live project-scoped MCP config), and `scripts/doctor.js` (which entry points must exist for an adapter to count as installed). Validated against `schemas/harnesses.schema.json`.
+The harness adapter registry — the single source of truth for which harness adapters exist (`.claude/`, `.codex/`, `.cursor/`, `.opencode/`, `.kiro/`, `.grok/`, `.kilo/`) and what each supports. Scripts derive their harness lists from this file instead of hardcoding them: `scripts/generate-wrappers.js` (which adapters get command wrappers, in which format, and where), `scripts/generate-mcp-configs.js` (which adapters get a live project-scoped MCP config), and `scripts/doctor.js` (which entry points must exist for an adapter to count as installed). Validated against `schemas/harnesses.schema.json`.
 
 Each entry declares an `id` (kebab-case), a `display` name, the adapter `dir`, a `commands` block (`dir` + wrapper `style`, or `null` when the harness has no project-scoped command support), a `hooks` flag (whether `sync:hook-wiring` emits executable wiring for it), an `mcp` block (`path` + `format`, or `null` for home-config-only harnesses like Codex), and the `entryPoints` doctor asserts.
 

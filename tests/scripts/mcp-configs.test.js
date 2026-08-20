@@ -87,6 +87,18 @@ assert.deepStrictEqual(
   'opencode.json should carry unreal-editor as a type:remote server'
 );
 
+const kilo = JSON.parse(fs.readFileSync(path.join(repoRoot, '.kilo', 'kilo.json'), 'utf8'));
+assert.deepStrictEqual(
+  kilo.mcp['unreal-editor'],
+  { type: 'remote', url: 'http://127.0.0.1:8000/mcp', enabled: true },
+  '.kilo/kilo.json should carry unreal-editor as a type:remote server'
+);
+assert.strictEqual(
+  kilo.$schema,
+  'https://app.kilo.ai/config.json',
+  '.kilo/kilo.json should declare the Kilo config schema'
+);
+
 const codexToml = fs.readFileSync(
   path.join(repoRoot, 'mcp-configs', 'generated', 'codex.toml'),
   'utf8'

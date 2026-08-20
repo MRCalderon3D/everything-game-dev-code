@@ -4,7 +4,7 @@ This scaffold ships a curated set of MCP (Model Context Protocol) servers so any
 MCP-capable harness can extend the workflow with tools — browser playtesting, AI
 asset generation, and 3D control in Blender. MCP is open and vendor-neutral, so
 they work with any model behind a compatible client (Claude Code, Codex, Cursor,
-OpenCode, Kiro, Grok Build, Windsurf, Cline, VS Code, …).
+OpenCode, Kiro, Grok Build, Kilo, Windsurf, Cline, VS Code, …).
 
 ## Quick start
 
@@ -55,6 +55,7 @@ location each client reads, so opening the repo is enough.
 | Kiro | ✅ ready | `.kiro/settings/mcp.json` |
 | OpenCode | ✅ ready | `mcp` block in `.opencode/opencode.json` |
 | Grok Build | ✅ ready | `[mcp_servers]` in `.grok/config.toml` |
+| Kilo | ✅ ready | `mcp` in `.kilo/kilo.json` |
 | Codex | ⚙️ one command | reads only global `~/.codex/config.toml` — run the line below |
 | Windsurf / Cline / VS Code / others | 📋 paste once | copy `mcp-configs/generated/mcp.json` into the client's MCP config |
 
@@ -269,8 +270,9 @@ drift-checked, so they can never disagree.
   [../mcp-configs/mcp-servers.json](../mcp-configs/mcp-servers.json) — every
   server, its purpose, when to use it, and launch metadata.
 - **Generated configs:** the live per-harness files (`.mcp.json`,
-  `.cursor/mcp.json`, `.kiro/settings/mcp.json`, `.grok/config.toml`, the `mcp`
-  block in `.opencode/opencode.json`) plus per-format reference copies under
+  `.cursor/mcp.json`, `.kiro/settings/mcp.json`, `.grok/config.toml`,
+  `.kilo/kilo.json`, the `mcp` block in `.opencode/opencode.json`) plus
+  per-format reference copies under
   [../mcp-configs/generated/](../mcp-configs/generated/). Which harnesses get a
   live config is declared in `manifests/harnesses.json`.
 

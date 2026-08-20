@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // Scaffolds a new harness adapter following the conventions of the existing
-// .claude/.codex/.cursor/.opencode/.kiro adapters. The new adapter starts at
+// .claude/.codex/.cursor/.opencode/.kiro/.grok/.kilo adapters. The new adapter starts at
 // the conservative "Rules only" tier (no commands, no hooks, no MCP) — flip
 // capabilities in manifests/harnesses.json once the harness's real support
 // surface is confirmed, and the generators pick them up.

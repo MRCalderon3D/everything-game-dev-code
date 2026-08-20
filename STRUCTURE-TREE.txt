@@ -260,6 +260,76 @@ everything-game-dev-code
 ├── .grok
 │   ├── config.toml
 │   └── README.md
+├── .kilo
+│   ├── command
+│   │   ├── accessibility-pass.md
+│   │   ├── animation-pass.md
+│   │   ├── art-2d-pass.md
+│   │   ├── art-3d-pass.md
+│   │   ├── audio-pass.md
+│   │   ├── bug-triage.md
+│   │   ├── cert-check.md
+│   │   ├── combat-design.md
+│   │   ├── context.md
+│   │   ├── dialogue-design.md
+│   │   ├── economy-balance.md
+│   │   ├── evolve.md
+│   │   ├── full-game.md
+│   │   ├── game-feel-pass.md
+│   │   ├── gdd.md
+│   │   ├── generate-assets.md
+│   │   ├── godot-build-fix.md
+│   │   ├── godot-placeholders.md
+│   │   ├── godot-review.md
+│   │   ├── godot-scene-audit.md
+│   │   ├── godot-setup.md
+│   │   ├── input-review.md
+│   │   ├── learn.md
+│   │   ├── level-beat.md
+│   │   ├── liveops-brief.md
+│   │   ├── localization-pass.md
+│   │   ├── memory-budget.md
+│   │   ├── milestone-plan.md
+│   │   ├── multiplayer-review.md
+│   │   ├── onboarding.md
+│   │   ├── orchestrate.md
+│   │   ├── patch-notes.md
+│   │   ├── perf-budget.md
+│   │   ├── plan.md
+│   │   ├── playtest-report.md
+│   │   ├── procgen-design.md
+│   │   ├── qa-plan.md
+│   │   ├── quest-design.md
+│   │   ├── refactor-clean.md
+│   │   ├── release-check.md
+│   │   ├── save-system-review.md
+│   │   ├── scene-bootstrap.md
+│   │   ├── skill-create-game.md
+│   │   ├── tdd.md
+│   │   ├── tech-design.md
+│   │   ├── telemetry-plan.md
+│   │   ├── tools-pass.md
+│   │   ├── ui-asset-pass.md
+│   │   ├── ui-flow-review.md
+│   │   ├── unity-build-fix.md
+│   │   ├── unity-placeholders.md
+│   │   ├── unity-review.md
+│   │   ├── unity-scene-audit.md
+│   │   ├── unity-setup.md
+│   │   ├── unreal-blueprint-audit.md
+│   │   ├── unreal-build-fix.md
+│   │   ├── unreal-review.md
+│   │   ├── unreal-setup.md
+│   │   ├── update-docs.md
+│   │   ├── verify.md
+│   │   ├── vertical-slice.md
+│   │   ├── web-build-fix.md
+│   │   ├── web-placeholders.md
+│   │   ├── web-review.md
+│   │   ├── web-scene-audit.md
+│   │   └── web-setup.md
+│   ├── kilo.json
+│   └── README.md
 ├── .kiro
 │   ├── settings
 │   │   └── mcp.json

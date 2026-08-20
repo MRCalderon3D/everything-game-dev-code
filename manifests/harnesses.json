@@ -99,6 +99,25 @@
         ".grok/README.md",
         ".grok/config.toml"
       ]
+    },
+    {
+      "id": "kilo",
+      "display": "Kilo",
+      "dir": ".kilo",
+      "commands": {
+        "dir": ".kilo/command",
+        "style": "claude"
+      },
+      "hooks": false,
+      "mcp": {
+        "path": ".kilo/kilo.json",
+        "format": "kilo"
+      },
+      "entryPoints": [
+        ".kilo/README.md",
+        ".kilo/command",
+        ".kilo/kilo.json"
+      ]
     }
   ]
 }
