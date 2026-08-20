@@ -72,8 +72,8 @@
                   "path": { "type": "string", "minLength": 1 },
                   "format": {
                     "type": "string",
-                    "enum": ["universal", "toml", "opencode"],
-                    "description": "'universal': the de-facto-standard mcpServers shape, written by sync:mcp. 'toml': a config.toml with [mcp_servers.*] sections (Grok Build), written by sync:mcp. 'opencode': mcp block embedded in the command registry, written by sync:wrappers."
+                    "enum": ["universal", "toml", "opencode", "kilo"],
+                    "description": "'universal': the de-facto-standard mcpServers shape, written by sync:mcp. 'toml': a config.toml with [mcp_servers.*] sections (Grok Build), written by sync:mcp. 'opencode': mcp block embedded in the command registry, written by sync:wrappers. 'kilo': a kilo.json with a top-level mcp object (Kilo), written by sync:mcp."
                   }
                 }
               }
