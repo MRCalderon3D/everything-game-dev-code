@@ -564,6 +564,7 @@ everything-game-dev-code
 ├── mcp-configs
 │   ├── generated
 │   │   ├── codex.toml
+│   │   ├── kilo.json
 │   │   ├── mcp.json
 │   │   ├── opencode.mcp.json
 │   │   └── README.md
@@ -1278,6 +1279,7 @@ everything-game-dev-code
 │   │   ├── engines.js
 │   │   ├── harnesses.js
 │   │   ├── hook-wiring.js
+│   │   ├── mcp-catalog.js
 │   │   ├── profile-resolution.js
 │   │   ├── schema-validation.js
 │   │   ├── structure-artifacts.js

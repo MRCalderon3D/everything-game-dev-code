@@ -13,6 +13,7 @@
 //                       Windsurf, Cline, VS Code, ... — the de-facto standard)
 //   codex.toml          [mcp_servers.*] fragments for Codex (config.toml)
 //   opencode.mcp.json   `mcp` block to merge into .opencode/opencode.json
+//   kilo.json           Kilo `mcp` object for .kilo/kilo.json
 //   README.md           per-harness install steps + servers left to configure
 //
 // Only servers with a real command are emitted as runnable. Catalog entries that
@@ -23,49 +24,22 @@ const fs = require("fs");
 const path = require("path");
 const { sameText } = require("./lib/text");
 const { loadHarnesses } = require("./lib/harnesses");
+const {
+  isHttp,
+  envExpansion,
+  loadMcpRegistry,
+  runnableServers,
+  placeholderServers,
+  buildEmbeddedMcp,
+} = require("./lib/mcp-catalog");
 
 const repoRoot = path.resolve(__dirname, "..");
 const outDir = path.join("mcp-configs", "generated");
 const checkOnly = process.argv.includes("--check");
 
-const registry = JSON.parse(
-  fs.readFileSync(path.join(repoRoot, "mcp-configs", "mcp-servers.json"), "utf8")
-);
-
-function isPlaceholder(value) {
-  return typeof value === "string" && value.includes("<") && value.includes(">");
-}
-
-function isHttp(def) {
-  return def.transport === "http";
-}
-
-// A server is runnable only when neither its launch fields (command/args for
-// stdio, url for http) carry a `<...>` placeholder — i.e. it needs no team-local
-// setup (a missing command) and no machine-specific path (e.g. an Unreal server
-// launched from a local clone).
-function hasPlaceholder(def) {
-  if (isHttp(def)) {
-    return isPlaceholder(def.url);
-  }
-  return [def.command, ...(Array.isArray(def.args) ? def.args : [])].some(isPlaceholder);
-}
-
-const allServers = Object.entries(registry.servers).sort(([a], [b]) =>
-  a < b ? -1 : a > b ? 1 : 0
-);
-const runnable = allServers.filter(([, def]) => !hasPlaceholder(def));
-const placeholders = allServers.filter(([, def]) => hasPlaceholder(def));
-
-// Env values are emitted as ${VAR} so harnesses that expand environment
-// variables read real values at launch and no secret is ever written to disk.
-function envExpansion(env) {
-  const out = {};
-  for (const key of Object.keys(env || {})) {
-    out[key] = `\${${key}}`;
-  }
-  return out;
-}
+const registry = loadMcpRegistry();
+const runnable = runnableServers(registry);
+const placeholders = placeholderServers(registry);
 
 function buildUniversal() {
   const mcpServers = {};
@@ -88,21 +62,19 @@ function buildUniversal() {
 }
 
 function buildOpencode() {
-  const mcp = {};
-  for (const [id, def] of runnable) {
-    let entry;
-    if (isHttp(def)) {
-      entry = { type: "remote", url: def.url, enabled: true };
-    } else {
-      const command = [def.command, ...(Array.isArray(def.args) ? def.args : [])];
-      entry = { type: "local", command, enabled: true };
-    }
-    if (def.env && Object.keys(def.env).length > 0) {
-      entry.environment = envExpansion(def.env);
-    }
-    mcp[id] = entry;
-  }
-  return `${JSON.stringify({ $schema: "https://opencode.ai/config.json", mcp }, null, 2)}\n`;
+  return `${JSON.stringify(
+    { $schema: "https://opencode.ai/config.json", mcp: buildEmbeddedMcp(runnable) },
+    null,
+    2
+  )}\n`;
+}
+
+function buildKilo() {
+  return `${JSON.stringify(
+    { $schema: "https://app.kilo.ai/config.json", mcp: buildEmbeddedMcp(runnable) },
+    null,
+    2
+  )}\n`;
 }
 
 function tomlString(value) {
@@ -245,6 +217,7 @@ const outputs = new Map([
   // Reference copies (one per format) under mcp-configs/generated/.
   [path.join(outDir, "mcp.json"), universal],
   [path.join(outDir, "opencode.mcp.json"), buildOpencode()],
+  [path.join(outDir, "kilo.json"), buildKilo()],
   [path.join(outDir, "codex.toml"), buildCodex()],
   [path.join(outDir, "README.md"), buildReadme()],
 ]);
@@ -252,10 +225,10 @@ const outputs = new Map([
 // Live, project-scoped configs committed into the harness-native locations so
 // anyone who opens the scaffold gets the servers pre-wired — no copy step.
 // Portable bare commands only (no machine paths). Which harnesses get one is
-// declared in manifests/harnesses.json: every `mcp.format: "universal"` entry.
-// The OpenCode `mcp` block ("opencode" format) is emitted by
-// generate-wrappers.js (it owns the whole registry file), and harnesses with
-// `mcp: null` (Codex is home-config only) have no live file here.
+// declared in manifests/harnesses.json. The OpenCode `mcp` block ("opencode"
+// format) is emitted by generate-wrappers.js (it owns the whole registry file),
+// and harnesses with `mcp: null` (Codex is home-config only) have no live file
+// here.
 for (const harness of loadHarnesses()) {
   if (!harness.mcp) {
     continue;
@@ -265,6 +238,8 @@ for (const harness of loadHarnesses()) {
     outputs.set(livePath, universal);
   } else if (harness.mcp.format === "toml") {
     outputs.set(livePath, buildProjectToml());
+  } else if (harness.mcp.format === "kilo") {
+    outputs.set(livePath, buildKilo());
   }
 }
 

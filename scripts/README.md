@@ -35,6 +35,7 @@ npm run new:harness -- windsurf "Windsurf" --dry-run
 |--------|---------|
 | `sync-structure-artifacts.js` | Regenerate `STRUCTURE-TREE.txt`, `docs/structure-overview.md`, and the README count badges from `git ls-files` |
 | `generate-wrappers.js` | Regenerate harness command wrappers and the OpenCode command registry from `commands/*.md`; which adapters get wrappers (and in which format) is declared in `manifests/harnesses.json` |
+| `generate-mcp-configs.js` | Regenerate harness-native MCP configs from `mcp-configs/mcp-servers.json`; live paths and formats (`universal`, `toml`, `kilo`) are declared in `manifests/harnesses.json` |
 | `generate-hook-wiring.js` | Regenerate `.claude/settings.json` (hooks block) and `.cursor/hooks.json` from `hooks/hooks.json` |
 | `generate-dependency-graph.js` | Regenerate `docs/orchestration/dependency-graph.md` (Mermaid command/agent/skill graph + orphaned-skills report) from `commands/*.md` and `command-agent-map.md` |
 
@@ -101,6 +102,7 @@ These scripts are the implementations for the hooks declared in `hooks/hooks.jso
 |---------|---------|
 | `engines.js` | `loadEngines()`, `engineIds()` — load the engine layer registry (`manifests/engines.json`) |
 | `harnesses.js` | `loadHarnesses()`, `harnessIds()` — load the harness adapter registry (`manifests/harnesses.json`) |
+| `mcp-catalog.js` | Catalog load, placeholder filter, and `buildEmbeddedMcp()` — shared OpenCode/Kilo `mcp` object from `mcp-configs/mcp-servers.json` |
 | `hook-wiring.js` | `buildClaudeHooks()`, `buildCursorHooks()` — derive per-harness hook wiring from `hooks/hooks.json` |
 | `profile-resolution.js` | `getActiveProfile()`, `detectProfileFromPaths()` — read and infer the active engine profile (engine list derives from the registry) |
 | `schema-validation.js` | `validateAgainstSchema()` — ajv-backed JSON Schema validation used by the schema validators |

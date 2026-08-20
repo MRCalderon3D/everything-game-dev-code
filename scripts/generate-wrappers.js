@@ -17,6 +17,7 @@ const fs = require("fs");
 const path = require("path");
 const { sameText } = require("./lib/text");
 const { loadHarnesses } = require("./lib/harnesses");
+const { loadMcpRegistry, runnableServers, buildEmbeddedMcp } = require("./lib/mcp-catalog");
 
 const repoRoot = path.resolve(__dirname, "..");
 const checkOnly = process.argv.includes("--check");
@@ -26,48 +27,11 @@ function readText(relPath) {
 }
 
 // OpenCode's adapter config (opencode.json) carries both the command registry and
-// the MCP servers, so this generator owns the whole file. The `mcp` block is
-// derived from the same catalog as scripts/generate-mcp-configs.js (runnable
-// servers only, ${VAR} env expansion) so the two representations never diverge.
-function isHttp(def) {
-  return def.transport === "http";
-}
-
+// the MCP servers, so this generator owns the whole file. The `mcp` block uses
+// the shared embedded shape from scripts/lib/mcp-catalog.js so it cannot drift
+// from generate-mcp-configs.js (Kilo uses the same object in .kilo/kilo.json).
 function buildOpencodeMcp() {
-  const registry = JSON.parse(readText("mcp-configs/mcp-servers.json"));
-  const mcp = {};
-  const entries = Object.entries(registry.servers).sort(([a], [b]) =>
-    a < b ? -1 : a > b ? 1 : 0
-  );
-  for (const [id, def] of entries) {
-    // Skip servers with a `<...>` placeholder in their launch fields (command/
-    // args for stdio, url for http) — a missing command or a machine-specific
-    // path can't be pre-wired portably.
-    const parts = isHttp(def)
-      ? [def.url]
-      : [def.command, ...(Array.isArray(def.args) ? def.args : [])];
-    const placeholder = parts.some(
-      (p) => typeof p === "string" && p.includes("<") && p.includes(">")
-    );
-    if (placeholder) {
-      continue;
-    }
-    let entry;
-    if (isHttp(def)) {
-      entry = { type: "remote", url: def.url, enabled: true };
-    } else {
-      const command = [def.command, ...(Array.isArray(def.args) ? def.args : [])];
-      entry = { type: "local", command, enabled: true };
-    }
-    if (def.env && Object.keys(def.env).length > 0) {
-      entry.environment = {};
-      for (const key of Object.keys(def.env)) {
-        entry.environment[key] = `\${${key}}`;
-      }
-    }
-    mcp[id] = entry;
-  }
-  return mcp;
+  return buildEmbeddedMcp(runnableServers(loadMcpRegistry()));
 }
 
 function parseFrontmatterDescription(text, relPath) {
@@ -163,6 +127,7 @@ for (const [relPath, content] of outputs) {
   if (!sameText(current, content)) {
     changed.push(relPath);
     if (!checkOnly) {
+      fs.mkdirSync(path.dirname(fullPath), { recursive: true });
       fs.writeFileSync(fullPath, content, "utf8");
     }
   }
