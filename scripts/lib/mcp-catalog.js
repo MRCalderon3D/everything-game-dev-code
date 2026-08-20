@@ -23,10 +23,10 @@ function hasPlaceholder(def) {
   return [def.command, ...(Array.isArray(def.args) ? def.args : [])].some(isPlaceholder);
 }
 
-function envExpansion(env) {
+function envExpansion(env, style) {
   const out = {};
   for (const key of Object.keys(env || {})) {
-    out[key] = `\${${key}}`;
+    out[key] = style === "kilo" ? `{env:${key}}` : `\${${key}}`;
   }
   return out;
 }
@@ -52,7 +52,9 @@ function placeholderServers(registry) {
 }
 
 // OpenCode and Kilo share this embedded `mcp` object (type local|remote).
-function buildEmbeddedMcp(runnable) {
+// envStyle: omit or "dollar" → ${VAR} (OpenCode); "kilo" → {env:VAR}.
+function buildEmbeddedMcp(runnable, options) {
+  const envStyle = options && options.envStyle;
   const mcp = {};
   for (const [id, def] of runnable) {
     let entry;
@@ -63,7 +65,7 @@ function buildEmbeddedMcp(runnable) {
       entry = { type: "local", command, enabled: true };
     }
     if (def.env && Object.keys(def.env).length > 0) {
-      entry.environment = envExpansion(def.env);
+      entry.environment = envExpansion(def.env, envStyle);
     }
     mcp[id] = entry;
   }

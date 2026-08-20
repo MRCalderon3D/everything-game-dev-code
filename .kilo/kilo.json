@@ -18,7 +18,7 @@
       ],
       "enabled": true,
       "environment": {
-        "FAL_KEY": "${FAL_KEY}"
+        "FAL_KEY": "{env:FAL_KEY}"
       }
     },
     "godot-editor": {

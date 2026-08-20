@@ -14,8 +14,8 @@ shared scaffold.
   `mcp` object is **generated** from `mcp-configs/mcp-servers.json` by
   `npm run sync:mcp` — do not edit it by hand. The file is MCP-only so user
   model and permission settings in `./kilo.json` or the global config still
-  merge. `${VAR}` env values (e.g. `FAL_KEY`) are emitted the same way as
-  OpenCode; set the variable in the environment before launch.
+  merge. Env values use Kilo's `{env:VAR}` syntax (e.g. `{env:FAL_KEY}`); set
+  the variable in the environment before launch.
 
 ## Rule
 

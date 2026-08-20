@@ -71,7 +71,10 @@ function buildOpencode() {
 
 function buildKilo() {
   return `${JSON.stringify(
-    { $schema: "https://app.kilo.ai/config.json", mcp: buildEmbeddedMcp(runnable) },
+    {
+      $schema: "https://app.kilo.ai/config.json",
+      mcp: buildEmbeddedMcp(runnable, { envStyle: "kilo" }),
+    },
     null,
     2
   )}\n`;

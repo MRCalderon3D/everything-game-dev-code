@@ -98,6 +98,11 @@ assert.strictEqual(
   'https://app.kilo.ai/config.json',
   '.kilo/kilo.json should declare the Kilo config schema'
 );
+assert.strictEqual(
+  kilo.mcp['fal-media'].environment.FAL_KEY,
+  '{env:FAL_KEY}',
+  '.kilo/kilo.json should use Kilo {env:VAR} interpolation, not ${VAR}'
+);
 
 const codexToml = fs.readFileSync(
   path.join(repoRoot, 'mcp-configs', 'generated', 'codex.toml'),

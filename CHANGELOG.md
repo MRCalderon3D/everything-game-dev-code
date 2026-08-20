@@ -7,6 +7,9 @@ All notable changes to this scaffold should be documented here.
 ### Added
 - Kilo as the seventh harness adapter at **Full** tier. Kilo reads shared `AGENTS.md` natively and supports project slash commands via `.kilo/command/*.md`, so the adapter ships 66 generated wrappers (`style: "claude"`) plus pre-wired MCP: the registry entry declares `mcp: {path: ".kilo/kilo.json", format: "kilo"}` (new `"kilo"` format in `schemas/harnesses.schema.json`), and `sync:mcp` emits an MCP-only `.kilo/kilo.json` (`$schema: https://app.kilo.ai/config.json`) so user model/permission settings still merge from `./kilo.json` or the global config. The OpenCode/Kilo embedded `mcp` object (type `local`|`remote`) lives in `scripts/lib/mcp-catalog.js` so those surfaces cannot drift; `generate-wrappers.js` uses the same helper for the OpenCode registry. Scaffold `agents/` and `skills/` are not copied into `.kilo/` — those files are workflow roles, not Kilo primary/subagent definitions. Agent Manager runtime (`.kilo/agent-manager.json`, `.kilo/worktrees/`) is gitignored. No hooks (Kilo has no PreToolUse/PostToolUse). Docs: `docs/harness-support.md` matrix row, `docs/mcp-setup.md` (status table + generated-config list), root README and `CLAUDE.md` adapter lists. `validate-structure.js` now also requires `.grok/README.md`.
 
+### Fixed
+- Kilo MCP env interpolation: `.kilo/kilo.json` now emits `{env:VAR}` (Kilo's documented config syntax) instead of OpenCode's `${VAR}`, which Kilo does not expand and would overlay a real `FAL_KEY` with the literal string.
+
 ## 0.5.0
 
 ### Added
