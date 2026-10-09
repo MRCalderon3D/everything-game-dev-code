@@ -308,12 +308,8 @@
     "unity-editor": {
       "type": "local",
       "command": [
-        "uvx",
-        "--from",
-        "mcpforunityserver",
-        "mcp-for-unity",
-        "--transport",
-        "stdio"
+        "unity",
+        "mcp"
       ],
       "enabled": true
     },

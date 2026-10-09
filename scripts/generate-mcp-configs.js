@@ -19,6 +19,8 @@
 // Only servers with a real command are emitted as runnable. Catalog entries that
 // still carry a `<your-...>` placeholder command are listed in the README as
 // "configure per team", never written into a config that would fail to launch.
+// Portable entries marked `prewired: false` are opt-in alternatives: listed in
+// the README with their one-line registration, never in a committed config.
 
 const fs = require("fs");
 const path = require("path");
@@ -30,6 +32,7 @@ const {
   loadMcpRegistry,
   runnableServers,
   placeholderServers,
+  optInServers,
   buildEmbeddedMcp,
 } = require("./lib/mcp-catalog");
 
@@ -40,6 +43,7 @@ const checkOnly = process.argv.includes("--check");
 const registry = loadMcpRegistry();
 const runnable = runnableServers(registry);
 const placeholders = placeholderServers(registry);
+const optIn = optInServers(registry);
 
 function buildUniversal() {
   const mcpServers = {};
@@ -140,6 +144,16 @@ function buildReadme() {
   const placeholderList = placeholders.length
     ? placeholders.map(([id]) => `\`${id}\``).join(", ")
     : "_(none)_";
+  const optInList = optIn.length
+    ? optIn
+        .map(([id, def]) => {
+          const launch = isHttp(def)
+            ? `--transport http ${id} ${def.url}`
+            : `${id} -- ${[def.command, ...(Array.isArray(def.args) ? def.args : [])].join(" ")}`;
+          return `- \`${id}\` — ${def.purpose}\n\n  \`\`\`bash\n  claude mcp add ${launch}\n  \`\`\``;
+        })
+        .join("\n\n")
+    : "_(none)_";
 
   return `# Generated MCP configs
 
@@ -203,6 +217,15 @@ HTTP servers (${
     runnable.filter(([, def]) => isHttp(def)).map(([id]) => `\`${id}\``).join(", ") || "_none_"
   }) have no launch command — merge their \`url\` blocks from
 [codex.toml](./codex.toml) into \`~/.codex/config.toml\` instead.
+
+## Opt-in alternatives (not pre-wired)
+
+These entries are portable but marked \`prewired: false\` in the catalog: each is
+an alternative to a pre-wired server for the same tool, so it is left out of the
+committed configs to avoid launching both. Register the one you need yourself —
+shown for Claude Code; other harnesses take the same command and args:
+
+${optInList}
 
 ## Configure per team (not generated)
 

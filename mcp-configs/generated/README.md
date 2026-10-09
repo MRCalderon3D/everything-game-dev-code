@@ -39,7 +39,7 @@ generated from the same catalog so they always match.
 - `fal-media` — Interactive AI asset generation via the fal.ai model catalog: images, skyboxes, 3D models, sound effects, music, speech, and video.
 - `godot-editor` — Drive the Godot engine via the Godot MCP server (Coding-Solo): launch the editor, run projects, read/modify scenes and nodes, edit scripts, and capture debug/console output so scene work and run-time debugging act on the real project.
 - `playwright` — Drive a real browser to playtest and QA web (HTML5) builds: navigate, click/drag/type, capture screenshots, and read console + page errors.
-- `unity-editor` — Drive the Unity Editor from the assistant via MCP for Unity (CoplayDev): inspect and modify scenes and GameObjects, manage and import assets, run Editor menu items, read the console, and edit/run C# — so scene scaffolding and audits act directly in the Editor instead of hand-editing YAML.
+- `unity-editor` — Drive the Unity Editor via Unity's official MCP server, built into the Unity CLI (`unity mcp`) and backed by the Unity Pipeline package in the project: inspect and change the open project (scenes, assets, console, C# evaluation, tests, Play Mode) — the exact tool set is advertised by the Editor at connect time.
 - `unreal-editor` — Drive the Unreal Editor via Epic's official Unreal MCP plugin (UE 5.8+, Experimental): the editor embeds an MCP server over local HTTP exposing actor spawning, lighting, material instances, Slate widget inspection, and automation tests as tools.
 
 Env values are emitted as `${VAR}` so secrets are read from your environment at
@@ -52,11 +52,24 @@ codex mcp add blender -- uvx blender-mcp
 codex mcp add fal-media -- npx -y fal-ai-mcp-server
 codex mcp add godot-editor -- npx -y @coding-solo/godot-mcp
 codex mcp add playwright -- npx -y @playwright/mcp@latest
-codex mcp add unity-editor -- uvx --from mcpforunityserver mcp-for-unity --transport stdio
+codex mcp add unity-editor -- unity mcp
 ```
 
 HTTP servers (`unreal-editor`) have no launch command — merge their `url` blocks from
 [codex.toml](./codex.toml) into `~/.codex/config.toml` instead.
+
+## Opt-in alternatives (not pre-wired)
+
+These entries are portable but marked `prewired: false` in the catalog: each is
+an alternative to a pre-wired server for the same tool, so it is left out of the
+committed configs to avoid launching both. Register the one you need yourself —
+shown for Claude Code; other harnesses take the same command and args:
+
+- `unity-editor-community` — Alternative Unity Editor control via the community MCP for Unity bridge (CoplayDev): scenes and GameObjects, asset import, Editor menu items, console, and C# editing — for Unity versions before Unity 6, or teams that depend on its tool groups.
+
+  ```bash
+  claude mcp add unity-editor-community -- uvx --from mcpforunityserver mcp-for-unity --transport stdio
+  ```
 
 ## Configure per team (not generated)
 
@@ -64,4 +77,4 @@ These catalog entries still use a `<your-...-command>` placeholder, so they are
 intentionally **not** emitted here — give them a real command in
 [../mcp-servers.json](../mcp-servers.json) and re-run `npm run sync:mcp`:
 
-`ci-builds`, `fetch-docs`, `filesystem`, `git`, `github`, `godot-docs`, `issue-tracker`, `ripgrep`, `storefront-docs`, `telemetry`, `unity-docs`, `unity-editor-native`, `unity-package-registry`, `unreal-docs`, `unreal-editor-community`
+`ci-builds`, `fetch-docs`, `filesystem`, `git`, `github`, `godot-docs`, `issue-tracker`, `ripgrep`, `storefront-docs`, `telemetry`, `unity-docs`, `unity-package-registry`, `unreal-docs`, `unreal-editor-community`

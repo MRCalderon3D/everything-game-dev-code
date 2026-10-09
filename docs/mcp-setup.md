@@ -10,7 +10,7 @@ OpenCode, Kiro, Grok Build, Kilo, Windsurf, Cline, VS Code, …).
 
 1. **Install the launcher tooling** the servers need (one-time): see
    [Prerequisites](#prerequisites). Short version: have **Node.js** (you almost
-   certainly do) and, for Blender, install **uv**.
+   certainly do), install **uv** for Blender, and the **Unity CLI** for Unity.
 2. **Open the scaffold in your harness.** The servers are already wired up for
    you — nothing to copy. (Only **Codex** needs one command; see
    [Is my harness already wired?](#is-my-harness-already-wired).)
@@ -23,22 +23,28 @@ doesn't connect, or you want to add your own servers.
 
 ## Prerequisites
 
-The configs are **portable**: they launch servers with bare `uvx` and `npx` (no
-machine-specific paths), so your harness's launcher just needs to be able to run
-those two commands.
+The configs are **portable**: they launch servers with bare `npx`, `uvx`, and
+`unity` (no machine-specific paths), so your harness's launcher just needs to be
+able to run those commands.
 
 | Tool | Gives you | Needed by | Install |
 |---|---|---|---|
 | Node.js 18+ | `npx` | `fal-media`, `playwright`, `godot-editor` | Likely already installed (`node -v`); else [nodejs.org](https://nodejs.org) |
-| uv | `uvx` / `uv` | `blender`, `unity-editor` (and the optional `unreal-editor-community`) | `winget install astral-sh.uv` (Windows) · `curl -LsSf https://astral.sh/uv/install.sh \| sh` (macOS/Linux) · or `pip install uv` |
+| uv | `uvx` / `uv` | `blender` (and the opt-in `unity-editor-community` / `unreal-editor-community`) | `winget install astral-sh.uv` (Windows) · `curl -LsSf https://astral.sh/uv/install.sh \| sh` (macOS/Linux) · or `pip install uv` |
+| Unity CLI | `unity` | `unity-editor` | `winget install Unity.CLI` (Windows) · `brew install --cask unity-cli` (macOS/Linux) · or `curl -fsSL https://unity.com/install.sh \| bash` |
+
+Only install what your project uses — a Unity team never needs uv for Unity, and
+a web team never needs the Unity CLI.
 
 `unreal-editor` needs **no launcher at all** — it talks HTTP to the MCP server
 embedded in the Unreal Editor (UE 5.8+), so there is no process for the harness
 to spawn.
 
 > **If a server won't start, it's almost always PATH.** The harness launches
-> `uvx`/`npx` itself, so they must be resolvable in its environment. Check with
-> `npx -v` and `uvx --version`. On **Windows with Microsoft Store Python**, `uvx`
+> `uvx`/`npx`/`unity` itself, so they must be resolvable in its environment. Check
+> with `npx -v`, `uvx --version`, and `unity --version` — and restart the harness
+> after installing a tool, since it only picks up PATH changes at launch. On
+> **Windows with Microsoft Store Python**, `uvx`
 > lands in a per-user folder that may not be on PATH — install uv with `winget`
 > (above) so it resolves everywhere, or register the absolute path to `uvx.exe`
 > (find it with `where uvx` / `(Get-Command uvx).Source`).
@@ -70,12 +76,14 @@ codex mcp add blender -- uvx blender-mcp
 codex mcp add playwright -- npx -y @playwright/mcp@latest
 codex mcp add fal-media -- npx -y fal-ai-mcp-server
 codex mcp add godot-editor -- npx -y @coding-solo/godot-mcp
-codex mcp add unity-editor -- uvx --from mcpforunityserver mcp-for-unity --transport stdio
+unity mcp configure codex
 ```
 
 (Or merge `mcp-configs/generated/codex.toml` into `~/.codex/config.toml` —
 that also covers `unreal-editor`, which is an HTTP server with no launch
-command, carried as a `url` block.)
+command, carried as a `url` block.) For Unity, prefer `unity mcp configure codex`
+over a bare `codex mcp add`: the Unity CLI also relaxes Codex's sandbox network
+policy so the server can reach the Editor over localhost.
 
 ## What each server needs
 
@@ -87,7 +95,7 @@ tools actually *work*, each server needs one more thing:
 | `playwright` | Drives a real browser to playtest/QA web (HTML5) builds | First run only: `npx playwright install chromium`. Point it at a running dev/preview server, not a `file://` path | — |
 | `fal-media` | Generates images, 3D, audio, video via fal.ai | A fal.ai key in the `FAL_KEY` environment variable | `FAL_KEY` |
 | `blender` | Inspects a Blender scene and runs `bpy` Python (geometry, export, validation) | **Blender open** with the BlenderMCP add-on **server started** — see the walkthrough below | — |
-| `unity-editor` | Drives the Unity Editor (scenes, GameObjects, assets, console, C#) | **Unity Editor open** with the MCP for Unity bridge package installed — see the Unity note below | — |
+| `unity-editor` | Drives the Unity Editor via Unity's official server (scenes, assets, console, C# evaluation, tests) | **Unity 6+ Editor open** with the Unity Pipeline package installed (`unity pipeline install`) — see the Unity note below | — |
 | `godot-editor` | Drives Godot (editor, run project, scenes/nodes, scripts, debug output) | **Godot installed** (auto-detected; set `GODOT_PATH` only if detection fails) | — |
 | `unreal-editor` | Drives the Unreal Editor (actors, lighting, materials, automation tests) | **UE 5.8+ with the official Unreal MCP plugin enabled** and the Editor open — see the Unreal note below | — |
 
@@ -147,45 +155,59 @@ register. (To use Blender outside this repo too, register it globally once:
 
 ## Unity MCP (engine control)
 
-`unity-editor` follows the same two-halves pattern as Blender: the harness side
-is **already wired**, but it needs the **Unity Editor open with the MCP for Unity
-bridge installed** so the server has something to drive. It lets the assistant
-build/rewire scenes, manage assets, run menu items, read the console, and
-edit/run C# directly in the Editor.
+`unity-editor` is **Unity's official MCP server**, built into the **Unity CLI**
+(`unity mcp`). The harness side is **pre-wired and portable** — the committed
+configs launch the bare `unity` command, no machine paths. Like Blender it has
+two halves: the server needs an **open Unity Editor running the Unity Pipeline
+package** to drive. Through it the assistant inspects and changes the open
+project — scenes, assets, console, C# evaluation, tests, Play Mode; the exact
+tool set is advertised by the Editor when the server connects.
 
-1. **Install the bridge in your Unity project** (one-time): Unity → **Window →
-   Package Manager → + → Add package from git URL**, paste
-   `https://github.com/CoplayDev/unity-mcp.git?path=/MCPForUnity#main` (pin a
-   release tag like `#v10.0.0` for reproducible installs; also on OpenUPM as
-   `com.coplaydev.unity-mcp`). The in-Editor wizard checks Python + uv and can
-   configure detected MCP clients. Upgrading from v9 or older? Follow the
-   project's migration guide — v10 reorganized tools into Tool Groups.
-2. **Install `uv`** if you haven't (see [Prerequisites](#prerequisites)); the
-   server launches via `uvx --from mcpforunityserver mcp-for-unity`.
+1. **Install the Unity CLI** once per machine: `winget install Unity.CLI`
+   (Windows), `brew install --cask unity-cli` (macOS/Linux), or
+   `curl -fsSL https://unity.com/install.sh | bash`. Check with
+   `unity --version`, then restart your harness so it sees `unity` on PATH.
+2. **Install the Pipeline package in your Unity project** (one-time, per
+   project): run `unity pipeline install` from the project folder (or pass
+   `--project-path <path>`).
 3. **Keep the Editor open**, reload your harness, and try *"list the GameObjects
    in the open Unity scene"*.
 
-Prereqs: Unity 2021.3 LTS+ and Python 3.10+ with uv. This server is
+Prereqs: **Unity 6.0 LTS or later** to drive the Editor. If the project also
+uses the in-Editor AI Assistant (`com.unity.ai.assistant`), it must be **2.13+**
+— earlier versions conflict with the CLI. The server starts even when no Editor
+is open (it simply exposes no tools until it finds one), so it never shows up
+as a failed connection. With several Editors open it attaches to the one it
+discovers; to pin a project, add `--project-path <path>` to the args in your
+own client config. Status when adopted (October 2026): the CLI is in 1.0 beta
+and the Pipeline package is experimental, so expect changes. This server is
 Unity-specific — it does nothing for Unreal/Godot/web projects.
 
-**Alternative — Unity's built-in MCP (Unity 6+):** since Unity 6 (and
-prominently in 6.5) the Editor ships its own MCP bridge via the
-`com.unity.ai.assistant` package — first-party, no Python/uv, with an
-in-Editor approval flow (**Project Settings → AI → Unity MCP**; new clients
-show up there as a *Pending Connection* to Accept). It is **not pre-wired**
-because clients launch a relay binary from your home directory (per-user,
-per-platform — e.g. `%USERPROFILE%\.unity\relay\relay_win.exe` on Windows),
-so register it yourself with the real path and the mandatory `--mcp` flag,
-e.g. for Claude Code:
+> **Coming from Unity's in-Editor MCP?** The `com.unity.ai.assistant` MCP
+> server (the relay binary under `~/.unity/relay`, with the *Pending
+> Connection* approval in **Project Settings → AI → Unity MCP**) is deprecated
+> by Unity in favour of this CLI server. Remove any manual `--mcp` relay entry
+> from your client config; the pre-wired `unity-editor` replaces it.
 
-```bash
-claude mcp add unity-editor-native -- "%USERPROFILE%\.unity\relay\relay_win.exe" --mcp
-```
+**On Unity 2021.3–2022 LTS (no Unity 6)**, use the community bridge
+`unity-editor-community` ([CoplayDev/unity-mcp](https://github.com/CoplayDev/unity-mcp))
+instead. It is portable but **opt-in** (`prewired: false` in the catalog), so
+two Unity servers never launch side by side:
 
-The catalog entry `unity-editor-native` documents the per-platform relay
-paths. The CoplayDev bridge above remains the pre-wired default (portable,
-Unity 2021.3+, larger tool catalog); pick one — don't run both against the
-same Editor session.
+1. **Install the bridge in your Unity project**: **Window → Package Manager →
+   + → Add package from git URL**, paste
+   `https://github.com/CoplayDev/unity-mcp.git?path=/MCPForUnity#main` (pin a
+   release tag like `#v10.0.0` for reproducible installs; also on OpenUPM as
+   `com.coplaydev.unity-mcp`).
+2. **Install `uv`** (Python 3.10+) — see [Prerequisites](#prerequisites).
+3. **Register it in your harness**, e.g. for Claude Code:
+
+   ```bash
+   claude mcp add unity-editor-community -- uvx --from mcpforunityserver mcp-for-unity --transport stdio
+   ```
+
+   Pick one Unity server per project — don't run both against the same Editor
+   session.
 
 ## Godot MCP (engine control)
 
@@ -280,4 +302,7 @@ To add or change a server: edit the catalog, then run `npm run sync:mcp` (and
 `npm run sync:wrappers` for the OpenCode block). `npm run validate` fails if any
 generated config drifts from the catalog. Only servers with a real command are
 emitted; catalog entries with a `<your-...-command>` placeholder are left for
-each team to fill in.
+each team to fill in. A portable server that is an *alternative* to a pre-wired
+one (e.g. `unity-editor-community`) carries `"prewired": false`: it stays out of
+every committed config and is listed with its one-line registration in
+`mcp-configs/generated/README.md`.

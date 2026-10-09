@@ -43,12 +43,23 @@ function catalogEntries(registry) {
   );
 }
 
+// prewired: false marks a portable server as opt-in: runnable as written, but
+// kept out of the committed configs so it never launches next to the default
+// server for the same tool (e.g. two Unity Editor bridges).
+function isOptIn(def) {
+  return def.prewired === false;
+}
+
 function runnableServers(registry) {
-  return catalogEntries(registry).filter(([, def]) => !hasPlaceholder(def));
+  return catalogEntries(registry).filter(([, def]) => !hasPlaceholder(def) && !isOptIn(def));
 }
 
 function placeholderServers(registry) {
   return catalogEntries(registry).filter(([, def]) => hasPlaceholder(def));
+}
+
+function optInServers(registry) {
+  return catalogEntries(registry).filter(([, def]) => !hasPlaceholder(def) && isOptIn(def));
 }
 
 // OpenCode and Kilo share this embedded `mcp` object (type local|remote).
@@ -81,5 +92,6 @@ module.exports = {
   catalogEntries,
   runnableServers,
   placeholderServers,
+  optInServers,
   buildEmbeddedMcp,
 };

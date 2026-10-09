@@ -31,13 +31,9 @@
       ]
     },
     "unity-editor": {
-      "command": "uvx",
+      "command": "unity",
       "args": [
-        "--from",
-        "mcpforunityserver",
-        "mcp-for-unity",
-        "--transport",
-        "stdio"
+        "mcp"
       ]
     },
     "unreal-editor": {

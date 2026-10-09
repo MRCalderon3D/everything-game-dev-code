@@ -77,6 +77,10 @@
           "recommended": {
             "type": "boolean"
           },
+          "prewired": {
+            "type": "boolean",
+            "description": "Default true. false keeps a portable (placeholder-free) server out of every committed harness config — for opt-in alternatives that would otherwise launch next to the default server for the same tool."
+          },
           "purpose": {
             "type": "string",
             "minLength": 1

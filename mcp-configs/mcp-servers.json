@@ -347,12 +347,39 @@
       "category": "engine-control",
       "enabled_by_default": false,
       "recommended": true,
-      "purpose": "Drive the Unity Editor from the assistant via MCP for Unity (CoplayDev): inspect and modify scenes and GameObjects, manage and import assets, run Editor menu items, read the console, and edit/run C# — so scene scaffolding and audits act directly in the Editor instead of hand-editing YAML.",
+      "purpose": "Drive the Unity Editor via Unity's official MCP server, built into the Unity CLI (`unity mcp`) and backed by the Unity Pipeline package in the project: inspect and change the open project (scenes, assets, console, C# evaluation, tests, Play Mode) — the exact tool set is advertised by the Editor at connect time.",
       "when_to_use": [
-        "scaffold or rewire a scene live in the Editor (create GameObjects, set components/references) instead of editing .unity/.prefab YAML by hand",
+        "scaffold or rewire a scene live in the Editor instead of editing .unity/.prefab YAML by hand",
         "audit scene/prefab structure and serialized references against the unity rules while the project is open",
-        "run Editor menu items, trigger imports, or read the console while diagnosing a build or import",
+        "read the console, evaluate C#, or run tests while diagnosing a build or import",
         "apply a unity-setup/scene-bootstrap result directly to the open project"
+      ],
+      "transport": "stdio",
+      "command": "unity",
+      "args": [
+        "mcp"
+      ],
+      "env": {},
+      "notes": [
+        "Official first-party server and Unity's supported path: it replaces the deprecated in-Editor MCP server of com.unity.ai.assistant (the `~/.unity/relay` relay binary). Pre-wired and portable — the bare `unity` command on PATH, no machine paths.",
+        "Two halves: (1) install the Unity CLI once per machine — `winget install Unity.CLI` (Windows), `brew install --cask unity-cli` (macOS/Linux), or `curl -fsSL https://unity.com/install.sh | bash`; (2) in each Unity project run `unity pipeline install` (adds the Unity Pipeline package) and keep the Editor open. The server starts even with no Editor running and exposes tools once it discovers an Editor running the Pipeline package.",
+        "Needs Unity 6.0 LTS+ to drive the Editor. If the project also has com.unity.ai.assistant, it must be 2.13+ (earlier versions conflict with the CLI). Status when adopted (2026-10): CLI 1.0.0-beta.13, Pipeline package experimental — expect changes.",
+        "Several Editors open: the server attaches to the Editor it discovers; to pin one, add `--project-path <path>` to the args in your own client config (the committed config stays project-agnostic).",
+        "Codex: prefer `unity mcp configure codex` over a bare `codex mcp add` — it also relaxes Codex's sandbox network policy so the server can reach the Editor over localhost.",
+        "On Unity 2021.3–2022 LTS (no Unity 6), use the community bridge `unity-editor-community` below instead. Do not run both against the same Editor session.",
+        "Engine-specific (engine-control): use only inside Unity work; it does not apply to Unreal/Godot/web. Keep Unity implementation detail in the Unity rules layer.",
+        "Pairs with the unity-setup, scene-bootstrap, unity-scene-audit, and unity-review commands. Distinct from unity-docs / unity-package-registry, which are documentation servers, not Editor control."
+      ]
+    },
+    "unity-editor-community": {
+      "category": "engine-control",
+      "enabled_by_default": false,
+      "recommended": false,
+      "prewired": false,
+      "purpose": "Alternative Unity Editor control via the community MCP for Unity bridge (CoplayDev): scenes and GameObjects, asset import, Editor menu items, console, and C# editing — for Unity versions before Unity 6, or teams that depend on its tool groups.",
+      "when_to_use": [
+        "drive the Unity Editor on Unity 2021.3–2022 LTS, where the official CLI server cannot reach the Editor",
+        "keep a project that is already standardized on the CoplayDev bridge and its tool groups (vfx, animation, UI, testing)"
       ],
       "transport": "stdio",
       "command": "uvx",
@@ -365,32 +392,10 @@
       ],
       "env": {},
       "notes": [
-        "Two halves like the Blender MCP: install the Unity-side bridge in your project (Package Manager -> Add package from git URL: https://github.com/CoplayDev/unity-mcp.git?path=/MCPForUnity#main — pin a release tag like #v10.0.0 for reproducible installs; also available via OpenUPM as com.coplaydev.unity-mcp) and keep the Unity Editor open; the harness launches this server (PyPI package mcpforunityserver) which connects to it.",
-        "v10 (2026-06) added Tool Groups (tools organized by domain: vfx, animation, UI, testing) and improved multi-instance routing; when upgrading a project from v9 or older, follow the project's migration guide.",
-        "Prereqs: Unity 2021.3 LTS+, Python 3.10+ with uv (provides uvx). First run downloads mcpforunityserver from PyPI.",
-        "Engine-specific (engine-control): use only inside Unity work; it does not apply to Unreal/Godot/web. Keep Unity implementation detail in the Unity rules layer.",
-        "Pairs with the unity-setup, scene-bootstrap, unity-scene-audit, and unity-review commands. Distinct from unity-docs / unity-package-registry, which are documentation servers, not Editor control."
-      ]
-    },
-    "unity-editor-native": {
-      "category": "engine-control",
-      "enabled_by_default": false,
-      "recommended": false,
-      "purpose": "Alternative Unity Editor control via Unity's built-in MCP support (Unity 6+, com.unity.ai.assistant): the Editor runs its own MCP bridge and clients connect through a relay binary — first-party, no Python/uv, with in-Editor connection approval.",
-      "when_to_use": [
-        "drive the Unity Editor with zero external dependencies on Unity 6+ (no Python/uv, no third-party bridge package)",
-        "work under Unity's built-in client-approval flow (Project Settings -> AI -> Unity MCP) when team policy prefers first-party tooling"
-      ],
-      "transport": "stdio",
-      "command": "<your-home-dir>/.unity/relay/relay_win.exe",
-      "args": [
-        "--mcp"
-      ],
-      "env": {},
-      "notes": [
-        "NOT pre-wired: the relay binary Unity installs lives under the user's home directory and is per-platform (Windows `%USERPROFILE%\\.unity\\relay\\relay_win.exe`, macOS arm64 `~/.unity/relay/relay_mac_arm64.app/Contents/MacOS/relay_mac_arm64`, macOS x64 `~/.unity/relay/relay_mac_x64.app/Contents/MacOS/relay_mac_x64`, Linux `~/.unity/relay/relay_linux`), so the command is a per-machine placeholder — register it in your own client config with the real absolute path, always passing `--mcp`.",
-        "Requires Unity 6 (6000.0)+ with the com.unity.ai.assistant package installed; the bridge starts with the Editor (check Project Settings -> AI -> Unity MCP shows Running). New clients appear there as a Pending Connection you must Accept once.",
-        "The pre-wired `unity-editor` (CoplayDev bridge) remains the default: portable command, Unity 2021.3+, and a much larger tool catalog. Choose this native server for first-party-only setups on Unity 6+; do not run both against the same Editor session.",
+        "NOT pre-wired (prewired: false): the official `unity-editor` server is the default, and pre-wiring both would launch two Unity servers in every session. The command is portable, so registering it is one line, e.g. `claude mcp add unity-editor-community -- uvx --from mcpforunityserver mcp-for-unity --transport stdio`.",
+        "Two halves: install the Unity-side bridge in your project (Package Manager -> Add package from git URL: https://github.com/CoplayDev/unity-mcp.git?path=/MCPForUnity#main — pin a release tag like #v10.0.0 for reproducible installs; also on OpenUPM as com.coplaydev.unity-mcp) and keep the Editor open; the harness launches this server (PyPI package mcpforunityserver), which connects to it.",
+        "Prereqs: Unity 2021.3 LTS+, Python 3.10+ with uv (provides uvx). v10 (2026-06) organized tools into Tool Groups; when upgrading a project from v9 or older, follow the project's migration guide.",
+        "Do not run it and the official `unity-editor` server against the same Editor session.",
         "Engine-specific (engine-control): use only inside Unity work; it does not apply to Unreal/Godot/web. Keep Unity implementation detail in the Unity rules layer."
       ]
     },

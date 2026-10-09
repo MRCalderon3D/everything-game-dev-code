@@ -3,6 +3,7 @@
 // (url, e.g. the official Unreal Engine 5.8 in-editor MCP server). The schema
 // must require the field that matches the declared transport, and the config
 // generators must emit http servers in each harness's http/remote shape.
+// Portable entries marked `prewired: false` are opt-in and never emitted.
 const assert = require('assert');
 const fs = require('fs');
 const path = require('path');
@@ -114,25 +115,58 @@ assert.ok(
   'codex.toml should carry unreal-editor as a url-based server'
 );
 
-// --- catalog: Unity's native in-editor MCP is documented as an alternative ---
-// Its relay binary lives under the user's home directory (per-user, per-platform
-// path), so it must stay a placeholder entry: documented in the catalog but never
-// emitted into the committed configs (the CoplayDev bridge remains the pre-wired
-// default).
-const unityNative = registry.servers['unity-editor-native'];
-assert.ok(unityNative, "catalog should define a 'unity-editor-native' server");
-assert.deepStrictEqual(unityNative.args, ['--mcp'], 'the Unity relay must be launched with --mcp');
-assert.ok(
-  isPlaceholderValue(unityNative.command),
-  'unity-editor-native command must stay a per-machine placeholder'
+// --- catalog: Unity's official MCP server (Unity CLI) is the pre-wired default ---
+// `unity mcp` is the stdio server the CLI itself writes into client configs; the
+// bare `unity` command keeps the committed configs portable.
+const unity = registry.servers['unity-editor'];
+assert.ok(unity, "catalog should define a 'unity-editor' server");
+assert.strictEqual(unity.command, 'unity', 'unity-editor should launch the Unity CLI by its bare name');
+assert.deepStrictEqual(unity.args, ['mcp'], 'unity-editor should start the CLI MCP stdio server');
+assert.deepStrictEqual(
+  universal.mcpServers['unity-editor'],
+  { command: 'unity', args: ['mcp'] },
+  '.mcp.json should carry the official Unity CLI server'
 );
 assert.ok(
-  !('unity-editor-native' in universal.mcpServers),
-  'placeholder servers must not leak into .mcp.json'
+  !('unity-editor-native' in registry.servers),
+  'the deprecated in-Editor relay entry should be gone from the catalog'
 );
 
-function isPlaceholderValue(value) {
-  return typeof value === 'string' && value.includes('<') && value.includes('>');
+// --- prewired: false keeps a portable alternative out of every committed config ---
+const { runnableServers, optInServers } = require(path.join(repoRoot, 'scripts', 'lib', 'mcp-catalog.js'));
+const community = registry.servers['unity-editor-community'];
+assert.ok(community, "catalog should define a 'unity-editor-community' server");
+assert.strictEqual(community.prewired, false, 'the community Unity bridge must be opt-in');
+assert.ok(
+  !runnableServers(registry).some(([id]) => id === 'unity-editor-community') &&
+    optInServers(registry).some(([id]) => id === 'unity-editor-community'),
+  'opt-in servers must be excluded from runnable servers and listed as opt-in'
+);
+for (const [label, ids] of [
+  ['.mcp.json', Object.keys(universal.mcpServers)],
+  ['.opencode/opencode.json', Object.keys(opencode.mcp)],
+  ['.kilo/kilo.json', Object.keys(kilo.mcp)],
+]) {
+  assert.ok(!ids.includes('unity-editor-community'), `opt-in servers must not leak into ${label}`);
 }
+assert.ok(
+  !codexToml.includes('[mcp_servers.unity-editor-community]'),
+  'opt-in servers must not leak into codex.toml'
+);
+assert.strictEqual(
+  validateAgainstSchema(
+    SCHEMA,
+    registryWith({ purpose: 'x', transport: 'stdio', command: 'npx', prewired: false })
+  ).length,
+  0,
+  'prewired: false should pass schema validation'
+);
+assert.ok(
+  validateAgainstSchema(
+    SCHEMA,
+    registryWith({ purpose: 'x', transport: 'stdio', command: 'npx', prewired: 'no' })
+  ).length > 0,
+  'a non-boolean prewired should fail schema validation'
+);
 
 console.log('PASS scripts/mcp-configs.test.js');

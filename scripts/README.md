@@ -102,7 +102,7 @@ These scripts are the implementations for the hooks declared in `hooks/hooks.jso
 |---------|---------|
 | `engines.js` | `loadEngines()`, `engineIds()` — load the engine layer registry (`manifests/engines.json`) |
 | `harnesses.js` | `loadHarnesses()`, `harnessIds()` — load the harness adapter registry (`manifests/harnesses.json`) |
-| `mcp-catalog.js` | Catalog load, placeholder filter, and `buildEmbeddedMcp()` — shared OpenCode/Kilo `mcp` object from `mcp-configs/mcp-servers.json` |
+| `mcp-catalog.js` | Catalog load, placeholder and opt-in (`prewired: false`) filters, and `buildEmbeddedMcp()` — shared OpenCode/Kilo `mcp` object from `mcp-configs/mcp-servers.json` |
 | `hook-wiring.js` | `buildClaudeHooks()`, `buildCursorHooks()` — derive per-harness hook wiring from `hooks/hooks.json` |
 | `profile-resolution.js` | `getActiveProfile()`, `detectProfileFromPaths()` — read and infer the active engine profile (engine list derives from the registry) |
 | `schema-validation.js` | `validateAgainstSchema()` — ajv-backed JSON Schema validation used by the schema validators |

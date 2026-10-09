@@ -2,6 +2,18 @@
 
 All notable changes to this scaffold should be documented here.
 
+## Unreleased
+
+### Changed
+- `unity-editor` is now **Unity's official MCP server**, the one built into the Unity CLI: `command: "unity"`, `args: ["mcp"]`. That is exactly the entry `unity mcp configure` writes. It was verified against CLI 1.0.0-beta.13 with an MCP handshake (`serverInfo: unity-mcp`; the protocol on stdout is clean). It is pre-wired and portable in every harness config, and it starts without error even when no Editor is open. Requirements on the user's side: install the Unity CLI (`winget install Unity.CLI` / `brew install --cask unity-cli` / `curl -fsSL https://unity.com/install.sh | bash`), run `unity pipeline install` in each project, and use Unity 6.0 LTS+. If the project also has `com.unity.ai.assistant`, it must be version 2.13 or later. Codex users should run `unity mcp configure codex`, which also relaxes Codex's sandbox network policy so the server can reach the Editor over localhost.
+- The CoplayDev MCP for Unity bridge moved from `unity-editor` to the new **`unity-editor-community`** entry, for Unity 2021.3–2022 LTS. It is opt-in: still portable, but no longer pre-wired, so two Unity servers never launch side by side. This mirrors the existing `unreal-editor` / `unreal-editor-community` split.
+
+### Added
+- The `prewired` flag for MCP catalog entries (in `schemas/mcp-servers.schema.json`; defaults to `true`). An entry with `"prewired": false` is runnable as written but stays out of every committed harness config. `scripts/lib/mcp-catalog.js` gained `optInServers()`, and `runnableServers()` now excludes these entries. The generated `mcp-configs/generated/README.md` lists them in a new "Opt-in alternatives" section, each with a one-line `claude mcp add` registration. Covered in `tests/scripts/mcp-configs.test.js`: opt-in entries are absent from `.mcp.json`, OpenCode, Kilo, and `codex.toml`, and the schema rejects a non-boolean `prewired`.
+
+### Removed
+- `unity-editor-native`, the `com.unity.ai.assistant` relay binary under `~/.unity/relay` used with `--mcp`. Unity has deprecated that in-Editor MCP server in favour of the Unity CLI server above. `docs/mcp-setup.md` now has a migration note for anyone still registering the relay by hand.
+
 ## 0.6.0
 
 ### Added
