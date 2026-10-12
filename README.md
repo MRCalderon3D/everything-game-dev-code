@@ -1,3 +1,5 @@
+[![MseeP.ai Security Assessment Badge](https://mseep.net/pr/mrcalderon3d-everything-game-dev-code-badge.png)](https://mseep.ai/app/mrcalderon3d-everything-game-dev-code)
+
 <div align="center">
 
 # Everything Game Dev Code
