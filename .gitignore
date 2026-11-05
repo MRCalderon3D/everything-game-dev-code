@@ -21,3 +21,7 @@ CLAUDE.local.md
 # Kilo Agent Manager runtime (the .kilo/ adapter is tracked; session state is not)
 .kilo/agent-manager.json
 .kilo/worktrees/
+
+# Local junctions to external game projects (C:\Source\...)
+/BaldNinjAI
+/BaldNinjAI3D
