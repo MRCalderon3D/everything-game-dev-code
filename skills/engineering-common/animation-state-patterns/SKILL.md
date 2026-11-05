@@ -54,6 +54,10 @@ Structure animation state, blending, events, and sync so authored motion remains
 - verify
 - playtest-report
 
+## Related Skills
+- 2d-animation-pipeline
+
 ## Notes
 - Keep this skill aligned with the relevant rules layer and current project documentation.
 - If engine-specific constraints materially change the workflow, hand off to the matching engine skill or engine-specific reviewer.
+- Boundary: this skill owns runtime state-machine architecture; `2d-animation-pipeline` owns animation authoring, import, and wiring conventions.

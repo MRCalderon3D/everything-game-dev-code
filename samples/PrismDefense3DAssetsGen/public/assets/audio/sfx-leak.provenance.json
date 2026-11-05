@@ -1,0 +1,19 @@
+{
+  "provider": "fal",
+  "model": "fal-ai/elevenlabs/sound-effects/v2",
+  "type": "sfx",
+  "prompt": "alarm pulse with cracking crystal damage, urgent warning, short, game base-damage sound",
+  "input": {
+    "text": "alarm pulse with cracking crystal damage, urgent warning, short, game base-damage sound"
+  },
+  "seed": null,
+  "requestId": "019ebdac-2286-7b70-9f54-df9b8052e62c",
+  "generatedAt": "2026-06-12T21:10:39.888Z",
+  "sourceUrls": [
+    "https://v3b.fal.media/files/b/0a9e0bc7/mO0Y2vPSKUc6VeywaFl0P_sound_effect.mp3"
+  ],
+  "files": [
+    "sfx-leak.mp3"
+  ],
+  "license": "Generated via fal.ai; review provider and upstream model license terms before shipping."
+}

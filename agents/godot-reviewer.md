@@ -17,6 +17,12 @@ Reviews Godot architecture, scene structure, resource usage, and engine-specific
 
 ## Uses These Skills
 - godot-project-structure
+- godot-gdscript-standards
+- godot-csharp-patterns
+- godot-signals-patterns
+- godot-input-patterns
+- godot-3d-scenes
+- godot-resource-management
 - godot-testing
 - godot-performance
 - godot-build-release
@@ -35,5 +41,5 @@ Reviews Godot architecture, scene structure, resource usage, and engine-specific
 
 ## Activation Guidance
 - Use this agent when the task clearly belongs to this specialty.
-- Keep engine-neutral outputs free of Unity, Unreal, or Godot implementation detail unless the task is engine-specific.
+- Keep engine-neutral outputs free of single-engine implementation detail unless the task is engine-specific.
 - Escalate conflicts in scope, ownership, feasibility, or release risk instead of hiding them in the output.

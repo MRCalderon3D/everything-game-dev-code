@@ -3,4 +3,3 @@ description: Audit Godot scenes, nodes, autoloads, and scene composition pattern
 ---
 
 Read `commands/godot-scene-audit.md` and execute it as instructed.
-

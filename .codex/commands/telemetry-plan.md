@@ -3,4 +3,3 @@ description: Define events, schemas, questions, KPIs, and validation for telemet
 ---
 
 Read `commands/telemetry-plan.md` and execute it as instructed.
-

@@ -18,6 +18,11 @@ Owns art pipeline quality, shaders, import settings, and runtime visual performa
 ## Uses These Skills
 - technical-art-pipeline
 - vfx-pipeline
+- cinematic-pipeline
+- 3d-asset-pipeline
+- rigging-skinning-pipeline
+- materials-shading-pipeline
+- lighting-lod-pipeline
 - asset-management
 - performance-budgeting
 
@@ -36,5 +41,5 @@ Owns art pipeline quality, shaders, import settings, and runtime visual performa
 
 ## Activation Guidance
 - Use this agent when the task clearly belongs to this specialty.
-- Keep engine-neutral outputs free of Unity, Unreal, or Godot implementation detail unless the task is engine-specific.
+- Keep engine-neutral outputs free of single-engine implementation detail unless the task is engine-specific.
 - Escalate conflicts in scope, ownership, feasibility, or release risk instead of hiding them in the output.

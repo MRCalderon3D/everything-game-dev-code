@@ -1,0 +1,19 @@
+{
+  "provider": "fal",
+  "model": "fal-ai/elevenlabs/sound-effects/v2",
+  "type": "sfx",
+  "prompt": "dark defeat sting, shattering crystal followed by a low ominous drone, fantasy game lose sound",
+  "input": {
+    "text": "dark defeat sting, shattering crystal followed by a low ominous drone, fantasy game lose sound"
+  },
+  "seed": null,
+  "requestId": "019ebdac-5ce6-7ee0-a62d-3254f167ac8d",
+  "generatedAt": "2026-06-12T21:10:58.273Z",
+  "sourceUrls": [
+    "https://v3b.fal.media/files/b/0a9e0bc9/9DzmlEyLRCzcz3kfbSKFA_sound_effect.mp3"
+  ],
+  "files": [
+    "sfx-lose.mp3"
+  ],
+  "license": "Generated via fal.ai; review provider and upstream model license terms before shipping."
+}

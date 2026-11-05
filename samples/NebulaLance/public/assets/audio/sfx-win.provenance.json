@@ -1,0 +1,19 @@
+{
+  "provider": "fal",
+  "model": "fal-ai/elevenlabs/sound-effects/v2",
+  "type": "sfx",
+  "prompt": "triumphant short victory fanfare, heroic sci-fi, bright",
+  "input": {
+    "text": "triumphant short victory fanfare, heroic sci-fi, bright"
+  },
+  "seed": null,
+  "requestId": "019ec666-8421-74b1-85e5-295ef02dbcad",
+  "generatedAt": "2026-06-14T13:51:12.097Z",
+  "sourceUrls": [
+    "https://v3b.fal.media/files/b/0a9e44fa/2dzL_2_dPGcLCoA8tmqaw_sound_effect.mp3"
+  ],
+  "files": [
+    "sfx-win.mp3"
+  ],
+  "license": "Generated via fal.ai; review provider and upstream model license terms before shipping."
+}

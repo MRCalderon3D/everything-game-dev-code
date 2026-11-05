@@ -1,0 +1,19 @@
+{
+  "provider": "fal",
+  "model": "fal-ai/elevenlabs/sound-effects/v2",
+  "type": "sfx",
+  "prompt": "bright ascending power-up pickup chime, positive, short, arcade",
+  "input": {
+    "text": "bright ascending power-up pickup chime, positive, short, arcade"
+  },
+  "seed": null,
+  "requestId": "019ec666-357e-77f3-aed0-6afdb4e74898",
+  "generatedAt": "2026-06-14T13:50:51.982Z",
+  "sourceUrls": [
+    "https://v3b.fal.media/files/b/0a9e44f8/zLPHLS4h4r8opx4679ZOc_sound_effect.mp3"
+  ],
+  "files": [
+    "sfx-powerup.mp3"
+  ],
+  "license": "Generated via fal.ai; review provider and upstream model license terms before shipping."
+}

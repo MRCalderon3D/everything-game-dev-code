@@ -1,0 +1,92 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "harnesses.schema.json",
+  "title": "Harness adapter registry",
+  "type": "object",
+  "required": ["version", "description", "harnesses"],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": { "type": "string" },
+    "version": { "type": "integer", "minimum": 1 },
+    "description": { "type": "string", "minLength": 1 },
+    "harnesses": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "display", "dir", "commands", "hooks", "mcp", "entryPoints"],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+            "description": "Kebab-case harness id."
+          },
+          "display": { "type": "string", "minLength": 1 },
+          "dir": {
+            "type": "string",
+            "pattern": "^\\.[a-z0-9-]+$",
+            "description": "Adapter directory at the repo root (e.g. '.claude')."
+          },
+          "commands": {
+            "description": "Command wrapper surface, or null when the harness has no project-scoped command support.",
+            "oneOf": [
+              { "type": "null" },
+              {
+                "type": "object",
+                "required": ["dir", "style"],
+                "additionalProperties": false,
+                "properties": {
+                  "dir": {
+                    "type": "string",
+                    "minLength": 1,
+                    "description": "Directory generate-wrappers.js writes one wrapper per commands/*.md into."
+                  },
+                  "style": {
+                    "type": "string",
+                    "enum": ["claude", "opencode"],
+                    "description": "'claude': frontmatter description + resolution line (also used by Codex and Cursor). 'opencode': adapter-behavior wrapper plus a JSON command registry."
+                  },
+                  "registry": {
+                    "type": "string",
+                    "minLength": 1,
+                    "description": "For style 'opencode': the JSON config file that carries the command registry (generate-wrappers.js owns the whole file)."
+                  }
+                }
+              }
+            ]
+          },
+          "hooks": {
+            "type": "boolean",
+            "description": "Whether sync:hook-wiring emits executable hook wiring for this harness (builders live in scripts/lib/hook-wiring.js)."
+          },
+          "mcp": {
+            "description": "Project-scoped MCP config location, or null when the harness only reads a home-level config.",
+            "oneOf": [
+              { "type": "null" },
+              {
+                "type": "object",
+                "required": ["path", "format"],
+                "additionalProperties": false,
+                "properties": {
+                  "path": { "type": "string", "minLength": 1 },
+                  "format": {
+                    "type": "string",
+                    "enum": ["universal", "toml", "opencode", "kilo"],
+                    "description": "'universal': the de-facto-standard mcpServers shape, written by sync:mcp. 'toml': a config.toml with [mcp_servers.*] sections (Grok Build), written by sync:mcp. 'opencode': mcp block embedded in the command registry, written by sync:wrappers. 'kilo': a kilo.json with a top-level mcp object (Kilo), written by sync:mcp."
+                  }
+                }
+              }
+            ]
+          },
+          "entryPoints": {
+            "type": "array",
+            "minItems": 1,
+            "items": { "type": "string", "minLength": 1 },
+            "description": "Paths doctor.js asserts exist for the adapter to count as installed."
+          }
+        }
+      }
+    }
+  }
+}

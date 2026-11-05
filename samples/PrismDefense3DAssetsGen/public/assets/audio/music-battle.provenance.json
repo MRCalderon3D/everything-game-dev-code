@@ -1,0 +1,20 @@
+{
+  "provider": "fal",
+  "model": "cassetteai/music-generator",
+  "type": "music",
+  "prompt": "epic dark fantasy tower defense battle loop, mystical crystal theme, driving percussion, pulsing synth arpeggios, heroic and tense, seamless loop, 100 BPM instrumental",
+  "input": {
+    "duration": 32,
+    "prompt": "epic dark fantasy tower defense battle loop, mystical crystal theme, driving percussion, pulsing synth arpeggios, heroic and tense, seamless loop, 100 BPM instrumental"
+  },
+  "seed": null,
+  "requestId": "019ebdae-10b7-7b72-9ec7-9e2c8a6bd35e",
+  "generatedAt": "2026-06-12T21:12:50.478Z",
+  "sourceUrls": [
+    "https://v3b.fal.media/files/b/0a9e0bd4/h8RLWWcxs5VDCkWsa6G5O_generated.wav"
+  ],
+  "files": [
+    "music-battle.wav"
+  ],
+  "license": "Generated via fal.ai; review provider and upstream model license terms before shipping."
+}

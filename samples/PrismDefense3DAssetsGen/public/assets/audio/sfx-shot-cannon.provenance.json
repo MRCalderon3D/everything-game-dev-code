@@ -1,0 +1,19 @@
+{
+  "provider": "fal",
+  "model": "fal-ai/elevenlabs/sound-effects/v2",
+  "type": "sfx",
+  "prompt": "deep magical cannon firing a heavy energy projectile, punchy thump with a short crystalline tail, game weapon sound, short",
+  "input": {
+    "text": "deep magical cannon firing a heavy energy projectile, punchy thump with a short crystalline tail, game weapon sound, short"
+  },
+  "seed": null,
+  "requestId": "019ebdab-d559-7bc1-89c4-d202ba8aad0a",
+  "generatedAt": "2026-06-12T21:10:20.001Z",
+  "sourceUrls": [
+    "https://v3b.fal.media/files/b/0a9e0bc5/wLbYdA-Z3Jp21MEoTskDu_sound_effect.mp3"
+  ],
+  "files": [
+    "sfx-shot-cannon.mp3"
+  ],
+  "license": "Generated via fal.ai; review provider and upstream model license terms before shipping."
+}

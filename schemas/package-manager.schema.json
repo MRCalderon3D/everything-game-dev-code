@@ -1,40 +1,44 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://example.com/schemas/package-manager.schema.json",
-  "title": "Package Manager Settings",
+  "title": "Harness Package Mapping",
   "type": "object",
-  "additionalProperties": true,
+  "additionalProperties": false,
+  "required": [
+    "name",
+    "adapter",
+    "mapping"
+  ],
   "properties": {
-    "manager": {
+    "$schema": {
       "type": "string"
     },
-    "version": {
-      "type": [
-        "string",
-        "integer"
-      ]
+    "name": {
+      "type": "string",
+      "minLength": 1
     },
-    "lockfile": {
-      "type": "string"
+    "adapter": {
+      "type": "string",
+      "minLength": 1
     },
-    "registries": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "additionalProperties": true,
-        "properties": {
-          "name": {
-            "type": "string"
-          },
-          "url": {
-            "type": "string",
-            "format": "uri"
-          },
-          "scope": {
-            "type": "string"
-          }
-        }
+    "mapping": {
+      "type": "object",
+      "minProperties": 1,
+      "propertyNames": {
+        "pattern": "^[a-z0-9][a-z0-9-]*$"
+      },
+      "additionalProperties": {
+        "type": "string",
+        "minLength": 1
       }
+    },
+    "engine_profiles": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
     }
   }
 }

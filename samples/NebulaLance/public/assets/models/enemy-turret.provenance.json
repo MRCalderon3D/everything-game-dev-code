@@ -1,0 +1,24 @@
+{
+  "provider": "fal",
+  "model": "fal-ai/hunyuan-3d/v3.1/rapid/image-to-3d",
+  "type": "model3d",
+  "input": {
+    "input_image_url": "https://v3b.fal.media/files/b/0a9e452f/bT-XuseeWSD1ouCQ9yErn_xmuNqbcP.png"
+  },
+  "seed": null,
+  "requestId": "019ec66e-bf61-71e2-9971-2f1f18e098b5",
+  "generatedAt": "2026-06-14T14:01:26.539Z",
+  "sourceUrls": [
+    "https://v3b.fal.media/files/b/0a9e453d/qs1FT5R3i6tW8y_05R1Jk_06246c82e94d908f2b4d34b5ac2aa34d.obj",
+    "https://v3b.fal.media/files/b/0a9e453d/tZgWsYVV5EPlatzX8oxrY_material.mtl",
+    "https://v3b.fal.media/files/b/0a9e453d/HUyKEmwvyGHzuqU0cM290_texture_20250901.png",
+    "https://v3b.fal.media/files/b/0a9e453d/phf4cHG9J-13NzEE2NZZq_preview.png"
+  ],
+  "files": [
+    "enemy-turret-3d-1.obj",
+    "enemy-turret-3d-2.bin",
+    "enemy-turret-3d-3.png",
+    "enemy-turret-3d-4.png"
+  ],
+  "license": "Generated via fal.ai; review provider and upstream model license terms before shipping."
+}

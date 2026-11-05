@@ -1,0 +1,132 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "asset-providers.schema.json",
+  "title": "Generative asset provider registry",
+  "type": "object",
+  "required": ["version", "description", "defaultProvider", "providers"],
+  "additionalProperties": false,
+  "$defs": {
+    "tier": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["model", "estCostUsd"],
+      "properties": {
+        "model": { "type": "string", "minLength": 1, "description": "Model id for this quality tier." },
+        "estCostUsd": { "type": "number", "minimum": 0, "description": "Rough per-output cost in USD for this tier's model." }
+      }
+    }
+  },
+  "properties": {
+    "$schema": { "type": "string" },
+    "version": { "type": "integer", "minimum": 1 },
+    "description": { "type": "string", "minLength": 1 },
+    "defaultProvider": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+      "description": "Provider id used when no provider is selected explicitly."
+    },
+    "confirmOverUsd": {
+      "type": "number",
+      "minimum": 0,
+      "description": "Default cost threshold (USD): a generation run whose estimated cost is at or above this requires explicit confirmation (--yes, or ASSET_GEN_YES=1) before it will run. Overridable per run with --confirm-over or the ASSET_GEN_CONFIRM_OVER env var."
+    },
+    "defaultQuality": {
+      "type": "string",
+      "enum": ["budget", "balanced", "premium"],
+      "description": "Quality/price tier used when none is selected. Each capability's byQuality map picks the model per tier; the agent should ask the user 'quality or price?' once before a generation batch and pass --quality (or set ASSET_GEN_QUALITY). The cost-confirmation gate still applies on top of whichever tier is chosen."
+    },
+    "nativeFirstCapabilities": {
+      "type": "array",
+      "items": { "type": "string", "enum": ["image", "skybox"] },
+      "uniqueItems": true,
+      "description": "Capabilities that a harness-native generator (e.g. Codex $imagegen) can satisfy for free. Resolution order for these is: harness-native if the running harness exposes one, then the paid API provider if a key is set, then procedural placeholders. Only image-shaped capabilities qualify; 3D/audio/video have no harness-native path."
+    },
+    "providers": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "display", "queueBaseUrl", "apiKeyEnv", "docsUrl", "capabilities"],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+            "description": "Kebab-case provider id."
+          },
+          "display": { "type": "string", "minLength": 1 },
+          "queueBaseUrl": {
+            "type": "string",
+            "pattern": "^https://",
+            "description": "Base URL of the provider's async queue API; model ids are appended as path segments."
+          },
+          "apiKeyEnv": {
+            "type": "string",
+            "pattern": "^[A-Z][A-Z0-9_]*$",
+            "description": "Environment variable holding the API key. Keys are never stored in the repository."
+          },
+          "docsUrl": { "type": "string", "pattern": "^https://" },
+          "notes": {
+            "type": "array",
+            "items": { "type": "string", "minLength": 1 }
+          },
+          "capabilities": {
+            "type": "object",
+            "minProperties": 1,
+            "additionalProperties": false,
+            "patternProperties": {
+              "^(image|skybox|model3d|sfx|music|speech|video)$": {
+                "type": "object",
+                "required": ["model", "promptField", "output"],
+                "additionalProperties": false,
+                "properties": {
+                  "model": {
+                    "type": "string",
+                    "minLength": 1,
+                    "description": "Default model id for this capability."
+                  },
+                  "alternatives": {
+                    "type": "array",
+                    "items": { "type": "string", "minLength": 1 },
+                    "description": "Other model ids worth selecting via --model (e.g. higher fidelity or lower cost)."
+                  },
+                  "promptField": {
+                    "type": "string",
+                    "minLength": 1,
+                    "description": "Name of the input field that carries the text prompt for the default model."
+                  },
+                  "defaults": {
+                    "type": "object",
+                    "description": "Extra input fields merged into every request for this capability (overridable via --input-json)."
+                  },
+                  "output": {
+                    "type": "string",
+                    "minLength": 1,
+                    "description": "Expected output file format(s), informational."
+                  },
+                  "estCostUsd": {
+                    "type": "number",
+                    "minimum": 0,
+                    "description": "Rough cost in USD for one default-model generation of this capability, used to estimate a run and decide whether confirmation is needed. Approximate and provider-catalog-dependent; not billed by the scaffold."
+                  },
+                  "byQuality": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": ["budget", "balanced", "premium"],
+                    "description": "Per-quality-tier model selection. --quality (or ASSET_GEN_QUALITY, or the registry defaultQuality) picks one; an explicit --model overrides it. Tiers within a capability are assumed to share the promptField/input shape — when they do not (e.g. a 3D tier that takes an image URL vs a prompt), the caller supplies the right input via --input-json.",
+                    "properties": {
+                      "budget": { "$ref": "#/$defs/tier" },
+                      "balanced": { "$ref": "#/$defs/tier" },
+                      "premium": { "$ref": "#/$defs/tier" }
+                    }
+                  },
+                  "notes": { "type": "string", "minLength": 1 }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

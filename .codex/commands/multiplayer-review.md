@@ -3,4 +3,3 @@ description: Review multiplayer architecture, authority, sync, and failure handl
 ---
 
 Read `commands/multiplayer-review.md` and execute it as instructed.
-

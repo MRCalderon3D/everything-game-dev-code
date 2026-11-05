@@ -1,0 +1,22 @@
+{
+  "provider": "fal",
+  "model": "fal-ai/bytedance/seedance/v1/pro/image-to-video",
+  "type": "video",
+  "prompt": "slow cinematic push-in: a starfighter weaves through an alien swarm firing teal energy beams, a colossal boss looms with its glowing magenta core, drifting sparks and nebula glow, epic sci-fi atmosphere",
+  "input": {
+    "duration": "5",
+    "aspect_ratio": "16:9",
+    "prompt": "slow cinematic push-in: a starfighter weaves through an alien swarm firing teal energy beams, a colossal boss looms with its glowing magenta core, drifting sparks and nebula glow, epic sci-fi atmosphere",
+    "image_url": "https://v3b.fal.media/files/b/0a9e44f7/graYFKLE7UkXZSpYrl1Kk_KmjVVk1k.png"
+  },
+  "seed": null,
+  "requestId": "019ec667-ca45-7790-b1f9-afb471b86f86",
+  "generatedAt": "2026-06-14T13:53:39.991Z",
+  "sourceUrls": [
+    "https://v3b.fal.media/files/b/0a9e4509/gEuyDGRHJmPn3Yld1i2NN_video.mp4"
+  ],
+  "files": [
+    "intro.mp4"
+  ],
+  "license": "Generated via fal.ai; review provider and upstream model license terms before shipping."
+}

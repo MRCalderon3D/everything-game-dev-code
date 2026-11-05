@@ -9,6 +9,11 @@ This file defines the default agent routing for each command. Commands may invok
 
 ## Core Planning and Documentation
 
+### /context
+Primary: `producer`
+Support:
+- `planner`
+
 ### /plan
 Primary: `planner`
 Support:
@@ -144,6 +149,17 @@ Support:
 - `level-designer`
 - `systems-designer`
 
+### /dialogue-design
+Primary: `narrative-designer`
+Support:
+- `gdd-designer`
+
+### /procgen-design
+Primary: `systems-designer`
+Support:
+- `level-designer`
+- `gameplay-programmer`
+
 ### /onboarding
 Primary: `ui-ux-designer`
 Support:
@@ -208,11 +224,51 @@ Support:
 - `accessibility-reviewer`
 - `qa-lead`
 
+### /localization-pass
+Primary: `narrative-designer`
+Support:
+- `ui-ux-designer`
+- `doc-updater`
+
+### /accessibility-pass
+Primary: `accessibility-reviewer`
+Support:
+- `ui-ux-designer`
+
+### /animation-pass
+Primary: `animation-programmer`
+Support:
+- `2d-artist`
+- `technical-artist`
+
+### /input-review
+Primary: `gameplay-programmer`
+Support:
+- `ui-programmer`
+
+### /game-feel-pass
+Primary: `gameplay-programmer`
+Support:
+- `ui-ux-designer`
+- `audio-designer`
+
 ### /art-2d-pass
 Primary: `2d-artist`
 Support:
 - `technical-artist`
 - `performance-reviewer`
+
+### /art-3d-pass
+Primary: `technical-artist`
+Support:
+- `animation-programmer`
+- `performance-reviewer`
+
+### /generate-assets
+Primary: `technical-artist`
+Support:
+- `2d-artist`
+- `audio-designer`
 
 ### /ui-asset-pass
 Primary: `2d-artist`
@@ -358,3 +414,42 @@ Primary: `godot-reviewer`
 Support:
 - `technical-artist`
 - `qa-lead`
+
+### /godot-placeholders
+Primary: `godot-reviewer`
+Support:
+- `2d-artist`
+- `technical-artist`
+- `architect`
+
+## Web Engine Commands
+
+### /web-setup
+Primary: `web-reviewer`
+Support:
+- `architect`
+- `technical-design-lead`
+
+### /web-review
+Primary: `web-reviewer`
+Support:
+- `code-reviewer`
+- `performance-reviewer`
+
+### /web-build-fix
+Primary: `web-reviewer`
+Support:
+- `build-engineer`
+- `gameplay-programmer`
+
+### /web-scene-audit
+Primary: `web-reviewer`
+Support:
+- `ui-programmer`
+- `qa-lead`
+
+### /web-placeholders
+Primary: `web-reviewer`
+Support:
+- `2d-artist`
+- `architect`

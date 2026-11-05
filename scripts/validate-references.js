@@ -38,4 +38,29 @@ for (const relPath of markdownFiles) {
   }
 }
 
+// Component-id tokens used in examples/ must resolve to real components —
+// the teaching layer must never contradict the manifest vocabulary.
+const componentIds = new Set(
+  (
+    JSON.parse(
+      fs.readFileSync(path.join(repoRoot, "manifests", "install-components.json"), "utf8")
+    ).components || []
+  ).map((component) => component.id)
+);
+const exampleFiles = walk(repoRoot).filter(
+  (relPath) =>
+    relPath.startsWith("examples/") &&
+    (relPath.endsWith(".md") || relPath.endsWith(".json"))
+);
+for (const relPath of exampleFiles) {
+  const text = fs.readFileSync(path.join(repoRoot, relPath), "utf8");
+  for (const match of text.matchAll(
+    /\b(?:baseline|engine|domain|capability):[a-z0-9][a-z0-9-]*\b/g
+  )) {
+    if (!componentIds.has(match[0])) {
+      errors.push(`${relPath} references unknown component id '${match[0]}'.`);
+    }
+  }
+}
+
 report(errors, "PASS validate:references");

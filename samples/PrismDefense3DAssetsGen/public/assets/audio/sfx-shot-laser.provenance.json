@@ -1,0 +1,19 @@
+{
+  "provider": "fal",
+  "model": "fal-ai/elevenlabs/sound-effects/v2",
+  "type": "sfx",
+  "prompt": "sharp sci-fi laser zap, high pitched energy beam burst, very short, game weapon sound",
+  "input": {
+    "text": "sharp sci-fi laser zap, high pitched energy beam burst, very short, game weapon sound"
+  },
+  "seed": null,
+  "requestId": "019ebdab-e850-7c61-a998-b1f8e24b380c",
+  "generatedAt": "2026-06-12T21:10:24.876Z",
+  "sourceUrls": [
+    "https://v3b.fal.media/files/b/0a9e0bc6/duXy7f2FimuyrwxraL9qr_sound_effect.mp3"
+  ],
+  "files": [
+    "sfx-shot-laser.mp3"
+  ],
+  "license": "Generated via fal.ai; review provider and upstream model license terms before shipping."
+}

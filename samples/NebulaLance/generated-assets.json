@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "description": "AI-generated raster assets accepted into NebulaLance. Every file has a .provenance.json sidecar (provider, model, prompt, seed, request id). 3D models (OBJ + baked diffuse), SFX, music, and the intro video carry provenance sidecars too but are outside this raster manifest's scope.",
+  "assets": [
+    {
+      "id": "menu-keyart",
+      "path": "public/assets/img/menu-keyart.png",
+      "background_policy": "full-bleed",
+      "integration": {
+        "role": "menu backdrop poster behind the looping intro video, object-fit cover"
+      }
+    },
+    {
+      "id": "nebula",
+      "path": "public/assets/img/nebula.png",
+      "background_policy": "full-bleed",
+      "integration": {
+        "role": "parallax deep-space backdrop quad behind the play plane"
+      }
+    }
+  ]
+}

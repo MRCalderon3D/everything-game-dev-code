@@ -5,11 +5,29 @@
   "type": "object",
   "additionalProperties": false,
   "required": [
+    "version",
     "hooks"
   ],
   "properties": {
     "$schema": {
       "type": "string"
+    },
+    "version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "description": {
+      "type": "string"
+    },
+    "hook_runtime": {
+      "type": "string",
+      "minLength": 1
+    },
+    "conventions": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
     },
     "hooks": {
       "type": "object",
@@ -30,10 +48,15 @@
           "type": "object",
           "additionalProperties": false,
           "required": [
+            "id",
             "matcher",
             "description"
           ],
           "properties": {
+            "id": {
+              "type": "string",
+              "pattern": "^[a-z0-9][a-z0-9-]*$"
+            },
             "matcher": {
               "type": "string",
               "minLength": 1
@@ -67,7 +90,7 @@
               }
             }
           },
-          "anyOf": [
+          "oneOf": [
             {
               "required": [
                 "command"

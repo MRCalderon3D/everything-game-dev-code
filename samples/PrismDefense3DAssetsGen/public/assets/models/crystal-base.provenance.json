@@ -1,0 +1,24 @@
+{
+  "provider": "fal",
+  "model": "fal-ai/hunyuan-3d/v3.1/rapid/image-to-3d",
+  "type": "model3d",
+  "input": {
+    "input_image_url": "https://v3b.fal.media/files/b/0a9e0c43/v1NbIvw4dsjLnMEFXIjvn_MKr0XWkn.png"
+  },
+  "seed": null,
+  "requestId": "019ebdbf-43d7-7992-a803-ae81cafcbd0d",
+  "generatedAt": "2026-06-12T21:32:43.255Z",
+  "sourceUrls": [
+    "https://v3b.fal.media/files/b/0a9e0c4b/TaGLWtnqxClAsGsHyu4iw_d60f2d89fe96184bd808230033654253.obj",
+    "https://v3b.fal.media/files/b/0a9e0c4b/2LJxM8hgtex3YgUx1goJO_material.mtl",
+    "https://v3b.fal.media/files/b/0a9e0c4b/7HASPwOsvdZO4BfS_44WB_texture_20250901.png",
+    "https://v3b.fal.media/files/b/0a9e0c4b/yRwteRvRwAYFjdNm0SCf4_preview.png"
+  ],
+  "files": [
+    "crystal-base-1.obj",
+    "crystal-base-2.bin",
+    "crystal-base-3.png",
+    "crystal-base-4.png"
+  ],
+  "license": "Generated via fal.ai; review provider and upstream model license terms before shipping."
+}

@@ -1,0 +1,10 @@
+{
+  "name": "pacman-claude",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "PAC-MAN style arcade game generated end-to-end by the /full-game command",
+  "scripts": {
+    "dev": "npx serve ."
+  }
+}

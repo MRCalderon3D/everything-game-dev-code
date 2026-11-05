@@ -6,5 +6,8 @@
   "scripts": {
     "lint": "echo adapter lint placeholder",
     "check": "echo adapter check placeholder"
+  },
+  "dependencies": {
+    "@opencode-ai/plugin": "1.14.48"
   }
 }

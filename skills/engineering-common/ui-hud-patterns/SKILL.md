@@ -35,14 +35,16 @@ Structure HUD and menu implementation so UI remains understandable, maintainable
 - integration constraints
 
 ## Quality Bar
-- makes ownership, state flow, and failure behavior explicit
-- improves maintainability without over-abstracting
-- supports testing, debugging, and safe iteration
+- UI reads game state through a defined binding layer, never by reaching into gameplay internals
+- HUD elements update from events or observed state changes, not per-frame polling of unrelated systems
+- screen flow (stack, transitions, modality) is owned by one navigation system
+- UI is testable with mocked game state
 
 ## Common Failure Modes
-- coupling systems through hidden globals or timing assumptions
-- writing logic that is hard to test or debug
-- optimizing the wrong layer before measuring
+- gameplay code directly manipulating UI widgets
+- HUD logic duplicated per screen instead of shared binding patterns
+- navigation state spread across individual screens, causing stuck or double-open menus
+- layouts that break at non-default resolutions or aspect ratios
 
 ## Related Agents
 - ui-programmer
@@ -54,6 +56,10 @@ Structure HUD and menu implementation so UI remains understandable, maintainable
 - tech-design
 - verify
 
+## Related Skills
+- ui-animation-pipeline
+
 ## Notes
 - Keep this skill aligned with the relevant rules layer and current project documentation.
 - If engine-specific constraints materially change the workflow, hand off to the matching engine skill or engine-specific reviewer.
+- Boundary: this skill owns runtime HUD architecture and data binding; `ui-animation-pipeline` owns UI motion authoring and tuning conventions.

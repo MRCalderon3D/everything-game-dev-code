@@ -1,0 +1,19 @@
+{
+  "provider": "fal",
+  "model": "fal-ai/elevenlabs/sound-effects/v2",
+  "type": "sfx",
+  "prompt": "short metallic impact hit, enemy taking damage, brief tick",
+  "input": {
+    "text": "short metallic impact hit, enemy taking damage, brief tick"
+  },
+  "seed": null,
+  "requestId": "019ec666-0e07-76e0-b5ce-d3b77df06c22",
+  "generatedAt": "2026-06-14T13:50:41.867Z",
+  "sourceUrls": [
+    "https://v3b.fal.media/files/b/0a9e44fe/kGZE9Aa62IsBdyembH5xZ_sound_effect.mp3"
+  ],
+  "files": [
+    "sfx-hit.mp3"
+  ],
+  "license": "Generated via fal.ai; review provider and upstream model license terms before shipping."
+}

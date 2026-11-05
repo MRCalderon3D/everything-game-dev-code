@@ -4,22 +4,32 @@ everything-game-dev-code
 │       └── README.md
 ├── .claude
 │   ├── commands
+│   │   ├── accessibility-pass.md
+│   │   ├── animation-pass.md
 │   │   ├── art-2d-pass.md
+│   │   ├── art-3d-pass.md
 │   │   ├── audio-pass.md
 │   │   ├── bug-triage.md
 │   │   ├── cert-check.md
 │   │   ├── combat-design.md
+│   │   ├── context.md
+│   │   ├── dialogue-design.md
 │   │   ├── economy-balance.md
 │   │   ├── evolve.md
 │   │   ├── full-game.md
+│   │   ├── game-feel-pass.md
 │   │   ├── gdd.md
+│   │   ├── generate-assets.md
 │   │   ├── godot-build-fix.md
+│   │   ├── godot-placeholders.md
 │   │   ├── godot-review.md
 │   │   ├── godot-scene-audit.md
 │   │   ├── godot-setup.md
+│   │   ├── input-review.md
 │   │   ├── learn.md
 │   │   ├── level-beat.md
 │   │   ├── liveops-brief.md
+│   │   ├── localization-pass.md
 │   │   ├── memory-budget.md
 │   │   ├── milestone-plan.md
 │   │   ├── multiplayer-review.md
@@ -29,6 +39,7 @@ everything-game-dev-code
 │   │   ├── perf-budget.md
 │   │   ├── plan.md
 │   │   ├── playtest-report.md
+│   │   ├── procgen-design.md
 │   │   ├── qa-plan.md
 │   │   ├── quest-design.md
 │   │   ├── README.md
@@ -54,7 +65,12 @@ everything-game-dev-code
 │   │   ├── unreal-setup.md
 │   │   ├── update-docs.md
 │   │   ├── verify.md
-│   │   └── vertical-slice.md
+│   │   ├── vertical-slice.md
+│   │   ├── web-build-fix.md
+│   │   ├── web-placeholders.md
+│   │   ├── web-review.md
+│   │   ├── web-scene-audit.md
+│   │   └── web-setup.md
 │   ├── research
 │   │   └── README.md
 │   ├── rules
@@ -67,7 +83,7 @@ everything-game-dev-code
 │   ├── identity.json
 │   ├── package-manager.json
 │   ├── README.md
-│   └── settings.local.json
+│   └── settings.json
 ├── .claude-plugin
 │   ├── marketplace.json
 │   └── plugin.json
@@ -75,22 +91,32 @@ everything-game-dev-code
 │   ├── agents
 │   │   └── README.md
 │   ├── commands
+│   │   ├── accessibility-pass.md
+│   │   ├── animation-pass.md
 │   │   ├── art-2d-pass.md
+│   │   ├── art-3d-pass.md
 │   │   ├── audio-pass.md
 │   │   ├── bug-triage.md
 │   │   ├── cert-check.md
 │   │   ├── combat-design.md
+│   │   ├── context.md
+│   │   ├── dialogue-design.md
 │   │   ├── economy-balance.md
 │   │   ├── evolve.md
 │   │   ├── full-game.md
+│   │   ├── game-feel-pass.md
 │   │   ├── gdd.md
+│   │   ├── generate-assets.md
 │   │   ├── godot-build-fix.md
+│   │   ├── godot-placeholders.md
 │   │   ├── godot-review.md
 │   │   ├── godot-scene-audit.md
 │   │   ├── godot-setup.md
+│   │   ├── input-review.md
 │   │   ├── learn.md
 │   │   ├── level-beat.md
 │   │   ├── liveops-brief.md
+│   │   ├── localization-pass.md
 │   │   ├── memory-budget.md
 │   │   ├── milestone-plan.md
 │   │   ├── multiplayer-review.md
@@ -100,6 +126,7 @@ everything-game-dev-code
 │   │   ├── perf-budget.md
 │   │   ├── plan.md
 │   │   ├── playtest-report.md
+│   │   ├── procgen-design.md
 │   │   ├── qa-plan.md
 │   │   ├── quest-design.md
 │   │   ├── README.md
@@ -125,7 +152,12 @@ everything-game-dev-code
 │   │   ├── unreal-setup.md
 │   │   ├── update-docs.md
 │   │   ├── verify.md
-│   │   └── vertical-slice.md
+│   │   ├── vertical-slice.md
+│   │   ├── web-build-fix.md
+│   │   ├── web-placeholders.md
+│   │   ├── web-review.md
+│   │   ├── web-scene-audit.md
+│   │   └── web-setup.md
 │   ├── hooks
 │   │   └── README.md
 │   ├── mcp
@@ -138,6 +170,74 @@ everything-game-dev-code
 │   ├── config.toml
 │   └── README.md
 ├── .cursor
+│   ├── commands
+│   │   ├── accessibility-pass.md
+│   │   ├── animation-pass.md
+│   │   ├── art-2d-pass.md
+│   │   ├── art-3d-pass.md
+│   │   ├── audio-pass.md
+│   │   ├── bug-triage.md
+│   │   ├── cert-check.md
+│   │   ├── combat-design.md
+│   │   ├── context.md
+│   │   ├── dialogue-design.md
+│   │   ├── economy-balance.md
+│   │   ├── evolve.md
+│   │   ├── full-game.md
+│   │   ├── game-feel-pass.md
+│   │   ├── gdd.md
+│   │   ├── generate-assets.md
+│   │   ├── godot-build-fix.md
+│   │   ├── godot-placeholders.md
+│   │   ├── godot-review.md
+│   │   ├── godot-scene-audit.md
+│   │   ├── godot-setup.md
+│   │   ├── input-review.md
+│   │   ├── learn.md
+│   │   ├── level-beat.md
+│   │   ├── liveops-brief.md
+│   │   ├── localization-pass.md
+│   │   ├── memory-budget.md
+│   │   ├── milestone-plan.md
+│   │   ├── multiplayer-review.md
+│   │   ├── onboarding.md
+│   │   ├── orchestrate.md
+│   │   ├── patch-notes.md
+│   │   ├── perf-budget.md
+│   │   ├── plan.md
+│   │   ├── playtest-report.md
+│   │   ├── procgen-design.md
+│   │   ├── qa-plan.md
+│   │   ├── quest-design.md
+│   │   ├── README.md
+│   │   ├── refactor-clean.md
+│   │   ├── release-check.md
+│   │   ├── save-system-review.md
+│   │   ├── scene-bootstrap.md
+│   │   ├── skill-create-game.md
+│   │   ├── tdd.md
+│   │   ├── tech-design.md
+│   │   ├── telemetry-plan.md
+│   │   ├── tools-pass.md
+│   │   ├── ui-asset-pass.md
+│   │   ├── ui-flow-review.md
+│   │   ├── unity-build-fix.md
+│   │   ├── unity-placeholders.md
+│   │   ├── unity-review.md
+│   │   ├── unity-scene-audit.md
+│   │   ├── unity-setup.md
+│   │   ├── unreal-blueprint-audit.md
+│   │   ├── unreal-build-fix.md
+│   │   ├── unreal-review.md
+│   │   ├── unreal-setup.md
+│   │   ├── update-docs.md
+│   │   ├── verify.md
+│   │   ├── vertical-slice.md
+│   │   ├── web-build-fix.md
+│   │   ├── web-placeholders.md
+│   │   ├── web-review.md
+│   │   ├── web-scene-audit.md
+│   │   └── web-setup.md
 │   ├── hooks
 │   │   └── README.md
 │   ├── rules
@@ -149,6 +249,7 @@ everything-game-dev-code
 │   ├── skills
 │   │   └── README.md
 │   ├── hooks.json
+│   ├── mcp.json
 │   └── README.md
 ├── .githooks
 │   └── pre-commit
@@ -156,7 +257,82 @@ everything-game-dev-code
 │   ├── workflows
 │   │   └── ci.yml
 │   └── copilot-instructions.md
+├── .grok
+│   ├── config.toml
+│   └── README.md
+├── .kilo
+│   ├── command
+│   │   ├── accessibility-pass.md
+│   │   ├── animation-pass.md
+│   │   ├── art-2d-pass.md
+│   │   ├── art-3d-pass.md
+│   │   ├── audio-pass.md
+│   │   ├── bug-triage.md
+│   │   ├── cert-check.md
+│   │   ├── combat-design.md
+│   │   ├── context.md
+│   │   ├── dialogue-design.md
+│   │   ├── economy-balance.md
+│   │   ├── evolve.md
+│   │   ├── full-game.md
+│   │   ├── game-feel-pass.md
+│   │   ├── gdd.md
+│   │   ├── generate-assets.md
+│   │   ├── godot-build-fix.md
+│   │   ├── godot-placeholders.md
+│   │   ├── godot-review.md
+│   │   ├── godot-scene-audit.md
+│   │   ├── godot-setup.md
+│   │   ├── input-review.md
+│   │   ├── learn.md
+│   │   ├── level-beat.md
+│   │   ├── liveops-brief.md
+│   │   ├── localization-pass.md
+│   │   ├── memory-budget.md
+│   │   ├── milestone-plan.md
+│   │   ├── multiplayer-review.md
+│   │   ├── onboarding.md
+│   │   ├── orchestrate.md
+│   │   ├── patch-notes.md
+│   │   ├── perf-budget.md
+│   │   ├── plan.md
+│   │   ├── playtest-report.md
+│   │   ├── procgen-design.md
+│   │   ├── qa-plan.md
+│   │   ├── quest-design.md
+│   │   ├── refactor-clean.md
+│   │   ├── release-check.md
+│   │   ├── save-system-review.md
+│   │   ├── scene-bootstrap.md
+│   │   ├── skill-create-game.md
+│   │   ├── tdd.md
+│   │   ├── tech-design.md
+│   │   ├── telemetry-plan.md
+│   │   ├── tools-pass.md
+│   │   ├── ui-asset-pass.md
+│   │   ├── ui-flow-review.md
+│   │   ├── unity-build-fix.md
+│   │   ├── unity-placeholders.md
+│   │   ├── unity-review.md
+│   │   ├── unity-scene-audit.md
+│   │   ├── unity-setup.md
+│   │   ├── unreal-blueprint-audit.md
+│   │   ├── unreal-build-fix.md
+│   │   ├── unreal-review.md
+│   │   ├── unreal-setup.md
+│   │   ├── update-docs.md
+│   │   ├── verify.md
+│   │   ├── vertical-slice.md
+│   │   ├── web-build-fix.md
+│   │   ├── web-placeholders.md
+│   │   ├── web-review.md
+│   │   ├── web-scene-audit.md
+│   │   └── web-setup.md
+│   ├── kilo.json
+│   └── README.md
 ├── .kiro
+│   ├── settings
+│   │   └── mcp.json
 │   ├── steering
 │   │   ├── product.md
 │   │   ├── README.md
@@ -165,11 +341,78 @@ everything-game-dev-code
 │   │   └── workflow.md
 │   └── README.md
 ├── .opencode
+│   ├── agents
+│   │   └── README.md
 │   ├── commands
-│   │   ├── engine-review.md
+│   │   ├── accessibility-pass.md
+│   │   ├── animation-pass.md
+│   │   ├── art-2d-pass.md
+│   │   ├── art-3d-pass.md
+│   │   ├── audio-pass.md
+│   │   ├── bug-triage.md
+│   │   ├── cert-check.md
+│   │   ├── combat-design.md
+│   │   ├── context.md
+│   │   ├── dialogue-design.md
+│   │   ├── economy-balance.md
+│   │   ├── evolve.md
+│   │   ├── full-game.md
+│   │   ├── game-feel-pass.md
+│   │   ├── gdd.md
+│   │   ├── generate-assets.md
+│   │   ├── godot-build-fix.md
+│   │   ├── godot-placeholders.md
+│   │   ├── godot-review.md
+│   │   ├── godot-scene-audit.md
+│   │   ├── godot-setup.md
+│   │   ├── input-review.md
+│   │   ├── learn.md
+│   │   ├── level-beat.md
+│   │   ├── liveops-brief.md
+│   │   ├── localization-pass.md
+│   │   ├── memory-budget.md
+│   │   ├── milestone-plan.md
+│   │   ├── multiplayer-review.md
+│   │   ├── onboarding.md
+│   │   ├── orchestrate.md
+│   │   ├── patch-notes.md
+│   │   ├── perf-budget.md
 │   │   ├── plan.md
+│   │   ├── playtest-report.md
+│   │   ├── procgen-design.md
+│   │   ├── qa-plan.md
+│   │   ├── quest-design.md
 │   │   ├── README.md
-│   │   └── verify.md
+│   │   ├── refactor-clean.md
+│   │   ├── release-check.md
+│   │   ├── save-system-review.md
+│   │   ├── scene-bootstrap.md
+│   │   ├── skill-create-game.md
+│   │   ├── tdd.md
+│   │   ├── tech-design.md
+│   │   ├── telemetry-plan.md
+│   │   ├── tools-pass.md
+│   │   ├── ui-asset-pass.md
+│   │   ├── ui-flow-review.md
+│   │   ├── unity-build-fix.md
+│   │   ├── unity-placeholders.md
+│   │   ├── unity-review.md
+│   │   ├── unity-scene-audit.md
+│   │   ├── unity-setup.md
+│   │   ├── unreal-blueprint-audit.md
+│   │   ├── unreal-build-fix.md
+│   │   ├── unreal-review.md
+│   │   ├── unreal-setup.md
+│   │   ├── update-docs.md
+│   │   ├── verify.md
+│   │   ├── vertical-slice.md
+│   │   ├── web-build-fix.md
+│   │   ├── web-placeholders.md
+│   │   ├── web-review.md
+│   │   ├── web-scene-audit.md
+│   │   └── web-setup.md
+│   ├── hooks
+│   │   └── README.md
 │   ├── instructions
 │   │   └── README.md
 │   ├── plugins
@@ -177,6 +420,10 @@ everything-game-dev-code
 │   ├── prompts
 │   │   └── agents
 │   │       └── README.md
+│   ├── rules
+│   │   └── README.md
+│   ├── skills
+│   │   └── README.md
 │   ├── tools
 │   │   └── README.md
 │   ├── index.ts
@@ -184,9 +431,8 @@ everything-game-dev-code
 │   ├── opencode.json
 │   ├── package.json
 │   ├── README.md
-│   └── tsconfig.json
-├── .vscode
-│   └── settings.json
+│   ├── tsconfig.json
+│   └── tui.json
 ├── agents
 │   ├── 2d-artist.md
 │   ├── accessibility-reviewer.md
@@ -229,24 +475,35 @@ everything-game-dev-code
 │   ├── unity-build-resolver.md
 │   ├── unity-reviewer.md
 │   ├── unreal-build-resolver.md
-│   └── unreal-reviewer.md
+│   ├── unreal-reviewer.md
+│   └── web-reviewer.md
 ├── commands
+│   ├── accessibility-pass.md
+│   ├── animation-pass.md
 │   ├── art-2d-pass.md
+│   ├── art-3d-pass.md
 │   ├── audio-pass.md
 │   ├── bug-triage.md
 │   ├── cert-check.md
 │   ├── combat-design.md
+│   ├── context.md
+│   ├── dialogue-design.md
 │   ├── economy-balance.md
 │   ├── evolve.md
 │   ├── full-game.md
+│   ├── game-feel-pass.md
 │   ├── gdd.md
+│   ├── generate-assets.md
 │   ├── godot-build-fix.md
+│   ├── godot-placeholders.md
 │   ├── godot-review.md
 │   ├── godot-scene-audit.md
 │   ├── godot-setup.md
+│   ├── input-review.md
 │   ├── learn.md
 │   ├── level-beat.md
 │   ├── liveops-brief.md
+│   ├── localization-pass.md
 │   ├── memory-budget.md
 │   ├── milestone-plan.md
 │   ├── multiplayer-review.md
@@ -256,6 +513,7 @@ everything-game-dev-code
 │   ├── perf-budget.md
 │   ├── plan.md
 │   ├── playtest-report.md
+│   ├── procgen-design.md
 │   ├── qa-plan.md
 │   ├── quest-design.md
 │   ├── README.md
@@ -281,7 +539,12 @@ everything-game-dev-code
 │   ├── unreal-setup.md
 │   ├── update-docs.md
 │   ├── verify.md
-│   └── vertical-slice.md
+│   ├── vertical-slice.md
+│   ├── web-build-fix.md
+│   ├── web-placeholders.md
+│   ├── web-review.md
+│   ├── web-scene-audit.md
+│   └── web-setup.md
 ├── contexts
 │   ├── ideation.md
 │   ├── liveops.md
@@ -297,6 +560,7 @@ everything-game-dev-code
 │   ├── orchestration
 │   │   ├── agent-skill-matrix.md
 │   │   ├── command-agent-map.md
+│   │   ├── dependency-graph.md
 │   │   ├── engine-isolation.md
 │   │   ├── README.md
 │   │   ├── role-handoffs.md
@@ -314,6 +578,8 @@ everything-game-dev-code
 │   │   ├── technical-design-document.md
 │   │   ├── telemetry-plan.md
 │   │   └── vertical-slice-plan.md
+│   ├── harness-support.md
+│   ├── mcp-setup.md
 │   └── structure-overview.md
 ├── examples
 │   ├── cross-engine-gdd
@@ -358,21 +624,23 @@ everything-game-dev-code
 │   ├── hooks.json
 │   └── README.md
 ├── manifests
+│   ├── asset-providers.json
+│   ├── engines.json
+│   ├── harnesses.json
 │   ├── install-components.json
 │   ├── install-modules.json
 │   ├── install-profiles.json
 │   └── README.md
 ├── mcp-configs
+│   ├── generated
+│   │   ├── codex.toml
+│   │   ├── kilo.json
+│   │   ├── mcp.json
+│   │   ├── opencode.mcp.json
+│   │   └── README.md
 │   └── mcp-servers.json
 ├── plugins
 │   └── README.md
-├── private
-│   ├── plan
-│   │   └── fix-audit-errors.md
-│   ├── audit-report.md
-│   ├── codex-adapter-audit-2026-04-20.md
-│   ├── how-to-evolve-this-repository.md
-│   └── template-development-analysis-2026-03-28.md
 ├── rules
 │   ├── common
 │   │   ├── accessibility.md
@@ -473,13 +741,280 @@ everything-game-dev-code
 │   │   ├── ui.md
 │   │   ├── uobject-architecture.md
 │   │   └── version-control.md
+│   ├── web
+│   │   ├── agents.md
+│   │   ├── asset-pipeline.md
+│   │   ├── audio.md
+│   │   ├── build-release.md
+│   │   ├── coding-style.md
+│   │   ├── documentation.md
+│   │   ├── export-platforms.md
+│   │   ├── memory.md
+│   │   ├── networking.md
+│   │   ├── patterns.md
+│   │   ├── performance.md
+│   │   ├── project-structure.md
+│   │   ├── qa.md
+│   │   ├── README.md
+│   │   ├── rendering-3d.md
+│   │   ├── rendering-canvas.md
+│   │   ├── save-persistence.md
+│   │   ├── scenes-state.md
+│   │   ├── telemetry.md
+│   │   ├── testing.md
+│   │   ├── tooling.md
+│   │   ├── ui-input.md
+│   │   ├── ui.md
+│   │   └── version-control.md
 │   └── README.md
 ├── samples
+│   ├── LosRenacidos_Claude
+│   │   ├── src
+│   │   │   ├── data
+│   │   │   │   ├── enemies.js
+│   │   │   │   ├── npcs.js
+│   │   │   │   └── rooms.js
+│   │   │   ├── entities
+│   │   │   │   ├── enemy.js
+│   │   │   │   ├── npc.js
+│   │   │   │   └── player.js
+│   │   │   ├── states
+│   │   │   │   ├── archive-state.js
+│   │   │   │   ├── combat-state.js
+│   │   │   │   ├── dialog-state.js
+│   │   │   │   ├── gameover-state.js
+│   │   │   │   ├── hub-state.js
+│   │   │   │   ├── menu-state.js
+│   │   │   │   ├── run-state.js
+│   │   │   │   ├── state-machine.js
+│   │   │   │   └── victory-state.js
+│   │   │   ├── systems
+│   │   │   │   ├── audio.js
+│   │   │   │   ├── input.js
+│   │   │   │   ├── notifications.js
+│   │   │   │   ├── particles.js
+│   │   │   │   ├── renderer.js
+│   │   │   │   └── storage.js
+│   │   │   ├── world
+│   │   │   │   ├── map-gen.js
+│   │   │   │   └── room.js
+│   │   │   ├── constants.js
+│   │   │   └── main.js
+│   │   ├── .gitignore
+│   │   ├── GDD.md
+│   │   ├── index.html
+│   │   ├── package.json
+│   │   ├── README.md
+│   │   └── TDD.md
+│   ├── LosRenacidos_Codex
+│   │   ├── assets
+│   │   │   └── images
+│   │   │       ├── alpha-boar.png
+│   │   │       ├── archive-map.png
+│   │   │       ├── arena-frontier.png
+│   │   │       ├── erik.png
+│   │   │       ├── goblin.png
+│   │   │       └── title-hub.png
+│   │   ├── src
+│   │   │   ├── main.js
+│   │   │   └── styles.css
+│   │   ├── .gitignore
+│   │   ├── GDD.md
+│   │   ├── index.html
+│   │   ├── package.json
+│   │   ├── README.md
+│   │   └── TDD.md
+│   ├── LosRenacidos_OpenCode
+│   │   ├── src
+│   │   │   ├── audio
+│   │   │   │   └── AudioManager.js
+│   │   │   ├── entities
+│   │   │   │   ├── Enemy.js
+│   │   │   │   ├── NPC.js
+│   │   │   │   ├── Player.js
+│   │   │   │   └── Projectile.js
+│   │   │   ├── scenes
+│   │   │   │   ├── CombatScene.js
+│   │   │   │   ├── EventScene.js
+│   │   │   │   ├── GameOverScene.js
+│   │   │   │   ├── HubScene.js
+│   │   │   │   ├── MainMenuScene.js
+│   │   │   │   ├── MapScene.js
+│   │   │   │   ├── PauseScene.js
+│   │   │   │   └── SettingsScene.js
+│   │   │   ├── systems
+│   │   │   │   ├── CombatSystem.js
+│   │   │   │   ├── CorruptionSystem.js
+│   │   │   │   ├── DialogueSystem.js
+│   │   │   │   ├── InventorySystem.js
+│   │   │   │   ├── MissionSystem.js
+│   │   │   │   ├── ProceduralGen.js
+│   │   │   │   ├── ProgressionSystem.js
+│   │   │   │   └── StatsSystem.js
+│   │   │   ├── ui
+│   │   │   │   ├── DialogueUI.js
+│   │   │   │   └── HUD.js
+│   │   │   ├── utils
+│   │   │   │   ├── Constants.js
+│   │   │   │   └── SaveManager.js
+│   │   │   ├── Game.js
+│   │   │   ├── Input.js
+│   │   │   ├── main.js
+│   │   │   ├── Renderer.js
+│   │   │   └── SceneManager.js
+│   │   ├── .gitignore
+│   │   ├── GDD.md
+│   │   ├── gdd_los_renacidos_roguelike_v_01.md
+│   │   ├── index.html
+│   │   ├── package.json
+│   │   └── TDD.md
+│   ├── NebulaLance
+│   │   ├── public
+│   │   │   └── assets
+│   │   │       ├── audio
+│   │   │       │   ├── music-battle.provenance.json
+│   │   │       │   ├── music-battle.wav
+│   │   │       │   ├── sfx-beam.mp3
+│   │   │       │   ├── sfx-beam.provenance.json
+│   │   │       │   ├── sfx-death.mp3
+│   │   │       │   ├── sfx-death.provenance.json
+│   │   │       │   ├── sfx-explosion.mp3
+│   │   │       │   ├── sfx-explosion.provenance.json
+│   │   │       │   ├── sfx-force.mp3
+│   │   │       │   ├── sfx-force.provenance.json
+│   │   │       │   ├── sfx-hit.mp3
+│   │   │       │   ├── sfx-hit.provenance.json
+│   │   │       │   ├── sfx-lose.mp3
+│   │   │       │   ├── sfx-lose.provenance.json
+│   │   │       │   ├── sfx-powerup.mp3
+│   │   │       │   ├── sfx-powerup.provenance.json
+│   │   │       │   ├── sfx-shot.mp3
+│   │   │       │   ├── sfx-shot.provenance.json
+│   │   │       │   ├── sfx-warning.mp3
+│   │   │       │   ├── sfx-warning.provenance.json
+│   │   │       │   ├── sfx-win.mp3
+│   │   │       │   └── sfx-win.provenance.json
+│   │   │       ├── img
+│   │   │       │   ├── menu-keyart.png
+│   │   │       │   ├── menu-keyart.provenance.json
+│   │   │       │   ├── nebula.png
+│   │   │       │   └── nebula.provenance.json
+│   │   │       ├── models
+│   │   │       │   ├── boss-tex.jpg
+│   │   │       │   ├── boss.obj
+│   │   │       │   ├── boss.provenance.json
+│   │   │       │   ├── enemy-carrier-tex.jpg
+│   │   │       │   ├── enemy-carrier.obj
+│   │   │       │   ├── enemy-carrier.provenance.json
+│   │   │       │   ├── enemy-gunner-tex.jpg
+│   │   │       │   ├── enemy-gunner.obj
+│   │   │       │   ├── enemy-gunner.provenance.json
+│   │   │       │   ├── enemy-turret-tex.jpg
+│   │   │       │   ├── enemy-turret.obj
+│   │   │       │   ├── enemy-turret.provenance.json
+│   │   │       │   ├── enemy-weaver-tex.jpg
+│   │   │       │   ├── enemy-weaver.obj
+│   │   │       │   ├── enemy-weaver.provenance.json
+│   │   │       │   ├── force-tex.jpg
+│   │   │       │   ├── force.obj
+│   │   │       │   ├── force.provenance.json
+│   │   │       │   ├── ship-tex.jpg
+│   │   │       │   ├── ship.obj
+│   │   │       │   └── ship.provenance.json
+│   │   │       └── video
+│   │   │           ├── intro.mp4
+│   │   │           └── intro.provenance.json
+│   │   ├── scripts
+│   │   │   └── sim-smoke.mjs
+│   │   ├── src
+│   │   │   ├── audio
+│   │   │   │   └── audio.js
+│   │   │   ├── core
+│   │   │   │   ├── events.js
+│   │   │   │   └── loop.js
+│   │   │   ├── input
+│   │   │   │   └── input.js
+│   │   │   ├── render
+│   │   │   │   └── rendering.js
+│   │   │   ├── save
+│   │   │   │   └── storage.js
+│   │   │   ├── sim
+│   │   │   │   ├── config.js
+│   │   │   │   └── sim-game.js
+│   │   │   ├── ui
+│   │   │   │   ├── hud.js
+│   │   │   │   └── screens.js
+│   │   │   ├── main.js
+│   │   │   └── style.css
+│   │   ├── .gitignore
+│   │   ├── GDD.md
+│   │   ├── generated-assets.json
+│   │   ├── index.html
+│   │   ├── package-lock.json
+│   │   ├── package.json
+│   │   ├── TDD.md
+│   │   └── vite.config.js
+│   ├── pacmanAI
+│   │   ├── src
+│   │   │   ├── entities
+│   │   │   │   ├── ghost.js
+│   │   │   │   ├── maze.js
+│   │   │   │   └── player.js
+│   │   │   ├── states
+│   │   │   │   ├── gameover-state.js
+│   │   │   │   ├── menu-state.js
+│   │   │   │   ├── pause-state.js
+│   │   │   │   ├── play-state.js
+│   │   │   │   └── state-machine.js
+│   │   │   ├── systems
+│   │   │   │   ├── audio.js
+│   │   │   │   ├── input.js
+│   │   │   │   ├── renderer.js
+│   │   │   │   └── storage.js
+│   │   │   ├── constants.js
+│   │   │   └── main.js
+│   │   ├── .gitignore
+│   │   ├── GDD.md
+│   │   ├── index.html
+│   │   ├── package.json
+│   │   ├── README.md
+│   │   └── TDD.md
+│   ├── pacmanAI_Claude
+│   │   ├── src
+│   │   │   ├── entities
+│   │   │   │   ├── ghost.js
+│   │   │   │   ├── maze.js
+│   │   │   │   └── player.js
+│   │   │   ├── states
+│   │   │   │   ├── gameover-state.js
+│   │   │   │   ├── menu-state.js
+│   │   │   │   ├── pause-state.js
+│   │   │   │   ├── play-state.js
+│   │   │   │   └── state-machine.js
+│   │   │   ├── systems
+│   │   │   │   ├── audio.js
+│   │   │   │   ├── input.js
+│   │   │   │   ├── renderer.js
+│   │   │   │   └── storage.js
+│   │   │   ├── constants.js
+│   │   │   └── main.js
+│   │   ├── .gitignore
+│   │   ├── GDD.md
+│   │   ├── index.html
+│   │   ├── package.json
+│   │   ├── README.md
+│   │   └── TDD.md
+│   ├── pacmanAI_Codex
+│   │   ├── src
+│   │   │   ├── main.js
+│   │   │   └── styles.css
+│   │   ├── .gitignore
+│   │   ├── GDD.md
+│   │   ├── index.html
+│   │   ├── package.json
+│   │   ├── README.md
+│   │   └── TDD.md
 │   ├── PirateInvaders
-│   │   ├── dist
-│   │   │   ├── assets
-│   │   │   │   └── index-DT9L-HqE.js
-│   │   │   └── index.html
 │   │   ├── src
 │   │   │   ├── entities
 │   │   │   │   ├── Bullet.js
@@ -562,9 +1097,198 @@ everything-game-dev-code
 │   │   ├── package.json
 │   │   ├── README.md
 │   │   ├── TDD.md
-│   │   ├── vite.config.js
-│   │   ├── vite.stderr.log
-│   │   └── vite.stdout.log
+│   │   └── vite.config.js
+│   ├── PrismDefense3D
+│   │   ├── scripts
+│   │   │   └── sim-smoke.mjs
+│   │   ├── src
+│   │   │   ├── audio
+│   │   │   │   └── audio.js
+│   │   │   ├── core
+│   │   │   │   ├── events.js
+│   │   │   │   └── loop.js
+│   │   │   ├── input
+│   │   │   │   └── input.js
+│   │   │   ├── render
+│   │   │   │   ├── camera-rig.js
+│   │   │   │   └── rendering.js
+│   │   │   ├── save
+│   │   │   │   └── storage.js
+│   │   │   ├── sim
+│   │   │   │   ├── config.js
+│   │   │   │   ├── path.js
+│   │   │   │   └── sim-game.js
+│   │   │   ├── ui
+│   │   │   │   ├── build-menu.js
+│   │   │   │   ├── hud.js
+│   │   │   │   └── screens.js
+│   │   │   ├── main.js
+│   │   │   └── style.css
+│   │   ├── .gitignore
+│   │   ├── GDD.md
+│   │   ├── index.html
+│   │   ├── package-lock.json
+│   │   ├── package.json
+│   │   ├── TDD.md
+│   │   └── vite.config.js
+│   ├── PrismDefense3DAssetsGen
+│   │   ├── public
+│   │   │   └── assets
+│   │   │       ├── audio
+│   │   │       │   ├── music-battle.provenance.json
+│   │   │       │   ├── music-battle.wav
+│   │   │       │   ├── sfx-build.mp3
+│   │   │       │   ├── sfx-build.provenance.json
+│   │   │       │   ├── sfx-death.mp3
+│   │   │       │   ├── sfx-death.provenance.json
+│   │   │       │   ├── sfx-frost.mp3
+│   │   │       │   ├── sfx-frost.provenance.json
+│   │   │       │   ├── sfx-horn.mp3
+│   │   │       │   ├── sfx-horn.provenance.json
+│   │   │       │   ├── sfx-leak.mp3
+│   │   │       │   ├── sfx-leak.provenance.json
+│   │   │       │   ├── sfx-lose.mp3
+│   │   │       │   ├── sfx-lose.provenance.json
+│   │   │       │   ├── sfx-shot-cannon.mp3
+│   │   │       │   ├── sfx-shot-cannon.provenance.json
+│   │   │       │   ├── sfx-shot-laser.mp3
+│   │   │       │   ├── sfx-shot-laser.provenance.json
+│   │   │       │   ├── sfx-upgrade.mp3
+│   │   │       │   ├── sfx-upgrade.provenance.json
+│   │   │       │   ├── sfx-win.mp3
+│   │   │       │   └── sfx-win.provenance.json
+│   │   │       ├── img
+│   │   │       │   ├── menu-keyart.png
+│   │   │       │   ├── menu-keyart.provenance.json
+│   │   │       │   ├── skybox-aurora.png
+│   │   │       │   ├── skybox-aurora.provenance.json
+│   │   │       │   ├── skybox-mars.png
+│   │   │       │   └── skybox-mars.provenance.json
+│   │   │       ├── models
+│   │   │       │   ├── crystal-base-tex.jpg
+│   │   │       │   ├── crystal-base.obj
+│   │   │       │   ├── crystal-base.provenance.json
+│   │   │       │   ├── enemy-boss-tex.jpg
+│   │   │       │   ├── enemy-boss.obj
+│   │   │       │   ├── enemy-boss.provenance.json
+│   │   │       │   ├── enemy-runner-tex.jpg
+│   │   │       │   ├── enemy-runner.obj
+│   │   │       │   ├── enemy-runner.provenance.json
+│   │   │       │   ├── enemy-tank-tex.jpg
+│   │   │       │   ├── enemy-tank.obj
+│   │   │       │   ├── enemy-tank.provenance.json
+│   │   │       │   ├── prop-boulder-tex.jpg
+│   │   │       │   ├── prop-boulder.obj
+│   │   │       │   ├── prop-boulder.provenance.json
+│   │   │       │   ├── prop-crystals-tex.jpg
+│   │   │       │   ├── prop-crystals.obj
+│   │   │       │   ├── prop-crystals.provenance.json
+│   │   │       │   ├── prop-mars-arch-tex.jpg
+│   │   │       │   ├── prop-mars-arch.obj
+│   │   │       │   ├── prop-mars-arch.provenance.json
+│   │   │       │   ├── prop-mars-spire-tex.jpg
+│   │   │       │   ├── prop-mars-spire.obj
+│   │   │       │   ├── prop-mars-spire.provenance.json
+│   │   │       │   ├── prop-tree-tex.jpg
+│   │   │       │   ├── prop-tree.obj
+│   │   │       │   ├── prop-tree.provenance.json
+│   │   │       │   ├── tower-cannon-tex.jpg
+│   │   │       │   ├── tower-cannon.obj
+│   │   │       │   ├── tower-cannon.provenance.json
+│   │   │       │   ├── tower-frost-tex.jpg
+│   │   │       │   ├── tower-frost.obj
+│   │   │       │   ├── tower-frost.provenance.json
+│   │   │       │   ├── tower-laser-tex.jpg
+│   │   │       │   ├── tower-laser.obj
+│   │   │       │   └── tower-laser.provenance.json
+│   │   │       ├── textures
+│   │   │       │   ├── dirt.png
+│   │   │       │   ├── dirt.provenance.json
+│   │   │       │   ├── grass.png
+│   │   │       │   ├── grass.provenance.json
+│   │   │       │   ├── mars-dirt.png
+│   │   │       │   ├── mars-dirt.provenance.json
+│   │   │       │   ├── mars-ground.png
+│   │   │       │   ├── mars-ground.provenance.json
+│   │   │       │   ├── mars-rock.png
+│   │   │       │   ├── mars-rock.provenance.json
+│   │   │       │   ├── rock.png
+│   │   │       │   └── rock.provenance.json
+│   │   │       └── video
+│   │   │           ├── intro.mp4
+│   │   │           └── intro.provenance.json
+│   │   ├── scripts
+│   │   │   └── sim-smoke.mjs
+│   │   ├── src
+│   │   │   ├── audio
+│   │   │   │   └── audio.js
+│   │   │   ├── core
+│   │   │   │   ├── events.js
+│   │   │   │   └── loop.js
+│   │   │   ├── input
+│   │   │   │   └── input.js
+│   │   │   ├── render
+│   │   │   │   ├── camera-rig.js
+│   │   │   │   └── rendering.js
+│   │   │   ├── save
+│   │   │   │   └── storage.js
+│   │   │   ├── sim
+│   │   │   │   ├── config.js
+│   │   │   │   ├── path.js
+│   │   │   │   └── sim-game.js
+│   │   │   ├── ui
+│   │   │   │   ├── build-menu.js
+│   │   │   │   ├── hud.js
+│   │   │   │   └── screens.js
+│   │   │   ├── main.js
+│   │   │   └── style.css
+│   │   ├── .gitignore
+│   │   ├── GDD.md
+│   │   ├── generated-assets.json
+│   │   ├── index.html
+│   │   ├── package-lock.json
+│   │   ├── package.json
+│   │   ├── TDD.md
+│   │   └── vite.config.js
+│   ├── PrismDefense3DVisuals
+│   │   ├── public
+│   │   │   └── assets
+│   │   │       └── textures
+│   │   │           ├── dirt.jpg
+│   │   │           ├── grass.jpg
+│   │   │           └── rock.jpg
+│   │   ├── scripts
+│   │   │   └── sim-smoke.mjs
+│   │   ├── src
+│   │   │   ├── audio
+│   │   │   │   └── audio.js
+│   │   │   ├── core
+│   │   │   │   ├── events.js
+│   │   │   │   └── loop.js
+│   │   │   ├── input
+│   │   │   │   └── input.js
+│   │   │   ├── render
+│   │   │   │   ├── camera-rig.js
+│   │   │   │   └── rendering.js
+│   │   │   ├── save
+│   │   │   │   └── storage.js
+│   │   │   ├── sim
+│   │   │   │   ├── config.js
+│   │   │   │   ├── path.js
+│   │   │   │   └── sim-game.js
+│   │   │   ├── ui
+│   │   │   │   ├── build-menu.js
+│   │   │   │   ├── hud.js
+│   │   │   │   └── screens.js
+│   │   │   ├── main.js
+│   │   │   └── style.css
+│   │   ├── .gitignore
+│   │   ├── GDD.md
+│   │   ├── index.html
+│   │   ├── package-lock.json
+│   │   ├── package.json
+│   │   ├── TDD.md
+│   │   └── vite.config.js
 │   ├── Tetris2DMutation
 │   │   ├── src
 │   │   │   ├── states
@@ -592,21 +1316,27 @@ everything-game-dev-code
 │   │   ├── index.html
 │   │   ├── README.md
 │   │   └── TDD.md
+│   ├── CONVENTIONS.md
+│   ├── harness-comparison.md
 │   └── README.md
 ├── schemas
+│   ├── asset-providers.schema.json
+│   ├── engines.schema.json
+│   ├── harnesses.schema.json
 │   ├── hooks.schema.json
 │   ├── install-components.schema.json
 │   ├── install-modules.schema.json
 │   ├── install-profiles.schema.json
 │   ├── install-state.schema.json
+│   ├── mcp-servers.schema.json
 │   ├── package-manager.schema.json
 │   ├── plugin.schema.json
-│   ├── README.md
-│   └── role-matrix.schema.json
+│   └── README.md
 ├── scripts
 │   ├── hooks
 │   │   ├── asset-size-warning.js
 │   │   ├── build-matrix-capture.js
+│   │   ├── claude-adapter.js
 │   │   ├── crash-log-capture.js
 │   │   ├── engine-profile-guard.js
 │   │   ├── gdd-sync-warning.js
@@ -616,25 +1346,47 @@ everything-game-dev-code
 │   │   ├── scene-integrity-check.js
 │   │   └── session-summary.js
 │   ├── lib
+│   │   ├── engines.js
+│   │   ├── harnesses.js
+│   │   ├── hook-wiring.js
+│   │   ├── mcp-catalog.js
 │   │   ├── profile-resolution.js
+│   │   ├── schema-validation.js
 │   │   ├── structure-artifacts.js
+│   │   ├── text.js
 │   │   ├── utils.js
 │   │   └── validation.js
+│   ├── doctor.js
+│   ├── generate-assets.js
+│   ├── generate-dependency-graph.js
+│   ├── generate-hook-wiring.js
+│   ├── generate-mcp-configs.js
+│   ├── generate-wrappers.js
 │   ├── install-profile.js
 │   ├── lint-markdown.js
+│   ├── new-engine.js
+│   ├── new-harness.js
 │   ├── README.md
 │   ├── setup-git-hooks.js
 │   ├── setup-profile.js
 │   ├── sync-structure-artifacts.js
+│   ├── validate-engines.js
 │   ├── validate-generated-assets.js
 │   ├── validate-hooks.js
 │   ├── validate-manifests.js
 │   ├── validate-references.js
+│   ├── validate-schemas.js
 │   ├── validate-structure-artifacts.js
 │   └── validate-structure.js
 ├── skills
 │   ├── art-audio-content
 │   │   ├── 2d-animation-pipeline
+│   │   │   └── SKILL.md
+│   │   ├── 3d-animation-pipeline
+│   │   │   └── SKILL.md
+│   │   ├── 3d-asset-pipeline
+│   │   │   └── SKILL.md
+│   │   ├── ai-asset-generation
 │   │   │   └── SKILL.md
 │   │   ├── art-bible
 │   │   │   └── SKILL.md
@@ -646,9 +1398,15 @@ everything-game-dev-code
 │   │   │   └── SKILL.md
 │   │   ├── generated-raster-asset-pipeline
 │   │   │   └── SKILL.md
+│   │   ├── lighting-lod-pipeline
+│   │   │   └── SKILL.md
 │   │   ├── localization-pipeline
 │   │   │   └── SKILL.md
+│   │   ├── materials-shading-pipeline
+│   │   │   └── SKILL.md
 │   │   ├── placeholder-asset-pipeline
+│   │   │   └── SKILL.md
+│   │   ├── rigging-skinning-pipeline
 │   │   │   └── SKILL.md
 │   │   ├── sprite-pipeline
 │   │   │   └── SKILL.md
@@ -672,6 +1430,8 @@ everything-game-dev-code
 │   │   │   └── SKILL.md
 │   │   ├── economy-balancing
 │   │   │   └── SKILL.md
+│   │   ├── game-feel-design
+│   │   │   └── SKILL.md
 │   │   ├── level-design
 │   │   │   └── SKILL.md
 │   │   ├── liveops-design
@@ -681,6 +1441,8 @@ everything-game-dev-code
 │   │   ├── narrative-design
 │   │   │   └── SKILL.md
 │   │   ├── onboarding-tutorial-design
+│   │   │   └── SKILL.md
+│   │   ├── procgen-design
 │   │   │   └── SKILL.md
 │   │   ├── progression-design
 │   │   │   └── SKILL.md
@@ -720,6 +1482,8 @@ everything-game-dev-code
 │   │   │   └── SKILL.md
 │   │   └── README.md
 │   ├── godot
+│   │   ├── godot-3d-scenes
+│   │   │   └── SKILL.md
 │   │   ├── godot-build-release
 │   │   │   └── SKILL.md
 │   │   ├── godot-csharp-patterns
@@ -727,6 +1491,8 @@ everything-game-dev-code
 │   │   ├── godot-editor-tooling
 │   │   │   └── SKILL.md
 │   │   ├── godot-gdscript-standards
+│   │   │   └── SKILL.md
+│   │   ├── godot-input-patterns
 │   │   │   └── SKILL.md
 │   │   ├── godot-performance
 │   │   │   └── SKILL.md
@@ -788,6 +1554,8 @@ everything-game-dev-code
 │   │   │   └── SKILL.md
 │   │   ├── unreal-editor-tooling
 │   │   │   └── SKILL.md
+│   │   ├── unreal-enhanced-input
+│   │   │   └── SKILL.md
 │   │   ├── unreal-gameplay-framework
 │   │   │   └── SKILL.md
 │   │   ├── unreal-gas-patterns
@@ -801,6 +1569,25 @@ everything-game-dev-code
 │   │   ├── unreal-testing
 │   │   │   └── SKILL.md
 │   │   └── README.md
+│   ├── web
+│   │   ├── web-3d-rendering
+│   │   │   └── SKILL.md
+│   │   ├── web-build-release
+│   │   │   └── SKILL.md
+│   │   ├── web-canvas-rendering
+│   │   │   └── SKILL.md
+│   │   ├── web-game-architecture
+│   │   │   └── SKILL.md
+│   │   ├── web-input-touch
+│   │   │   └── SKILL.md
+│   │   ├── web-js-ts-standards
+│   │   │   └── SKILL.md
+│   │   ├── web-performance
+│   │   │   └── SKILL.md
+│   │   ├── web-project-structure
+│   │   │   └── SKILL.md
+│   │   └── web-testing
+│   │       └── SKILL.md
 │   ├── workflow
 │   │   ├── continuous-learning
 │   │   │   └── SKILL.md
@@ -833,26 +1620,31 @@ everything-game-dev-code
 │   │   ├── install-profile-script.test.js
 │   │   └── profile-install.test.js
 │   ├── lib
+│   │   ├── engine-content-isolation.test.js
 │   │   └── engine-isolation.test.js
 │   ├── schemas
 │   │   └── manifests-schema.test.js
 │   ├── scripts
+│   │   ├── mcp-configs.test.js
+│   │   ├── new-engine.test.js
+│   │   ├── new-harness.test.js
 │   │   └── setup-profile.test.js
 │   ├── README.md
 │   └── run-all.js
 ├── .env.example
+├── .gitattributes
 ├── .gitignore
 ├── .markdownlint.json
+├── .mcp.json
 ├── .prettierrc
 ├── AGENTS.md
-├── AGENTS.override.md
 ├── CHANGELOG.md
-├── CLAUDE.local.md
 ├── CLAUDE.md
 ├── CONTRIBUTING.md
 ├── install.ps1
 ├── install.sh
 ├── LICENSE
+├── package-lock.json
 ├── package.json
 ├── README.md
 ├── SECURITY.md

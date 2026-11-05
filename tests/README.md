@@ -63,12 +63,7 @@ Validates engine isolation logic:
 
 ### Schema tests — tests/schemas/
 
-Validates manifests against their schemas:
-- `manifests/install-components.json` — validated against `schemas/install-components.schema.json`
-- `manifests/install-modules.json` — validated against `schemas/install-modules.schema.json`
-- `manifests/install-profiles.json` — validated against `schemas/install-profiles.schema.json`
-- `.claude/package-manager.json` — validated against `schemas/package-manager.schema.json`
-- `mcp-configs/mcp-servers.json` — validated against its schema
+Checks that every schema file parses and that each schema-backed document declares the expected `$schema` pointer. Full structural validation against the schemas happens in `npm run validate:schemas` (ajv), which CI runs on every push.
 
 ### Script tests — tests/scripts/
 

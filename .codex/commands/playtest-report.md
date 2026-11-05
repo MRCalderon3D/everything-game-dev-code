@@ -3,4 +3,3 @@ description: Synthesize playtest findings into decisions, risks, and follow-up a
 ---
 
 Read `commands/playtest-report.md` and execute it as instructed.
-

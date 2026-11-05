@@ -12,7 +12,7 @@ They should route work through the correct role, use the correct skills, respect
 Agents should:
 
 - respect the layered rules model
-- keep Unity, Unreal, and Godot guidance isolated
+- keep Unity, Unreal, Godot, and web guidance isolated
 - route work to the correct role or command
 - use templates for high-value deliverables
 - preserve source-of-truth discipline across GDD, TDD, QA, telemetry, and release docs
@@ -115,6 +115,7 @@ Use `docs/orchestration/` as the source for routing and handoff expectations.
 - Unity tasks should route through Unity rules and Unity-specialized roles when implementation is engine-specific.
 - Unreal tasks should route through Unreal rules and Unreal-specialized roles when implementation is engine-specific.
 - Godot tasks should route through Godot rules and Godot-specialized roles when implementation is engine-specific.
+- Web (HTML5) tasks should route through web rules and web-specialized roles when implementation is engine-specific.
 
 If the work is engine-neutral, stay in common layers.
 

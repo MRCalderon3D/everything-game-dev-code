@@ -1,0 +1,19 @@
+{
+  "provider": "fal",
+  "model": "fal-ai/elevenlabs/sound-effects/v2",
+  "type": "sfx",
+  "prompt": "small creature death, quick dark magical dissolve into sparkling dust, short game sound",
+  "input": {
+    "text": "small creature death, quick dark magical dissolve into sparkling dust, short game sound"
+  },
+  "seed": null,
+  "requestId": "019ebdac-0e65-7ea0-97dc-3a4f81a2f160",
+  "generatedAt": "2026-06-12T21:10:34.917Z",
+  "sourceUrls": [
+    "https://v3b.fal.media/files/b/0a9e0bc7/xj8-n6fYpwjjJyC64vGIS_sound_effect.mp3"
+  ],
+  "files": [
+    "sfx-death.mp3"
+  ],
+  "license": "Generated via fal.ai; review provider and upstream model license terms before shipping."
+}

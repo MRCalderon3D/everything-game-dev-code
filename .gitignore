@@ -13,3 +13,11 @@ AGENTS.override.md
 CLAUDE.local.md
 .claude/settings.local.json
 .vscode
+
+# Local environment files (never commit API keys)
+.env
+.env.local
+
+# Kilo Agent Manager runtime (the .kilo/ adapter is tracked; session state is not)
+.kilo/agent-manager.json
+.kilo/worktrees/

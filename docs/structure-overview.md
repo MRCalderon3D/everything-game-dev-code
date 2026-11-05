@@ -4,14 +4,15 @@ Generated from the current repository structure. Update with `npm run sync:struc
 
 ## Current Count
 - Agents: 42
-- Commands: 51
-- Skills: 87
-- Rule files: 93
+- Commands: 66
+- Skills: 107
+- Rule files: 115
 
 ## Supported Engines
 - Godot
 - Unity
 - Unreal
+- Web
 
 ## Domains
 - art-audio-content
@@ -21,6 +22,7 @@ Generated from the current repository structure. Update with `npm run sync:struc
 - qa-release
 - unity
 - unreal
+- web
 - workflow
 
 ## Documentation

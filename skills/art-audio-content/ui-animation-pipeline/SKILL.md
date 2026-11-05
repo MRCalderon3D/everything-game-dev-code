@@ -61,7 +61,11 @@ Define transition, feedback, and state-driven animation rules for UI elements so
 - ui-flow-review
 - verify
 
+## Related Skills
+- ui-hud-patterns
+
 ## Notes
 - Keep this skill aligned with the relevant rules layer and current project documentation.
 - If engine-specific constraints materially change the workflow, hand off to the matching engine skill or engine-specific reviewer.
-- Prefer code-driven animations (tweens, coroutines, DOTween, Animator triggers) over baked sprite sheet animations for UI. Code-driven animations are resolution-independent and easier to tune.
+- Prefer code-driven animations (tween systems, animation state machine triggers, scripted easing) over baked sprite sheet animations for UI. Code-driven animations are resolution-independent and easier to tune. Pick the concrete tween library or animation system from the active engine layer.
+- Boundary: this skill owns UI motion authoring and tuning conventions; `ui-hud-patterns` owns runtime HUD architecture and data binding.

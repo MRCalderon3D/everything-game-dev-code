@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <meta name="theme-color" content="#000000" />
+  <title>PAC-MAN Claude</title>
+  <style>
+    :root {
+      --bg: #000;
+      --fg: #ffea00;
+      --wall: #1f2bbf;
+      --muted: #ffd6a5;
+    }
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--bg);
+      color: var(--fg);
+      font-family: 'Courier New', monospace;
+      overflow: hidden;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+    }
+    #app {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      gap: 12px;
+      padding: 8px;
+    }
+    canvas {
+      background: var(--bg);
+      image-rendering: pixelated;
+      max-width: 100%;
+      max-height: calc(100vh - 200px);
+      touch-action: none;
+    }
+    .dpad {
+      display: none;
+      grid-template-areas:
+        ". up ."
+        "left . right"
+        ". down .";
+      gap: 10px;
+      width: 220px;
+      height: 220px;
+    }
+    .dpad button {
+      background: rgba(255, 234, 0, 0.15);
+      border: 2px solid var(--fg);
+      color: var(--fg);
+      font-size: 28px;
+      font-family: inherit;
+      border-radius: 14px;
+      cursor: pointer;
+      touch-action: manipulation;
+    }
+    .dpad button:active { background: rgba(255, 234, 0, 0.35); }
+    .dpad .up    { grid-area: up; }
+    .dpad .down  { grid-area: down; }
+    .dpad .left  { grid-area: left; }
+    .dpad .right { grid-area: right; }
+
+    @media (pointer: coarse) {
+      .dpad { display: grid; }
+      canvas { max-height: calc(100vh - 280px); }
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <canvas id="game" width="448" height="560"></canvas>
+    <div class="dpad" id="dpad" aria-hidden="true">
+      <button class="up"    data-dir="up">▲</button>
+      <button class="left"  data-dir="left">◀</button>
+      <button class="right" data-dir="right">▶</button>
+      <button class="down"  data-dir="down">▼</button>
+    </div>
+  </div>
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>

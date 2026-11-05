@@ -24,13 +24,13 @@ Define creation, naming, and replacement rules for placeholder assets so the gam
 
 ## Process
 1. inventory all entities that need visual representation for the current milestone
-2. generate placeholder assets (colored shapes for visuals, procedural audio for sounds) at correct gameplay scale
+2. generate placeholder assets (colored sprites for 2D, flat-color 3D primitives for 3D, procedural audio for sounds) at correct gameplay scale
 3. place placeholders in the same folder path and with the same file name that final assets will use
 4. wire placeholders into prefabs or scenes so the game is immediately playable
 5. document the replacement checklist — what to swap, where, and how to validate after swapping
 
 ## Outputs
-- placeholder assets for all milestone entities (sprites, prefabs, procedurally generated audio clips)
+- placeholder assets for all milestone entities (sprites or 3D primitives, prefabs/scenes, procedurally generated audio clips)
 - drop-in replacement guide (file paths, naming, validation steps)
 - scene or prefab configuration with placeholders wired and playable
 - replacement validation checklist
@@ -51,15 +51,26 @@ Define creation, naming, and replacement rules for placeholder assets so the gam
 - 2d-artist
 - technical-artist
 - unity-reviewer
+- godot-reviewer
+- web-reviewer
 
 ## Related Commands
 - unity-placeholders
+- godot-placeholders
+- web-placeholders
 - scene-bootstrap
 - art-2d-pass
+
+## Related Skills
+- generated-raster-asset-pipeline
+- ai-asset-generation
 
 ## Notes
 - Keep this skill aligned with the relevant rules layer and current project documentation.
 - If engine-specific constraints materially change the workflow, hand off to the matching engine skill or engine-specific reviewer.
 - This skill is engine-neutral. Engine-specific placeholder commands (e.g. `/unity-placeholders`) implement the concrete generation step using this skill's standards.
+- Tracked asymmetry: Unity, Godot, and web have concrete placeholder generation commands (`/unity-placeholders` plus `/scene-bootstrap`, `/godot-placeholders`, `/web-placeholders`), each covering 2D sprites, 3D primitives, and procedural audio. An Unreal equivalent is a deliberate pending decision, not an oversight — until it exists, apply this skill's standards manually there.
+- 3D placeholders are procedural primitives (box, sphere, capsule, plane) with one flat-color material per entity category, at correct gameplay scale with matching collision so physics, navigation, and camera framing are testable before final models exist.
 - Audio placeholders should be procedurally generated (sine waves, square waves, noise, pitch sweeps) — not silent stubs. A placeholder sound that represents the intended audio event (e.g. a rising tone for a coin collect, a short burst for a jump) makes gameplay testing far more effective than silence.
 - If placeholders are later replaced with generated raster art, hand off to `generated-raster-asset-pipeline` before acceptance so transparency and runtime-size issues are caught during the swap.
+- This placeholder pipeline is the DEFAULT and always-available asset path. AI generation (`ai-asset-generation` + `/generate-assets`) is an optional upgrade that only applies when a provider API key is present; when it is absent, this pipeline is the complete workflow, unchanged. Generated assets, when used, drop onto the exact names and paths produced here.

@@ -1,0 +1,19 @@
+{
+  "provider": "fal",
+  "model": "fal-ai/elevenlabs/sound-effects/v2",
+  "type": "sfx",
+  "prompt": "sci-fi spaceship explosion, punchy boom with debris, short",
+  "input": {
+    "text": "sci-fi spaceship explosion, punchy boom with debris, short"
+  },
+  "seed": null,
+  "requestId": "019ec666-21e6-73c0-9347-566d6c8b19ba",
+  "generatedAt": "2026-06-14T13:50:47.224Z",
+  "sourceUrls": [
+    "https://v3b.fal.media/files/b/0a9e44f8/rktJ_X6c_BPaiF9AREmPC_sound_effect.mp3"
+  ],
+  "files": [
+    "sfx-explosion.mp3"
+  ],
+  "license": "Generated via fal.ai; review provider and upstream model license terms before shipping."
+}

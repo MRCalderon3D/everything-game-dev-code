@@ -1,0 +1,19 @@
+{
+  "provider": "fal",
+  "model": "fal-ai/elevenlabs/sound-effects/v2",
+  "type": "sfx",
+  "prompt": "short sharp sci-fi laser blaster shot, bright zap, very short, retro arcade",
+  "input": {
+    "text": "short sharp sci-fi laser blaster shot, bright zap, very short, retro arcade"
+  },
+  "seed": null,
+  "requestId": "019ec665-e722-71e2-aa9a-080db2e09a2e",
+  "generatedAt": "2026-06-14T13:50:32.077Z",
+  "sourceUrls": [
+    "https://v3b.fal.media/files/b/0a9e44f6/L4NdNon4HsQEmhqbMm8Wv_sound_effect.mp3"
+  ],
+  "files": [
+    "sfx-shot.mp3"
+  ],
+  "license": "Generated via fal.ai; review provider and upstream model license terms before shipping."
+}

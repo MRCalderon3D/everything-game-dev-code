@@ -1,0 +1,24 @@
+{
+  "provider": "fal",
+  "model": "fal-ai/hunyuan-3d/v3.1/rapid/image-to-3d",
+  "type": "model3d",
+  "input": {
+    "input_image_url": "https://v3b.fal.media/files/b/0a9e113a/jClismmVytPag3EeDwLMa_qHQFHx4c.png"
+  },
+  "seed": null,
+  "requestId": "019ebe81-2ee4-7100-9caf-544c44512500",
+  "generatedAt": "2026-06-13T01:04:38.082Z",
+  "sourceUrls": [
+    "https://v3b.fal.media/files/b/0a9e1142/KjutRGyd2f3h9k40mM9L8_149d0f4d66525472cd51b8b607eb647a.obj",
+    "https://v3b.fal.media/files/b/0a9e1142/O5lVbGQcosERa-ySpf5Qr_material.mtl",
+    "https://v3b.fal.media/files/b/0a9e1142/Y2lABBW82Z5mWucDqE5uc_texture_20250901.png",
+    "https://v3b.fal.media/files/b/0a9e1143/azo6BdDvc7WOJ2SUiFh-U_preview.png"
+  ],
+  "files": [
+    "prop-mars-spire-3d-1.obj",
+    "prop-mars-spire-3d-2.bin",
+    "prop-mars-spire-3d-3.png",
+    "prop-mars-spire-3d-4.png"
+  ],
+  "license": "Generated via fal.ai; review provider and upstream model license terms before shipping."
+}

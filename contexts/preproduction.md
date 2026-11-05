@@ -17,6 +17,8 @@ Retire the highest risks through design, prototyping, and structured validation.
 ## Key Commands
 - `/vertical-slice` — define the scope, quality bar, and risk retirement goals of the slice
 - `/gdd` — finalize player-facing design decisions
+- `/dialogue-design` — define dialogue structure, branching, and the conversation content pipeline
+- `/procgen-design` — define procedural generation constraints, seeds, and validation gates
 - `/tech-design` — document the architecture and integration approach
 - `/milestone-plan` — plan the production phases after the vertical slice gate
 - `/tdd` — apply test-driven practices to high-risk systems

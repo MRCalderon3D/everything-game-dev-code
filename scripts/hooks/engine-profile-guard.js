@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 const { flattenEventText, readEvent, result } = require("../lib/utils");
-const { detectProfileFromPaths, getActiveProfile, isValidProfile } = require("../lib/profile-resolution");
+const { detectProfileFromPaths, ENGINE_PROFILES, getActiveProfile, isValidProfile } = require("../lib/profile-resolution");
 
 (async function main() {
   const event = await readEvent();
@@ -16,7 +16,7 @@ const { detectProfileFromPaths, getActiveProfile, isValidProfile } = require("..
   if (needsProfile && !isValidProfile(active)) {
     status = "attention";
     severity = "warning";
-    message = `Detected likely ${detected} work but no active GAME_DEV_PROFILE is set. Activate unity, unreal, or godot before continuing.`;
+    message = `Detected likely ${detected} work but no active GAME_DEV_PROFILE is set. Activate one of ${ENGINE_PROFILES.join(", ")} before continuing.`;
   } else if (needsProfile && active && active !== detected) {
     status = "attention";
     severity = "warning";

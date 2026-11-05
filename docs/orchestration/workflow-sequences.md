@@ -5,7 +5,7 @@ These are the default execution sequences for the most important game developmen
 ## How to Use This File
 - Use these sequences as the default path unless the project has a better documented alternative.
 - Skip steps only when the task is genuinely small and the omission does not create downstream ambiguity.
-- Add engine-specific review where implementation is Unity, Unreal, or Godot-specific.
+- Add engine-specific review where implementation is Unity, Unreal, Godot, or web-specific.
 
 ## 1. New Feature Workflow
 Goal: move a feature from idea to validated implementation.
@@ -117,7 +117,17 @@ Sequence:
 - Unreal: `/unreal-setup` → `/unreal-review` → `/unreal-blueprint-audit` or `/unreal-build-fix` as needed
 - Godot: `/godot-setup` → `/godot-review` → `/godot-scene-audit` or `/godot-build-fix` as needed
 
-## 9. Learning and System Improvement Workflow
+## 9. Asset Generation Workflow
+Goal: upgrade a project from procedural placeholders to real generated content without breaking the drop-in replacement contract.
+
+Sequence:
+1. engine placeholder command (`/unity-placeholders`, `/godot-placeholders`, or `/web-placeholders`) so every asset has a stable name and path
+2. `/generate-assets` — acceptance contract first, then dry-run, then generation with provenance sidecars
+3. acceptance review against the contract (raster assets recorded in `generated-assets.json`)
+4. engine import through the active engine layer only
+5. `/art-2d-pass`, `/art-3d-pass`, or `/audio-pass` on the integrated result
+
+## 10. Learning and System Improvement Workflow
 Goal: turn repeated project experience into reusable process and skills.
 
 Sequence:

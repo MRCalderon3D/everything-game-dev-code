@@ -1,0 +1,22 @@
+{
+  "provider": "fal",
+  "model": "fal-ai/nano-banana-pro",
+  "type": "skybox",
+  "prompt": "seamless 360 degree equirectangular panorama game skybox, fantasy night sky over distant jagged crystal mountains on the horizon, swirling cyan and magenta auroras, dense star field and faint nebulae, dark dramatic mood, horizon line exactly at vertical center, no text, no watermark",
+  "input": {
+    "image_size": "landscape_16_9",
+    "num_images": 1,
+    "prompt": "seamless 360 degree equirectangular panorama game skybox, fantasy night sky over distant jagged crystal mountains on the horizon, swirling cyan and magenta auroras, dense star field and faint nebulae, dark dramatic mood, horizon line exactly at vertical center, no text, no watermark",
+    "aspect_ratio": "21:9"
+  },
+  "seed": null,
+  "requestId": "019ebdb3-c325-7991-95b1-a9fe9ea97a2b",
+  "generatedAt": "2026-06-12T21:19:19.221Z",
+  "sourceUrls": [
+    "https://v3b.fal.media/files/b/0a9e0bff/6LtygGWhpX4QpQe9qU_Ky_h9Onxn2c.png"
+  ],
+  "files": [
+    "skybox-aurora.png"
+  ],
+  "license": "Generated via fal.ai; review provider and upstream model license terms before shipping."
+}

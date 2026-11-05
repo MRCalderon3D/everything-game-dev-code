@@ -1,0 +1,12 @@
+{
+  "name": "los-renacidos-codex",
+  "version": "1.0.0",
+  "private": true,
+  "description": "HTML5 Canvas roguelike action vertical slice based on Los Renacidos: Echoes of Talasaria",
+  "scripts": {
+    "dev": "npx serve ."
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "provider": "fal",
+  "model": "fal-ai/hunyuan-3d/v3.1/rapid/image-to-3d",
+  "type": "model3d",
+  "input": {
+    "input_image_url": "https://v3b.fal.media/files/b/0a9e4511/9A-2traCrw0J31voKDppV_QDVhUpZT.png"
+  },
+  "seed": null,
+  "requestId": "019ec669-4093-7253-b16d-0dd2e1f95625",
+  "generatedAt": "2026-06-14T13:55:21.268Z",
+  "sourceUrls": [
+    "https://v3b.fal.media/files/b/0a9e4519/wiH51yixzuj4gqNDFdGOC_0053282fce3971484f744add501dc19c.obj",
+    "https://v3b.fal.media/files/b/0a9e4519/5gnjhGNeV4hM4jKRDf4nL_material.mtl",
+    "https://v3b.fal.media/files/b/0a9e4519/a-flCyvIzCOpvGN2bg2WO_texture_20250901.png",
+    "https://v3b.fal.media/files/b/0a9e4519/oN_RQBK1nMJWn_iG6Fbbu_preview.png"
+  ],
+  "files": [
+    "boss-3d-1.obj",
+    "boss-3d-2.bin",
+    "boss-3d-3.png",
+    "boss-3d-4.png"
+  ],
+  "license": "Generated via fal.ai; review provider and upstream model license terms before shipping."
+}

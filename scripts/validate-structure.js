@@ -5,6 +5,7 @@ const {
   extractLevelThreeHeadings,
   listMarkdownBasenames,
   listSkillNames,
+  readJson,
   readText,
   report,
 } = require("./lib/validation");
@@ -65,10 +66,38 @@ for (const command of commandNames) {
   }
 }
 
+// Two-way parity: every source command needs a wrapper in each mirroring
+// adapter, and every wrapper needs a source command (no orphans).
+const wrapperAdapters = [".claude/commands", ".codex/commands", ".opencode/commands"];
+
+for (const adapterDir of wrapperAdapters) {
+  const wrapperNames = listMarkdownBasenames(adapterDir);
+  const wrapperSet = new Set(wrapperNames);
+  for (const command of commandNames) {
+    if (!wrapperSet.has(command)) {
+      errors.push(`Missing command wrapper '${adapterDir}/${command}.md'.`);
+    }
+  }
+  for (const wrapper of wrapperNames) {
+    if (!commandSet.has(wrapper)) {
+      errors.push(
+        `Orphan command wrapper '${adapterDir}/${wrapper}.md' has no source in commands/.`
+      );
+    }
+  }
+}
+
+const opencodeConfig = readJson(".opencode/opencode.json");
+const opencodeCommandKeys = Object.keys(opencodeConfig.command || {});
+const opencodeCommandSet = new Set(opencodeCommandKeys);
 for (const command of commandNames) {
-  const codexCommandPath = `.codex/commands/${command}.md`;
-  if (!exists(codexCommandPath)) {
-    errors.push(`Missing Codex command wrapper '${codexCommandPath}'.`);
+  if (!opencodeCommandSet.has(command)) {
+    errors.push(`.opencode/opencode.json is missing command entry '${command}'.`);
+  }
+}
+for (const key of opencodeCommandKeys) {
+  if (!commandSet.has(key)) {
+    errors.push(`.opencode/opencode.json has orphan command entry '${key}'.`);
   }
 }
 
@@ -87,6 +116,7 @@ for (const skill of skillEntries) {
   const text = readText(skill.file);
   const relatedAgents = extractHeadingBullets(text, "Related Agents") || [];
   const relatedCommands = extractHeadingBullets(text, "Related Commands") || [];
+  const relatedSkills = extractHeadingBullets(text, "Related Skills") || [];
 
   for (const agent of relatedAgents) {
     if (!agentSet.has(agent)) {
@@ -98,6 +128,32 @@ for (const skill of skillEntries) {
       errors.push(`${skill.file} references unknown related command '${command}'.`);
     }
   }
+  for (const related of relatedSkills) {
+    if (!skillNames.has(related) && !qualifiedSkills.has(related)) {
+      errors.push(`${skill.file} references unknown related skill '${related}'.`);
+    }
+  }
+}
+
+// VERSION, package.json, and CHANGELOG.md must move together.
+const versionValue = readText("VERSION").trim();
+const changelogText = readText("CHANGELOG.md");
+if (!changelogText.includes(`## ${versionValue}`)) {
+  errors.push(`CHANGELOG.md has no entry for VERSION '${versionValue}'.`);
+}
+const packageVersion = readJson("package.json").version;
+if (packageVersion !== versionValue) {
+  errors.push(
+    `package.json version '${packageVersion}' does not match VERSION '${versionValue}'.`
+  );
+}
+
+// Every skill must appear in the skills/README.md domain index.
+const skillsReadme = readText("skills/README.md");
+for (const skill of skillEntries) {
+  if (!skillsReadme.includes(`\`${skill.name}\``)) {
+    errors.push(`skills/README.md is missing skill '${skill.qualified}'.`);
+  }
 }
 
 const adapterExpectations = [
@@ -105,6 +161,8 @@ const adapterExpectations = [
   ".cursor/README.md",
   ".opencode/README.md",
   ".kiro/README.md",
+  ".grok/README.md",
+  ".kilo/README.md",
   ".codex/README.md",
   ".codex/AGENTS.md",
   ".codex/commands/README.md",
@@ -113,6 +171,7 @@ const adapterExpectations = [
   ".codex/hooks/README.md",
   ".codex/mcp/README.md",
   ".claude-plugin/plugin.json",
+  "docs/harness-support.md",
 ];
 
 for (const relPath of adapterExpectations) {

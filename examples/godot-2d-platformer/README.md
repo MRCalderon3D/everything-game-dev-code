@@ -9,17 +9,10 @@ This example shows how the scaffold could be installed for a small-to-medium God
 **Engine:** Godot
 **Project Size:** Indie / small team
 
-## Recommended Installed Packs
-- baseline rules
-- baseline agents
-- baseline commands
-- baseline hooks
-- baseline docs
-- engine: godot
-- capability: design
-- capability: engineering
-- capability: qa
-- capability: production
+## Recommended Components (profile `godot-indie-2d`)
+- `baseline:rules`, `baseline:agents`, `baseline:commands`, `baseline:skills`, `baseline:docs`, `baseline:contexts`
+- `engine:godot`
+- `domain:workflow`, `domain:design`, `domain:engineering-common`, `domain:qa-release`
 
 ## Primary Agents
 - planner

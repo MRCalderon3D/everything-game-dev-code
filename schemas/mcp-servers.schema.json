@@ -1,0 +1,128 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/schemas/mcp-servers.schema.json",
+  "title": "MCP Server Registry",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "version",
+    "servers",
+    "profiles"
+  ],
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "description": {
+      "type": "string"
+    },
+    "profiles": {
+      "type": "object",
+      "minProperties": 1,
+      "propertyNames": {
+        "pattern": "^[a-z0-9][a-z0-9-]*$"
+      },
+      "additionalProperties": {
+        "type": "array",
+        "minItems": 1,
+        "items": {
+          "type": "string"
+        },
+        "uniqueItems": true
+      }
+    },
+    "servers": {
+      "type": "object",
+      "minProperties": 1,
+      "propertyNames": {
+        "pattern": "^[a-z0-9][a-z0-9-]*$"
+      },
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": true,
+        "required": [
+          "purpose"
+        ],
+        "if": {
+          "properties": {
+            "transport": {
+              "const": "http"
+            }
+          },
+          "required": [
+            "transport"
+          ]
+        },
+        "then": {
+          "required": [
+            "url"
+          ]
+        },
+        "else": {
+          "required": [
+            "command"
+          ]
+        },
+        "properties": {
+          "category": {
+            "type": "string"
+          },
+          "enabled_by_default": {
+            "type": "boolean"
+          },
+          "recommended": {
+            "type": "boolean"
+          },
+          "prewired": {
+            "type": "boolean",
+            "description": "Default true. false keeps a portable (placeholder-free) server out of every committed harness config — for opt-in alternatives that would otherwise launch next to the default server for the same tool."
+          },
+          "purpose": {
+            "type": "string",
+            "minLength": 1
+          },
+          "when_to_use": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "transport": {
+            "type": "string",
+            "enum": [
+              "stdio",
+              "http"
+            ]
+          },
+          "command": {
+            "type": "string",
+            "minLength": 1
+          },
+          "url": {
+            "type": "string",
+            "minLength": 1
+          },
+          "args": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "env": {
+            "type": "object"
+          },
+          "notes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+}

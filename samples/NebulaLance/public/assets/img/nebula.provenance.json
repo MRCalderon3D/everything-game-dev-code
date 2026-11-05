@@ -1,0 +1,23 @@
+{
+  "provider": "fal",
+  "model": "fal-ai/nano-banana-2",
+  "type": "image",
+  "prompt": "seamless wide deep-space nebula background, dark with soft teal and magenta gas clouds and distant stars, subtle low-contrast parallax game backdrop, no text, no foreground objects",
+  "input": {
+    "image_size": "square",
+    "num_images": 1,
+    "prompt": "seamless wide deep-space nebula background, dark with soft teal and magenta gas clouds and distant stars, subtle low-contrast parallax game backdrop, no text, no foreground objects",
+    "seed": 7,
+    "aspect_ratio": "16:9"
+  },
+  "seed": 7,
+  "requestId": "019ec666-73e7-7571-b98a-34fd195ff2a6",
+  "generatedAt": "2026-06-14T13:51:18.170Z",
+  "sourceUrls": [
+    "https://v3b.fal.media/files/b/0a9e44fa/wLKih1Wiljn0t2nQW6rzx_ViDdHHSM.png"
+  ],
+  "files": [
+    "nebula.png"
+  ],
+  "license": "Generated via fal.ai; review provider and upstream model license terms before shipping."
+}

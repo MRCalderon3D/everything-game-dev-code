@@ -1,0 +1,24 @@
+{
+  "provider": "fal",
+  "model": "fal-ai/hunyuan-3d/v3.1/rapid/image-to-3d",
+  "type": "model3d",
+  "input": {
+    "input_image_url": "https://v3b.fal.media/files/b/0a9e1143/ViQyQdaDi4iTWkyjR5LY1_gATXVJiq.png"
+  },
+  "seed": null,
+  "requestId": "019ebe82-b289-7651-a367-65b40393b918",
+  "generatedAt": "2026-06-13T01:06:13.822Z",
+  "sourceUrls": [
+    "https://v3b.fal.media/files/b/0a9e114c/cPWgir5cCXlpKHr5H4W-U_846ec48e41df85424c3be570ed04a991.obj",
+    "https://v3b.fal.media/files/b/0a9e114c/m4s0T7onDh0vbA9t72KpH_material.mtl",
+    "https://v3b.fal.media/files/b/0a9e114c/x8cPotRzooYCGJkVDLV_6_texture_20250901.png",
+    "https://v3b.fal.media/files/b/0a9e114c/1lMwwC3yBlLNKkmvSeFPW_preview.png"
+  ],
+  "files": [
+    "prop-mars-arch-3d-1.obj",
+    "prop-mars-arch-3d-2.bin",
+    "prop-mars-arch-3d-3.png",
+    "prop-mars-arch-3d-4.png"
+  ],
+  "license": "Generated via fal.ai; review provider and upstream model license terms before shipping."
+}

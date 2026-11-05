@@ -1,0 +1,19 @@
+{
+  "provider": "fal",
+  "model": "fal-ai/elevenlabs/sound-effects/v2",
+  "type": "sfx",
+  "prompt": "ominous alarm klaxon warning, boss approaching, two short pulses, sci-fi",
+  "input": {
+    "text": "ominous alarm klaxon warning, boss approaching, two short pulses, sci-fi"
+  },
+  "seed": null,
+  "requestId": "019ec666-5b7a-7bf2-9418-c79fa4d902de",
+  "generatedAt": "2026-06-14T13:51:01.940Z",
+  "sourceUrls": [
+    "https://v3b.fal.media/files/b/0a9e44f9/r_QRyRJhRgEE3l3pm6ZVg_sound_effect.mp3"
+  ],
+  "files": [
+    "sfx-warning.mp3"
+  ],
+  "license": "Generated via fal.ai; review provider and upstream model license terms before shipping."
+}

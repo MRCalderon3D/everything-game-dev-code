@@ -35,14 +35,16 @@ Turn feature intent into a Technical Design Document that is implementable, revi
 - test and rollout considerations
 
 ## Quality Bar
-- produces a current source of truth, not disconnected notes
-- names owners, risks, and next actions explicitly
-- separates decisions from assumptions and open questions
+- every system boundary names its owner module, public interface, and the data it persists
+- risks are stated with a concrete mitigation or an explicit accepted-risk note
+- decided items are separated from deferred items, and each deferral has a revisit trigger
+- a developer new to the project could implement a section without re-deriving the architecture
 
 ## Common Failure Modes
-- outdated docs that no longer match reality
-- plans with no owner or no exit criteria
-- hiding risks until they become schedule blockers
+- architecture described as diagrams with no interface or data contracts
+- decisions recorded without the constraint or trade-off that motivated them
+- a TDD written once and never updated after implementation diverges
+- deferred decisions with no trigger for when they must be made
 
 ## Related Agents
 - technical-design-lead

@@ -14,16 +14,42 @@ A profile install activates the right rules, agents, commands, skills, and docs 
 
 ## Files
 
+### engines.json
+
+The engine layer registry — the single source of truth for which engine layers exist. Scripts, tests, and hooks derive engine lists from this file instead of hardcoding them: `scripts/lib/profile-resolution.js` (valid profiles and path detection), `tests/lib/engine-isolation.test.js` (isolation prefixes), and `scripts/validate-engines.js` (structural contract per engine). Array order is path-detection priority — engines with the most specific markers come first.
+
+Each entry declares an `id` (kebab-case, matching `rules/<id>/`, `skills/<id>/`, `agents/<id>-*`, `commands/<id>-*`), a `display` name, `pathMarkers` for project detection, and whether the layer ships a dedicated `buildResolverAgent`.
+
+To add a new engine layer, run `npm run new:engine` rather than editing this file by hand.
+
+### harnesses.json
+
+The harness adapter registry — the single source of truth for which harness adapters exist (`.claude/`, `.codex/`, `.cursor/`, `.opencode/`, `.kiro/`, `.grok/`, `.kilo/`) and what each supports. Scripts derive their harness lists from this file instead of hardcoding them: `scripts/generate-wrappers.js` (which adapters get command wrappers, in which format, and where), `scripts/generate-mcp-configs.js` (which adapters get a live project-scoped MCP config), and `scripts/doctor.js` (which entry points must exist for an adapter to count as installed). Validated against `schemas/harnesses.schema.json`.
+
+Each entry declares an `id` (kebab-case), a `display` name, the adapter `dir`, a `commands` block (`dir` + wrapper `style`, or `null` when the harness has no project-scoped command support), a `hooks` flag (whether `sync:hook-wiring` emits executable wiring for it), an `mcp` block (`path` + `format`, or `null` for home-config-only harnesses like Codex), and the `entryPoints` doctor asserts.
+
+To add a new harness adapter, run `npm run new:harness` rather than editing this file by hand.
+
+### asset-providers.json
+
+The generative asset provider registry — the single source of truth for which AI generation provider and model serves each asset capability (`image`, `skybox`, `model3d`, `sfx`, `music`, `speech`, `video`). `scripts/generate-assets.js` and the `/generate-assets` command resolve capability-to-model routing from this file; swapping a default model or adding a provider is a manifest edit, not a code edit.
+
+Each provider declares an `id`, `display` name, `queueBaseUrl` (async queue API), `apiKeyEnv` (the environment variable holding the API key — keys are never committed), `docsUrl`, and a `capabilities` map. Each capability entry declares the default `model`, optional `alternatives`, the `promptField` name, request `defaults`, and the expected `output` format. Validated against `schemas/asset-providers.schema.json`.
+
+This layer is optional and capability-gated: it activates only when the provider's `apiKeyEnv` (e.g. `FAL_KEY`) is set in the environment. With no key, the scaffold falls back to its built-in placeholder/procedural asset tooling and behaves exactly as it did before this layer existed (see `rules/common/asset-pipeline.md`). The default provider is fal.ai because one pay-per-use key covers every asset modality. Model catalogs rotate quickly — verify model ids against the provider catalog when starting a new project.
+
+Top-level fields beyond the providers also drive behavior: `nativeFirstCapabilities` lists the image-shaped capabilities (`image`, `skybox`) that a free harness-native generator (e.g. Codex `$imagegen`) should serve before the paid API; `confirmOverUsd` is the cost threshold above which a run must be confirmed; `defaultQuality` is the tier used when none is chosen; and each capability's `estCostUsd` is the rough per-output cost the generator uses to estimate a run. Each capability also defines `byQuality` (`budget` / `balanced` / `premium`) mapping the tier to a model id + per-output cost, selected with `--quality` / `ASSET_GEN_QUALITY`; an explicit `--model` overrides it.
+
 ### install-components.json
 
-Defines the 17 components that form the scaffold's logical groupings.
+Defines the 18 components that form the scaffold's logical groupings.
 
 **Component families:**
 
 | Family | Components | Purpose |
 |--------|-----------|---------|
 | `baseline` | rules, agents, commands, skills, docs, contexts | Core scaffold — required for all profiles |
-| `engine` | unity, unreal, godot | Engine-specific rules, skills, commands, and review agents |
+| `engine` | unity, unreal, godot, web | Engine-specific rules, skills, commands, and review agents |
 | `domain` | workflow, design, engineering-common, art-audio-content, qa-release | Discipline-specific skill and agent subsets |
 | `capability` | multiplayer, liveops, mobile-f2p | Cross-cutting feature capability packs |
 
@@ -42,7 +68,7 @@ Modules are the file-resolution layer. Components reference modules by name; mod
 
 ### install-profiles.json
 
-Defines 9 predefined installation profiles for common project configurations.
+Defines 10 predefined installation profiles for common project configurations.
 
 | Profile | Use when |
 |---------|---------|
@@ -50,6 +76,7 @@ Defines 9 predefined installation profiles for common project configurations.
 | `unity-production` | Standard Unity project for a small-to-mid team |
 | `unreal-production` | Standard Unreal project for a small-to-mid team |
 | `godot-production` | Standard Godot project for a small-to-mid team |
+| `web-production` | Standard web (HTML5) browser game project, 2D or 3D |
 | `unity-multiplayer` | Unity project with explicit multiplayer architecture support |
 | `unreal-aaa-console` | Unreal project at AAA or console scale |
 | `godot-indie-2d` | Small Godot team with a constrained scope (2D platformer, puzzle, etc.) |
@@ -65,14 +92,14 @@ Each profile lists its component set. Profiles that include an engine component 
 ## How to use manifests
 
 1. Choose the profile that matches your project type from `install-profiles.json`.
-2. Run the setup script: `node scripts/install-profile.js --profile <profile-id>`
-3. The script resolves the profile to its component list, then resolves each component to its module list, then copies or links the correct files.
+2. Run the resolver script: `node scripts/install-profile.js --profile <profile-id>`
+3. The script resolves the profile to its component list, then resolves each component to its module list, and records the result under `.game-dev/` (`install-state.json`, `profile.json`, and `install-report.json` with the full resolved file list). Nothing is copied or moved — the scaffold is consumed in place, and the state files tell agents and hooks which profile and engine are active.
 
 To see what a profile installs before running it, inspect the profile's `components` array in `install-profiles.json`, then trace each component's `modules` in `install-components.json`, then check each module's `includes` in `install-modules.json`.
 
 ## Relationship to other folders
 
 - **schemas/** — each manifest file is validated against a corresponding JSON schema in `schemas/`
-- **scripts/** — `install-profile.js` and `setup-profile.js` execute the manifest installation
+- **scripts/** — `install-profile.js` and `setup-profile.js` resolve manifests into `.game-dev/` state files
 - **rules/**, **agents/**, **commands/**, **skills/**, **docs/**, **contexts/** — manifests reference files in all of these folders via module glob patterns
 - **examples/** — each example includes an `install-profile.example.json` showing the recommended profile for that project type

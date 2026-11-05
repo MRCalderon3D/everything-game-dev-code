@@ -1,5 +1,5 @@
 {
-  "$schema": "../schemas/plugin.schema.json",
+  "$schema": "../schemas/mcp-servers.schema.json",
   "version": 1,
   "description": "Recommended MCP server registry for the game-development scaffold. This file is intentionally configuration-oriented and uses placeholder commands or environment keys where local setup differs by team.",
   "profiles": {
@@ -18,7 +18,9 @@
       "fetch-docs",
       "unity-docs",
       "unity-package-registry",
-      "issue-tracker"
+      "issue-tracker",
+      "blender",
+      "unity-editor"
     ],
     "unreal": [
       "filesystem",
@@ -27,7 +29,9 @@
       "ripgrep",
       "fetch-docs",
       "unreal-docs",
-      "issue-tracker"
+      "issue-tracker",
+      "blender",
+      "unreal-editor"
     ],
     "godot": [
       "filesystem",
@@ -36,7 +40,19 @@
       "ripgrep",
       "fetch-docs",
       "godot-docs",
-      "issue-tracker"
+      "issue-tracker",
+      "blender",
+      "godot-editor"
+    ],
+    "web": [
+      "filesystem",
+      "git",
+      "github",
+      "ripgrep",
+      "fetch-docs",
+      "issue-tracker",
+      "playwright",
+      "blender"
     ],
     "liveops": [
       "filesystem",
@@ -56,7 +72,8 @@
       "fetch-docs",
       "issue-tracker",
       "storefront-docs",
-      "ci-builds"
+      "ci-builds",
+      "playwright"
     ]
   },
   "servers": {
@@ -276,6 +293,207 @@
       "notes": [
         "Use for telemetry analysts, liveops managers, and mobile F2P reviews.",
         "Avoid exposing unnecessary player-level data."
+      ]
+    },
+    "fal-media": {
+      "category": "asset-generation",
+      "enabled_by_default": false,
+      "recommended": true,
+      "purpose": "Interactive AI asset generation via the fal.ai model catalog: images, skyboxes, 3D models, sound effects, music, speech, and video.",
+      "when_to_use": [
+        "explore or compare generation models before committing them to the provider registry",
+        "iterate interactively on prompts before a reproducible generation run",
+        "estimate generation cost before batch work"
+      ],
+      "transport": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "fal-ai-mcp-server"
+      ],
+      "env": {
+        "FAL_KEY": "<required>"
+      },
+      "notes": [
+        "Optional convenience layer. Reproducible production generation goes through scripts/generate-assets.js and manifests/asset-providers.json so provenance sidecars are written.",
+        "Follow the AI-generated asset rules in rules/common/asset-pipeline.md regardless of which path generated the file."
+      ]
+    },
+    "blender": {
+      "category": "dcc-tool",
+      "enabled_by_default": false,
+      "recommended": true,
+      "purpose": "Drive a running Blender instance to inspect scenes and run bpy Python for 3D asset work: build/normalize geometry, set scale/axis/pivot, assign materials, pull PolyHaven/Sketchfab assets, validate against import rules, and export GLB/FBX.",
+      "when_to_use": [
+        "normalize a generated or downloaded model to the project's unit/axis/pivot and naming conventions before it reaches a scene",
+        "run the 3d-asset-pipeline import checklist (scale probe, orientation, pivot, polycount) and report pass/fail",
+        "kitbash modular pieces with snapping pivots, or pull HDRIs/textures from PolyHaven",
+        "clean up and re-export existing rigs/animations (rename actions, trim ranges, fix framerate, assisted retarget)"
+      ],
+      "transport": "stdio",
+      "command": "uvx",
+      "args": [
+        "blender-mcp"
+      ],
+      "env": {},
+      "notes": [
+        "DCC tool, engine-neutral: it produces GLB/FBX that each engine layer imports under its own rules, so it does not break engine isolation.",
+        "Interactive only — needs Blender open with the BlenderMCP addon running (not headless); like fal-media and playwright it is an iteration layer, not a CI/deterministic path.",
+        "Scope: geometry, normalization, import validation, and export are solid. Rigging and character animation are only assisted (auto-rig, retarget, clip cleanup) — precise bone placement, weight painting, and keyframe timing still need a human. Do not present it as an autonomous rigger/animator.",
+        "Pairs with skills 3d-asset-pipeline, rigging-skinning-pipeline, 3d-animation-pipeline, lighting-lod-pipeline and the /art-3d-pass command; follow rules/common/asset-pipeline.md for any AI-generated source."
+      ]
+    },
+    "unity-editor": {
+      "category": "engine-control",
+      "enabled_by_default": false,
+      "recommended": true,
+      "purpose": "Drive the Unity Editor via Unity's official MCP server, built into the Unity CLI (`unity mcp`) and backed by the Unity Pipeline package in the project: inspect and change the open project (scenes, assets, console, C# evaluation, tests, Play Mode) — the exact tool set is advertised by the Editor at connect time.",
+      "when_to_use": [
+        "scaffold or rewire a scene live in the Editor instead of editing .unity/.prefab YAML by hand",
+        "audit scene/prefab structure and serialized references against the unity rules while the project is open",
+        "read the console, evaluate C#, or run tests while diagnosing a build or import",
+        "apply a unity-setup/scene-bootstrap result directly to the open project"
+      ],
+      "transport": "stdio",
+      "command": "unity",
+      "args": [
+        "mcp"
+      ],
+      "env": {},
+      "notes": [
+        "Official first-party server and Unity's supported path: it replaces the deprecated in-Editor MCP server of com.unity.ai.assistant (the `~/.unity/relay` relay binary). Pre-wired and portable — the bare `unity` command on PATH, no machine paths.",
+        "Two halves: (1) install the Unity CLI once per machine — `winget install Unity.CLI` (Windows), `brew install --cask unity-cli` (macOS/Linux), or `curl -fsSL https://unity.com/install.sh | bash`; (2) in each Unity project run `unity pipeline install` (adds the Unity Pipeline package) and keep the Editor open. The server starts even with no Editor running and exposes tools once it discovers an Editor running the Pipeline package.",
+        "Needs Unity 6.0 LTS+ to drive the Editor. If the project also has com.unity.ai.assistant, it must be 2.13+ (earlier versions conflict with the CLI). Status when adopted (2026-10): CLI 1.0.0-beta.13, Pipeline package experimental — expect changes.",
+        "Several Editors open: the server attaches to the Editor it discovers; to pin one, add `--project-path <path>` to the args in your own client config (the committed config stays project-agnostic).",
+        "Codex: prefer `unity mcp configure codex` over a bare `codex mcp add` — it also relaxes Codex's sandbox network policy so the server can reach the Editor over localhost.",
+        "On Unity 2021.3–2022 LTS (no Unity 6), use the community bridge `unity-editor-community` below instead. Do not run both against the same Editor session.",
+        "Engine-specific (engine-control): use only inside Unity work; it does not apply to Unreal/Godot/web. Keep Unity implementation detail in the Unity rules layer.",
+        "Pairs with the unity-setup, scene-bootstrap, unity-scene-audit, and unity-review commands. Distinct from unity-docs / unity-package-registry, which are documentation servers, not Editor control."
+      ]
+    },
+    "unity-editor-community": {
+      "category": "engine-control",
+      "enabled_by_default": false,
+      "recommended": false,
+      "prewired": false,
+      "purpose": "Alternative Unity Editor control via the community MCP for Unity bridge (CoplayDev): scenes and GameObjects, asset import, Editor menu items, console, and C# editing — for Unity versions before Unity 6, or teams that depend on its tool groups.",
+      "when_to_use": [
+        "drive the Unity Editor on Unity 2021.3–2022 LTS, where the official CLI server cannot reach the Editor",
+        "keep a project that is already standardized on the CoplayDev bridge and its tool groups (vfx, animation, UI, testing)"
+      ],
+      "transport": "stdio",
+      "command": "uvx",
+      "args": [
+        "--from",
+        "mcpforunityserver",
+        "mcp-for-unity",
+        "--transport",
+        "stdio"
+      ],
+      "env": {},
+      "notes": [
+        "NOT pre-wired (prewired: false): the official `unity-editor` server is the default, and pre-wiring both would launch two Unity servers in every session. The command is portable, so registering it is one line, e.g. `claude mcp add unity-editor-community -- uvx --from mcpforunityserver mcp-for-unity --transport stdio`.",
+        "Two halves: install the Unity-side bridge in your project (Package Manager -> Add package from git URL: https://github.com/CoplayDev/unity-mcp.git?path=/MCPForUnity#main — pin a release tag like #v10.0.0 for reproducible installs; also on OpenUPM as com.coplaydev.unity-mcp) and keep the Editor open; the harness launches this server (PyPI package mcpforunityserver), which connects to it.",
+        "Prereqs: Unity 2021.3 LTS+, Python 3.10+ with uv (provides uvx). v10 (2026-06) organized tools into Tool Groups; when upgrading a project from v9 or older, follow the project's migration guide.",
+        "Do not run it and the official `unity-editor` server against the same Editor session.",
+        "Engine-specific (engine-control): use only inside Unity work; it does not apply to Unreal/Godot/web. Keep Unity implementation detail in the Unity rules layer."
+      ]
+    },
+    "godot-editor": {
+      "category": "engine-control",
+      "enabled_by_default": false,
+      "recommended": true,
+      "purpose": "Drive the Godot engine via the Godot MCP server (Coding-Solo): launch the editor, run projects, read/modify scenes and nodes, edit scripts, and capture debug/console output so scene work and run-time debugging act on the real project.",
+      "when_to_use": [
+        "run the project and capture debug output / errors while diagnosing a bug",
+        "inspect or modify scene/node structure against the godot rules instead of editing .tscn by hand",
+        "apply a godot-setup / scene work result to the open project",
+        "launch the editor or a scene for a quick playtest loop"
+      ],
+      "transport": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "@coding-solo/godot-mcp"
+      ],
+      "env": {},
+      "notes": [
+        "Portable: runs straight from npm (@coding-solo/godot-mcp) via npx, no clone or path needed. GODOT_PATH is optional (auto-detected); set it in your environment only if detection fails.",
+        "Godot 4.x only — like the rest of the Godot MCP ecosystem it does not support 3.x projects. There is no first-party Godot MCP server; heavier community alternatives exist as in-editor addons (e.g. Godot MCP Native, Godot MCP Pro on the Asset Library) if you need a deeper toolset than this portable server, at the cost of a per-project addon install.",
+        "Engine-specific (engine-control): use only inside Godot work; it does not apply to Unity/Unreal/web. Keep Godot implementation detail in the Godot rules layer.",
+        "Pairs with the godot-setup, godot-scene-audit, godot-build-fix, and godot-review commands. Distinct from godot-docs, which is a documentation server, not engine control."
+      ]
+    },
+    "unreal-editor": {
+      "category": "engine-control",
+      "enabled_by_default": false,
+      "recommended": true,
+      "purpose": "Drive the Unreal Editor via Epic's official Unreal MCP plugin (UE 5.8+, Experimental): the editor embeds an MCP server over local HTTP exposing actor spawning, lighting, material instances, Slate widget inspection, and automation tests as tools.",
+      "when_to_use": [
+        "spawn/edit actors and configure lighting or materials live instead of by hand",
+        "audit level structure against the unreal rules while the project is open",
+        "run automation tests or editor operations while diagnosing a build",
+        "apply an unreal-setup result to the open project"
+      ],
+      "transport": "http",
+      "url": "http://127.0.0.1:8000/mcp",
+      "env": {},
+      "notes": [
+        "Official first-party plugin, pre-wired and portable: no clone, no Python, no machine paths. In your Unreal project enable Edit -> Plugins -> 'Unreal MCP' (its Toolset Registry dependency enables automatically), restart, and keep the Editor open; the server listens on http://127.0.0.1:8000/mcp (port/path configurable under Editor Preferences -> Model Context Protocol).",
+        "Experimental in UE 5.8 and deliberately minimal; tool discovery runs through meta-tools (list_toolsets / describe_toolset / call_tool). Local-loopback only, no auth layer — never expose the port beyond the machine. The editor can also emit client configs itself via the console command `ModelContextProtocol.GenerateClientConfig <Client>`, but the scaffold's committed configs already cover that.",
+        "Needs UE 5.8+. On older engine versions, or if you need a broader toolset than the experimental plugin ships, use the community alternative `unreal-editor-community` below.",
+        "Engine-specific (engine-control): use only inside Unreal work; it does not apply to Unity/Godot/web. Keep Unreal implementation detail in the Unreal rules layer.",
+        "Pairs with the unreal-setup, unreal-blueprint-audit, unreal-build-fix, and unreal-review commands. Distinct from unreal-docs, which is a documentation server, not Editor control."
+      ]
+    },
+    "unreal-editor-community": {
+      "category": "engine-control",
+      "enabled_by_default": false,
+      "recommended": false,
+      "purpose": "Alternative Unreal Editor control via the community Unreal MCP server (chongdashu): actors, blueprints, levels, and editor automation — a broader toolset than Epic's experimental plugin, for UE versions before 5.8 or deeper blueprint work.",
+      "when_to_use": [
+        "drive the Unreal Editor on engine versions older than UE 5.8 (no official MCP plugin)",
+        "wire blueprints live — blueprint authoring is beyond the official plugin's experimental toolset"
+      ],
+      "transport": "stdio",
+      "command": "uv",
+      "args": [
+        "--directory",
+        "<path-to-your-clone>/unreal-mcp/Python",
+        "run",
+        "unreal_mcp_server.py"
+      ],
+      "env": {},
+      "notes": [
+        "NOT pre-wired: the community server (github.com/chongdashu/unreal-mcp) has no portable npx/uvx package — it launches from a local clone via `uv --directory <path>/Python run unreal_mcp_server.py`, so the path is a per-machine placeholder. Replace it in your own client config; the scaffold never commits a machine path.",
+        "Two halves like the other engine servers: install the UnrealMCP plugin (MCPGameProject/Plugins/UnrealMCP) in your project and keep the Editor open; this server connects to it. Prereqs: Python 3.10+ with uv.",
+        "Prefer the official `unreal-editor` entry on UE 5.8+ — it is first-party, pre-wired, and needs no local clone. Do not run both against the same Editor session.",
+        "Engine-specific (engine-control): use only inside Unreal work; it does not apply to Unity/Godot/web. Keep Unreal implementation detail in the Unreal rules layer."
+      ]
+    },
+    "playwright": {
+      "category": "playtest",
+      "enabled_by_default": false,
+      "recommended": true,
+      "purpose": "Drive a real browser to playtest and QA web (HTML5) builds: navigate, click/drag/type, capture screenshots, and read console + page errors.",
+      "when_to_use": [
+        "smoke-test a running web build end to end (boot, start, play, restart)",
+        "capture gameplay or menu screenshots for review",
+        "verify menu/HUD flows and surface console or page errors",
+        "check GPU-memory-flat or perf signals exposed on window during play"
+      ],
+      "transport": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "@playwright/mcp@latest"
+      ],
+      "env": {},
+      "notes": [
+        "Microsoft's official Playwright MCP. First run needs browsers installed: `npx playwright install chromium`.",
+        "Point it at a local dev/preview server (e.g. `npm run dev` / `npm run preview`), not a file:// path, so ES modules load.",
+        "Optional interactive layer. Each sample still keeps a reproducible smoke path in its own scripts/ (headless sim test + a committed Playwright script); the MCP is for live, ad hoc QA.",
+        "Web-target only — it tests browser builds, not the Unity/Unreal/Godot editors (use an engine MCP for those)."
       ]
     },
     "storefront-docs": {

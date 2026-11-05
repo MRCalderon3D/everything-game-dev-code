@@ -1,0 +1,24 @@
+{
+  "provider": "fal",
+  "model": "fal-ai/hunyuan-3d/v3.1/rapid/image-to-3d",
+  "type": "model3d",
+  "input": {
+    "input_image_url": "https://v3b.fal.media/files/b/0a9e0c20/cwRgwIkP5SQlyueSk8xsK_GASEbHnA.png"
+  },
+  "seed": null,
+  "requestId": "019ebdb9-e3ab-7fb1-a869-ab79c0fc15b4",
+  "generatedAt": "2026-06-12T21:26:44.381Z",
+  "sourceUrls": [
+    "https://v3b.fal.media/files/b/0a9e0c27/_kaF6YbfciiKqoEEppEbD_b770b617b253bb8dde8a32c89f542af1.obj",
+    "https://v3b.fal.media/files/b/0a9e0c27/eU6TguL4hIOcUCt6k5N5E_material.mtl",
+    "https://v3b.fal.media/files/b/0a9e0c27/fJ8lzjSXMP81n7G_XwWiG_texture_20250901.png",
+    "https://v3b.fal.media/files/b/0a9e0c27/A7ACElTN6iBRkGsZtM3id_preview.png"
+  ],
+  "files": [
+    "tower-laser-1.obj",
+    "tower-laser-2.bin",
+    "tower-laser-3.png",
+    "tower-laser-4.png"
+  ],
+  "license": "Generated via fal.ai; review provider and upstream model license terms before shipping."
+}

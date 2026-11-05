@@ -1,0 +1,24 @@
+{
+  "provider": "fal",
+  "model": "fal-ai/hunyuan-3d/v3.1/rapid/image-to-3d",
+  "type": "model3d",
+  "input": {
+    "input_image_url": "https://v3b.fal.media/files/b/0a9e0c28/ytcu_Ujk3d1UZNCVVW8_9_efm9zZQ9.png"
+  },
+  "seed": null,
+  "requestId": "019ebdbb-27a1-76f0-ba81-dbd2449f40da",
+  "generatedAt": "2026-06-12T21:28:13.930Z",
+  "sourceUrls": [
+    "https://v3b.fal.media/files/b/0a9e0c30/1nj7Fda-0ASakuUa7C0YQ_b2b11ea1abd8fb71c8466ee0d1892f37.obj",
+    "https://v3b.fal.media/files/b/0a9e0c30/Aw0gfAVPpVOVd1N8hXW5E_material.mtl",
+    "https://v3b.fal.media/files/b/0a9e0c30/7CxsRPV4pmUoGWkuYAUri_texture_20250901.png",
+    "https://v3b.fal.media/files/b/0a9e0c30/3UmRaPs18dGeV6-WjWERB_preview.png"
+  ],
+  "files": [
+    "enemy-runner-1.obj",
+    "enemy-runner-2.bin",
+    "enemy-runner-3.png",
+    "enemy-runner-4.png"
+  ],
+  "license": "Generated via fal.ai; review provider and upstream model license terms before shipping."
+}

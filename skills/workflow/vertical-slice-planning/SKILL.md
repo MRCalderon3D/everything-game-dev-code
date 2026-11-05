@@ -35,14 +35,16 @@ Define a vertical slice that proves gameplay, quality bars, and production viabi
 - milestone scope for the slice
 
 ## Quality Bar
-- produces a current source of truth, not disconnected notes
-- names owners, risks, and next actions explicitly
-- separates decisions from assumptions and open questions
+- the slice has a single stated proof goal: what it must demonstrate and to whom
+- every included feature ties to the proof goal; everything else is explicitly cut
+- acceptance criteria are demonstrable in a single playthrough session
+- the plan states what is faked (placeholder art, scripted sequences) and what must be real
 
 ## Common Failure Modes
-- outdated docs that no longer match reality
-- plans with no owner or no exit criteria
-- hiding risks until they become schedule blockers
+- slices that try to prove everything and become miniature full productions
+- including features because they exist, not because the proof goal needs them
+- undeclared fakery — stakeholders judge faked systems as real, or real systems as faked
+- no explicit decision about what happens after the slice (promote, rebuild, or discard)
 
 ## Related Agents
 - planner

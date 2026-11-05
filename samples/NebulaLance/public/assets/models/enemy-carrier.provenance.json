@@ -1,0 +1,24 @@
+{
+  "provider": "fal",
+  "model": "fal-ai/hunyuan-3d/v3.1/rapid/image-to-3d",
+  "type": "model3d",
+  "input": {
+    "input_image_url": "https://v3b.fal.media/files/b/0a9e4526/KhRN8zYaJs8hQtD8a9M3v_GqqVEynh.png"
+  },
+  "seed": null,
+  "requestId": "019ec66d-538f-71c1-9d82-20aa003a4ab5",
+  "generatedAt": "2026-06-14T13:59:51.467Z",
+  "sourceUrls": [
+    "https://v3b.fal.media/files/b/0a9e452e/EKH5X__2OxhcGT9j8Vxkl_5c2e125874d7343e546528c179f23850.obj",
+    "https://v3b.fal.media/files/b/0a9e452d/BfT5IHMXJl06dJ90R8apA_material.mtl",
+    "https://v3b.fal.media/files/b/0a9e452e/Kv_vhIrplEoO6BqJwiyWv_texture_20250901.png",
+    "https://v3b.fal.media/files/b/0a9e452e/oKSNLnuK7a6Uj96NeiHJG_preview.png"
+  ],
+  "files": [
+    "enemy-carrier-3d-1.obj",
+    "enemy-carrier-3d-2.bin",
+    "enemy-carrier-3d-3.png",
+    "enemy-carrier-3d-4.png"
+  ],
+  "license": "Generated via fal.ai; review provider and upstream model license terms before shipping."
+}

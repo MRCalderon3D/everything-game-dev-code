@@ -11,7 +11,7 @@ category: art-audio-content
 Define acceptance, validation, and runtime integration rules for raster assets generated with image models so they are safe to adopt as real project content without breaking transparency, layout, readability, or gameplay collisions.
 
 ## Use When
-- Codex `$imagegen` or another image model is used to create sprites, UI skins, backgrounds, icons, or source art
+- the harness's image-generation capability (e.g. Codex `$imagegen`) or another image model is used to create sprites, UI skins, backgrounds, icons, or source art
 - generated PNG or WEBP files are being imported into the workspace as real project assets
 - placeholder assets are being upgraded to generated raster art
 - runtime integration needs explicit display size, anchor, crop, or collision-envelope rules
@@ -74,6 +74,11 @@ Define acceptance, validation, and runtime integration rules for raster assets g
 - art-2d-pass
 - ui-asset-pass
 - verify
+
+## Related Skills
+- sprite-pipeline
+- ui-asset-pipeline
+- placeholder-asset-pipeline
 
 ## Notes
 - Treat generated raster assets as authored content, not as a special exemption from normal pipeline review.

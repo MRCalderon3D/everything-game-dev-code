@@ -1,0 +1,19 @@
+{
+  "provider": "fal",
+  "model": "fal-ai/elevenlabs/sound-effects/v2",
+  "type": "sfx",
+  "prompt": "dark game over sting, descending defeat tone, short",
+  "input": {
+    "text": "dark game over sting, descending defeat tone, short"
+  },
+  "seed": null,
+  "requestId": "019ec666-96d4-7223-b207-3ef3ebc4eaac",
+  "generatedAt": "2026-06-14T13:51:16.997Z",
+  "sourceUrls": [
+    "https://v3b.fal.media/files/b/0a9e44fb/E4SnaKLE4uTFA20ua-hIv_sound_effect.mp3"
+  ],
+  "files": [
+    "sfx-lose.mp3"
+  ],
+  "license": "Generated via fal.ai; review provider and upstream model license terms before shipping."
+}

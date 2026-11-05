@@ -1,0 +1,304 @@
+:root {
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-left: env(safe-area-inset-left, 0px);
+  --safe-right: env(safe-area-inset-right, 0px);
+  --panel-bg: rgba(8, 11, 22, 0.92);
+  --chip-bg: rgba(8, 11, 22, 0.72);
+  --teal: #49e0c8;
+  --magenta: #ff4dd2;
+  --text: #e9f2ff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+  background: #05070f;
+  color: var(--text);
+  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+#app {
+  position: fixed;
+  inset: 0;
+}
+
+#game-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  touch-action: none;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* ---------- HUD ---------- */
+#hud {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.hud-top {
+  position: absolute;
+  top: calc(var(--safe-top) + 8px);
+  left: calc(var(--safe-left) + 8px);
+  right: calc(var(--safe-right) + 8px);
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.hud-chip {
+  background: var(--chip-bg);
+  border: 1px solid rgba(73, 224, 200, 0.3);
+  border-radius: 10px;
+  padding: 6px 12px;
+  font-size: 15px;
+  font-weight: 700;
+  min-height: 38px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 1px;
+}
+
+#hud-lives {
+  color: var(--teal);
+}
+
+.hud-chip.combo {
+  color: var(--magenta);
+  border-color: rgba(255, 77, 210, 0.4);
+  min-width: 0;
+  padding: 6px 10px;
+}
+.hud-chip.combo:empty {
+  display: none;
+}
+
+.hud-actions {
+  margin-left: auto;
+  display: flex;
+  gap: 8px;
+  pointer-events: auto;
+}
+
+.icon-btn {
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  border: 1px solid rgba(73, 224, 200, 0.4);
+  background: var(--chip-bg);
+  color: var(--text);
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.icon-btn.off {
+  opacity: 0.45;
+}
+
+/* boss bar */
+#boss-bar-wrap {
+  position: absolute;
+  top: calc(var(--safe-top) + 60px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(82vw, 520px);
+  text-align: center;
+}
+.boss-label {
+  font-size: 12px;
+  letter-spacing: 3px;
+  color: var(--magenta);
+  margin-bottom: 3px;
+}
+.boss-track {
+  height: 12px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 77, 210, 0.8);
+  background: rgba(8, 11, 22, 0.8);
+  overflow: hidden;
+}
+#boss-bar {
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(90deg, #ff4dd2, #ff9e64);
+  transition: width 0.1s linear;
+}
+
+/* charge meter + force label */
+#charge-wrap {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: calc(var(--safe-bottom) + 12px);
+  width: min(60vw, 320px);
+  text-align: center;
+}
+#hud-force {
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: var(--teal);
+  margin-bottom: 4px;
+  min-height: 14px;
+}
+.charge-track {
+  height: 8px;
+  border-radius: 4px;
+  border: 1px solid rgba(73, 224, 200, 0.5);
+  background: rgba(8, 11, 22, 0.8);
+  overflow: hidden;
+}
+#charge-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--teal), #ffffff);
+}
+
+/* touch controls */
+#touch-controls {
+  position: absolute;
+  right: calc(var(--safe-right) + 14px);
+  bottom: calc(var(--safe-bottom) + 40px);
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+  pointer-events: none;
+}
+.touch-btn {
+  pointer-events: auto;
+  border-radius: 50%;
+  border: 1px solid rgba(73, 224, 200, 0.5);
+  background: rgba(8, 11, 22, 0.6);
+  color: var(--text);
+  font-weight: 800;
+  letter-spacing: 1px;
+  cursor: pointer;
+  touch-action: none;
+}
+.touch-btn.fire {
+  width: 96px;
+  height: 96px;
+  font-size: 18px;
+  border-color: var(--magenta);
+  background: rgba(255, 77, 210, 0.16);
+}
+.touch-btn.fire:active {
+  background: rgba(255, 77, 210, 0.32);
+}
+.force-col {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.touch-btn.small {
+  width: 64px;
+  height: 64px;
+  font-size: 12px;
+}
+.touch-btn.small:active {
+  background: rgba(73, 224, 200, 0.22);
+}
+
+/* ---------- overlays ---------- */
+#overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(4, 6, 14, 0.72);
+  z-index: 10;
+  padding: 16px;
+  overflow: hidden;
+}
+#intro-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: none;
+  filter: saturate(1.1) brightness(0.85);
+}
+#overlay.menu-mode #intro-video {
+  display: block;
+}
+#overlay.menu-mode {
+  background: rgba(4, 6, 14, 0.4);
+}
+
+.panel {
+  position: relative;
+  background: var(--panel-bg);
+  border: 1px solid rgba(73, 224, 200, 0.4);
+  border-radius: 20px;
+  padding: clamp(20px, 5vw, 36px);
+  text-align: center;
+  max-width: 440px;
+  width: 100%;
+  box-shadow: 0 0 40px rgba(73, 224, 200, 0.12);
+}
+.panel h1 {
+  font-size: clamp(28px, 8vw, 46px);
+  letter-spacing: 3px;
+  color: var(--teal);
+  margin-bottom: 10px;
+  text-shadow: 0 0 18px rgba(73, 224, 200, 0.5);
+}
+.panel p {
+  margin: 6px 0;
+  font-size: 15px;
+  line-height: 1.4;
+}
+.panel .hint {
+  opacity: 0.6;
+  font-size: 12.5px;
+  margin-top: 14px;
+}
+#overlay-score {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--magenta);
+}
+#overlay-high {
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+.big-btn {
+  margin-top: 14px;
+  min-height: 54px;
+  width: 100%;
+  border-radius: 14px;
+  border: none;
+  background: var(--teal);
+  color: #04121a;
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+.big-btn.secondary {
+  background: transparent;
+  border: 1px solid rgba(73, 224, 200, 0.55);
+  color: var(--text);
+  margin-top: 10px;
+  min-height: 46px;
+  font-weight: 600;
+}

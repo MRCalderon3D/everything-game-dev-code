@@ -112,8 +112,8 @@
       "id": "buttonHover",
       "path": "public/assets/images/button-hover.png",
       "kind": "ui-skin",
-      "background_policy": "transparent",
-      "corner_alpha_policy": "all-zero",
+      "background_policy": "opaque",
+      "corner_alpha_policy": "ignore",
       "integration": {
         "display_size": { "width": 220, "height": 60 },
         "physics_role": "decorative"

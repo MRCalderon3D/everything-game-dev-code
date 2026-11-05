@@ -3,4 +3,3 @@ description: Design or revise combat rules, variables, readability, and tuning d
 ---
 
 Read `commands/combat-design.md` and execute it as instructed.
-

@@ -18,6 +18,7 @@ Classify bugs, assign severity and priority, and propose next actions.
 
 ## Required Skills
 - bug-triage
+- crash-triage
 
 ## Expected Output
 - A structured result that can be reviewed, acted on, or handed off.

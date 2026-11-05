@@ -1,0 +1,19 @@
+{
+  "provider": "fal",
+  "model": "fal-ai/elevenlabs/sound-effects/v2",
+  "type": "sfx",
+  "prompt": "icy frost nova whoosh, freezing wind burst with crystalline shimmer, short, fantasy game spell",
+  "input": {
+    "text": "icy frost nova whoosh, freezing wind burst with crystalline shimmer, short, fantasy game spell"
+  },
+  "seed": null,
+  "requestId": "019ebdab-fb36-7772-b034-ee4d29430d6e",
+  "generatedAt": "2026-06-12T21:10:29.779Z",
+  "sourceUrls": [
+    "https://v3b.fal.media/files/b/0a9e0bc6/N9R4uhCqYUUU-s4-6PzWc_sound_effect.mp3"
+  ],
+  "files": [
+    "sfx-frost.mp3"
+  ],
+  "license": "Generated via fal.ai; review provider and upstream model license terms before shipping."
+}

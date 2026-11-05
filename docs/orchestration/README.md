@@ -4,7 +4,7 @@ Orchestration documents define how work flows between agents. They specify which
 
 ## What orchestration documents do
 
-The scaffold has 40+ agents and 45+ commands. Without explicit routing, work either stalls (no one knows who acts next) or duplicates (two agents act on the same problem independently).
+The scaffold has 40+ agents and 60+ commands. Without explicit routing, work either stalls (no one knows who acts next) or duplicates (two agents act on the same problem independently).
 
 Orchestration documents answer three questions:
 
@@ -21,6 +21,10 @@ Maps every command to the agent or agents responsible for executing it. Use this
 ### agent-skill-matrix.md
 
 Maps every agent to its primary and secondary skill domains. Use this when you need to know what skills an agent brings to a task, or when an agent needs to route a subtask to a more appropriate role.
+
+### dependency-graph.md
+
+Generated Mermaid visualization of command -> agent and command -> skill edges, grouped by the sections of `command-agent-map.md`, plus an orphaned-skills report. Regenerate with `npm run sync:graph`; `npm run validate` fails when it drifts from its sources. Do not edit by hand.
 
 ### role-handoffs.md
 
@@ -52,10 +56,11 @@ Sequences defined:
 | Release | `release-manager` → `build-engineer` → `qa-lead` → `console-compliance-reviewer` → `release-manager` |
 | Live ops event | `liveops-manager` → `economy-designer` → `gameplay-programmer` → `qa-lead` → `telemetry-analyst` |
 | Engine setup | `build-engineer` → `architect` → `gameplay-programmer` → `doc-updater` |
+| Asset generation | `technical-artist` → `2d-artist` / `audio-designer` → engine import → art/audio pass review |
 
 ### engine-isolation.md
 
-Documents the strict policy preventing Unity, Unreal, and Godot implementation guidance from mixing in the same agent pass. Defines what counts as contamination, when cross-engine work is legitimate (comparison, migration research), and how to detect and correct a contamination incident.
+Documents the strict policy preventing Unity, Unreal, Godot, and web implementation guidance from mixing in the same agent pass. Defines what counts as contamination, when cross-engine work is legitimate (comparison, migration research), and how to detect and correct a contamination incident.
 
 ## How to use these documents
 
@@ -71,5 +76,5 @@ These documents are consumed by agents, not by users directly. When an agent exe
 - **agents/** — orchestration documents define how agents coordinate, not what each agent does internally
 - **commands/** — commands initiate sequences; orchestration documents define what those sequences look like
 - **skills/workflow/orchestration-patterns** — the skill for implementing multi-agent workflows uses these documents as its reference
-- **schemas/role-matrix.schema.json** — the role matrix schema validates any structured role-to-skill mapping document that extends this folder
+- **schemas/** — JSON schemas validate the structured configuration documents that support orchestration (hooks, manifests, MCP registry)
 - **contexts/** — active phase contexts reference the relevant workflow sequences for that phase

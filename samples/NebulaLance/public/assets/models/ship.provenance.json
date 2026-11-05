@@ -1,0 +1,24 @@
+{
+  "provider": "fal",
+  "model": "fal-ai/hunyuan-3d/v3.1/rapid/image-to-3d",
+  "type": "model3d",
+  "input": {
+    "input_image_url": "https://v3b.fal.media/files/b/0a9e44f9/3eSevfcsLLbb2TBTikqAa_mfUuMEfI.png"
+  },
+  "seed": null,
+  "requestId": "019ec666-84c4-78e0-b5cc-3d7fa0872331",
+  "generatedAt": "2026-06-14T13:52:25.130Z",
+  "sourceUrls": [
+    "https://v3b.fal.media/files/b/0a9e4501/AbTDhvQX96v-IdNngWyTj_37bf685af7ce5df3c59aa80a08c66400.obj",
+    "https://v3b.fal.media/files/b/0a9e4501/u0FGpQU2-QHi0TkxHpkRP_material.mtl",
+    "https://v3b.fal.media/files/b/0a9e4501/5MSQCh_3IuYZnSAgf_nB__texture_20250901.png",
+    "https://v3b.fal.media/files/b/0a9e4501/_c_KN3zNdeRhm2zjahlsD_preview.png"
+  ],
+  "files": [
+    "ship-3d-1.obj",
+    "ship-3d-2.bin",
+    "ship-3d-3.png",
+    "ship-3d-4.png"
+  ],
+  "license": "Generated via fal.ai; review provider and upstream model license terms before shipping."
+}

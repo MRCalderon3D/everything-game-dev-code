@@ -1,0 +1,24 @@
+{
+  "provider": "fal",
+  "model": "fal-ai/hunyuan-3d/v3.1/rapid/image-to-3d",
+  "type": "model3d",
+  "input": {
+    "input_image_url": "https://v3b.fal.media/files/b/0a9e0c31/-JDomiS44qkB4Dm1orMg2_P0lHMAuZ.png"
+  },
+  "seed": null,
+  "requestId": "019ebdbc-86a6-73e3-b8fa-ead0a6603092",
+  "generatedAt": "2026-06-12T21:29:43.671Z",
+  "sourceUrls": [
+    "https://v3b.fal.media/files/b/0a9e0c39/9xrSan49cs7C25zhj4A4p_d51b26cbf63ac0e5cea9931c687d7ec5.obj",
+    "https://v3b.fal.media/files/b/0a9e0c39/WUyx3lhZX5SFuYpUXdT3u_material.mtl",
+    "https://v3b.fal.media/files/b/0a9e0c39/T9ocdKGZ-HWgqs_IIh0qf_texture_20250901.png",
+    "https://v3b.fal.media/files/b/0a9e0c39/CXk7nIXQSk6v_O47HVHee_preview.png"
+  ],
+  "files": [
+    "enemy-tank-1.obj",
+    "enemy-tank-2.bin",
+    "enemy-tank-3.png",
+    "enemy-tank-4.png"
+  ],
+  "license": "Generated via fal.ai; review provider and upstream model license terms before shipping."
+}

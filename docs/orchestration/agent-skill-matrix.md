@@ -6,7 +6,7 @@ This matrix defines which skill groups each agent should reach for first. It is 
 - Start with the agent's primary skill set.
 - Pull adjacent skills only when the task crosses boundaries.
 - Escalate to `planner`, `producer`, or `technical-design-lead` when a task spans multiple domains or changes project-level decisions.
-- Use engine-specific skill groups only when the implementation is explicitly inside Unity, Unreal, or Godot.
+- Use engine-specific skill groups only when the implementation is explicitly inside Unity, Unreal, Godot, or the web layer.
 
 ## Core Delivery Agents
 
@@ -84,6 +84,7 @@ Primary skills:
 - design/progression-design
 - design/economy-balancing
 - design/liveops-design
+- design/procgen-design
 
 ### combat-designer
 Primary skills:
@@ -97,6 +98,9 @@ Primary skills:
 - design/onboarding-tutorial-design
 - design/quest-design
 
+Secondary skills:
+- design/procgen-design
+
 ### narrative-designer
 Primary skills:
 - design/narrative-design
@@ -108,6 +112,9 @@ Primary skills:
 - design/accessibility-design
 - design/onboarding-tutorial-design
 - engineering-common/ui-hud-patterns
+
+Secondary skills:
+- design/game-feel-design
 
 ### economy-designer
 Primary skills:
@@ -136,8 +143,15 @@ Secondary skills:
 Primary skills:
 - art-audio-content/technical-art-pipeline
 - art-audio-content/vfx-pipeline
+- art-audio-content/cinematic-pipeline
+- art-audio-content/3d-asset-pipeline
+- art-audio-content/materials-shading-pipeline
+- art-audio-content/lighting-lod-pipeline
 - engineering-common/asset-management
 - engineering-common/performance-budgeting
+
+Secondary skills:
+- art-audio-content/rigging-skinning-pipeline
 
 ### audio-designer
 Primary skills:
@@ -154,6 +168,9 @@ Primary skills:
 - engineering-common/save-system-patterns
 - engineering-common/event-bus-patterns
 
+Secondary skills:
+- design/game-feel-design
+
 ### ai-programmer
 Primary skills:
 - engineering-common/ai-behavior-patterns
@@ -168,7 +185,11 @@ Primary skills:
 ### animation-programmer
 Primary skills:
 - engineering-common/animation-state-patterns
+- art-audio-content/3d-animation-pipeline
 - engineering-common/gameplay-architecture
+
+Secondary skills:
+- art-audio-content/rigging-skinning-pipeline
 
 ### ui-programmer
 Primary skills:
@@ -300,6 +321,12 @@ Primary skills:
 - unity/unity-performance
 - unity/unity-testing
 
+Secondary skills:
+- unity/unity-input-system
+- unity/unity-addressables
+- unity/unity-urp-hdrp
+- unity/unity-build-release
+
 ### unity-build-resolver
 Primary skills:
 - unity/unity-build-release
@@ -313,6 +340,13 @@ Primary skills:
 - unreal/unreal-blueprint-patterns
 - unreal/unreal-performance
 - unreal/unreal-testing
+
+Secondary skills:
+- unreal/unreal-gameplay-framework
+- unreal/unreal-enhanced-input
+- unreal/unreal-gas-patterns
+- unreal/unreal-replication
+- unreal/unreal-build-release
 
 ### unreal-build-resolver
 Primary skills:
@@ -328,11 +362,29 @@ Primary skills:
 - godot/godot-performance
 - godot/godot-testing
 
+Secondary skills:
+- godot/godot-csharp-patterns
+- godot/godot-signals-patterns
+- godot/godot-input-patterns
+- godot/godot-3d-scenes
+- godot/godot-resource-management
+- godot/godot-build-release
+
 ### godot-build-resolver
 Primary skills:
 - godot/godot-build-release
 - godot/godot-editor-tooling
 - godot/godot-project-structure
+
+### web-reviewer
+Primary skills:
+- web/web-project-structure
+- web/web-js-ts-standards
+- web/web-game-architecture
+- web/web-canvas-rendering
+- web/web-3d-rendering
+- web/web-performance
+- web/web-testing
 
 ## Routing Rules
 - If a task changes player-facing goals, route through the relevant design agent before engineering finalization.

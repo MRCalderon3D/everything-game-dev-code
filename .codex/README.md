@@ -43,6 +43,8 @@ This adapter maps the shared scaffold to OpenAI Codex.
 - Good fits: concept sheets, painted or textured source art, sprite source PNGs, UI mockups, menu backgrounds, marketing art, and in-project bitmap edits.
 - Do not use `$imagegen` for deterministic placeholder generation when `/unity-placeholders` or equivalent is the intended workflow, and do not use it for vector/icon-system work that should stay code-native or SVG-native.
 - If the selected image becomes a project asset, move or copy it from `$CODEX_HOME/generated_images/...` into the workspace before treating it as source-of-truth content.
+- For harness-neutral generation across all modalities (images, skyboxes, 3D models, SFX, music, voice, video), use the shared `/generate-assets` command backed by `manifests/asset-providers.json` and `scripts/generate-assets.js` — it writes the provenance sidecars the asset pipeline rules require.
+- Resolution order matters: for images and skyboxes (the registry's `nativeFirstCapabilities`), Codex's free `$imagegen` is the PREFERRED path — use it before the paid fal.ai API. The API is for what `$imagegen` cannot make (3D models, audio, video) or when a non-Codex harness has no native generator. Either way, keep the same names/paths and run accepted raster through `generated-raster-asset-pipeline`.
 
 ## Stability rule
 Prefer stable Codex surfaces first: `AGENTS.md`, profiles, shell execution, review mode, MCP, plugins, and skills. Treat experimental Codex hooks or nested AGENTS behavior as optional adapter targets until they are stable.

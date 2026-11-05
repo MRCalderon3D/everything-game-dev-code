@@ -1,0 +1,19 @@
+{
+  "provider": "fal",
+  "model": "fal-ai/elevenlabs/sound-effects/v2",
+  "type": "sfx",
+  "prompt": "powerful charged energy wave cannon firing, deep building hum then a big piercing beam release, sci-fi",
+  "input": {
+    "text": "powerful charged energy wave cannon firing, deep building hum then a big piercing beam release, sci-fi"
+  },
+  "seed": null,
+  "requestId": "019ec665-fa58-7090-906a-a1013182071a",
+  "generatedAt": "2026-06-14T13:50:37.099Z",
+  "sourceUrls": [
+    "https://v3b.fal.media/files/b/0a9e44f7/_7ywoUmTvI6uRWMQtJHdw_sound_effect.mp3"
+  ],
+  "files": [
+    "sfx-beam.mp3"
+  ],
+  "license": "Generated via fal.ai; review provider and upstream model license terms before shipping."
+}

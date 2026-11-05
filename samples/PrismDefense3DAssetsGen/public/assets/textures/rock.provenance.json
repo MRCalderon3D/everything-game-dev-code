@@ -1,0 +1,22 @@
+{
+  "provider": "fal",
+  "model": "fal-ai/nano-banana-2",
+  "type": "image",
+  "prompt": "seamless tileable texture, dark slate stone blocks with thin glowing cyan crystal veins in the cracks, top-down, stylized fantasy game texture, uniform lighting, no shadows at edges, perfectly tileable",
+  "input": {
+    "image_size": "square",
+    "num_images": 1,
+    "prompt": "seamless tileable texture, dark slate stone blocks with thin glowing cyan crystal veins in the cracks, top-down, stylized fantasy game texture, uniform lighting, no shadows at edges, perfectly tileable",
+    "seed": 7
+  },
+  "seed": 7,
+  "requestId": "019ebdac-4632-7011-a22d-da17d21782c3",
+  "generatedAt": "2026-06-12T21:10:59.099Z",
+  "sourceUrls": [
+    "https://v3b.fal.media/files/b/0a9e0bc8/AX3uxDWH-gQhZOLQtX3xa_LISrhVD4.png"
+  ],
+  "files": [
+    "rock.png"
+  ],
+  "license": "Generated via fal.ai; review provider and upstream model license terms before shipping."
+}

@@ -1,0 +1,19 @@
+{
+  "provider": "fal",
+  "model": "fal-ai/elevenlabs/sound-effects/v2",
+  "type": "sfx",
+  "prompt": "ascending magical power-up chime, crystal resonance, bright and short, fantasy game upgrade sound",
+  "input": {
+    "text": "ascending magical power-up chime, crystal resonance, bright and short, fantasy game upgrade sound"
+  },
+  "seed": null,
+  "requestId": "019ebdab-b50b-7a21-bc54-ebaf7fbac08f",
+  "generatedAt": "2026-06-12T21:10:15.181Z",
+  "sourceUrls": [
+    "https://v3b.fal.media/files/b/0a9e0bc5/qvFwXbRbalfEYMyuLCqFu_sound_effect.mp3"
+  ],
+  "files": [
+    "sfx-upgrade.mp3"
+  ],
+  "license": "Generated via fal.ai; review provider and upstream model license terms before shipping."
+}

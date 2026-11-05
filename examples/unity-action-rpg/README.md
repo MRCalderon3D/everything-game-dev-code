@@ -9,18 +9,11 @@ This example shows how the scaffold could be installed for a Unity action RPG wi
 **Engine:** Unity
 **Project Size:** Small-to-mid team
 
-## Recommended Installed Packs
-- baseline rules
-- baseline agents
-- baseline commands
-- baseline hooks
-- baseline docs
-- engine: unity
-- capability: design
-- capability: engineering
-- capability: qa
-- capability: production
-- capability: audio-art
+## Recommended Components (profile `unity-production`)
+- `baseline:rules`, `baseline:agents`, `baseline:commands`, `baseline:skills`, `baseline:docs`, `baseline:contexts`
+- `engine:unity`
+- `domain:workflow`, `domain:design`, `domain:engineering-common`, `domain:art-audio-content`, `domain:qa-release`
+- optional: `capability:liveops`
 
 ## Primary Agents
 - planner

@@ -1,4 +1,5 @@
 {
+  "$schema": "../schemas/install-modules.schema.json",
   "version": 1,
   "description": "File-level module map for selective installation of the scaffold.",
   "modules": {
@@ -7,7 +8,8 @@
         "rules/common/**",
         "rules/unity/**",
         "rules/unreal/**",
-        "rules/godot/**"
+        "rules/godot/**",
+        "rules/web/**"
       ],
       "notes": "Installs the full rules layer, including engine-specific overrides. Consumers should still activate only one engine profile at runtime unless doing comparison work."
     },
@@ -70,6 +72,15 @@
       ],
       "notes": "Godot engine surface. Use with baseline components and avoid mixing with other engine packs in active production profiles."
     },
+    "engine-web": {
+      "includes": [
+        "rules/web/**",
+        "skills/web/**",
+        "agents/web-*.md",
+        "commands/web-*.md"
+      ],
+      "notes": "Web (HTML5) engine surface. Use with baseline components and avoid mixing with other engine packs in active production profiles."
+    },
     "domain-workflow": {
       "includes": [
         "skills/workflow/**",
@@ -131,9 +142,12 @@
         "agents/audio-designer.md",
         "docs/templates/art-bible.md",
         "docs/templates/audio-bible.md",
-        "commands/audio-pass.md"
+        "commands/audio-pass.md",
+        "commands/generate-assets.md",
+        "manifests/asset-providers.json",
+        "scripts/generate-assets.js"
       ],
-      "notes": "Content pipeline and presentation layer."
+      "notes": "Content pipeline and presentation layer, including AI asset generation via the provider registry."
     },
     "domain-qa-release": {
       "includes": [

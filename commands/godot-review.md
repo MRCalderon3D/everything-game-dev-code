@@ -26,4 +26,5 @@ Review a Godot project for structure, architecture, maintainability, and risk.
 
 ## Notes
 - Keep engine-neutral commands free of engine-specific implementation detail unless an engine-specific command is being called.
+- For 3D projects, review scene composition through the `godot-3d-scenes` skill in addition to the general architecture skills.
 - Escalate to the relevant reviewer or specialist when risks exceed the command's normal scope.

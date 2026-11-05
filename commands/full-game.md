@@ -7,7 +7,8 @@ description: Build a complete game from idea to playable build, executing every 
 ## Purpose
 Take a game idea and a target platform, then execute the full development pipeline — from
 design documents through implementation, art, audio, review, QA, and release — producing a
-playable game with real code, real assets (placeholder where needed), and real project structure.
+playable game with real code, real assets (placeholder by default, AI-generated when a
+provider key is available), and real project structure.
 
 This is not a planning command. It executes every phase, writes every file, and delivers a
 project the user can open and run.
@@ -55,6 +56,7 @@ The user provides two things:
 - ui-hud-patterns
 - input-abstraction
 - placeholder-asset-pipeline
+- ai-asset-generation
 - performance-budgeting
 - qa-test-matrix
 - release-readiness
@@ -201,6 +203,27 @@ Based on target platform:
 All placeholders must be wired — the game must be visually and audibly playable
 after this phase with no manual setup.
 
+**Placeholders are the default and always sufficient.** This phase does NOT spend
+money on assets on its own. After wiring placeholders:
+
+- If no provider key is present (`FAL_KEY` for fal.ai), ship the placeholders. Do not
+  treat the absence as a gap.
+- If a key IS present, do not silently start generating. Stop and ask the user once,
+  with the estimated total cost, whether to upgrade placeholders to AI-generated
+  assets (`/generate-assets` + `ai-asset-generation`) or keep placeholders. Default to
+  placeholders if the run is autonomous and the user cannot answer. In the same ask,
+  offer the quality/price tier (`budget` / `balanced` / `premium`, default `balanced`)
+  and pass `--quality` to every generation — budget keeps most runs under the cost gate;
+  premium will need `--yes` per gated run.
+- When the user opts in, prefer the free path where it exists: for images/skyboxes,
+  use the harness-native generator (e.g. Codex `$imagegen`) if available before the
+  paid API; 3D/audio/video only have the API path. Generate onto the same names and
+  paths the placeholders use, keep the drop-in contract, respect the script's cost
+  gate (`--yes` only after the user confirms), and record acceptances in
+  `generated-assets.json`.
+
+Either way, the game must be fully playable after this phase.
+
 ---
 
 ### Phase 6 — Scene Wiring (context: production)
@@ -261,7 +284,10 @@ Produce a final message to the user with:
    - Web: `npm install && npm run dev` or just open `index.html`
 3. **What was built** — brief recap of systems, screens, and features
 4. **What placeholder assets look like** — describe what the player will see/hear
-5. **Next steps** — what the user should do to replace placeholders with real assets
+   (or, if generation ran, which assets are AI-generated and which remain placeholder)
+5. **Next steps** — what the user should do to replace placeholders with real assets,
+   including that `/generate-assets` can upgrade them in place once a provider key
+   (`FAL_KEY`) is set, if it was not available during this run
 
 ---
 

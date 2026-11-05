@@ -1,0 +1,132 @@
+{
+  "$schema": "../schemas/asset-providers.schema.json",
+  "version": 1,
+  "description": "Generative asset provider registry — the single source of truth for which AI generation provider and model serves each asset capability. This whole layer is OPTIONAL: it activates only when a provider's apiKeyEnv is set in the environment; without a key the scaffold uses its built-in placeholder/procedural asset tooling as the default (see rules/common/asset-pipeline.md). scripts/generate-assets.js resolves capability-to-model routing from this file; swapping a default model or adding a provider is a manifest edit, not a code edit. Model catalogs rotate quickly: verify a model id against the provider catalog before relying on it in a new project.",
+  "defaultProvider": "fal",
+  "confirmOverUsd": 0.5,
+  "defaultQuality": "balanced",
+  "nativeFirstCapabilities": ["image", "skybox"],
+  "providers": [
+    {
+      "id": "fal",
+      "display": "fal.ai",
+      "queueBaseUrl": "https://queue.fal.run",
+      "apiKeyEnv": "FAL_KEY",
+      "docsUrl": "https://docs.fal.ai",
+      "notes": [
+        "Chosen as default because one pay-per-use API key covers every asset modality (3D, image, audio, video) with no monthly subscription.",
+        "All endpoints use the async queue API: POST https://queue.fal.run/<model> returns request_id + status_url + response_url.",
+        "Review fal.ai and upstream model license terms before shipping generated content commercially.",
+        "An optional MCP server ('fal-media' in mcp-configs/mcp-servers.json) exposes the same catalog interactively; the script remains the reproducible path."
+      ],
+      "capabilities": {
+        "image": {
+          "model": "fal-ai/nano-banana-2",
+          "alternatives": ["fal-ai/nano-banana-pro"],
+          "promptField": "prompt",
+          "defaults": { "image_size": "square", "num_images": 1 },
+          "output": "png",
+          "estCostUsd": 0.04,
+          "byQuality": {
+            "budget": { "model": "fal-ai/flux/schnell", "estCostUsd": 0.02 },
+            "balanced": { "model": "fal-ai/nano-banana-2", "estCostUsd": 0.04 },
+            "premium": { "model": "fal-ai/nano-banana-pro", "estCostUsd": 0.08 }
+          },
+          "notes": "Sprites, textures, UI art, concept art. Iterate on nano-banana-2 (fast/cheap), switch to nano-banana-pro for finals. For tileable textures, ask for 'seamless tileable texture' explicitly and verify edges."
+        },
+        "skybox": {
+          "model": "fal-ai/nano-banana-pro",
+          "promptField": "prompt",
+          "defaults": { "image_size": "landscape_16_9", "num_images": 1 },
+          "output": "png",
+          "estCostUsd": 0.08,
+          "byQuality": {
+            "budget": { "model": "fal-ai/nano-banana-2", "estCostUsd": 0.04 },
+            "balanced": { "model": "fal-ai/nano-banana-pro", "estCostUsd": 0.08 },
+            "premium": { "model": "fal-ai/nano-banana-pro", "estCostUsd": 0.08 }
+          },
+          "notes": "Prompt for a '360 degree equirectangular panorama' and validate the horizon line before engine import; engines expect a 2:1 equirectangular projection for sky materials."
+        },
+        "model3d": {
+          "model": "fal-ai/hunyuan3d-v3/text-to-3d",
+          "alternatives": [
+            "fal-ai/hunyuan-3d/v3.1/rapid/image-to-3d",
+            "fal-ai/trellis-2",
+            "fal-ai/triposr"
+          ],
+          "promptField": "prompt",
+          "defaults": {},
+          "output": "glb",
+          "estCostUsd": 0.3,
+          "byQuality": {
+            "budget": { "model": "fal-ai/triposr", "estCostUsd": 0.07 },
+            "balanced": { "model": "fal-ai/hunyuan-3d/v3.1/rapid/image-to-3d", "estCostUsd": 0.3 },
+            "premium": { "model": "fal-ai/trellis-2", "estCostUsd": 0.35 }
+          },
+          "notes": "The default is text-to-3d so a bare --prompt works, but the PROVEN production route is concept-image -> image-to-3d (text-to-3d queues can stall): generate a concept with the image capability, then pass --model fal-ai/hunyuan-3d/v3.1/rapid/image-to-3d --input-json {\"input_image_url\": ...} (this Rapid endpoint returns OBJ+MTL+texture, not GLB). Use fal-ai/trellis-2 (~$0.25-0.35) when you need PBR materials (metalness/roughness) from one image; fal-ai/triposr (~$0.07, <0.5s) for fast low-stakes ideation. All import into Unity/Unreal/Godot/Three.js. Static meshes only — rigging/animation needs a dedicated provider."
+        },
+        "sfx": {
+          "model": "fal-ai/elevenlabs/sound-effects/v2",
+          "alternatives": ["cassetteai/sound-effects-generator"],
+          "promptField": "text",
+          "defaults": {},
+          "output": "mp3",
+          "estCostUsd": 0.05,
+          "byQuality": {
+            "budget": { "model": "cassetteai/sound-effects-generator", "estCostUsd": 0.03 },
+            "balanced": { "model": "fal-ai/elevenlabs/sound-effects/v2", "estCostUsd": 0.05 },
+            "premium": { "model": "fal-ai/elevenlabs/sound-effects/v2", "estCostUsd": 0.05 }
+          },
+          "notes": "Short gameplay sound effects from a text description. Keep descriptions physical and concrete ('metal coin dropping on stone, short, bright')."
+        },
+        "music": {
+          "model": "cassetteai/music-generator",
+          "alternatives": ["fal-ai/elevenlabs/music"],
+          "promptField": "prompt",
+          "defaults": { "duration": 30 },
+          "output": "wav",
+          "estCostUsd": 0.1,
+          "byQuality": {
+            "budget": { "model": "cassetteai/music-generator", "estCostUsd": 0.1 },
+            "balanced": { "model": "cassetteai/music-generator", "estCostUsd": 0.1 },
+            "premium": { "model": "fal-ai/elevenlabs/music", "estCostUsd": 0.2 }
+          },
+          "notes": "Background music and stingers. Specify genre, tempo, mood, and loopability in the prompt; verify loop points manually before integration."
+        },
+        "speech": {
+          "model": "fal-ai/elevenlabs/tts/eleven-v3",
+          "alternatives": ["fal-ai/csm-1b"],
+          "promptField": "text",
+          "defaults": {},
+          "output": "mp3",
+          "estCostUsd": 0.05,
+          "byQuality": {
+            "budget": { "model": "fal-ai/csm-1b", "estCostUsd": 0.02 },
+            "balanced": { "model": "fal-ai/elevenlabs/tts/eleven-v3", "estCostUsd": 0.05 },
+            "premium": { "model": "fal-ai/elevenlabs/tts/eleven-v3", "estCostUsd": 0.05 }
+          },
+          "notes": "Voice-over and character barks. Localized VO must follow the localization pipeline, not ad hoc generation."
+        },
+        "video": {
+          "model": "fal-ai/bytedance/seedance/v1/pro/text-to-video",
+          "alternatives": [
+            "fal-ai/bytedance/seedance/v1/pro/image-to-video",
+            "wan/v2.6/image-to-video",
+            "bytedance/seedance-2.0/image-to-video",
+            "fal-ai/veo3"
+          ],
+          "promptField": "prompt",
+          "defaults": { "duration": "5", "aspect_ratio": "16:9" },
+          "output": "mp4",
+          "estCostUsd": 1.2,
+          "byQuality": {
+            "budget": { "model": "wan/v2.6/image-to-video", "estCostUsd": 0.25 },
+            "balanced": { "model": "fal-ai/bytedance/seedance/v1/pro/text-to-video", "estCostUsd": 1.2 },
+            "premium": { "model": "fal-ai/veo3", "estCostUsd": 2.0 }
+          },
+          "notes": "Intro videos, cinematics, trailers. Image-to-video (pass image_url via --input-json) gives more art-directed control than pure text-to-video. Cheapest path: wan/v2.6/image-to-video (~$0.05/s 720p, so a 5s clip is ~$0.25 vs ~$1.20 on Seedance Pro) — set --confirm-over accordingly, or use it to stay under the gate. Seedance 2.0 and Veo 3 generate audio natively and cost the most. Video is the most expensive capability — always dry-run and estimate before batch runs."
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "provider": "fal",
+  "model": "fal-ai/elevenlabs/sound-effects/v2",
+  "type": "sfx",
+  "prompt": "sci-fi drone pod attach, mechanical clunk with energy hum, short",
+  "input": {
+    "text": "sci-fi drone pod attach, mechanical clunk with energy hum, short"
+  },
+  "seed": null,
+  "requestId": "019ec666-4867-71c2-abb7-110a3e5541b2",
+  "generatedAt": "2026-06-14T13:50:56.943Z",
+  "sourceUrls": [
+    "https://v3b.fal.media/files/b/0a9e44f9/4Ex3aA_pDRzd6txixZciV_sound_effect.mp3"
+  ],
+  "files": [
+    "sfx-force.mp3"
+  ],
+  "license": "Generated via fal.ai; review provider and upstream model license terms before shipping."
+}

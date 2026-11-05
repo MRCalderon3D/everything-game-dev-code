@@ -3,4 +3,3 @@ description: Create or update a technical design document for the selected featu
 ---
 
 Read `commands/tech-design.md` and execute it as instructed.
-

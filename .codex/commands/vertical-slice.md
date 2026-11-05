@@ -3,4 +3,3 @@ description: Define or review a vertical slice with clear goals, proof points, a
 ---
 
 Read `commands/vertical-slice.md` and execute it as instructed.
-

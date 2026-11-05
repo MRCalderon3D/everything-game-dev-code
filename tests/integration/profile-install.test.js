@@ -1,7 +1,10 @@
 #!/usr/bin/env node
 const assert = require('assert');
 const fs = require('fs');
+const os = require('os');
 const path = require('path');
+const { spawnSync } = require('child_process');
+const { validateAgainstSchema } = require('../../scripts/lib/schema-validation');
 
 const repoRoot = path.resolve(__dirname, '..', '..');
 const componentsPath = path.join(repoRoot, 'manifests', 'install-components.json');
@@ -47,5 +50,27 @@ for (const profile of profiles) {
     `Profile '${profile.id}' mixes multiple engine components: ${engineComponents.join(', ')}`
   );
 }
+
+// End-to-end: run the resolver against a temp workspace and validate the
+// state it writes against install-state.schema.json.
+const workspace = fs.mkdtempSync(path.join(os.tmpdir(), 'gamedev-install-'));
+const run = spawnSync(
+  process.execPath,
+  [path.join(repoRoot, 'scripts', 'install-profile.js'), 'unity-production'],
+  { env: { ...process.env, WORKSPACE_ROOT: workspace }, encoding: 'utf8' }
+);
+assert.strictEqual(run.status, 0, `install-profile.js failed: ${run.stderr}`);
+
+const statePath = path.join(workspace, '.game-dev', 'install-state.json');
+assert.ok(fs.existsSync(statePath), 'install-profile.js must write install-state.json.');
+const state = JSON.parse(fs.readFileSync(statePath, 'utf8'));
+const stateErrors = validateAgainstSchema('schemas/install-state.schema.json', state);
+assert.deepStrictEqual(
+  stateErrors,
+  [],
+  `install-state.json violates its schema: ${stateErrors.join('; ')}`
+);
+
+fs.rmSync(workspace, { recursive: true, force: true });
 
 console.log('PASS integration/profile-install.test.js');

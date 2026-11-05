@@ -1,0 +1,123 @@
+{
+  "$schema": "../schemas/harnesses.schema.json",
+  "version": 1,
+  "description": "Harness adapter registry — the single source of truth for which harness adapters exist and what each supports. generate-wrappers.js derives command wrapper outputs from it, generate-mcp-configs.js derives the live project-scoped MCP configs, and doctor.js derives its adapter presence check. Add a harness via npm run new:harness, not by hand-creating directories.",
+  "harnesses": [
+    {
+      "id": "claude",
+      "display": "Claude Code",
+      "dir": ".claude",
+      "commands": {
+        "dir": ".claude/commands",
+        "style": "claude"
+      },
+      "hooks": true,
+      "mcp": {
+        "path": ".mcp.json",
+        "format": "universal"
+      },
+      "entryPoints": [
+        ".claude/settings.json",
+        ".claude/commands"
+      ]
+    },
+    {
+      "id": "codex",
+      "display": "Codex",
+      "dir": ".codex",
+      "commands": {
+        "dir": ".codex/commands",
+        "style": "claude"
+      },
+      "hooks": false,
+      "mcp": null,
+      "entryPoints": [
+        ".codex/commands"
+      ]
+    },
+    {
+      "id": "cursor",
+      "display": "Cursor",
+      "dir": ".cursor",
+      "commands": {
+        "dir": ".cursor/commands",
+        "style": "claude"
+      },
+      "hooks": true,
+      "mcp": {
+        "path": ".cursor/mcp.json",
+        "format": "universal"
+      },
+      "entryPoints": [
+        ".cursor/hooks.json",
+        ".cursor/commands"
+      ]
+    },
+    {
+      "id": "opencode",
+      "display": "OpenCode",
+      "dir": ".opencode",
+      "commands": {
+        "dir": ".opencode/commands",
+        "style": "opencode",
+        "registry": ".opencode/opencode.json"
+      },
+      "hooks": false,
+      "mcp": {
+        "path": ".opencode/opencode.json",
+        "format": "opencode"
+      },
+      "entryPoints": [
+        ".opencode/opencode.json"
+      ]
+    },
+    {
+      "id": "kiro",
+      "display": "Kiro",
+      "dir": ".kiro",
+      "commands": null,
+      "hooks": false,
+      "mcp": {
+        "path": ".kiro/settings/mcp.json",
+        "format": "universal"
+      },
+      "entryPoints": [
+        ".kiro/README.md"
+      ]
+    },
+    {
+      "id": "grok",
+      "display": "Grok Build",
+      "dir": ".grok",
+      "commands": null,
+      "hooks": false,
+      "mcp": {
+        "path": ".grok/config.toml",
+        "format": "toml"
+      },
+      "entryPoints": [
+        ".grok/README.md",
+        ".grok/config.toml"
+      ]
+    },
+    {
+      "id": "kilo",
+      "display": "Kilo",
+      "dir": ".kilo",
+      "commands": {
+        "dir": ".kilo/command",
+        "style": "claude"
+      },
+      "hooks": false,
+      "mcp": {
+        "path": ".kilo/kilo.json",
+        "format": "kilo"
+      },
+      "entryPoints": [
+        ".kilo/README.md",
+        ".kilo/command",
+        ".kilo/kilo.json"
+      ]
+    }
+  ]
+}

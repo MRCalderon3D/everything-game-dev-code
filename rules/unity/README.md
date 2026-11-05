@@ -5,7 +5,7 @@ Extends `rules/common/` with Unity-specific conventions.
 ## Layering
 - `rules/common/` defines engine-neutral policy.
 - `rules/unity/` adds Unity-only implementation rules.
-- Unity rules must never prescribe Unreal or Godot patterns.
+- Unity rules must never prescribe patterns from the other engine layers.
 
 ## Coverage
 - coding style

@@ -22,7 +22,9 @@ Commands do not replace judgment. They channel it.
 | `/unity-setup` | Initialize Unity project structure, packages, and CI configuration |
 | `/unreal-setup` | Initialize Unreal project structure, modules, and build toolchain |
 | `/godot-setup` | Initialize Godot project structure, scene layout, and export profiles |
+| `/web-setup` | Initialize web (HTML5) project structure, build tooling, and deployment targets |
 | `/onboarding` | Orient a new contributor to the project scaffold and active context |
+| `/context` | Activate a project phase context and align agents, commands, and priorities to it |
 
 ### Planning and design
 
@@ -32,7 +34,10 @@ Commands do not replace judgment. They channel it.
 | `/gdd` | Author or update the game design document |
 | `/tech-design` | Author or update a technical design document |
 | `/combat-design` | Design or tune combat systems, abilities, and encounters |
+| `/economy-balance` | Design or review the economy, sinks, faucets, rewards, and balance assumptions |
 | `/quest-design` | Design quest structure, objectives, and narrative hooks |
+| `/dialogue-design` | Design dialogue structure, branching, variables, and the conversation content pipeline |
+| `/procgen-design` | Design procedural generation systems, seeds, constraints, and validation gates |
 | `/level-beat` | Define level beat, pacing, and landmark layout |
 | `/milestone-plan` | Define milestone scope, sequencing, and exit criteria |
 | `/vertical-slice` | Scope and plan a vertical slice as the core loop proof |
@@ -42,13 +47,21 @@ Commands do not replace judgment. They channel it.
 | Command | Purpose |
 |---------|---------|
 | `/tdd` | Implement a feature using test-driven development |
-| `/unity-placeholders` | Generate placeholder sprites, prefabs, and procedural audio for testable gameplay |
+| `/unity-placeholders` | Generate placeholder sprites, 3D primitives, prefabs, and procedural audio for testable gameplay |
+| `/godot-placeholders` | Generate placeholder textures, scenes, 3D primitive meshes, and procedural audio for a Godot project |
+| `/web-placeholders` | Generate placeholder sprites, 3D primitives, and Web Audio sound stubs for a web game |
+| `/generate-assets` | Generate real assets (images, skyboxes, 3D models, SFX, music, voice, video) from prompts via the provider registry |
 | `/scene-bootstrap` | Bootstrap a game scene with GameObjects, scripts, and wired inspector references |
 | `/evolve` | Iteratively refine an existing system or feature |
 | `/tools-pass` | Improve or extend editor and pipeline tooling |
 | `/audio-pass` | Review and implement audio integration for a system or scene |
 | `/art-2d-pass` | Review 2D art assets for naming, resolution, atlas config, animation, and placeholders |
+| `/art-3d-pass` | Review 3D assets: export conventions, rigs, clips, materials, lighting, and LODs |
 | `/ui-asset-pass` | Review UI visual assets for naming, 9-slice, atlas, theme consistency, and animations |
+| `/animation-pass` | Review animation implementation, state machines, transitions, and gameplay readability |
+| `/game-feel-pass` | Review moment-to-moment feedback, response timing, and juice for readable, satisfying actions |
+| `/localization-pass` | Review localization readiness for text, UI expansion, locale risks, and translation workflow |
+| `/accessibility-pass` | Review accessibility coverage for input, readability, audio, and difficulty options |
 | `/learn` | Synthesize a learning objective into reusable scaffold knowledge |
 | `/skill-create-game` | Create a new game-dev skill for this scaffold |
 
@@ -62,8 +75,12 @@ Commands do not replace judgment. They channel it.
 | `/unreal-blueprint-audit` | Audit Unreal Blueprints for complexity and anti-patterns |
 | `/godot-review` | Review Godot GDScript/C# and scenes for quality and compliance |
 | `/godot-scene-audit` | Audit a Godot scene for structural issues and performance risk |
+| `/web-review` | Review web (HTML5) code and architecture for quality and compliance |
+| `/web-scene-audit` | Audit web game scenes, screen flow, state transitions, and teardown patterns |
+| `/ui-flow-review` | Review menus, HUD, navigation, and player flow from a UX perspective |
 | `/multiplayer-review` | Review network architecture, replication, and latency handling |
 | `/save-system-review` | Review save/load implementation for correctness and resilience |
+| `/input-review` | Review input handling, device coverage, buffering, and control responsiveness |
 
 ### Build and fix
 
@@ -72,6 +89,7 @@ Commands do not replace judgment. They channel it.
 | `/unity-build-fix` | Diagnose and resolve Unity build failures |
 | `/unreal-build-fix` | Diagnose and resolve Unreal build failures |
 | `/godot-build-fix` | Diagnose and resolve Godot build failures |
+| `/web-build-fix` | Diagnose and resolve web build, bundling, or deployment issues |
 
 ### Testing and quality
 

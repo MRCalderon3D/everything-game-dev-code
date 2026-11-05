@@ -5,7 +5,7 @@ Extends `rules/common/` with Godot-specific conventions.
 ## Layering
 - `rules/common/` defines engine-neutral policy.
 - `rules/godot/` adds Godot-only implementation rules.
-- Godot rules must never prescribe Unity or Unreal patterns.
+- Godot rules must never prescribe patterns from the other engine layers.
 
 ## Coverage
 - coding style

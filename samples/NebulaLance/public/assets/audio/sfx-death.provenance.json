@@ -1,0 +1,19 @@
+{
+  "provider": "fal",
+  "model": "fal-ai/elevenlabs/sound-effects/v2",
+  "type": "sfx",
+  "prompt": "player ship destroyed, dramatic descending explosion, short",
+  "input": {
+    "text": "player ship destroyed, dramatic descending explosion, short"
+  },
+  "seed": null,
+  "requestId": "019ec666-6f0c-7550-9a14-76ab6da2697d",
+  "generatedAt": "2026-06-14T13:51:07.348Z",
+  "sourceUrls": [
+    "https://v3b.fal.media/files/b/0a9e44fa/bO2oPpxwGQ75lBZmUdaiV_sound_effect.mp3"
+  ],
+  "files": [
+    "sfx-death.mp3"
+  ],
+  "license": "Generated via fal.ai; review provider and upstream model license terms before shipping."
+}

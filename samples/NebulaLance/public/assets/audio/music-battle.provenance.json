@@ -1,0 +1,20 @@
+{
+  "provider": "fal",
+  "model": "cassetteai/music-generator",
+  "type": "music",
+  "prompt": "driving synth-orchestral space battle loop, fast tense arcade shoot-em-up energy, pulsing bass and arpeggios, heroic, seamless loop, 132 BPM instrumental",
+  "input": {
+    "duration": 32,
+    "prompt": "driving synth-orchestral space battle loop, fast tense arcade shoot-em-up energy, pulsing bass and arpeggios, heroic, seamless loop, 132 BPM instrumental"
+  },
+  "seed": null,
+  "requestId": "019ec666-a9e4-7cc0-ac54-88c5ceb1e9b5",
+  "generatedAt": "2026-06-14T13:51:25.907Z",
+  "sourceUrls": [
+    "https://v3b.fal.media/files/b/0a9e44fc/0K0ZLZo1c28ZD5rJKYExH_generated.wav"
+  ],
+  "files": [
+    "music-battle.wav"
+  ],
+  "license": "Generated via fal.ai; review provider and upstream model license terms before shipping."
+}

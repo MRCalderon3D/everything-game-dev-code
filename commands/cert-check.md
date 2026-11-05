@@ -18,6 +18,7 @@ Review the current state against certification and platform compliance expectati
 
 ## Required Skills
 - console-certification
+- compliance-checklists
 
 ## Expected Output
 - A structured result that can be reviewed, acted on, or handed off.

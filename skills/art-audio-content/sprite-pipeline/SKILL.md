@@ -57,6 +57,9 @@ Define import, slicing, atlas packing, and naming rules for 2D sprite assets so 
 - unity-placeholders
 - perf-budget
 
+## Related Skills
+- generated-raster-asset-pipeline
+
 ## Notes
 - Keep this skill aligned with the relevant rules layer and current project documentation.
 - If engine-specific constraints materially change the workflow, hand off to the matching engine skill or engine-specific reviewer.

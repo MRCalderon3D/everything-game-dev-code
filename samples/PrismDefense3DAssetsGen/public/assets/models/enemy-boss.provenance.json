@@ -1,0 +1,24 @@
+{
+  "provider": "fal",
+  "model": "fal-ai/hunyuan-3d/v3.1/rapid/image-to-3d",
+  "type": "model3d",
+  "input": {
+    "input_image_url": "https://v3b.fal.media/files/b/0a9e0c3a/7IIuvRWa8zPzClBUvxmMh_pKukLoEN.png"
+  },
+  "seed": null,
+  "requestId": "019ebdbd-e4a0-7012-83b6-ad83cb08a915",
+  "generatedAt": "2026-06-12T21:31:13.635Z",
+  "sourceUrls": [
+    "https://v3b.fal.media/files/b/0a9e0c42/tOymHJW1IKfBkV_5kYYKm_f5ddcba629e70cbc9f9b232e704ff49d.obj",
+    "https://v3b.fal.media/files/b/0a9e0c42/dmzLMmPJpbwaMfvQ5DUit_material.mtl",
+    "https://v3b.fal.media/files/b/0a9e0c42/H0TYBTKPpoYs6p92PN-Z0_texture_20250901.png",
+    "https://v3b.fal.media/files/b/0a9e0c42/7V6uXBKGI8jo4AupHx4hU_preview.png"
+  ],
+  "files": [
+    "enemy-boss-1.obj",
+    "enemy-boss-2.bin",
+    "enemy-boss-3.png",
+    "enemy-boss-4.png"
+  ],
+  "license": "Generated via fal.ai; review provider and upstream model license terms before shipping."
+}

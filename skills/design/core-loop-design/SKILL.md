@@ -35,14 +35,16 @@ Define the primary player activity loop and the support loops that sustain maste
 - candidate tutorial beats
 
 ## Quality Bar
-- supports the core fantasy and player goals
-- defines readable rules, edge cases, and feedback
-- creates concrete hooks for tuning, telemetry, and QA
+- the loop is expressible as a closed cycle of player actions, rewards, and re-entry motivation
+- each loop step names the player verb, the feedback, and a duration target
+- supporting loops (session, progression, economy) are explicitly connected to the core loop
+- the loop is testable in a gray-box build without final art
 
 ## Common Failure Modes
-- adding systems that do not serve the core loop
-- shipping vague rules that QA and engineering must guess at
-- tuning without instrumentation or hypotheses
+- loops that depend on content volume instead of repeatable mechanics
+- reward steps without a defined re-entry hook back into the loop
+- a core loop tuned only on paper, never validated in a playable slice
+- conflating the core loop with the meta progression that wraps it
 
 ## Related Agents
 - systems-designer

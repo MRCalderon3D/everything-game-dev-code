@@ -3,22 +3,42 @@
   "hooks": {
     "preToolUse": [
       {
-        "matcher": "edit|write|multi_edit",
+        "matcher": "write|edit|multi_edit",
         "command": "node scripts/hooks/gdd-sync-warning.js"
       },
       {
-        "matcher": "bash",
+        "matcher": "bash|write|edit|multi_edit",
         "command": "node scripts/hooks/engine-profile-guard.js"
+      },
+      {
+        "matcher": "write|edit|multi_edit",
+        "command": "node scripts/hooks/scene-integrity-check.js"
+      },
+      {
+        "matcher": "write|edit|multi_edit",
+        "command": "node scripts/hooks/prefab-blueprint-node-warning.js"
+      },
+      {
+        "matcher": "write|edit|multi_edit",
+        "command": "node scripts/hooks/performance-budget-warning.js"
+      },
+      {
+        "matcher": "write|edit|multi_edit|bash",
+        "command": "node scripts/hooks/asset-size-warning.js"
       }
     ],
     "postToolUse": [
       {
-        "matcher": "edit|write|multi_edit",
-        "command": "node scripts/hooks/scene-integrity-check.js"
-      },
-      {
         "matcher": "bash",
         "command": "node scripts/hooks/build-matrix-capture.js"
+      },
+      {
+        "matcher": "write|edit|multi_edit",
+        "command": "node scripts/hooks/playtest-capture.js"
+      },
+      {
+        "matcher": "read|write|edit|multi_edit|bash",
+        "command": "node scripts/hooks/crash-log-capture.js"
       }
     ],
     "stop": [

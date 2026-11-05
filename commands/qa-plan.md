@@ -26,3 +26,4 @@ Build a QA plan, matrix, and exit criteria for the selected scope.
 ## Notes
 - Keep engine-neutral commands free of engine-specific implementation detail unless an engine-specific command is being called.
 - Escalate to the relevant reviewer or specialist when risks exceed the command's normal scope.
+- Phase context: run `/context qa` (see `contexts/qa.md`) first so phase agents and priorities are active.

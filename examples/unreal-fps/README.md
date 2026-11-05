@@ -9,18 +9,11 @@ This example shows how the scaffold could be installed for an Unreal first-perso
 **Engine:** Unreal
 **Project Size:** Mid-size team
 
-## Recommended Installed Packs
-- baseline rules
-- baseline agents
-- baseline commands
-- baseline hooks
-- baseline docs
-- engine: unreal
-- capability: design
-- capability: engineering
-- capability: qa
-- capability: production
-- capability: multiplayer
+## Recommended Components (profile `unreal-production`)
+- `baseline:rules`, `baseline:agents`, `baseline:commands`, `baseline:skills`, `baseline:docs`, `baseline:contexts`
+- `engine:unreal`
+- `domain:workflow`, `domain:design`, `domain:engineering-common`, `domain:art-audio-content`, `domain:qa-release`
+- optional: `capability:multiplayer`
 
 ## Primary Agents
 - planner

@@ -10,6 +10,9 @@
     "modules"
   ],
   "properties": {
+    "$schema": {
+      "type": "string"
+    },
     "version": {
       "type": "integer",
       "minimum": 1
@@ -37,7 +40,7 @@
             "minItems": 1,
             "items": {
               "type": "string",
-              "pattern": "^(\\\\*\\\\*|[A-Za-z0-9._@/\\\\-*]+)$"
+              "pattern": "^[A-Za-z0-9._@*-]+(/[A-Za-z0-9._@*-]+)*$"
             },
             "uniqueItems": true
           },
@@ -45,7 +48,7 @@
             "type": "array",
             "items": {
               "type": "string",
-              "pattern": "^(\\\\*\\\\*|[A-Za-z0-9._@/\\\\-*]+)$"
+              "pattern": "^[A-Za-z0-9._@*-]+(/[A-Za-z0-9._@*-]+)*$"
             },
             "uniqueItems": true
           },

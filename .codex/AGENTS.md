@@ -30,7 +30,7 @@ When a user types a scaffold command such as `/plan`, `/verify`, or `/unity-revi
 If a `$imagegen` output becomes a real project asset, move the accepted file into the workspace and keep the naming and folder conventions defined by the relevant art pipeline skill.
 
 ## Engine isolation
-Never mix Unity, Unreal, and Godot implementation advice in the same production task.
+Never mix Unity, Unreal, Godot, and web implementation advice in the same production task.
 
 ## Expected outputs
 - plans with owners and risks

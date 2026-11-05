@@ -1,0 +1,19 @@
+{
+  "provider": "fal",
+  "model": "fal-ai/elevenlabs/sound-effects/v2",
+  "type": "sfx",
+  "prompt": "triumphant short victory fanfare with magical crystal bells, bright and heroic, fantasy game win jingle",
+  "input": {
+    "text": "triumphant short victory fanfare with magical crystal bells, bright and heroic, fantasy game win jingle"
+  },
+  "seed": null,
+  "requestId": "019ebdac-49ec-7f91-81e2-54b88a006406",
+  "generatedAt": "2026-06-12T21:10:49.860Z",
+  "sourceUrls": [
+    "https://v3b.fal.media/files/b/0a9e0bc8/GPgxQjn1qffAizoLqH4qz_sound_effect.mp3"
+  ],
+  "files": [
+    "sfx-win.mp3"
+  ],
+  "license": "Generated via fal.ai; review provider and upstream model license terms before shipping."
+}

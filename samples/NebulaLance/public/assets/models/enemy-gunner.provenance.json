@@ -1,0 +1,24 @@
+{
+  "provider": "fal",
+  "model": "fal-ai/hunyuan-3d/v3.1/rapid/image-to-3d",
+  "type": "model3d",
+  "input": {
+    "input_image_url": "https://v3b.fal.media/files/b/0a9e4514/Htri2e8Cs4I-XpYSQI1p3_o7Tq6T2z.png"
+  },
+  "seed": null,
+  "requestId": "019ec66a-9354-7552-af57-1343e456d0e7",
+  "generatedAt": "2026-06-14T13:56:51.256Z",
+  "sourceUrls": [
+    "https://v3b.fal.media/files/b/0a9e451c/Rh7oq6kB1LR2hg9S8ZhIW_2284e542eac690a60360ab5f4d6222a5.obj",
+    "https://v3b.fal.media/files/b/0a9e451c/jERfu9IkRiAQLAbTf1QKk_material.mtl",
+    "https://v3b.fal.media/files/b/0a9e451c/ubGWKC3RbwQLLfxcGgRhF_texture_20250901.png",
+    "https://v3b.fal.media/files/b/0a9e451c/ouyTOS5dCS3_YdCHKGKmN_preview.png"
+  ],
+  "files": [
+    "enemy-gunner-3d-1.obj",
+    "enemy-gunner-3d-2.bin",
+    "enemy-gunner-3d-3.png",
+    "enemy-gunner-3d-4.png"
+  ],
+  "license": "Generated via fal.ai; review provider and upstream model license terms before shipping."
+}

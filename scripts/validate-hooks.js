@@ -1,23 +1,22 @@
 #!/usr/bin/env node
 const path = require("path");
 const { exists, readJson, report, repoRoot } = require("./lib/validation");
+const { buildClaudeHooks, buildCursorHooks } = require("./lib/hook-wiring");
 
 const errors = [];
 
-const hooksConfig = readJson("hooks/hooks.json");
-const hooksSchema = readJson("schemas/hooks.schema.json");
-const hooksDir = path.join(repoRoot, "hooks");
-
-const allowedPhases = new Set(
-  (((hooksSchema.properties || {}).hooks || {}).propertyNames || {}).enum || []
-);
-
 if (!exists("hooks/hooks.json")) {
   errors.push("Missing hooks/hooks.json.");
+  report(errors, "PASS validate:hooks");
 }
-if (!exists("schemas/hooks.schema.json")) {
-  errors.push("Missing schemas/hooks.schema.json.");
-}
+
+const hooksConfig = readJson("hooks/hooks.json");
+const hooksDir = path.join(repoRoot, "hooks");
+
+// Structural shape rules live in schemas/hooks.schema.json and are enforced
+// by validate:schemas (ajv). This script covers what a schema cannot express:
+// unique ids, script files existing on disk, and generated harness wiring
+// staying in sync with the source of truth.
 
 const schemaRef = hooksConfig.$schema;
 if (typeof schemaRef !== "string" || schemaRef.trim() === "") {
@@ -31,27 +30,11 @@ if (typeof schemaRef !== "string" || schemaRef.trim() === "") {
 
 const seenIds = new Set();
 for (const [phase, entries] of Object.entries(hooksConfig.hooks || {})) {
-  if (!allowedPhases.has(phase)) {
-    errors.push(`hooks/hooks.json uses unsupported phase '${phase}'.`);
-  }
-  if (!Array.isArray(entries) || entries.length === 0) {
-    errors.push(`hooks.${phase} must be a non-empty array.`);
-    continue;
-  }
-  for (const [index, entry] of entries.entries()) {
+  for (const [index, entry] of (entries || []).entries()) {
     const ref = `hooks.${phase}[${index}]`;
     if (!entry || typeof entry !== "object") {
       errors.push(`${ref} must be an object.`);
       continue;
-    }
-    if (typeof entry.matcher !== "string" || entry.matcher.trim() === "") {
-      errors.push(`${ref}.matcher must be a non-empty string.`);
-    }
-    if (typeof entry.description !== "string" || entry.description.trim() === "") {
-      errors.push(`${ref}.description must be a non-empty string.`);
-    }
-    if (!entry.command && !entry.script) {
-      errors.push(`${ref} must define either command or script.`);
     }
     if (entry.id) {
       if (seenIds.has(entry.id)) {
@@ -68,27 +51,29 @@ for (const [phase, entries] of Object.entries(hooksConfig.hooks || {})) {
   }
 }
 
-if (exists(".cursor/hooks.json")) {
-  const cursorHooks = readJson(".cursor/hooks.json");
-  for (const [phase, entries] of Object.entries(cursorHooks.hooks || {})) {
-    if (!Array.isArray(entries)) {
-      errors.push(`.cursor/hooks.json phase '${phase}' must be an array.`);
-      continue;
-    }
-    for (const [index, entry] of entries.entries()) {
-      if (!entry.command) {
-        errors.push(`.cursor/hooks.json ${phase}[${index}] must define command.`);
-        continue;
-      }
-      const match = String(entry.command).match(/^node\s+(.+)$/);
-      if (!match) {
-        continue;
-      }
-      const target = match[1].trim();
-      if (!exists(target)) {
-        errors.push(`.cursor/hooks.json references missing script '${target}'.`);
-      }
-    }
+// Harness wiring is generated from hooks/hooks.json; committed wiring must
+// match exactly what the generator would produce.
+if (!exists(".cursor/hooks.json")) {
+  errors.push("Missing .cursor/hooks.json. Run 'npm run sync:hook-wiring'.");
+} else {
+  const actualCursor = readJson(".cursor/hooks.json");
+  const expectedCursor = buildCursorHooks(hooksConfig);
+  if (JSON.stringify(actualCursor) !== JSON.stringify(expectedCursor)) {
+    errors.push(
+      ".cursor/hooks.json is out of sync with hooks/hooks.json. Run 'npm run sync:hook-wiring'."
+    );
+  }
+}
+
+if (!exists(".claude/settings.json")) {
+  errors.push("Missing .claude/settings.json. Run 'npm run sync:hook-wiring'.");
+} else {
+  const claudeSettings = readJson(".claude/settings.json");
+  const expectedClaudeHooks = buildClaudeHooks(hooksConfig);
+  if (JSON.stringify(claudeSettings.hooks) !== JSON.stringify(expectedClaudeHooks)) {
+    errors.push(
+      ".claude/settings.json hooks block is out of sync with hooks/hooks.json. Run 'npm run sync:hook-wiring'."
+    );
   }
 }
 

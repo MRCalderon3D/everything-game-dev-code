@@ -3,4 +3,3 @@ description: Plan or execute a focused cleanup that reduces technical debt safel
 ---
 
 Read `commands/refactor-clean.md` and execute it as instructed.
-

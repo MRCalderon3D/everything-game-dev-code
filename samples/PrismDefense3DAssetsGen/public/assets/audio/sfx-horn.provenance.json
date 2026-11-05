@@ -1,0 +1,19 @@
+{
+  "provider": "fal",
+  "model": "fal-ai/elevenlabs/sound-effects/v2",
+  "type": "sfx",
+  "prompt": "ominous low war horn announcing an incoming enemy wave, dark fantasy battle horn, two seconds",
+  "input": {
+    "text": "ominous low war horn announcing an incoming enemy wave, dark fantasy battle horn, two seconds"
+  },
+  "seed": null,
+  "requestId": "019ebdac-35ef-74f1-b5cb-b293f510ccc5",
+  "generatedAt": "2026-06-12T21:10:45.007Z",
+  "sourceUrls": [
+    "https://v3b.fal.media/files/b/0a9e0bc8/ybdjkrKqNO4y7hvDXTQVg_sound_effect.mp3"
+  ],
+  "files": [
+    "sfx-horn.mp3"
+  ],
+  "license": "Generated via fal.ai; review provider and upstream model license terms before shipping."
+}
