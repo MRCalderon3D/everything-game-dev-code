@@ -56,6 +56,19 @@ node scripts/generate-assets.js --type video --prompt "studio logo reveal" --out
 
 Requires the provider's API key in the environment (`FAL_KEY` for the default fal.ai provider); without it the script reports the capability as unavailable and points to the placeholder commands. Entry point: the `/generate-assets` command. Pick a quality/price tier with `--quality budget|balanced|premium` (or `ASSET_GEN_QUALITY`, default from the registry's `defaultQuality`); an explicit `--model` overrides it. Every run prints the tier + a cost estimate and enforces a confirmation gate — runs at or above `confirmOverUsd` (registry default, overridable via `--confirm-over` / `ASSET_GEN_CONFIRM_OVER`) refuse to start without `--yes` (or `ASSET_GEN_YES=1`). Always `--dry-run` first to see the estimate, especially for expensive capabilities (video).
 
+### Content tooling
+
+| Script | Purpose |
+|--------|---------|
+| `blender-bridge.py` | Stdlib client for the BlenderMCP add-on socket (`localhost:9876`): scene info, run a Python file inside Blender, send any add-on command. Fallback when the `blender` MCP server cannot be installed (e.g. PyPI file host blocked) |
+
+**Usage:**
+```bash
+python scripts/blender-bridge.py info
+python scripts/blender-bridge.py run Tools/Blender/<level>/build_scene.py
+python scripts/blender-bridge.py cmd download_polyhaven_asset '{"asset_id":"tatami_mat","asset_type":"textures","resolution":"2k"}'
+```
+
 ### Validation
 
 | Script | Purpose |
