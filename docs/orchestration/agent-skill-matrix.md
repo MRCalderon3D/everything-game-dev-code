@@ -139,6 +139,20 @@ Secondary skills:
 - engineering-common/performance-budgeting
 - design/accessibility-design
 
+### 3d-environment-artist
+Primary skills:
+- art-audio-content/blender-environment-pipeline
+- art-audio-content/3d-asset-pipeline
+- art-audio-content/materials-shading-pipeline
+- art-audio-content/lighting-lod-pipeline
+- art-audio-content/art-bible
+
+Secondary skills:
+- art-audio-content/ai-asset-generation
+- art-audio-content/generated-raster-asset-pipeline
+- unity/unity-environment-assembly
+- engineering-common/performance-budgeting
+
 ### technical-artist
 Primary skills:
 - art-audio-content/technical-art-pipeline

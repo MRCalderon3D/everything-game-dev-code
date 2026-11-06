@@ -292,12 +292,17 @@ graph LR
   s_placeholder_asset_pipeline{{"placeholder-asset-pipeline"}}:::skill
   s_generated_raster_asset_pipeline{{"generated-raster-asset-pipeline"}}:::skill
   s_art_bible{{"art-bible"}}:::skill
-  c_art_3d_pass["/art-3d-pass"]:::command
+  c_environment_build["/environment-build"]:::command
+  a_3d_environment_artist("3d-environment-artist"):::agent
+  a_level_designer("level-designer"):::agent
+  s_blender_environment_pipeline{{"blender-environment-pipeline"}}:::skill
   s_3d_asset_pipeline{{"3d-asset-pipeline"}}:::skill
-  s_rigging_skinning_pipeline{{"rigging-skinning-pipeline"}}:::skill
-  s_3d_animation_pipeline{{"3d-animation-pipeline"}}:::skill
   s_materials_shading_pipeline{{"materials-shading-pipeline"}}:::skill
   s_lighting_lod_pipeline{{"lighting-lod-pipeline"}}:::skill
+  s_unity_environment_assembly{{"unity-environment-assembly"}}:::skill
+  c_art_3d_pass["/art-3d-pass"]:::command
+  s_rigging_skinning_pipeline{{"rigging-skinning-pipeline"}}:::skill
+  s_3d_animation_pipeline{{"3d-animation-pipeline"}}:::skill
   c_generate_assets["/generate-assets"]:::command
   s_ai_asset_generation{{"ai-asset-generation"}}:::skill
   c_ui_asset_pass["/ui-asset-pass"]:::command
@@ -355,6 +360,15 @@ graph LR
   c_art_2d_pass -.-> s_placeholder_asset_pipeline
   c_art_2d_pass -.-> s_generated_raster_asset_pipeline
   c_art_2d_pass -.-> s_art_bible
+  c_environment_build --> a_3d_environment_artist
+  c_environment_build --> a_technical_artist
+  c_environment_build --> a_level_designer
+  c_environment_build --> a_performance_reviewer
+  c_environment_build -.-> s_blender_environment_pipeline
+  c_environment_build -.-> s_3d_asset_pipeline
+  c_environment_build -.-> s_materials_shading_pipeline
+  c_environment_build -.-> s_lighting_lod_pipeline
+  c_environment_build -.-> s_unity_environment_assembly
   c_art_3d_pass --> a_technical_artist
   c_art_3d_pass --> a_animation_programmer
   c_art_3d_pass --> a_performance_reviewer
@@ -584,5 +598,5 @@ graph LR
 
 ## Orphaned Skills
 
-Skills referenced by no command (Required Skills) and no agent (Uses These Skills): 0 of 107. These are reachable only through the agent-skill matrix or ad hoc use — candidates for a command entry point or an explicit agent assignment.
+Skills referenced by no command (Required Skills) and no agent (Uses These Skills): 0 of 109. These are reachable only through the agent-skill matrix or ad hoc use — candidates for a command entry point or an explicit agent assignment.
 
