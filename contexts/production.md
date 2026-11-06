@@ -15,6 +15,7 @@ Deliver features, content, and systems against a defined milestone plan. Maintai
 - `ui-ux-designer` — implements and iterates UI systems and player-facing flows
 - `audio-designer` — integrates audio assets and validates mix against the audio budget
 - `2d-artist` — validates 2D art assets, placeholders, and drop-in replacement readiness
+- `3d-environment-artist` — builds and iterates 3D level environments in Blender and hands them to engine assembly
 - `producer` — runs milestone reviews, manages scope trade-offs, and tracks delivery risk
 - `qa-lead` — runs regression and integration tests against each milestone candidate
 - `performance-reviewer` — tracks frame time, memory, and load times against established budgets

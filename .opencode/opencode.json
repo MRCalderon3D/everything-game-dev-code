@@ -45,6 +45,10 @@
       "description": "Design or review the economy, sinks, faucets, rewards, and balance assumptions.",
       "template": "Read .opencode/commands/economy-balance.md and execute the shared commands/economy-balance.md workflow."
     },
+    "environment-build": {
+      "description": "Build a 3D level environment from references in Blender, export it in gameplay layers, and assemble it into the engine as a playable, verified level.",
+      "template": "Read .opencode/commands/environment-build.md and execute the shared commands/environment-build.md workflow."
+    },
     "evolve": {
       "description": "Turn repeated solutions and project lessons into reusable skills or patterns.",
       "template": "Read .opencode/commands/evolve.md and execute the shared commands/evolve.md workflow."

@@ -12,4 +12,5 @@ Unity-specific implementation skills covering structure, C#, patterns, testing, 
 - `unity-input-system`: Implement Unity input with explicit action maps, device support, and UI/gameplay separation.
 - `unity-urp-hdrp`: Choose and operate Unity render pipelines with clear platform, tooling, shader, and content implications.
 - `unity-editor-tooling`: Create Unity editor tools that make content production safer, faster, and less dependent on tribal knowledge.
+- `unity-environment-assembly`: Assemble layered environments exported from Blender into a URP level scene with a reproducible builder, cutaways, walkable heights and gameplay wiring.
 - `unity-build-release`: Run Unity builds, CI, and release packaging with reproducible configuration and platform-aware checks.

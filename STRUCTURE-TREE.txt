@@ -1641,6 +1641,7 @@ everything-game-dev-code
 ├── CHANGELOG.md
 ├── CLAUDE.md
 ├── CONTRIBUTING.md
+├── egdc_baldninjai3d.sln
 ├── install.ps1
 ├── install.sh
 ├── LICENSE
