@@ -258,6 +258,13 @@ Support:
 - `technical-artist`
 - `performance-reviewer`
 
+### /environment-build
+Primary: `3d-environment-artist`
+Support:
+- `technical-artist`
+- `level-designer`
+- `performance-reviewer`
+
 ### /art-3d-pass
 Primary: `technical-artist`
 Support:

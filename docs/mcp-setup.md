@@ -153,6 +153,16 @@ register. (To use Blender outside this repo too, register it globally once:
 3. With Blender open and its add-on server running, try a prompt like *"list the
    objects in the Blender scene"* or *"create a 2 m cube at the origin"*.
 
+### Fallback: network blocks the MCP server package
+
+On corporate networks `uvx blender-mcp` can fail with a TLS `HandshakeFailure`
+when `files.pythonhosted.org` is blocked (even if `pypi.org` answers). The
+Blender add-on still works: drive it directly with the stdlib bridge
+`scripts/blender-bridge.py` (`info`, `run <script.py>`, `cmd <type> <json>`).
+Remove the failing `blender` entry from the harness so it does not error at
+startup. The `/environment-build` workflow (agent `3d-environment-artist`, skill
+`blender-environment-pipeline`) works the same either way.
+
 ## Unity MCP (engine control)
 
 `unity-editor` is **Unity's official MCP server**, built into the **Unity CLI**

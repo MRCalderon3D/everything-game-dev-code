@@ -15,6 +15,7 @@ everything-game-dev-code
 │   │   ├── context.md
 │   │   ├── dialogue-design.md
 │   │   ├── economy-balance.md
+│   │   ├── environment-build.md
 │   │   ├── evolve.md
 │   │   ├── full-game.md
 │   │   ├── game-feel-pass.md
@@ -102,6 +103,7 @@ everything-game-dev-code
 │   │   ├── context.md
 │   │   ├── dialogue-design.md
 │   │   ├── economy-balance.md
+│   │   ├── environment-build.md
 │   │   ├── evolve.md
 │   │   ├── full-game.md
 │   │   ├── game-feel-pass.md
@@ -182,6 +184,7 @@ everything-game-dev-code
 │   │   ├── context.md
 │   │   ├── dialogue-design.md
 │   │   ├── economy-balance.md
+│   │   ├── environment-build.md
 │   │   ├── evolve.md
 │   │   ├── full-game.md
 │   │   ├── game-feel-pass.md
@@ -273,6 +276,7 @@ everything-game-dev-code
 │   │   ├── context.md
 │   │   ├── dialogue-design.md
 │   │   ├── economy-balance.md
+│   │   ├── environment-build.md
 │   │   ├── evolve.md
 │   │   ├── full-game.md
 │   │   ├── game-feel-pass.md
@@ -355,6 +359,7 @@ everything-game-dev-code
 │   │   ├── context.md
 │   │   ├── dialogue-design.md
 │   │   ├── economy-balance.md
+│   │   ├── environment-build.md
 │   │   ├── evolve.md
 │   │   ├── full-game.md
 │   │   ├── game-feel-pass.md
@@ -435,6 +440,7 @@ everything-game-dev-code
 │   └── tui.json
 ├── agents
 │   ├── 2d-artist.md
+│   ├── 3d-environment-artist.md
 │   ├── accessibility-reviewer.md
 │   ├── ai-programmer.md
 │   ├── animation-programmer.md
@@ -489,6 +495,7 @@ everything-game-dev-code
 │   ├── context.md
 │   ├── dialogue-design.md
 │   ├── economy-balance.md
+│   ├── environment-build.md
 │   ├── evolve.md
 │   ├── full-game.md
 │   ├── game-feel-pass.md
@@ -1356,6 +1363,7 @@ everything-game-dev-code
 │   │   ├── text.js
 │   │   ├── utils.js
 │   │   └── validation.js
+│   ├── blender-bridge.py
 │   ├── doctor.js
 │   ├── generate-assets.js
 │   ├── generate-dependency-graph.js
@@ -1391,6 +1399,8 @@ everything-game-dev-code
 │   │   ├── art-bible
 │   │   │   └── SKILL.md
 │   │   ├── audio-implementation
+│   │   │   └── SKILL.md
+│   │   ├── blender-environment-pipeline
 │   │   │   └── SKILL.md
 │   │   ├── cinematic-pipeline
 │   │   │   └── SKILL.md
@@ -1531,6 +1541,8 @@ everything-game-dev-code
 │   │   ├── unity-csharp-standards
 │   │   │   └── SKILL.md
 │   │   ├── unity-editor-tooling
+│   │   │   └── SKILL.md
+│   │   ├── unity-environment-assembly
 │   │   │   └── SKILL.md
 │   │   ├── unity-gameplay-patterns
 │   │   │   └── SKILL.md

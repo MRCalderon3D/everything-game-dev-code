@@ -51,6 +51,7 @@ Agents do not self-select. Commands route work to agents. Agents do not cross en
 | `ui-ux-designer` | Player-facing interface flow, accessibility, clarity |
 | `technical-artist` | Shaders, VFX, rig constraints, art-to-engine pipeline |
 | `2d-artist` | 2D art pipeline — sprites, tilemaps, 2D animations, placeholders |
+| `3d-environment-artist` | Builds 3D level environments from references in Blender (live via BlenderMCP), layered, optimised and exported for engine assembly |
 
 ### Production and leadership
 

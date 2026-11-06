@@ -28,6 +28,7 @@ Skills for producing and integrating creative assets.
 | `2d-animation-pipeline` | Author, import, and wire 2D animations with consistent naming and state conventions |
 | `3d-animation-pipeline` | Skeletal clip authoring, root motion policy, retargeting, and compression rules |
 | `3d-asset-pipeline` | Export, scale, pivot, and naming rules so 3D models import without per-asset fixes |
+| `blender-environment-pipeline` | Build level environments procedurally in Blender (live via BlenderMCP), in gameplay layers, optimised, verified and exported |
 | `ai-asset-generation` | Generate real assets (images, skyboxes, 3D models, SFX, music, voice, video) via the provider registry with provenance and acceptance gates |
 | `art-bible` | Define a visual direction artists, UI, technical art, and marketing can execute consistently |
 | `audio-implementation` | Integrate audio assets into the engine with consistent mixing, triggering, and fallback rules |
@@ -117,6 +118,7 @@ Unity-specific engineering skills. Only apply within a Unity project.
 | `unity-build-release` | Configure Unity build pipeline for target platforms and release packaging |
 | `unity-csharp-standards` | Write idiomatic, testable C# in Unity respecting lifecycle order |
 | `unity-editor-tooling` | Build custom inspectors, editor windows, and pipeline scripts in Unity |
+| `unity-environment-assembly` | Assemble Blender layer exports into a URP level scene with a builder, cutaways, walkable heights and gameplay wiring |
 | `unity-gameplay-patterns` | Structure Unity-specific gameplay systems for maintainability |
 | `unity-input-system` | Implement the new Unity Input System with rebinding and multi-device support |
 | `unity-performance` | Profile and optimize Unity projects against platform performance budgets |
