@@ -32,11 +32,14 @@ Build a level environment procedurally in Blender (live through the BlenderMCP a
 3. **Lay out for gameplay.** Entrances and stairs face the player's arrival and land on the walkable surface. Pillars and furniture leave the combat space readable. Size everything in real metres.
 4. **Write the build script.** One `build_scene.py` (plus focused modules, e.g. `dojo.py`) that clears and rebuilds everything: helpers for boxes, cylinders and foliage; world-space or per-face UVs; collections. Build in final world coordinates: avoid build-then-rotate hacks that hide unbuilt faces.
 5. **Surface it truthfully.** Pick Poly Haven textures for the real materials of the setting (download them in the session first). For colour variation that must survive export, use 3-step discrete material sets assigned per mesh island, not node graphs. Use per-slope UVs for roofs, per-face triplanar UVs for boards and planks, and real-scale tiling.
-6. **Make geometry clean and solid.** Triangle fans instead of large n-gons (solidify turns n-gons into self-intersecting polygons). Give props thickness and closed bases. Merge static meshes per material to keep draw calls low.
+6. **Make geometry clean and solid.** Triangle fans instead of large n-gons (solidify turns n-gons into self-intersecting polygons). Give props thickness and closed bases. Every open container (vase, pot, barrel, bowl, cup) gets wall thickness from the first build (`bmesh.ops.solidify`, ~2-3 cm, after recalculating normals): a single-sided shell looks cut in half as soon as the camera rises above the rim. Merge static meshes per material to keep draw calls low.
 7. **Optimise while authoring.** Mesh detail only near the camera (e.g. the first rows of a forest); move the rest into the layer C render. Use fewer, larger foliage cards. Report polygon counts per collection after every build and compare them with the budget.
 8. **Verify visually after every step.** Render from the gameplay camera, a close-up of each set piece and an interior cutaway, and compare with the reference. Fix before reporting. Known traps: EEVEE world volumes can black out the frame; untextured materials render white.
 9. **Export.** One FBX per collection (`apply_scale_options=FBX_SCALE_UNITS`, `axis_forward=-Z`, `axis_up=Y`, `bake_space_transform=True`). Recentre destructible pivots to their base before exporting. Save the textures used next to the exports, because add-on images are packed and FBX `path_mode=COPY` does not copy them. Render the backdrop card with `film_transparent`.
 10. **Decals and signs.** Generate them as textures: derive from the owner's reference photo when given (paint = darker than its local background, keeping stroke texture and drips), and render text with a font that has the required glyphs (e.g. Yu Gothic for kanji).
+    - **Language of the setting.** Signs are written as people in that place would write them (出口 in a Kyoto dojo, not "EXIT"). No English unless the setting uses it.
+    - **Reading direction.** Map decal UVs from the viewer's side of the panel: a panel on a wall facing -X is seen with +Y running right-to-left, so its U axis runs the other way. Mirrored text often looks right glyph by glyph (出 and 口 are symmetric) and only the order gives it away.
+    - **Fix at the UV source, not in the engine.** Do not flip the texture's tiling in the engine. Before exporting, check the sign in a Blender render from the player's position with the real texture applied.
 11. **Commit** the scripts, exports (via LFS), reference renders and decals, one step per commit. Record the layer contract for the engine skill.
 
 ## Outputs
@@ -60,6 +63,8 @@ Build a level environment procedurally in Blender (live through the BlenderMCP a
 - procedural shader variation that disappears on FBX export
 - a dense mesh forest everywhere instead of a near band plus a rendered backdrop
 - reporting without rendering: issues found by the owner that one review render would have shown
+- single-sided open containers (vases, pots, barrels) that look sliced in half from a raised camera
+- signs mirrored by their UVs or written in a language foreign to the setting
 
 ## Related Agents
 - 3d-environment-artist
