@@ -15,6 +15,11 @@ Skills are invoked by agents when executing commands. They are not invoked direc
 
 Each `SKILL.md` follows a shared section layout (Purpose, Use When, Inputs, Process, Outputs, Quality Bar, Common Failure Modes, Related Agents, Related Commands, Notes). Skills may additionally include an optional `## Related Skills` section (between Related Commands and Notes) listing complementary skills; entries are validated against the skill set by `npm run validate:structure`.
 
+Two further optional sections carry depth without bloating the standard layout:
+
+- `## Heuristics` (between Process and Outputs) — a short list of concrete, testable defaults for what "good" looks like, so the Process steps have a bar to aim at.
+- `## References` (after Heuristics) — a list of links to files in the skill's own `references/` folder, each with a "read when" line. See [Reference files](#reference-files).
+
 ## Skill domains
 
 Skills are organized into nine domain folders. Each skill lives in its own subfolder with a `SKILL.md` file.
@@ -204,7 +209,29 @@ category: domain-name
 ---
 ```
 
-The body sections are: **Purpose**, **Use When**, **Inputs**, **Process**, **Outputs**, **Quality Bar**, **Common Failure Modes**, **Related Agents**, **Related Commands**, **Notes**.
+The body sections are: **Purpose**, **Use When**, **Inputs**, **Process**, **Outputs**, **Quality Bar**, **Common Failure Modes**, **Related Agents**, **Related Commands**, **Notes**. Optional sections: **Heuristics**, **References**, **Related Skills**.
+
+## Reference files
+
+A `SKILL.md` is loaded in full every time the skill is used, so it stays short. When a skill needs detail that only some tasks call for — specific values, step-by-step procedures, worked cases — that detail goes in a `references/` folder next to the `SKILL.md`:
+
+```text
+skills/design/game-feel-design/
+  SKILL.md
+  references/
+    hit-stop.md
+    response-and-tempo.md
+    movement-and-camera.md
+```
+
+Rules, enforced by `npm run validate:structure`:
+
+- a skill folder holds `SKILL.md` and an optional `references/` folder, nothing else
+- `references/` holds Markdown files only, with no subfolders
+- every reference file is linked from the `## References` section of its `SKILL.md`, with a line saying when to read it — a file that is not listed there is never loaded
+- reference files follow the same engine-isolation rule as the skill they belong to
+
+Agents read the `SKILL.md` first and open a reference only when its "read when" line matches the task. Do not add a `references/` folder until a skill's own sections have outgrown a screenful; most skills do not need one.
 
 ## Relationship to other folders
 

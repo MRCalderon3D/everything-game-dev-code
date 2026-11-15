@@ -26,18 +26,21 @@ Create or update a Game Design Document that is actionable for design, engineeri
 2. describe core and supporting loops with clear rules
 3. document feature behavior, progression, UI, content, and edge cases
 4. separate goals, assumptions, decisions, and open questions
-5. hand off sections that need technical, QA, or production follow-up
+5. record each play-shaping decision in the rationale traceability table: what was decided, why, and where it lives in the game
+6. hand off sections that need technical, QA, or production follow-up
 
 ## Outputs
 - current GDD
 - feature sections with acceptance criteria
 - open questions list
+- design rationale traceability table (decision, why, where it lives, status)
 - cross-discipline follow-up items
 
 ## Quality Bar
 - every system section states player-facing rules concretely enough that a developer could implement them without asking the designer
 - each feature section carries acceptance criteria QA can test against
 - decisions, assumptions, and open questions are kept in separate, labeled lists
+- every play-shaping decision names its reason and, once built, the system or tuning variable that implements it
 - the document reflects the game as currently intended — superseded sections are removed or marked, never left to contradict
 
 ## Common Failure Modes

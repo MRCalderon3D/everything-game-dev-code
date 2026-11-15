@@ -286,6 +286,7 @@ graph LR
   s_input_abstraction{{"input-abstraction"}}:::skill
   c_game_feel_pass["/game-feel-pass"]:::command
   s_game_feel_design{{"game-feel-design"}}:::skill
+  s_verification_loop{{"verification-loop"}}:::skill
   c_art_2d_pass["/art-2d-pass"]:::command
   s_sprite_pipeline{{"sprite-pipeline"}}:::skill
   s_tilemap_pipeline{{"tilemap-pipeline"}}:::skill
@@ -352,6 +353,7 @@ graph LR
   c_game_feel_pass --> a_audio_designer
   c_game_feel_pass -.-> s_game_feel_design
   c_game_feel_pass -.-> s_ui_animation_pipeline
+  c_game_feel_pass -.-> s_verification_loop
   c_art_2d_pass --> a_2d_artist
   c_art_2d_pass --> a_technical_artist
   c_art_2d_pass -.-> s_sprite_pipeline

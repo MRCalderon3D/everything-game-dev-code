@@ -28,6 +28,18 @@ Define the primary player activity loop and the support loops that sustain maste
 4. test whether the loop fits the intended session length and mastery curve
 5. cut systems that do not serve the loop
 
+## Heuristics
+Defaults to start from; verify each one in play.
+
+- the goal is always the player's enjoyment; when a decision is hard, return to it and discount the team's convenience, taste, and effort
+- find the fun by decomposition: take apart what makes a reference enjoyable, reason about why, and rebuild it in a new form instead of copying its surface
+- "like game X" is not a concept — if it only resembles the original, players can play the original; stack several things the original does not offer
+- the basic shape of fun is tension followed by release: something presses on the player, and their action resolves it
+- state the core in one line as a risk the player takes and the return they get; if it cannot be stated, the loop is not defined yet
+- play time is a cost the player pays, not a selling point: keep the parts that are fun and the parts that directly support them
+- track the share of a session spent actually acting versus waiting, travelling back, or watching, and treat it as a loop health metric
+- chores work only with a fitting reward, short gaps between small wins, freedom of route, and no dull trip back once the task is done
+
 ## Outputs
 - core loop definition
 - support loop map
@@ -59,3 +71,4 @@ Define the primary player activity loop and the support loops that sustain maste
 ## Notes
 - Keep this skill aligned with the relevant rules layer and current project documentation.
 - If engine-specific constraints materially change the workflow, hand off to the matching engine skill or engine-specific reviewer.
+- The Heuristics section is distilled, in our own words, from Masahiro Sakurai's "Creating Games" video series (via the unofficial community summary `kociden/sakurai-skill`). It reflects large-scale action-game experience: treat each point as a default to test against the player's enjoyment, and adapt it for other genres and project sizes.

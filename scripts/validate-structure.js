@@ -9,6 +9,9 @@ const {
   readText,
   report,
 } = require("./lib/validation");
+const path = require("path");
+const { repoRoot } = require("./lib/structure-artifacts");
+const { skillLayoutErrors } = require("./lib/skill-layout");
 
 const errors = [];
 
@@ -134,6 +137,10 @@ for (const skill of skillEntries) {
     }
   }
 }
+
+// A skill folder is SKILL.md plus an optional references/ folder whose files
+// are all listed in the SKILL.md's References section.
+errors.push(...skillLayoutErrors(path.join(repoRoot, "skills")));
 
 // VERSION, package.json, and CHANGELOG.md must move together.
 const versionValue = readText("VERSION").trim();
