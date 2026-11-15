@@ -35,6 +35,15 @@
 ### 3.3 Included Presentation Quality
 ### 3.4 Explicitly Excluded Scope
 
+### 3.5 Decision Traceability
+One row per included feature or quality target, tying it to the proof goal in section 1 and to where it can be seen in the build.
+
+| Included item | Which proof goal it serves | Where it is demonstrated (scene, system, tuning variable) | Evidence it works (playtest, measurement) |
+|---|---|---|---|
+|  |  |  |  |
+
+- An item that serves no proof goal belongs in 3.4.
+
 ## 4. Dependencies
 - Design dependencies:
 - Tech dependencies:

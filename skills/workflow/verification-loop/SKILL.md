@@ -25,12 +25,24 @@ Run a structured verification pass that checks behavior, edge cases, quality bar
 1. compare the implementation to the intended design and technical behavior
 2. verify happy path, edge cases, and failure recovery
 3. check docs, telemetry, and QA notes for drift
-4. record gaps and assign owners
-5. close only when blockers or ambiguities are resolved
+4. for risky, feel-critical, or player-facing work, run an independent review (see Heuristics)
+5. record gaps and assign owners
+6. close only when blockers or ambiguities are resolved
+
+## Heuristics
+**Independent review** — whoever built something reads it through their own intent and stops seeing its gaps.
+
+- the reviewer must not be the author: use a different person, or a fresh agent with no memory of how the work was built
+- give the reviewer the artifact and the criteria (acceptance criteria, the relevant skill's Quality Bar and Heuristics) — not the author's explanation of why it is fine
+- every finding names the criterion it fails and a concrete fix; a complaint with no proposed change is not a finding
+- the author answers each finding: accepted with the change made, or declined with the reason — nothing is dropped silently
+- record the findings and their dispositions in the verification summary
+- do not ask a reviewer to confirm a conclusion; ask them to look for what is wrong
 
 ## Outputs
 - verification summary
 - defect list
+- independent review findings with a disposition for each (when a review was run)
 - doc updates needed
 - go/no-go recommendation
 

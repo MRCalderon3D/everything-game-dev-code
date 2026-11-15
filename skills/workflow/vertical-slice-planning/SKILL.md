@@ -32,11 +32,12 @@ Define a vertical slice that proves gameplay, quality bars, and production viabi
 - vertical slice definition
 - quality bar checklist
 - risk retirement goals
+- decision traceability table (included item, proof goal served, where demonstrated, evidence)
 - milestone scope for the slice
 
 ## Quality Bar
 - the slice has a single stated proof goal: what it must demonstrate and to whom
-- every included feature ties to the proof goal; everything else is explicitly cut
+- every included feature ties to the proof goal in the decision traceability table; everything else is explicitly cut
 - acceptance criteria are demonstrable in a single playthrough session
 - the plan states what is faked (placeholder art, scripted sequences) and what must be real
 

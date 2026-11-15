@@ -87,6 +87,17 @@ For each major system, define:
 ### 5.7 Save / Load / Persistence
 ### 5.8 Multiplayer / Online (if applicable)
 
+### 5.9 Design Rationale Traceability
+One row per decision that shapes how the game plays. Fill it in when the decision is made, and update "Where it lives" when it is implemented, so anyone can check that the game still does what the design intended and why.
+
+| Decision | Why (pillar, principle, or evidence) | Where it lives (system, tuning variable, asset) | Status |
+|---|---|---|---|
+| e.g. Returning a shot later deals more damage | Pillar: risk earns reward; playtest 3 showed early returns felt flat | Return system; variables `perfectWindowFrames`, `perfectDamage` | Implemented |
+|  |  |  |  |
+
+- A decision with no "why" is a candidate to cut; a "why" with no decision is an unmet goal.
+- When a tuning change contradicts a row, change the row or revert the change — do not leave them disagreeing.
+
 ## 6. Content Structure
 ### 6.1 World / Level Structure
 - Level flow:

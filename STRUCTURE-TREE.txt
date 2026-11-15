@@ -1359,6 +1359,7 @@ everything-game-dev-code
 │   │   ├── mcp-catalog.js
 │   │   ├── profile-resolution.js
 │   │   ├── schema-validation.js
+│   │   ├── skill-layout.js
 │   │   ├── structure-artifacts.js
 │   │   ├── text.js
 │   │   ├── utils.js
@@ -1441,6 +1442,10 @@ everything-game-dev-code
 │   │   ├── economy-balancing
 │   │   │   └── SKILL.md
 │   │   ├── game-feel-design
+│   │   │   ├── references
+│   │   │   │   ├── hit-stop.md
+│   │   │   │   ├── movement-and-camera.md
+│   │   │   │   └── response-and-tempo.md
 │   │   │   └── SKILL.md
 │   │   ├── level-design
 │   │   │   └── SKILL.md
@@ -1640,7 +1645,8 @@ everything-game-dev-code
 │   │   ├── mcp-configs.test.js
 │   │   ├── new-engine.test.js
 │   │   ├── new-harness.test.js
-│   │   └── setup-profile.test.js
+│   │   ├── setup-profile.test.js
+│   │   └── skill-layout.test.js
 │   ├── README.md
 │   └── run-all.js
 ├── .env.example
